@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFC107</color>
+<!--    <color name="colorTextGry">#5A5A5A</color>-->
+<!--    <color name="buttonsColor">#426BD7</color>-->
+<!--    <color name="buttonsColorLight">#779CFF</color>-->
+<!--    <color name="buttonsColorDisable">#a1a1a1</color>-->
+<!--    <color name="buttonsTextColor">#C0ECF3</color>-->
+
+<!--    <color name="colorPrimaryDark">#4267b2</color>-->
+<!--    <color name="colorAccent">#D81B60</color>-->
+<!--    <color name="transparent">#A6E9EBEE</color>-->
+
+<!--    <color name="colorProgress">@color/colorWhite</color>-->
+<!--    <color name="fb_background_color">#e9ebee</color>-->
+
+
+
+<!--    <color name="colorHorizontalLineGry">#B3E0E0E0</color>-->
+<!--    <color name="colorBorderGry">#B3CCCCCC</color>-->
+
+<!--    <color name="colorWhite">#ffffff</color>-->
+
+</resources>

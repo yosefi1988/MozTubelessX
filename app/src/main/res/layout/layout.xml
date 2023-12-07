@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/dddddddddddddddddd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+
+            <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
+                android:id="@+id/iv_menuCover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="false"
+                android:background="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:widthAndHeightRatio="2.2"
+                android:layout_alignBottom="@+id/linearLayout3"
+                android:layout_alignParentTop="true" />
+
+            <!--        android:layout_centerInParent="true"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="right"
+                android:orientation="vertical"
+                android:paddingRight="20dp"
+                android:paddingTop="55dp"
+                android:visibility="visible"
+                android:weightSum="1"
+                android:id="@+id/linearLayout3">
+
+                <GridLayout
+                    android:id="@+id/grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:columnCount="2"
+                    android:foregroundGravity="right"
+                    android:layoutDirection="rtl"
+                    android:textDirection="rtl"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgUser"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="right|top"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/txtUsername"
+                        style="@style/Style_TextView_Text"
+                        android:layout_columnWeight="1"
+                        android:clickable="true"
+                        android:text="منتظر باشید" />
+                </GridLayout>
+                <TextView
+                    android:id="@+id/txtEditProfile"
+                    style="@style/Style_TextView_Text"
+                    android:layout_weight="14.20"
+                    android:clickable="true"
+                    android:text="ویرایش پروفایل" />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rclMenuItem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:overScrollMode="never" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

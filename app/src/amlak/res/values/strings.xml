@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">مشاوران املاک</string>
+    <string name="app_name_file">amlak</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xAmlak.provider</string>
+
+    <string name="zarinpalpayment">zarinpalpayment8</string>
+    <string name="schemezarinpalpayment">return8</string>
+
+    <string name="paymenttitle">اپ مشاوران املاک</string>
+
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
+
+
+    <!--    new-->
+
+    <string name="regNewEstekhdamTitle">آگهی جدید</string>
+    <string name="regNewEstekhdamTitleText">عنوان آگهی:</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:    78 متر ویلایی با پارکینگ \n           زمین قلفتی در مصلی شهرقدس\n          آپارتمان 185 متری دوخواب</string>
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فروش مسکونی و تجاری</string>
+    <string name="onlyMonaghese">اجاره مسکونی و تجاری</string>
+    <string name="onlyMonaghese3">باغ، سوله، سالن، کارگاه و...</string>
+    <string name="noticeType">نوع جستجو:</string>
+    <string name="yafte_hint">توضیحات کامل نظیر امکانات ؛ دسترسی ها, متریال, مالک ؛ مستاجر،آدرس و محل؛ شماره تماس؛ میزان رهن و اجاره و مبلغ کل و...</string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+    <string name="onlyMoz2">مدارک گم شده</string>....
+    <string name="onlyMonaghese2">مدارک سرقتی</string>....
+    <string name="yafte">مدارک پیدا شده</string>....
+    <string name="comments">توضیحات</string>
+    <string name="main_text">متن اصلی :</string>
+    <string name="getmessage">دریافت پیام از کاربرها</string>
+    <string name="datefor">تاریخ اعتبار آگهی:</string>
+    <string name="requestCreator">درخواست ثبت اگهی یا همکاری</string>
+    <string name="createorContent">@string/requestCreator</string>
+
+
+    <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
+    <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
+</resources>

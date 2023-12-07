@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="right"
+    android:gravity="right"
+    android:foregroundGravity="right"
+    android:background="#efefef"
+    android:layoutDirection="ltr"
+    android:padding="4dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_background"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:foregroundGravity="right"
+        android:layoutDirection="ltr"
+        android:padding="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imageViewCar"
+            android:layout_width="80dp"
+            android:layout_margin="2dp"
+            android:layout_height="65dp"
+            android:layout_gravity="right|center_vertical"
+            android:scaleType="centerInside"
+            android:src="@drawable/filled_dot"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/textViewCarName"
+            style="@style/Style_TextView_Text"
+            android:layout_toLeftOf="@+id/imageViewCar"
+            android:layout_toStartOf="@+id/imageViewCar"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/Style_TextView_Text"
+            android:layout_alignBottom="@+id/textViewCarName"
+            android:layout_toLeftOf="@+id/textViewCarName"
+            android:layout_toStartOf="@+id/textViewCarName" />
+        <TextView
+            android:id="@+id/textViewCarModel"
+            style="@style/Style_TextView_Text"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_marginRight="5dp" />
+        <TextView
+            style="@style/Style_TextView_Text"
+            android:visibility="gone" />
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/Style_TextView_Text"
+            android:layout_below="@+id/textViewCarName"
+            android:layout_toLeftOf="@+id/imageViewCar"
+            android:layout_toStartOf="@+id/imageViewCar" />
+        <TextView
+            android:id="@+id/textViewPriceType"
+            style="@style/Style_TextView_Text"
+            android:layout_toLeftOf="@+id/textView3"
+            android:layout_toStartOf="@+id/textView3"
+            android:layout_alignBottom="@+id/textView3" />
+        <TextView
+            android:id="@+id/textViewPrice2"
+            style="@style/Style_TextView_Text"
+            android:layout_below="@+id/textView3"
+            android:layout_alignRight="@+id/textView3"  />
+        <!--<TextView-->
+            <!--android:id="@+id/textViewPrice2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/textView3"-->
+            <!--android:layout_alignRight="@+id/textView3"-->
+            <!--android:layout_alignEnd="@+id/textView3" />-->
+
+        <TextView
+            android:id="@+id/textViewCurrencyLocal"
+            style="@style/Style_TextView_Text"
+            android:text="ریال"
+            android:visibility="invisible"
+            android:layout_alignBottom="@+id/textViewPrice"
+            android:layout_alignTop="@+id/textViewPriceType"
+            android:layout_toLeftOf="@+id/textViewPriceType" />
+    </RelativeLayout>
+</RelativeLayout>

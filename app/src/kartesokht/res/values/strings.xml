@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">استعلام وضعیت صدور کارت سوخت</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xKsokht.provider</string>
+
+    <string name="app_name_file">ksokht</string>
+    <string name="schemezarinpalpayment">return3</string>
+    <string name="zarinpalpayment">zarinpalpayment3</string>
+    <string name="paymenttitle">هزینه استعلام کارت سوخت</string>
+
+<!--    todo change by store-->
+<!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
+
+</resources>

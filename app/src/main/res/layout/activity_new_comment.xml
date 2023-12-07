@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingBottom="50dp"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="80dp" >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"  />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/login_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/reg_new_message"
+                android:textColor="#4267b2"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:background="@drawable/circle_background"
+                android:hint="@string/your_message" />
+
+            <TextView
+                style="@style/Theme.DayTextView"
+                android:textColor="@color/colorTextGry"
+                android:layout_marginTop="-10dp"
+                android:visibility="gone"
+                android:text="مثال:    کاربرات پوسته آلمینیومی دو دریچه ای شماره 56 فرانسوی لوله بنزین کوتاه" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingTop="5dp"
+                android:textColor="#4267b2"
+                android:visibility="gone"
+                android:text="@string/help" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonAddFiles"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_files"
+                    android:enabled="false"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonReg"
+            android:text="@string/send"
+            style="@style/AppTheme.DayButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"  />
+        <Button
+            style="@style/AppTheme.DayButton"
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/back"  />
+
+    </LinearLayout>
+</RelativeLayout>
+
+

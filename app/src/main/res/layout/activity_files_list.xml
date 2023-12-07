@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="center"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="140dp"
+                android:visibility="gone"
+                android:layout_height="140dp" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="7"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical"
+                    android:textDirection="ltr">
+
+                    <TextView
+                        android:id="@+id/textViewLocation"
+                        style="@style/Style_TextView_Text"
+                        android:text="انتخاب فایل"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:orientation="horizontal"
+                        android:textDirection="ltr">
+
+                        <Button
+                            android:id="@+id/buttonGallery"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="5"
+                            android:text="گالری"
+                            android:textAllCaps="false"
+                            android:paddingRight="10dp"
+                            android:textColor="#fff" />
+
+
+                        <Button
+                            android:id="@+id/buttonCamera"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="5"
+                            android:text="دوربین"
+                            android:textAllCaps="false"
+                            android:textColor="#fff" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/_part_horizontal_line"></include>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="afterDescendants"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:background="#ecf0f1" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:textDirection="ltr"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="40dp"
+                android:text="انصراف"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/buttonOK"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="40dp"
+                android:text="تایید"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+
+
+            <Button
+                android:id="@+id/buttonClear"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="40dp"
+                android:text="حدف همه"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

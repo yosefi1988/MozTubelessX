@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="#fcfff8"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/Style_TextView_Text"
+        android:text="@string/not_found_dialog"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            android:id="@+id/buttonDownload"
+            android:textColor="#FFFFFF"
+            android:layout_width="0.0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape_lightblue"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="3"
+            android:layout_marginLeft="5dp"
+            android:shadowDy="8"
+            android:text="@string/regit"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal" />
+
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            android:textColor="#FFFFFF"
+            android:layout_width="0.0dp"
+            android:layout_weight="0.5"
+            android:text="@string/cancel2"
+            android:id="@+id/buttonCancel"
+            android:layout_height="40dp"
+            android:background="@drawable/buttonshape_lightblue"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="3"
+            android:layout_marginLeft="5dp"
+            android:shadowDy="8"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</LinearLayout>

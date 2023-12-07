@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    <color name="tubelessColor_blue_01">#49124E</color>-->
+<!--    <color name="tubelessColor_blue_02">#49124E</color>-->
+<!--    <color name="tubelessColor_blue_03">#380D3C</color>-->
+
+    <color name="tubelessColor_blue_01">#C17D19</color>
+    <color name="tubelessColor_blue_02">#C17D19</color>
+    <color name="tubelessColor_blue_03">#FF9800</color>
+
+    <color name="colorPrimary">#D6983C</color>
+    <color name="colorTextGry">#5A5A5A</color>
+
+    <color name="colorAccent">@color/tubelessColor_blue_02</color>
+    <color name="colorPrimaryDark">@color/tubelessColor_blue_03</color>
+
+
+    <color name="colorProgress">@color/colorWhite</color>
+    <color name="fb_background_color">#e9ebee</color>
+    <color name="fb_foreground_color">@color/tubelessColor_blue_03</color>
+
+</resources>

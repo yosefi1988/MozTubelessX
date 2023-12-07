@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/roootviewgroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/main_header_selector"
+    android:layout_gravity="center">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout2">
+    </RelativeLayout>
+    <VideoView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/videoview"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+    <ir.sajjadyosefi.android.tubeless.view.widget.TouchImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:visibility="visible"
+        android:layout_below="@+id/relativeLayout2" />
+
+    <com.joaquimley.faboptions.FabOptions
+        android:id="@+id/fab_options"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom"
+        app:button_menu="@menu/menu" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="21dp"
+        android:visibility="invisible"
+        android:enabled="false"
+        android:layout_marginRight="21dp"
+        android:text="Button" />
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="50dp"
+        android:radius="5dp"
+        android:color="@color/tubelessColor_blue_03"
+        app:dd_numDots="5"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+</RelativeLayout>

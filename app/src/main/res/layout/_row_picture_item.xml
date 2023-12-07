@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/fb_background_color" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_border"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle_border"
+                android:src="@drawable/png_image" />
+            <ImageView
+                android:id="@+id/imageViewMenu"
+                android:layout_width="45dp"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="centerCrop"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/dot" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

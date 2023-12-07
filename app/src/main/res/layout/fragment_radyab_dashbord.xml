@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the fragment  to be displayed for a section associated with a tab -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<androidx.coordinatorlayout.widget.CoordinatorLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" >-->
+
+        <!--&lt;!&ndash;<com.google.android.material.floatingactionbutton.FloatingActionButton&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/fab2"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_margin="@dimen/fab_margin"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@android:color/transparent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:backgroundTint="#42a5f5"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:src="@drawable/arrow_up"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:visibility="gone"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:borderWidth="0dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:elevation="2dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:fabSize="normal"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_anchor="@id/listView"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_anchorGravity="bottom|start"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior" />&ndash;&gt;-->
+
+    <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonGeo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text=" درخواست موقعیت جغرافیایی با gps" />
+
+        <Button
+            android:id="@+id/buttonAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text=" با gps درخواست آدرس" />
+
+        <Button
+            android:id="@+id/buttonGeoNetwork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text=" درخواست موقعیت جغرافیایی با Network" />
+
+        <Button
+            android:id="@+id/buttonBtsName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text="درخواست نام آنتن" />
+
+        <Button
+            android:id="@+id/buttonBtsAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text="درخواست آدرس آنتن موبایل" />
+
+        <Button
+            android:id="@+id/buttonBatteryStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text="درخواست وضعیت باتری" />
+
+        <Button
+            android:id="@+id/buttonBatteryLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonClick"
+            android:text="درخواست میزان شارژ" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/nothing_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"  />
+
+
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="50dp"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+
+</RelativeLayout>

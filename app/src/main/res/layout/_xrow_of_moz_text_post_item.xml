@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="@color/fb_background_color"
+    android:padding="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_border"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewLocation"
+                style="@style/Style_TextView_Text" />
+             <ImageView
+                android:id="@+id/imageviewPicture"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:visibility="gone"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"  />
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/Style_TextView_Text" />
+         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:src="@drawable/png_image"
+                android:layout_centerInParent="true"  />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layoutDirection="rtl"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:adjustViewBounds="true"
+            android:padding="5dp"
+            android:layout_marginTop="-2dp"
+            android:src="@drawable/png_time"
+            android:layout_centerInParent="true"  />
+            <TextView
+                android:id="@+id/textViewDate"
+                style="@style/Style_TextView_Text" />
+        </LinearLayout>
+
+            <include layout="@layout/_part_horizontal_line"></include>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layoutDirection="rtl"
+                android:layout_width="match_parent"
+                android:gravity="left"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageviewMessage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/png_comments"
+                    android:layout_centerInParent="true"  />
+
+
+                <ImageView
+                    android:id="@+id/imageviewfav"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:src="@drawable/png_star"
+                    android:layout_centerInParent="true"  />
+
+
+                <ImageView
+                    android:id="@+id/imageViewpay"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:src="@drawable/png_blue_eye"
+                    android:layout_centerInParent="true"  />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

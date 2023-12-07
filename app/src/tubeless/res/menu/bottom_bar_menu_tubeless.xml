@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark"
+    app:bbn_itemColorActive="@android:color/white"
+    app:bbn_itemColorDisabled="#33ffffff"
+    app:bbn_itemColorInactive="#99ffffff"
+    app:bbn_rippleColor="#ccffffff">
+    <item
+        android:id="@+id/bbn_item1"
+        android:icon="@drawable/png_id_card2"
+        android:title="کاوشگر" />
+    <item
+        android:id="@+id/bbn_item2"
+        android:icon="@drawable/ucrop_rotate"
+        android:title="اخیر" />
+    <item
+        android:id="@+id/bbn_item3"
+        android:icon="@drawable/png_icon_analize"
+        android:title="جستجو" />
+    <item
+        android:id="@+id/bbn_item4"
+        android:icon="@drawable/png_profile"
+        android:title="پروفایل" />
+</menu>

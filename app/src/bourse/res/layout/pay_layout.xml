@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="#fcfff8"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="هزینه هر استعلام 500 تومن می باشد ؛ با پرداخت 10 هزار تومن به تعداد نامحدود می توانید استعلام بگیرید"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="0.0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="3"
+            android:layout_marginLeft="5dp"
+            android:shadowDy="8"
+            android:text="پرداخت 10 هزار تومن"
+            android:shadowRadius="16"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0.0dp"
+            android:layout_weight="0.5"
+            android:layout_height="40dp"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="3"
+            android:layout_marginLeft="5dp"
+            android:shadowDy="8"
+            android:shadowRadius="16"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</LinearLayout>

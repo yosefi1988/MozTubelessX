@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">winner</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xTubless.provider</string>
+
+    <string name="app_name_file">winner</string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+    <string name="paymenttitle">هزینه پرداختی از اپ</string>
+    <string name="onlyMonaghese3">onlyMonaghese3</string>
+    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:
+        نیروی کار جوشکار
+        استخدام سراشپز
+        استخدام پرسنل بازاریاب</string>
+
+    <string name="serachTitleTextExample">مثال:
+        بانک ؛
+        دیجی ؛
+        فروشگاه</string>
+    <string name="zarinpalpayment">zarinpalpayment7</string>
+    <string name="schemezarinpalpayment">return7</string>
+
+    <string name="paySecoundMessage"></string>
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فقط بین اگهی های استخدام</string>
+    <string name="onlyMonaghese">فقط بین آگهی نیروهای آماده به کار</string>
+    <string name="noticeType">جستجو در:</string>
+    <string name="onlyMonaghese2">درج آگهی در جستجوی کار</string>
+    <string name="onlyMoz2">درج اگهی استخدام</string>
+    <string name="requestCreator">درخواست ثبت قرعه کشی یا برندگان</string>
+    <string name="createorContent">@string/requestCreator</string>
+    <string name="electedAmlaksText">برای مشاهده قرعه کشی های آینده به صفحه قرعه کشی ها مراجعه کنید.</string>
+    <string name="electedAmlaks">مشاهده قرعه کشی ها</string>
+
+    <string name="main_text">متن و لیست اسامی :</string>
+    <string name="getmessage">دریافت پیام</string>
+    <string name="comments">متن قرعه کشی و لیست اسامی</string>
+
+</resources>

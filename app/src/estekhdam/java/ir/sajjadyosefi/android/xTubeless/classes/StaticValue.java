@@ -1,0 +1,58 @@
+package ir.sajjadyosefi.android.xTubeless.classes;
+
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
+import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
+
+public class StaticValue {
+
+    public static int AdminUserID1 = 200684;
+    public static int AdminUserID2 = 140326;
+    public static int AdminUserID3 = 140234;
+
+    public static String AdminMail1 = "yosefi1988@gmail.com";
+    public static String AdminMail2 = "behrouzbb1989@gmail.com";
+    public static String AdminMail3 = ".com";
+
+    public static String AdminMobile1 = "432113963015089";
+    public static String AdminMobile2 = "111";
+    public static String AdminMobile3 = "111";
+
+
+    public static int NOT_LOGN_USER = 20053 ;
+
+
+    //    public static String Telegram = "tg://resolve?domain=partsilicon";
+
+
+
+
+
+    public static int newsCategory = 11;
+
+
+    public static final int IDApplicationVersion = 109;
+    public static final int IDApplication = 22;
+
+
+    //22 yadak  -> 109
+    //24 burse  -> 110
+
+
+
+    public static final int Tubeless_ITEM_TYPE = 1;
+    public static final int PROGRESS_TYPE = 2;
+
+
+    public static int CATEGORY_ID = 3010;
+    public static int CATEGORY_CAR_BRANDS_ID = 3012;
+
+    public static int SELECT_TYPE_SELECT_FOR_SEARCH = 3010;
+    public static int SELECT_TYPE_SELECT_FOR_NEW = 3011;
+
+    public static Configuration configuration;
+    public static BourseState bourseState = null;
+
+    public static int AdminTypeCode = 3;
+    public static int USER_TYPE_ADMIN = 3;
+    public static int USER_TYPE_CREATOR = 2;
+}

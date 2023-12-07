@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="right"
+    android:background="#efefef"
+    android:padding="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_background"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/imageViewNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:src="@drawable/filled_dot"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:gravity="right"
+            android:layout_margin="10dp"
+            android:id="@+id/textViewNoticeTitle"
+            android:layout_alignRight="@+id/imageViewNotice"
+            android:layout_alignEnd="@+id/imageViewNotice"
+            android:layout_alignBottom="@+id/imageViewNotice" />
+
+        <TextView
+            style="@style/Style_TextView_Text"
+            android:text="نمایندگی ها"
+            android:id="@+id/textViewNoticeDescription"
+            android:layout_below="@+id/textViewNoticeTitle"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

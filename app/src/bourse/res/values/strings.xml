@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">بورس , سهام</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xBourse.provider</string>
+
+
+    <string name="title">عنوان</string>
+    <string name="where_miss">نماد - موضوع</string>
+    <string name="what_date">توضیح کوتاه\n</string>
+    <string name="text2">متن اصلی\n\n</string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+
+    <string name="app_name_file">bourse</string>
+    <string name="zarinpalpayment">zarinpalpayment4</string>
+    <string name="schemezarinpalpayment">return4</string>
+
+    <string name="paymenttitle">هزینه خرید اکانت تحلیل بورسی</string>
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
+
+    <!--    new-->
+    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitleText">عنوان: (بدون عبارت مزایده و یا مناقصه)</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:    اسناد املاک مربوط به قوه قضاییه \n           سند کمپانی خوروی پراید\n          کیف مدارک چرمی دسته دار</string>
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فقط گم شده</string>
+    <string name="onlyMonaghese">فقط سرقتی</string>
+    <string name="onlyMonaghese3">فقط پیدا شده</string>
+    <string name="noticeType">نوع جستجو:</string>
+
+    <string name="onlyMoz2">مدارک گم شده</string>
+    <string name="onlyMonaghese2">مدارک سرقتی</string>
+    <string name="yafte">مدارک پیدا شده</string>
+    <string name="comments">توضیحات</string>
+    <string name="main_text">متن اصلی :</string>
+    <string name="getmessage">دریافت پیام از کاربرها</string>
+    <string name="datefor">تاریخ گم یا پیدا شدن :</string>
+    <string name="requestCreator">درخواست ثبت اگهی</string>
+    <string name="createorContent">@string/requestCreator</string>
+
+    <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
+    <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
+
+</resources>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">مزایده مناقصه</string>
+    <string name="app_name_file">moz</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xMoz.provider</string>
+
+    <string name="zarinpalpayment">zarinpalpayment10</string>
+    <string name="schemezarinpalpayment">return10</string>
+
+
+    <string name="paymenttitle">مزایده مناقصه</string>
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+
+
+
+
+    <!--    new-->
+    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitleText">عنوان: (بدون عبارت مزایده و یا مناقصه)</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:    زمین و املاک مربوط به قوه قضاییه \n           خط تولید صندلی خوروی پراید\n          املاک مازاد شرکت مخابرات ایران</string>
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فقط مزایده</string>
+    <string name="onlyMonaghese">فقط مناقصه</string>
+    <string name="noticeType">نوع آگهی:</string>
+
+    <string name="onlyMoz2">مزایده</string>
+    <string name="onlyMonaghese2">مناقصه</string>
+    <string name="requestCreator">درخواست ثبت مزایده یا مناقصه</string>
+    <string name="createorContent">@string/requestCreator</string>
+
+
+    <string name="onlyMonaghese3">فقط پیدا شده</string>
+    <string name="yafte">مدارک پیدا شده</string>
+    <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
+    <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
+
+</resources>

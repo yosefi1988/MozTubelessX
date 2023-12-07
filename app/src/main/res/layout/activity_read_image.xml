@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+<!--    android:background="@drawable/circle_border"-->
+
+    <ir.sajjadyosefi.android.xTubeless.widget.imageView.NewZoomableImageView
+        android:id="@+id/zoom_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"  />
+
+
+    <TextView
+        android:id="@+id/textViewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:paddingRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:textDirection="locale"
+        android:textColor="@color/colorTextGry"
+        android:textAppearance="?android:attr/textAppearanceSmall"  />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

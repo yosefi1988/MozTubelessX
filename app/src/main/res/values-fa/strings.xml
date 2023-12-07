@@ -1,0 +1,31 @@
+<resources>
+    <string name="textview_normal_text">متن معمولی در تم اپلیکیشن</string>
+
+    <string name="label">حساب کاربری پارساپرداز</string>
+    <string name="filesTitle">فایل های pdf یا تصاویر</string>
+    <string name="amounts_title">مبالغ کارشناسی شده: (فقط مزایده)</string>
+    <string name="visit_site">مشاهده سایت</string>
+    <string name="new_notice">درج آگهی</string>
+    <string name="direct_download_address">http://auctionsandtenders.sajjadyosefi.ir/app/moz.apk</string>
+    <string name="text_for_pay_type">ثبت اگهی شامل هزینه می باشد(%s تومان) ؛ نحوه پرداخت را انتخاب کنید:</string>
+    <string name="pay_by_wallet">پرداخت با کیف پول</string>
+    <string name="pay_direct">پرداخت مستقیم</string>
+    <string name="yafte_hint">مشخصات کامل نظیر رنگ اندازه کد شناسایی کد ملی شماره تماس و...</string>
+    <string name="normalUserMessage">شما کاربر عادی هستید . این امکان فقط برای مشاورین املاک فعال است؛ اگر از مشاوران املاک هستید درخواست خود را با شماره تماس برای ما ارسال کنید.</string>
+    <string name="state">"استان : "</string>
+    <string name="all">همه</string>
+    <string name="back">بازگشت</string>
+    <string name="title_home">خانه</string>
+
+    <string name="CountOfPosts">تعداد آگهی ها %s عدد</string>
+    <string name="state2">استان</string>
+    <string name="Address">آدرس</string>
+    <string name="telephone">تلفن</string>
+    <string name="electedAmlaks">لیست املاک منتخب</string>
+    <string name="userCode">کد کاربر</string>
+    <string name="conformed">تائید شده</string>
+    <string name="notConformed">تائید نشده</string>
+    <string name="inactiveUser">کاربر غیرفعال</string>
+    <string name="electedAmlaksText">در صورت نیاز به عقد قرارداد با فروشنده یا موجر و یا نقل و انتقال ملک می توانید با دفاتر مشاوران املاک همکار با ما تماس بگیریدو با کمترین هزینه خدمات دریافت کنید.</string>
+    <string name="Done">ok</string>
+</resources>

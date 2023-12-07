@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:background="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp" >
+        <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
+            android:id="@+id/iv_menuCover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="false"
+            android:background="@drawable/dot"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:widthAndHeightRatio="2.2"
+            android:layout_alignBottom="@+id/linearLayout3"
+            android:layout_alignParentTop="true" />
+
+        <!--        android:layout_centerInParent="true"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingRight="20dp"
+            android:paddingTop="15dp"
+            android:visibility="visible"
+            android:weightSum="1"
+            android:id="@+id/linearLayout3">
+
+            <GridLayout
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:columnCount="2"
+                android:foregroundGravity="right"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl" >
+
+                <ImageView
+                    android:id="@+id/imgUser"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="right|top"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtUsername"
+                    style="@style/Style_TextView_Text"
+                    android:layout_columnWeight="1"
+                    android:clickable="true"
+                    android:text="منتظر باشید"/>
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/txtEditProfile"
+                style="@style/Style_TextView_Text"
+                android:layout_marginRight="-2dp"
+                android:layout_weight="14.20"
+                android:clickable="true"
+                android:text="ویرایش پروفایل" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!--com.astuetz.PagerSlidingTabStripDefault-->
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_below="@+id/header"
+        app:pstsShouldExpand="true"
+        app:pstsTextAllCaps="true"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="30dp"
+
+        android:layoutDirection="ltr"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        app:pstsUnderlineHeight="3dp"
+        app:pstsUnderlineColor="@color/tubelessColor_blue_03"
+        app:pstsIndicatorHeight="60dp"
+        app:pstsIndicatorColor = "@color/tubelessColor_yellow_01"
+        app:pstsDividerColor="@color/tubelessColor_yellow_01"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_below="@+id/tabs" />
+
+</RelativeLayout>
+

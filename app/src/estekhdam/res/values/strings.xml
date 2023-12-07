@@ -1,0 +1,45 @@
+<resources>
+
+    <string name="app_name">استخدام</string>
+    <string name="app_name_file">estekhdam</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xEstekhdam.provider</string>
+
+    <string name="zarinpalpayment">zarinpalpayment10</string>
+    <string name="schemezarinpalpayment">return10</string>
+
+    <string name="smsText3">آگهی شما تائید شد.</string>
+    <string name="paymenttitle">استخدام</string>
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
+
+    <!--    new-->
+    <string name="regNewEstekhdamTitle">ثبت آگهی</string>
+    <string name="regNewEstekhdamTitleText">عنوان شغلی</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:
+        نیروی کار جوشکار
+        استخدام سراشپز
+        استخدام پرسنل بازاریاب</string>
+
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فقط بین اگهی های استخدام</string>
+    <string name="onlyMonaghese">فقط بین آگهی نیروهای آماده به کار</string>
+    <string name="noticeType">جستجو در:</string>
+    <string name="onlyMonaghese2">درج آگهی در جستجوی کار</string>
+    <string name="onlyMoz2">درج اگهی استخدام</string>
+    <string name="requestCreator">درخواست ثبت اگهی استخدام یا نیروی کار</string>
+    <string name="createorContent">@string/requestCreator</string>
+
+
+    <string name="onlyMonaghese3">فقط پیدا شده</string>
+    <string name="yafte">مدارک پیدا شده</string>
+
+
+    <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
+    <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
+    <string name="site_address">http://estekhdam.sajjadyosefi.ir</string>
+    <string name="direct_download_address">http://auctionsandtenders.sajjadyosefi.ir/app/estekhdam.apk</string>
+</resources>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_border"
+            android:orientation="vertical"
+            android:layout_margin="2dp"
+            android:padding="10dp" >
+            <LinearLayout
+                android:id="@+id/linearLayoutCenter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ir.sajjadyosefi.android.xTubeless.widget.NonSwipeableViewPager
+                    android:id="@+id/pager"
+                    android:layout_centerInParent="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="250dp"
+                    android:visibility="gone"
+                    android:layout_alignParentTop="true" >
+                </ir.sajjadyosefi.android.xTubeless.widget.NonSwipeableViewPager>
+                <ImageButton
+                    android:id="@+id/buttonFav"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    android:src="@drawable/png_star"
+                    android:background="@color/transparent"
+                    android:scaleType="fitCenter"
+                    android:layout_centerInParent="true"  />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="5dp"
+                        android:visibility="gone"
+                        android:src="@drawable/png_image"
+                        android:layout_centerInParent="true"  />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <TextView
+                    android:id="@+id/textViewDescription"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Text"/>
+                <ImageView
+                    android:id="@+id/imageviewPicture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:visibility="gone"
+                    android:src="@drawable/empty"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/pager1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+                <TextView
+                    android:id="@+id/textViewCommentTitle"
+                    android:text="توضیحات"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <TextView
+                    android:id="@+id/textViewText"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Text"/>
+                <include layout="@layout/_part_horizontal_line"></include>
+                <TextView
+                    android:id="@+id/textViewAmountTitle"
+                    android:visibility="gone"
+                    android:text="مبالغ"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <TextView
+                    android:id="@+id/textViewAmounts"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Text"/>
+                <include android:layout_marginBottom="10dp" layout="@layout/_part_horizontal_line"></include>
+                <TextView
+                    android:text="تاریخ ها"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <TextView
+                    android:id="@+id/textViewDate"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Text"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:descendantFocusability="afterDescendants"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:background="#ecf0f1" />
+
+                <TextView
+                    android:id="@+id/textViewCommentTitle"
+                    android:text="آگهی دهنده"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="horizontal" >
+                    <ImageView
+                        android:id="@+id/user_profile_photo"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="5sp"
+                        android:layout_marginLeft="5sp"
+                        android:background="@drawable/circle_background_x"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/png_user" />
+                    <TextView
+                        android:id="@+id/textViewCreator"
+                        android:layout_width="wrap_content"
+                        style="@style/Style_TextView_Text"/>
+                </LinearLayout>
+                <include android:layout_marginBottom="10dp" layout="@layout/_part_horizontal_line"></include>
+                <TextView
+                    android:id="@+id/textViewCommentTitle"
+                    android:text="نکته"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Object_Colorful"/>
+                <TextView
+                    android:id="@+id/textViewElectedAmlak"
+                    android:visibility="gone"
+                    style="@style/Style_TextView_Text"/>
+
+                <Button
+                    android:id="@+id/buttonElectedAmlak"
+                    android:layout_width="wrap_content"
+                    android:text="@string/electedAmlaks"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_margin="2dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonInvisible"
+            android:text="عدم تایید"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/buttonAccept"
+            android:text="تایید"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/buttonreport"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:text="@string/Report"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/buttonMessages"
+            android:text="پیام ها"
+            android:layout_width="0dp"
+            android:enabled="false"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/buttonCharge"
+            android:text="شارژ کیف پول"
+            android:layout_width="0dp"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/back"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</RelativeLayout>
+

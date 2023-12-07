@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/rootView"
+    android:gravity="center"  >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:textDirection="ltr"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:text="تصویر"
+            android:gravity="center"
+            style="@style/Style_TextView_Text"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="اصلی"
+            android:gravity="center"
+            style="@style/Style_TextView_Text"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="محتوی"
+            android:gravity="center"
+            style="@style/Style_TextView_Text"/>
+        <TextView
+            android:id="@+id/textViewDelete"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="حذف"
+            android:gravity="center"
+            style="@style/Style_TextView_Text"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="مشاهده"
+            android:gravity="center"
+            android:visibility="gone"
+            style="@style/Style_TextView_Text"/>
+    </LinearLayout>
+
+
+</LinearLayout>

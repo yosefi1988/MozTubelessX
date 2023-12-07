@@ -1,0 +1,87 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="toolbar_text">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:shadowColor">@color/colorBlack</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+<!--        &lt;!&ndash; android:textColorPrimary is the color of the text text in the Toolbar  &ndash;&gt;-->
+<!--        <item name="android:textColorPrimary">@android:color/holo_blue_light</item>-->
+<!--        &lt;!&ndash; actionMenuTextColor is the color of the text of action (menux) items  &ndash;&gt;-->
+<!--        <item name="actionMenuTextColor">@android:color/holo_green_light</item>-->
+<!--        &lt;!&ndash; Tints the input fields like checkboxes and text fields &ndash;&gt;-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+
+
+<!--        &lt;!&ndash; Applies to views in their normal state. &ndash;&gt;-->
+<!--        <item name="colorControlNormal">@color/colorBlack</item>-->
+<!--        &lt;!&ndash; Applies to views in their activated state (i.e checked or switches) &ndash;&gt;-->
+<!--        <item name="colorControlActivated">@color/colorBlack</item>-->
+<!--        &lt;!&ndash; Applied to framework control highlights (i.e ripples or list selectors) &ndash;&gt;-->
+<!--        <item name="colorControlHighlight">@color/colorBlack</item>-->
+
+        <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+        <!--
+        <item name="selectableItemBackground">?android:selectableItemBackground</item>
+        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item>
+        -->
+
+    </style>
+
+
+<!--    <style name="NoActionBar" parent="Theme.AppCompat.Light.Dialog.Alert">-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="TRANS_BACKListActivity" parent="NoActionBar">-->
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+<!--        <item name="android:colorBackgroundCacheHint">@null</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+    <style name="Menu_Car_Picture_Show_Animation">
+        <item name="android:windowEnterAnimation">@anim/fadein</item>
+        <item name="android:windowExitAnimation">@anim/fadeout</item>
+    </style>
+
+<!--    <style name="TranslucentSajjad" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        <item name="colorPrimary">@color/tubelessColor_blue_03</item>-->
+<!--        <item name="colorPrimaryDark">@color/tubelessColor_blue_01</item>-->
+<!--        <item name="colorAccent">@color/tubelessColor_blue_02</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+
+<!--        &lt;!&ndash;<item name="android:windowTranslucentStatus">true</item>&ndash;&gt;-->
+<!--        &lt;!&ndash;<item name="android:windowTranslucentNavigation">true</item>&ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="TranslucentSajjad2" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+
+<!--        &lt;!&ndash;<item name="android:windowTranslucentStatus" >true</item>&ndash;&gt;-->
+<!--        &lt;!&ndash;<item name="android:windowTranslucentNavigation">true</item>&ndash;&gt;-->
+<!--    </style>-->
+
+    <style name="alertDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/alert_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/alert_dialog_exit</item>
+    </style>
+
+    <string name="font_secondary_bold">fonts/byekan.ttf</string>
+
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ratingbar</item>
+        <item name="android:minHeight">18dp</item>
+        <item name="android:maxHeight">18dp</item>
+    </style>
+</resources>

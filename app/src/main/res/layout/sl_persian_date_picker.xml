@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="300dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        style="@style/Style_TextView_Text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layoutDirection="rtl"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dayNumberPicker"
+                android:layout_centerInParent="true"
+                app:np_width="64dp"
+                app:np_height="180dp"
+                app:np_max="59"
+                app:np_min="0"
+                app:np_selectedTextColor="@color/colorAccent"
+                app:np_selectedTextSize="30dp"
+                app:np_textColor="@color/colorAccent"
+                app:np_textSize="26dp"
+                app:np_value="3"
+                app:np_dividerColor="@color/colorAccent" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/monthNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:np_width="64dp"
+                app:np_height="180dp"
+                app:np_dividerColor="@color/colorAccent"
+                app:np_max="59"
+                app:np_min="0"
+                app:np_selectedTextColor="@color/colorAccent"
+                app:np_selectedTextSize="30dp"
+                app:np_textColor="@color/colorAccent"
+                app:np_textSize="26dp"
+                app:np_value="3" />
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/yearNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:np_width="64dp"
+                app:np_height="180dp"
+                app:np_dividerColor="@color/colorAccent"
+                app:np_max="59"
+                app:np_min="0"
+                app:np_selectedTextColor="@color/colorAccent"
+                app:np_selectedTextSize="30dp"
+                app:np_textColor="@color/colorAccent"
+                app:np_textSize="26dp"
+                app:np_value="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="locale"
+            android:orientation="horizontal"
+            android:layout_alignStart="@+id/linearLayout"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_alignTop="@+id/linearLayout"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:weightSum="12">
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:text=""
+                android:textSize="35dp" />
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:text="/"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp" />
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:text="/" />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

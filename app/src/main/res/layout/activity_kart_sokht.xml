@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/mainRelativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/png_user" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/login_title"
+                style="@style/AppTheme.DayTextViewBigTitle"
+                android:text="@string/estelam_by_plak" >
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:textDirection="rtl"
+                android:layout_height="match_parent" >
+
+
+                <RelativeLayout
+                    android:layout_below="@+id/textView"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerInParent="true"
+                    android:layout_width="300dp"
+                    android:background="@drawable/png_melli"
+                    android:layout_height="80dp">
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutMeli"
+                    android:layout_below="@+id/textView"
+                    android:layout_centerInParent="true"
+                    android:layout_width="300dp"
+                    android:layout_height="160dp">
+
+<!--                    android:inputType="number"-->
+                    <EditText
+                        android:id="@+id/editText1"
+                        android:layout_width="75dp"
+                        android:layout_height="80dp"
+                        android:textSize="45dp"
+                        android:hint="55"
+                        android:layout_marginTop="45dp"
+                        android:maxLength="2"
+                        android:gravity="center"
+                        android:layout_marginRight="0dp"
+                        android:background="@android:color/transparent"  >
+                    </EditText>
+
+<!--                    android:inputType="number"-->
+                    <EditText
+                        android:id="@+id/editText2"
+                        android:layout_width="95dp"
+                        android:layout_height="80dp"
+                        android:textSize="41dp"
+                        android:hint="555"
+                        android:maxLength="3"
+                        android:layout_marginRight="63dp"
+                        android:layout_marginTop="40dp"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"/>
+
+
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="145dp"
+                        android:gravity="center"
+                        android:layout_marginTop="40dp"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal">
+
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:spinnerMode="dropdown" />
+
+
+                    </RelativeLayout>
+
+
+<!--                    android:inputType="number"-->
+                    <EditText
+                        android:id="@+id/editText3"
+                        android:layout_width="70dp"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="205dp"
+                        android:textSize="41dp"
+                        android:hint="55"
+                        android:maxLength="2"
+                        android:layout_marginTop="40dp"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:padding="20dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="استعلام"
+                    android:textColor="#fff" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_search"
+            android:text="@string/searchRequest"
+            android:textAllCaps="false"
+            android:textColor="#fff"  />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="@color/fb_background_color"
+    android:padding="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_border"
+        android:orientation="vertical"
+        android:padding="2dp">
+        <include
+            layout="@layout/_part_user_avatar_layout" />
+        <LinearLayout
+            android:id="@+id/linearLayoutCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/_part_horizontal_line"></include>
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/Style_TextView_Title" />
+            <ImageView
+                android:id="@+id/imageviewPicture"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:layout_margin="5dp"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"  />
+            <TextView
+                android:id="@+id/textViewLocation"
+                style="@style/Style_TextView_Text" />
+<!--            <ir.adad.banner.AdadBannerAd-->
+<!--                android:id="@+id/banner_1"-->
+<!--                app:token="7896e630-70c4-4cdd-982f-8e7b0d06f214"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_height="60dp"></ir.adad.banner.AdadBannerAd>-->
+            <TextView
+                android:id="@+id/textViewDate"
+                style="@style/Style_TextView_Text" />
+            <include layout="@layout/_part_horizontal_line"></include>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutBottom"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_gravity="right"
+                android:gravity="center_vertical"
+                android:layoutDirection="rtl"
+                android:layout_marginTop="-6dp"
+                android:orientation="horizontal"
+                android:paddingRight="10dp" >
+
+                <include
+                    layout="@layout/_part_visit_count"></include>
+
+                <include
+                    layout="@layout/_part_share_layout"></include>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutAdmin"
+            android:layout_width="wrap_content"
+            android:layoutDirection="rtl"
+            android:visibility="gone"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageViewDelete"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    app:srcCompat="@android:drawable/ic_delete" />
+                <TextView
+                    android:id="@+id/textViewDelete"
+                    style="@style/Style_TextView_Text"
+                    android:text="حذف" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/imageViewInvisible"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    app:srcCompat="@android:drawable/ic_delete" />
+                <TextView
+                    android:id="@+id/textViewInvisible"
+                    style="@style/Style_TextView_Text"
+                    android:text="غیرفعال" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+<!--    <FrameLayout-->
+<!--        android:id="@+id/nativeExpress"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content" >-->
+<!--    </FrameLayout>-->
+    <FrameLayout
+        android:id="@+id/adContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+
+
+</LinearLayout>

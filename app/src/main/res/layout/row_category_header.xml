@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:id="@+id/rootView"
+    android:gravity="center"  >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl"
+        android:textDirection="ltr"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/Style_TextView_Text"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:text="عنوان" />
+        <TextView
+            android:id="@+id/textViewDelete"
+            style="@style/Style_TextView_Text"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:text="حذف" />
+        <TextView
+            style="@style/Style_TextView_Text"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="مشاهده" />
+    </LinearLayout>
+</LinearLayout>

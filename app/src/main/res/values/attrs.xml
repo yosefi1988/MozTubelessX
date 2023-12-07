@@ -1,0 +1,37 @@
+<resources>
+
+    <declare-styleable name="CustomImageview">
+        <attr name="widthAndHeightRatio" format="float" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CustomInputText">
+        <attr name="lengthInputIX" format="integer"/>
+        <attr name="modeIIX" format="integer">
+            <enum name="text" value="0"/>
+            <enum name="number" value="1"/>
+            <enum name="date" value="2"/>
+            <enum name="amount" value="3"/>
+            <enum name="password_text" value="5"/>
+            <enum name="password_number" value="4"/>
+            <enum name="sheba" value="6"/>
+            <enum name="card" value="7"/>
+            <enum name="mobile" value="8"/>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="PersianDatePicker">
+        <attr name="minYear" format="integer" />
+        <attr name="maxYear" format="integer" />
+        <attr name="selectedYear" format="integer" />
+        <attr name="selectedMonth" format="integer" />
+        <attr name="selectedDay" format="integer" />
+        <attr name="displayMonthNames" format="boolean" />
+        <attr name="yearRange" format="integer" />
+        <attr name="timezone" format="string" />
+        <attr name="displayDescription" format="string" />
+
+    </declare-styleable>
+
+</resources>

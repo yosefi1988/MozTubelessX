@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:textDirection="rtl"
+            android:layoutDirection="rtl"
+            android:layout_marginBottom="50dp"
+            android:padding="10dp"
+            android:paddingTop="130dp">
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:id="@+id/login_title"
+                android:text="@string/serach" />
+            <EditText
+                android:id="@+id/editTextName"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:textDirection="rtl"
+                android:hint="@string/serach"  />
+
+            <EditText
+                android:id="@+id/editTextFamily"
+                style="@style/AppTheme.DayEditText"
+                android:textDirection="rtl"
+                android:visibility="gone"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/family" />
+
+            <EditText
+                android:id="@+id/editTextFather"
+                style="@style/AppTheme.DayEditText"
+                android:textDirection="rtl"
+                android:visibility="gone"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/father_name"  />
+            <TextView
+                android:id="@+id/textViewSearchByNationalCode"
+                style="@style/Style_TextView_Text"
+                android:clickable="false"
+                android:text="@string/serachTitleTextExample" />
+            <Button
+                android:id="@+id/button_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search"
+                android:text="@string/searchRequest"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="false"
+                android:textColor="#fff"  />
+            <Button
+                android:id="@+id/button_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search"
+                android:text="@string/reg_new_yafte2"
+                android:visibility="gone"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="false"
+                android:textColor="#fff" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_search"
+            android:text="@string/searchRequest"
+            android:textAllCaps="false"
+            android:textColor="#fff"  />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="@color/fb_background_color"
+    android:padding="4dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_border"
+        android:orientation="vertical"
+        android:padding="2dp">
+        <include layout="@layout/_row_user_item"></include>
+        <LinearLayout
+            android:id="@+id/linearLayoutCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/Style_TextView_Title"  />
+            <TextView
+                android:id="@+id/textViewText"
+                style="@style/Style_TextView_Text"  />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layoutDirection="rtl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:adjustViewBounds="true"
+                android:padding="5dp"
+                android:layout_marginTop="-2dp"
+                android:src="@drawable/png_time"
+                android:layout_centerInParent="true"  />
+            <TextView
+                android:id="@+id/textViewDate"
+                style="@style/Style_TextView_Text"  />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the fragment  to be displayed for a section associated with a tab -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="afterDescendants"
+                android:background="#ecf0f1" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/png_upload"
+            android:visibility="gone"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="30dp"
+            app:borderWidth="0dp"
+            app:elevation="2dp"
+            app:fabSize="normal"
+            app:layout_anchor="@id/listView"
+            app:layout_anchorGravity="bottom|end"
+            app:layout_behavior="ir.sajjadyosefi.android.tubeless.classes.ScrollAwareFABBehavior" />
+
+        <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+            <!--android:id="@+id/fab2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="@dimen/fab_margin"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--app:backgroundTint="#42a5f5"-->
+            <!--android:src="@drawable/arrow_up"-->
+            <!--android:visibility="gone"-->
+            <!--app:borderWidth="0dp"-->
+            <!--app:elevation="2dp"-->
+            <!--app:fabSize="normal"-->
+            <!--app:layout_anchor="@id/listView"-->
+            <!--app:layout_anchorGravity="bottom|start"-->
+            <!--app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior" />-->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/nothing_text"
+        style="@style/Style_TextView_Text"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"  />
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="50dp"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+    <RelativeLayout
+        android:id="@+id/searchBoxRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp">
+
+        <RelativeLayout
+            android:id="@+id/searchBox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:textDirection="rtl"
+
+                android:background="@color/colorPrimary"
+                android:layoutDirection="rtl"
+                android:gravity="right"
+                android:layout_margin="10dp"
+                android:foregroundGravity="right"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/editTextComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:hint="چیزی بنویسید"
+                    android:padding="3dp"
+                    android:inputType="textMultiLine"
+                    android:minLines="2"
+                    android:layout_gravity="center"
+                    android:layout_margin="3dp"
+                    android:background="@android:color/white"
+                    android:textColor="#252525"
+                    android:textColorHint="#939393" />
+
+                <Button
+                    android:id="@+id/buttonSendComment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_margin="3dp"
+                    android:onClick="onClick"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/search"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

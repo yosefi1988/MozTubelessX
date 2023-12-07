@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingBottom="30dp"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/login_title"
+                style="@style/Style_TextView_Text" />
+            <Button
+                android:id="@+id/buttonSelectCategory"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:text="@string/SelectCategory"
+                android:textColor="@android:color/white" />
+            <RelativeLayout
+                android:id="@+id/radioLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RadioGroup
+                    android:visibility="visible"
+                    android:id="@+id/rgRadios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGry"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/onlyMoz"  >
+                    </RadioButton>
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGry"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/onlyMonaghese"
+                        android:layout_alignParentRight="true" />
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGry"
+                        android:text="@string/onlyMonaghese"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone"
+                        android:layout_alignParentRight="true" />
+                </RadioGroup>
+            </RelativeLayout>
+            <TextView
+                android:visibility="gone"
+                android:text=""
+                android:id="@+id/titleTextView"
+                style="@style/Style_TextView_Text" />
+            <TextView
+                android:id="@+id/textViewTitle2"
+                android:text="@string/title"
+                style="@style/Style_TextView_Text" />
+            <EditText
+                android:id="@+id/editTextTitle"
+                style="@style/AppTheme.DayEditText"
+                android:layoutDirection="rtl"
+                android:textDirection="rtl"
+                android:layout_marginBottom="20dp"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/title" />
+            <TextView
+                android:id="@+id/editTextTitleExample"
+                android:visibility="gone"
+                android:text="@string/regNewEstekhdamTitleTextExample"
+                style="@style/Style_TextView_Text" />
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:text="@string/main_text"
+                style="@style/Style_TextView_Text" />
+            <EditText
+                android:id="@+id/editTextText"
+                style="@style/AppTheme.DayEditText"
+                android:height="140dp"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/comments"
+                android:layoutDirection="rtl"
+                android:layout_marginBottom="20dp"
+                android:textDirection="rtl" />
+            <TextView
+                android:id="@+id/textViewStateTitle"
+                android:text="استان:"
+                style="@style/Style_TextView_Text" />
+            <RelativeLayout
+                android:id="@+id/relativeLayoutState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/AppTheme.DayEditText"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+                <!--android:background="@android:color/transparent"-->
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/textViewDateTitle"
+                android:text="@string/datefor"
+                style="@style/Style_TextView_Text" />
+            <TextView
+                android:text="انتخاب کنید"
+                android:id="@+id/editTextDate"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                style="@style/AppTheme.DayEditText"
+                android:clickable="true" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextGry"
+                android:layout_marginBottom="20dp"
+                android:text="@string/getmessage">
+            </androidx.appcompat.widget.AppCompatCheckBox>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Style_TextView_Text"
+                    android:text="مبلغ جهت مشاهده پست(حداقل 10 ریال):" />
+                <EditText
+                    android:id="@+id/editTextAmount"
+                    style="@style/AppTheme.DayEditText"
+                    android:drawableLeft="@android:drawable/ic_menu_edit"
+                    android:hint="ریال"
+                    android:inputType="number"
+                    android:text="100" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/filesTitle"
+                    style="@style/Style_TextView_Text" />
+                <Button
+                    android:id="@+id/buttonAddFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_files"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:text="@string/amounts_title"
+                    style="@style/Style_TextView_Text" />
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_search"
+                    android:text="@string/add_amounts"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_margin="2dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonReg"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/reg" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/back"  />
+
+    </LinearLayout>
+
+</RelativeLayout>

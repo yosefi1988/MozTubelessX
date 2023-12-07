@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:layout_margin="0dp"
+    android:background="@drawable/filled_dot"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center"
+        android:background="#2980b9"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
+
+        <Button
+            android:id="@+id/buttonBack"
+            android:layout_width="17dp"
+            android:layout_margin="10dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/filled_dot"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/menu_open"
+            android:layout_alignBaseline="@+id/menu_open"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="right|center"
+            android:visibility="visible"
+            android:text="عنوان لیست"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/menu_open"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:visibility="invisible"
+            android:background="@drawable/filled_dot"
+            android:gravity="center" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RL_insertComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView2" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="comment"
+                    android:background="#d7d7d7"
+                    android:minLines="2"
+                    android:ems="10"
+                    android:paddingLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:id="@+id/editTextComment"
+                    android:layout_centerVertical="true"
+                    android:textColor="#252525"
+                    android:textColorHint="#939393"
+                    android:maxHeight="150dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/buttonSendComment" />
+
+                <Button
+                    android:id="@+id/buttonSendComment"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#dcdcdc"
+                    android:onClick="onClick"
+                    android:text="ارسال"
+                    android:textColor="#282828"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionBar"
+        android:layout_above="@+id/RL_insertComment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/actionBar"
+            android:background="#ecf0f1" />
+
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="#000"
+        android:text="@string/all" />
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="70dp"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+
+
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--android:src="@drawable/filled_dot"-->
+        <!--android:visibility="gone"-->
+        <!--app:borderWidth="0dp"-->
+        <!--app:elevation="2dp"-->
+        <!--app:fabSize="normal"-->
+        <!--app:layout_anchor="@id/recyclerList"-->
+        <!--app:layout_anchorGravity="bottom|end"-->
+        <!--app:backgroundTint="#42a5f5"-->
+        <!--android:layout_margin="20dp"-->
+        <!--app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true" />-->
+
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton-->
+        <!--android:id="@+id/fab2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/transparent"-->
+        <!--app:backgroundTint="#42a5f5"-->
+        <!--android:src="@drawable/image5"-->
+        <!--android:visibility="gone"-->
+        <!--app:borderWidth="0dp"-->
+        <!--android:layout_margin="20dp"-->
+        <!--app:elevation="2dp"-->
+        <!--app:fabSize="normal"-->
+        <!--app:layout_anchor="@id/recyclerList"-->
+        <!--app:layout_anchorGravity="bottom|start"-->
+        <!--app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true" />-->
+
+</RelativeLayout>

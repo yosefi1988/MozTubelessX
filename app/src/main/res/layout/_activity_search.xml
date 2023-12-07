@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layoutDirection="rtl"
+    android:layout_height="match_parent"  >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dot" />
+
+    <ImageView
+        android:id="@+id/ivVisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/day_dark_transparent"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutChangePassword"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:background="@drawable/circle_background_glass"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/changePassword"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone"
+                    android:text="@string/changePasswordTitle"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editText_changePassword_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:hint="@string/newPassword" />
+
+                <EditText
+                    android:id="@+id/editText_changePassword_repassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="@string/rePassword" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/changePasswordText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_changePassword_reg"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/reg" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_changePassword_cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/cancel" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutForgetPassword"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:background="@drawable/circle_background_glass"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forgetPassword"
+                    android:layout_marginTop="10dp"  />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone"
+                    android:text="@string/loginText"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editText_ForgetPassword_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:hint="@string/emailAddress" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/forgetPasswordText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_ForgetPassword_reg"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/reg" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_ForgetPassword_cacel"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/cancel" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutLogin"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:background="@drawable/circle_background_glass"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="gone"
+                    android:text="@string/loginText"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editText_login_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:hint="@string/mobile_number" />
+
+                <EditText
+                    android:id="@+id/editText_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:hint="@string/password" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/loginText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_login_login"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/login" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_login_cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:text="@string/cancel" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutRegister"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:visibility="visible"
+                android:gravity="center"
+                android:background="@drawable/circle_background_glass"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search"
+                    android:id="@+id/xxxxxxf"
+                    android:layout_marginTop="10dp"  />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutSearchWithCodeType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layoutDirection="ltr"
+                    android:orientation="horizontal" >
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/with_code_melli"   />
+                    <Switch
+                        android:id="@+id/switchSearchType"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/with_name2"   />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutSearchWithCodeMelli"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:visibility="visible"
+                        android:text="@string/search_with_code_melli"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editText_code_melli"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:hint="@string/code_melli" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutSearchWithNameFamily"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical" >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:visibility="visible"
+                        android:text="@string/search_with_code_name_family"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/editText_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:padding="5dp"
+                        android:layout_margin="5dp"
+
+                        android:hint="@string/code_name" />
+
+                    <EditText
+                        android:id="@+id/editText_family"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:padding="5dp"
+                        android:hint="@string/code_family" />
+
+
+                    <EditText
+                        android:id="@+id/editText_father_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:padding="5dp"
+                        android:hint="@string/code_father_name" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:visibility="visible"
+                    android:text="@string/search_category"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_margin="1dp"
+                    android:layout_weight=".28"
+                    android:background="@drawable/_spinner_background"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:spinnerMode="dropdown" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/_spinner_ddl" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    android:text="@string/searchText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1"
+                    android:orientation="horizontal">
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_search"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.7"
+                        android:paddingTop="5dp"
+                        android:text="@string/search" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/button_register_cancel"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.3"
+                        android:paddingTop="5dp"
+                        android:text="@string/cancel" />
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+</FrameLayout>

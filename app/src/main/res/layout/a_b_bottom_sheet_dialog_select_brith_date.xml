@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:persianDatePicker="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp">
+
+    <!-- NOTE: This list should be displayed in a list
+    instead of nested layouts -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:text=""
+            android:id="@+id/textViewModalTitle"
+            style="@style/Style_TextView_Text" />
+
+        <ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.PersianDatePicker
+            android:id="@+id/persianDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            app:displayDescription="true"
+            app:selectedDay="15"
+            app:selectedMonth="5"
+
+            persianDatePicker:timezone="Iran">
+<!--            persianDatePicker:selectedYear="1402"-->
+
+        </ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.PersianDatePicker>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:visibility="invisible"  />
+    </LinearLayout>
+
+</RelativeLayout>

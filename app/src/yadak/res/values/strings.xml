@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">لوازم یدکی</string>
+    <string name="app_name_file">yadak</string>
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xYadak.provider</string>
+
+    <string name="zarinpalpayment">zarinpalpayment6</string>
+    <string name="schemezarinpalpayment">return6</string>
+
+
+    <string name="paymenttitle">یدک</string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+    <!--    todo change by store-->
+    <!--    <string name="paySecoundMessage">در نسخه آتی پرداخت از طریق کافه بازار نیز فراهم خواهد شد.</string>-->
+    <string name="paySecoundMessage"></string>
+
+
+
+
+
+    <!--    new-->
+    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitleText">عنوان</string>
+    <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
+    <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:    یک عدد دینام پراید نیازمندم \n           لوازم ترمز پژو 405 پلمپ\n          غربیلک فرمان پژو پارس</string>
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">فقط درخواست ها</string>
+    <string name="onlyMonaghese">فقط قطعات و یدکی ها</string>
+    <string name="noticeType">نوع آگهی:</string>
+
+    <string name="onlyMoz2">درخواست قطعه یا لوازم یدکی</string>
+    <string name="onlyMonaghese2">قطعه، یدکی و لوازم مازاد</string>
+    <string name="requestCreator">درخواست ثبت مزایده یا مناقصه</string>
+
+
+    <string name="onlyMonaghese3">فقط پیدا شده</string>
+    <string name="yafte">مدارک پیدا شده</string>
+</resources>

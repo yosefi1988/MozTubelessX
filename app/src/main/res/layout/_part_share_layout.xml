@@ -1,0 +1,33 @@
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layoutShare"
+    android:layout_width="wrap_content"
+    android:layoutDirection="rtl"
+    android:layout_gravity="right"
+    android:clickable="true"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp">
+
+    <ImageView
+        android:id="@+id/imageViewShare"
+        android:layout_width="20dp"
+        android:layout_height="35dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/png_red_sgare"
+        android:scaleType="centerInside"
+        android:padding="3dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewShare"
+        style="@style/Style_TextView_Text"
+        android:layout_marginTop="8dp"
+        android:text="بازنشر"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewShare"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</merge>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:paddingBottom="50dp"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="80dp" >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerInParent="true"  />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/login_title"
+                android:text="@string/reg_new_yafte"
+                style="@style/Style_TextView_Text" />
+
+            <RelativeLayout
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:visibility="gone"
+                android:layoutDirection="rtl"
+                android:foregroundGravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioGroup
+                    android:visibility="visible"
+                    android:id="@+id/rgRadios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <requestFocus/>
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/lost_documents"
+                        android:checked="true" >
+                        <requestFocus />
+                    </RadioButton>
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/find_documents"
+                        android:layout_alignParentRight="true" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/stolen_documents"
+                        android:layout_alignParentRight="true" />
+
+                </RadioGroup>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/editTextTitle"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/title" />
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:text="مثال:    کاربرات \n           میل سوپاپ\n          چراغ مه شکن" />
+
+            <EditText
+                android:id="@+id/editTextTitleStatment"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/where_miss" />
+
+
+            <TextView
+                style="@style/Theme.DayTextView"
+                android:textColor="@color/colorTextGry"
+                android:layout_marginTop="-10dp"
+                android:text="مثال:    پژو 405 مدل 1376 GLX " />
+
+            <EditText
+                android:id="@+id/editTextText"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/text2" />
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:text="مثال:    کاربرات پوسته آلمینیومی دو دریچه ای شماره 56 فرانسوی لوله بنزین کوتاه" />
+
+
+            <EditText
+                android:id="@+id/editTextTitlePicture"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:hint="@string/what_date" />
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:text="مثال:    اگه تا قبل از عید پیدا بشه خریدارم و شماره تماس 09123456789 لطفا پیامک ارسال کنید. " />
+            <EditText
+                android:id="@+id/editTextTextPicture"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textDirection="locale"
+                android:gravity="start"
+                android:textAlignment="viewStart"
+                android:background="@drawable/bg_search"
+                android:drawableLeft="@android:drawable/ic_secure"
+                android:drawablePadding="15dp"
+                android:visibility="gone"
+                android:hint="@string/text_pic"
+                android:padding="16dp" />
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:visibility="gone"
+                android:text="@string/help" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonAddFiles"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_files"
+                    android:enabled="false"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"  />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonAddCategory"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_cat"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"  />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+
+                <Button
+                    android:id="@+id/buttonReg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_search"
+                    android:text="@string/reg"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:id="@+id/buttonBack"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_search"
+                    android:text="@string/back"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"  />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

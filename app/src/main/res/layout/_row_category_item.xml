@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/rootView"
+    android:gravity="center"  >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textColor="#fff"
+            android:padding="5dp"
+            android:src="@drawable/png_star"
+            android:scaleType="centerCrop"   />
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:visibility="gone"
+            android:layout_margin="6dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                style="@style/Style_TextView_Text"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:clickable="true" />
+            <TextView
+                android:id="@+id/textViewDescription"
+                style="@style/Style_TextView_Text"
+                android:layout_gravity="center"
+                android:gravity="start|center"
+                android:clickable="true" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:clickable="true"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_delete"  />
+        <ImageButton
+            android:id="@+id/buttonShow"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:textColor="#fff"
+            android:background="@color/day_white"
+            app:srcCompat="@android:drawable/ic_menu_view"  />
+    </LinearLayout>
+</LinearLayout>

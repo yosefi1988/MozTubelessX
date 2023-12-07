@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="tubeless" />
+    <version value="3" />
+    <list>
+        <mapping class="ir.sajjadyosefi.android.xTubeless.classes.model.user.User2" />
+        <mapping class="ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet" />
+    </list>
+    <!--
+        "external" means the .db file will be stored in the
+        path to the directory on the primary external storage device where
+        the application can place persistent files it owns which everyone
+        can access. "internal" will act as default.
+        For example:
+        <storage value="external" />
+    -->
+    <storage value="external" />
+<!--    <cases value="lower" />-->
+</litepal>

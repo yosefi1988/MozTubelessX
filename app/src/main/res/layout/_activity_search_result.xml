@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layoutDirection="rtl"
+    android:id="@+id/content"
+    android:layout_height="match_parent"  >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dot" />
+
+    <ImageView
+        android:id="@+id/ivVisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/day_dark_transparent"
+        android:visibility="visible" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRegister"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:visibility="visible"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/circle_background_glass"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/search_result"
+            android:id="@+id/xxxxxxf"
+            android:layout_marginTop="10dp" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"  />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:text="@string/searchText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                android:id="@+id/button_search"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.7"
+                android:paddingTop="5dp"
+                android:visibility="invisible"
+                android:text="@string/search" />
+
+            <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                android:id="@+id/button_register_cancel"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.3"
+                android:paddingTop="5dp"
+                android:text="@string/cancel" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:radius="5dp"
+        android:color="#2980b9"
+        app:dd_numDots="5"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        app:dd_scaleMultiplier="2"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
+
+</FrameLayout>

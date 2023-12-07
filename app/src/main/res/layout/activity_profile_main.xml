@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:layoutDirection="rtl"
+    android:textDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/header_cover_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/jpg_paeez"
+                android:background="@null"
+                android:layout_centerInParent="true"  />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="-100dp"
+                android:layout_height="wrap_content" >
+
+                <ImageButton
+                    android:id="@+id/user_profile_photo"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="15sp"
+                    android:background="@drawable/circle_background_x"
+                    android:clickable="true"
+                    android:padding="15sp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/png_user" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:layout_below="@+id/user_profile_photo"  >
+                    <TextView
+                        style="@style/Style_TextView_Text"
+                        android:id="@+id/user_profile_name"
+                        android:layout_width="wrap_content"
+                        android:text="@string/profile"/>
+                    <TextView
+                        style="@style/Style_TextView_Text"
+                        android:layout_width="wrap_content"
+                        android:text="-"  />
+                    <TextView
+                        style="@style/Style_TextView_Text"
+                        android:layout_width="wrap_content"
+                        android:text="@string/userid" />
+                    <TextView
+                        style="@style/Style_TextView_Text"
+                        android:layout_width="wrap_content"
+                        android:text=":"  />
+                    <TextView
+                        style="@style/Style_TextView_Text"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/ueditTextNameUserId"  />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_layout"
+                android:layout_margin="10dp"
+                android:orientation="vertical"  >
+                <LinearLayout
+                    android:id="@+id/linearLayoutWallet"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:background="@drawable/buttonshape_disable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/Style_TextView_Object_Colorful"
+                        android:id="@+id/user_wallet"
+                        android:gravity="center" />
+                    <Button
+                        android:id="@+id/charge"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="+ افزایش موجودی" />
+                </LinearLayout>
+<!--                <EditText -->
+<!--                    style="@style/AppTheme.DayEditText"-->
+<!--                    android:drawableLeft="@android:drawable/ic_secure"-->
+<!--                    android:hint="@string/userid"-->
+<!--                    android:focusable="false"-->
+<!--                    android:focusableInTouchMode="false"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:inputType="phone" />-->
+<!--                <EditText-->
+<!--                    android:id="@+id/editTextPhone"-->
+<!--                    style="@style/AppTheme.DayEditText"-->
+<!--                    android:drawableLeft="@android:drawable/ic_secure"-->
+<!--                    android:hint="@string/phoneNumber2"-->
+<!--                    android:focusable="false"-->
+<!--                    android:focusableInTouchMode="false"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:inputType="phone" />-->
+<!--                <EditText-->
+<!--                    android:id="@+id/editTextEmail"-->
+<!--                    style="@style/AppTheme.DayEditText"-->
+<!--                    android:drawableLeft="@android:drawable/ic_secure"-->
+<!--                    android:hint="@string/emailAddress2"-->
+<!--                    android:focusable="false"-->
+<!--                    android:focusableInTouchMode="false"-->
+<!--                    android:cursorVisible="false"-->
+<!--                    android:inputType="phone" />-->
+
+                <Button
+                    android:id="@+id/upload_file_progress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#fff"
+                    android:visibility="gone"
+                    android:clickable="true"
+                    android:textColor="#111"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:text="with_progress"   />
+
+                <Button
+                    android:id="@+id/btn_upload_file_without_progress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="#fff"
+                    android:textColor="#111"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:text="without_progress"  />
+
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/buttonMessages"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:layout_weight="2"
+                        android:text="پیام ها"  />
+
+                    <Button
+                        android:id="@+id/buttonFav"
+                        android:layout_width="0dp"
+                        android:layout_weight="2"
+                        android:text="علامت گذاری شده ها"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonMyPost"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:textColor="@color/day_contact_us_border"
+                    android:text="پست های من"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+
+                <Button
+                    android:id="@+id/buttonCreatorMessages"
+                    android:textColor="@color/day_contact_us_border"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="پیام پست های من" />
+
+                <Button
+                    android:id="@+id/buttonCreatorsPost"
+                    android:textColor="@color/day_contact_us_border"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="پست های آگهی گذار ها" />
+
+                <Button
+                    android:id="@+id/buttonLastSeen"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/day_contact_us_border"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:text="مشاهده شده ها"  />
+
+                <Button
+                    android:id="@+id/buttonChangePassword"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/day_contact_us_border"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:text="تغییر رمزعبور" />
+                <Button
+                    android:id="@+id/buttonReciveReport"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/day_contact_us_border"
+                    android:textAlignment="viewStart"
+                    android:background="@null"
+                    android:text="لیست تراکنش ها" />
+
+
+
+                <TextView
+                    android:id="@+id/textViewProgress"
+                    style="@style/Style_TextView_Text"
+                    android:text=""
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+
+            <!--            google ads-->
+            <!--            <com.google.android.gms.ads.AdView-->
+            <!--                android:id="@+id/adView"-->
+            <!--                android:layout_marginTop="5dp"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                app:adSize="BANNER"-->
+            <!--                app:adUnitId="ca-app-pub-6595298957852131/5876107705"></com.google.android.gms.ads.AdView>-->
+
+            <TextView
+                style="@style/Style_TextView_Text"
+                android:visibility="invisible"
+                android:text="help" />
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_margin="2dp"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/buttonSignOut"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/sign_out" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/back"  />
+    </LinearLayout>
+
+</RelativeLayout>
+
+

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:paddingBottom="30dp"
+            android:orientation="vertical" >
+            <TextView
+                android:id="@+id/login_title"
+                style="@style/Style_TextView_Text"
+                android:visibility="gone"/>
+            <RelativeLayout
+                android:id="@+id/radioLayout"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layoutDirection="rtl"
+                android:visibility="gone"
+                android:foregroundGravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioGroup
+                    android:id="@+id/rgRadios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGry"
+                        android:checked="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="تصویر"  >
+                    </RadioButton>
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextGry"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/onlyMonaghese"
+                        android:layout_alignParentRight="true" />
+
+
+                </RadioGroup>
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/titleTextView"
+                android:visibility="gone"
+                style="@style/Style_TextView_Text" />
+            <EditText
+                android:id="@+id/editTextTitle"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:hint="@string/title" />
+
+
+<!--   todo          android:text="@string/regNewEstekhdamTitleTextExample"-->
+            <TextView
+                android:id="@+id/editTextTitleExample"
+                android:visibility="gone"
+                style="@style/Style_TextView_Text" />
+            <TextView
+                android:id="@+id/DayTextView"
+                android:visibility="gone"
+                android:text="استان:"
+                style="@style/Style_TextView_Text" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/AppTheme.DayEditText"
+                android:padding="-5dp"
+                android:visibility="gone"
+                android:orientation="horizontal">
+                <!--android:background="@android:color/transparent"-->
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/textViewLocation"
+                android:visibility="gone"
+                style="@style/Style_TextView_Text" />
+            <TextView
+                android:text="معتبر تا تاریخ :"
+                style="@style/Style_TextView_Text"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/editTextDate"
+                android:clickable="true"
+                android:visibility="gone"
+                android:text="معتبر تا تاریخ :"
+                style="@style/Style_TextView_Text"
+                android:hint="فرمت صحیح : 2021-04-05"/>
+            <TextView
+                android:id="@+id/textViewTitle2"
+                style="@style/Style_TextView_Text"
+                android:text="متن آکهی :" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_menu_edit"
+                android:height="140dp"
+                android:hint="متن آکهی" />
+
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextGry"
+                android:visibility="gone"
+                android:text="دریافت پیام برای این آگهی">
+            </androidx.appcompat.widget.AppCompatCheckBox>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Style_TextView_Text"
+                    android:text="مبلغ جهت مشاهده پست(حداقل 10 ریال):"/>
+                <EditText
+                    android:id="@+id/editTextAmount"
+                    style="@style/AppTheme.DayEditText"
+                    android:inputType="number"
+                    android:text="50"
+                    android:drawableLeft="@android:drawable/ic_menu_edit"
+                    android:hint="ریال" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/Style_TextView_Text"
+                    android:text="@string/filesTitle" />
+                <Button
+                    android:id="@+id/buttonAddFiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_files"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    style="@style/Style_TextView_Text"
+                    android:text="@string/amounts_title" />
+                <Button
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_search"
+                    android:text="@string/add_amounts"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"  />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="1.0dp"
+        android:layout_margin="2dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonReg"
+            android:text="@string/reg"
+            style="@style/AppTheme.DayButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"  />
+        <Button
+            style="@style/AppTheme.DayButton"
+            android:id="@+id/buttonBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/back"  />
+
+    </LinearLayout>
+
+</RelativeLayout>

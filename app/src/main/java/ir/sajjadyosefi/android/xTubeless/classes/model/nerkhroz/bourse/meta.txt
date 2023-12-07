@@ -1,0 +1,26 @@
+---------------		Holder		 ---------------------------------
+ParentViewHolder 			=>	ParentViewHolder
+ChildViewHolder			    =>	ChildViewHolder
+MovieCategoryViewHolder		=> 	HeaderViewHolder
+MoviesViewHolder			=>	BourseDataViewHolder
+
+---------------		XML		 ---------------------------------
+movies_view			    =>	_row_of_bourse_nerkhroz_item
+movie_category_view		=>	_row_of_bourse_nerkhroz_header
+MainActivity			=>	TwoLevelListFragment
+---------------		model		---------------------------------
+Movies				    =>	main
+MovieCategory 			=> 	NerkhrozBourse
+ParentListItem			=>	ParentListItem
+
+
+
+MovieCategoryAdapter		=> 	XAdapterNerkhRoz
+activity_main			    =>	x_fragment_timeline
+
+
+
+------------------------------------------------
+ExpandableRecyclerAdapterHelper	=>	ExpandableRecyclerAdapterHelper
+ExpandableRecyclerAdapter		=>	ExpandableRecyclerAdapter
+ParentWrapper			        =>	ParentWrapper

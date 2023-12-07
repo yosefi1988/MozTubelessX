@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp">
+
+    <ImageView
+        android:id="@+id/ivInvisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/ivVisableBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+
+
+    <ScrollView
+        android:id="@+id/svScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9"
+        android:visibility="visible">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_margin="15dp"
+            android:foregroundGravity="right"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusableInTouchMode="true"
+                android:text="تکمیل اطلاعات خودرو" />
+
+            <TextView
+                android:id="@+id/tvTitleText02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="right|center"
+                android:clickable="true"
+                android:elevation="1dp"
+                android:foregroundGravity="right"
+                android:gravity="right"
+                android:paddingTop="20dp"
+                android:text="تمام موارد اختیاری است و تنها برای شناسایی خودروتان می باشد."
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:id="@+id/tblLoginPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layoutDirection="rtl"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:id="@+id/llRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvField1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="0.4"
+                        android:clickable="true"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="@string/title"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etField1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.6"
+                        android:adjustViewBounds="true"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:ems="8"
+                        android:focusableInTouchMode="true"
+                        android:hint="پژو 405 خاکستری بابا"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName">
+
+                    </EditText>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llRow2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+
+                    <TextView
+                        android:id="@+id/tvField2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:layout_weight="0.4"
+                        android:clickable="true"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="شماره پلاک"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etField2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.6"
+                        android:adjustViewBounds="true"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:ems="8"
+                        android:hint="ایران 11 - 36 ج 956"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:layout_weight="0.4"
+                        android:clickable="true"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="شماره شاسی"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etField3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.6"
+                        android:adjustViewBounds="true"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:ems="8"
+                        android:hint="15659845865"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRow22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvField22"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:layout_weight="0.4"
+                        android:clickable="true"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="شماره موتور"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/etField4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.6"
+                        android:adjustViewBounds="true"
+                        android:digits="۰۱۲۳۴۵۶۷۸۹0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz _آابضصثقفغعپهخحجچگکمنتالبیژَُِّءؤيةًٌٍسشظطزرذدئو"
+                        android:ems="8"
+                        android:hint="65959898985"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRow23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvField4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:layout_weight="0.4"
+                        android:clickable="true"
+                        android:foregroundGravity="right"
+                        android:gravity="right"
+                        android:paddingTop="10dp"
+                        android:text="تصویر"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                        android:id="@+id/btnCamera"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.6"
+                        android:text="@string/SelectPicture" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/llRow3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="200dp"
+                        android:layout_height="130dp"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/dot" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.5"
+                        android:text="btn1" />
+
+                    <Button
+                        android:id="@+id/btn2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="0.5"
+                        android:text="btn2" />
+
+
+                </LinearLayout>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+    <com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar
+        android:id="@+id/PBSjd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center_horizontal"
+        android:color="#2980b9"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp"
+        android:radius="5dp"
+        app:dd_animationDuration="500"
+        app:dd_horizontalSpacing="8dp"
+        app:dd_numDots="5"
+        app:dd_scaleMultiplier="2" />
+</FrameLayout>

@@ -1,0 +1,504 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+//apply plugin: 'com.google.gms.google-services'
+
+
+//todo change version code before publish
+def final Moz_VersionName = "1.3.2"
+def final Moz_VersionCode = 26
+
+def final Estekhdam_VersionName = "1.4.0"
+def final Estekhdam_VersionCode = 29
+
+def final Tubeless_VersionName = "0.0.0"
+def final Tubeless_VersionCode = 1
+
+def final CarNews_VersionName = "1.0.0"
+def final CarNews_VersionCode = 1
+
+def final Kartesokht_VersionName = "1.0.7"
+def final Kartesokht_VersionCode = 19
+
+def final Yafte_VersionName = "3.3.1"
+def final Yafte_VersionCode = 40
+
+def final Amlak_VersionName = "0.3.0"
+def final Amlak_VersionCode = 43
+
+def final Yadak_VersionName = "3.2.5"
+def final Yadak_VersionCode = 20
+
+def final Bourse_VersionName = "4.1.0"
+def final Bourse_VersionCode = 20
+
+//def githubProperties = new Properties()
+//githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+
+android {
+    def final appId = 'ir.sajjadyosefi.android'
+
+//    flavorDimensions "default"
+    flavorDimensions("version_name", "market")
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    configurations {
+//        all*.exclude module: 'okhttp'
+        all*.exclude module: 'okio'
+    }
+
+    signingConfigs {
+        TubelessSajjadSigning {
+            storeFile file("D:\\Documents\\sajjad\\Key\\xTubeless\\xTubeless98")
+            storePassword "sajjadolsvutv@42viubdvf"
+            keyAlias "keySajjad"
+            keyPassword 'Yosefi$24s;dgoj'
+        }
+//        TubelessSajjadSigning {
+//            storeFile file("D:\\Documents\\sajjad\\Key\\TubelessKey")
+//            storePassword "sajjad1367589525"
+//            keyAlias "TubelessKey01"
+//            keyPassword 'sajjad13672564261'
+//        }
+    }
+
+
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
+    defaultConfig {
+        applicationId "${appId}"
+        minSdkVersion 17
+        targetSdkVersion 28
+
+        //versionCode Tubeless_VersionCode
+        //versionName "${Tubeless_VersionName}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true //important
+
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            useProguard false
+            debuggable true
+
+//            minifyEnabled true
+//            useProguard false
+//            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules_2.pro'
+            //manifestPlaceholders = [pn: "com.hamsa"]
+            //manifestPlaceholders = [pn: "com.hamsa.debug"]
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
+
+            buildConfigField 'String', 'HOST', "\"http://www.example.com\""
+            buildConfigField 'String', 'URL_PREFIX', "\"api\""
+            signingConfig signingConfigs.TubelessSajjadSigning
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
+//            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
+        }
+
+        debug {
+            minifyEnabled false
+            useProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            versionNameSuffix "-dev"
+            manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
+
+            debuggable true
+
+            buildConfigField 'String', 'HOST', "\"http://www.example.com\""
+            buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
+            //resValue "string", "app_name", appName + "-debug"
+            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
+//            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
+
+        }
+    }
+//    productFlavors {
+//        prod {
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
+//            versionCode 3
+//        }
+//        dev {
+//            applicationId "ir.sajjadyosefi.tubeless.tubeless.dev"
+//            versionCode 3
+//        }
+//    }
+
+
+    productFlavors {
+        tubeless {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+
+            applicationIdSuffix ".xTubeless"
+            versionName "${Tubeless_VersionName}"
+            versionCode Tubeless_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        moz {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+            applicationIdSuffix ".xMoz"
+            versionName "${Moz_VersionName}"
+            versionCode Moz_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        estekhdam {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+
+            applicationIdSuffix ".xEstekhdam"
+            versionName "${Estekhdam_VersionName}"
+            versionCode Estekhdam_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        bourse {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+            applicationIdSuffix ".xBourse"
+            versionName "${Bourse_VersionName}"
+            versionCode Bourse_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        yadak {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+            applicationIdSuffix ".xYadak"
+            versionName "${Yadak_VersionName}"
+            versionCode Yadak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        yafte {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+
+            applicationIdSuffix ".xYafte"
+
+            versionName "${Yafte_VersionName}"
+            versionCode Yafte_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot",
+                    //appN: appId //+ applicationIdSuffix
+            ]
+        }
+        amlak {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+
+            applicationIdSuffix ".xAmlak"
+            versionName "${Amlak_VersionName}"
+            versionCode Amlak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+        }
+        kartesokht {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+
+            applicationId "android.sajjadyosefi.ir.ksokht"      //json => ir.sajjadyosefi.android.xKsokht
+//            applicationIdSuffix ".xKsokht"     => bazar
+
+
+            versionName "${Kartesokht_VersionName}"
+            versionCode Kartesokht_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+        }
+
+        carNews {
+            dimension "version_name"
+            resValue "string", "app_name", "@strings/app_name"
+            applicationIdSuffix ".xCarNews"
+            versionName "${CarNews_VersionName}"
+            versionCode CarNews_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+
+        myket {
+            dimension "market"
+            versionNameSuffix "-m"
+
+
+        }
+        bazzar {
+            dimension "market"
+            versionNameSuffix "-b"
+        }
+        socialNetwork {
+            dimension "market"
+            versionNameSuffix "-s"
+        }
+        iranApps {
+            dimension "market"
+            versionNameSuffix "-i"
+        }
+        jhobin {
+            dimension "market"
+            versionNameSuffix "-j"
+        }
+
+//        playStore {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-a"
+//            versionCode Tubeless_VersionCode
+//        }
+//        bazaar {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-b"
+//            versionCode Tubeless_VersionCode
+//        }
+//
+//        avvalMarket {
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-a"
+//            versionCode Tubeless_VersionCode
+//        }
+//
+//
+//        iranapps {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-i"
+//            versionCode Tubeless_VersionCode
+//        }
+
+//        kandoo {
+//            applicationId "${Tubeless_appId}"
+//            versionName "${Tubeless_VersionName}"
+//            versionNameSuffix "-k"
+//            versionCode Tubeless_VersionCode
+//        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def project = "tubeless"
+            def SEP = "_"
+            def flavor = variant.productFlavors[0].name
+            def buildType = "=" // variant.variantData.variantConfiguration.buildType.name
+            def version = variant.versionName
+            def date = new Date();
+            def formattedDate = date.format('yyMMdd_HHmm')
+
+            def newApkName = project + SEP + flavor + SEP + buildType + SEP + version + SEP + formattedDate + ".apk"
+
+            outputFileName = new File(newApkName)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+//            java.srcDirs = ['other/java']
+            java.srcDirs = ['src/main/java']
+
+//            res.srcDirs = ['other/res1', 'other/res2']
+            res.srcDirs = ['src/main/res']
+
+//            manifest.srcFile 'other/AndroidManifest.xml'
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+
+        moz {
+            res.srcDirs = ['src/moz/res']
+            java.srcDirs = ['src/moz/java']
+        }
+        bourse {
+            res.srcDirs = ['src/bourse/res']
+        }
+        yafte {
+//            java.srcDirs = ['other/java']
+//            java.srcDirs = ['src/main/java']
+
+//            res.srcDirs = ['other/res1', 'other/res2']
+            res.srcDirs = ['src/yafte/res']
+
+//            manifest.srcFile 'other/AndroidManifest.xml'
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+        carNews {
+            res.srcDirs = ['src/carNews/res']
+        }
+
+    }
+}
+
+ext {
+    daggerVersion = '2.15'
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.firebase:firebase-crashlytics:17.2.1'
+    implementation project(path: ':LitePal-core')
+    implementation project(path: ':LitePal-core')
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+
+    def core_version = "1.5.0"
+    implementation "androidx.core:core:$core_version"
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+
+//    implementation 'org.fabiomsr:moneytextview:1.1.0'
+    implementation 'com.github.justzak:dilatingdotsprogressbar:1.0.1'
+    implementation project(':PagerSlidingTabStrip')
+//    implementation 'com.github.satyan:sugar:1.4'
+    implementation project(':faboptions')
+    implementation 'com.uncopt:android.justified:1.0'
+//    implementation project(':crop-image-lib')
+//    implementation 'com.google.firebase:firebase-messaging:11.0.4'
+//    implementation 'com.google.firebase:firebase-core:11.0.4'
+//    implementation 'com.google.firebase:firebase-crash:11.0.4'
+
+
+
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+//    ____________________________________________________________________________________________
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation project(path: ':libraryNumberPicker')
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.okhttp:okhttp:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //    implementation 'com.github.mmoamenn:ProgressWindow_Android:0.0.2'
+    implementation 'com.tuyenmonkey:mkloader:1.4.0'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
+
+
+//    implementation "me.henrytao:smooth-app-bar-layout:25.3.1.0"
+    implementation 'com.github.andremion:counterfab:1.2.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+//    implementation 'org.litepal.android:java:3.0.0'
+
+
+//    implementation 'com.github.imtuann:FloatingActionButtonExpandable:1.1.2'
+//    implementation 'com.bowyer.app:fabtransitionlayout:0.4.0@aar'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+//    implementation('com.crashlytics.sdk.android:ii:2.10.1@aar') {
+//        transitive = true;
+//    }
+
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    //implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    //implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    //implementation 'com.google.firebase:firebase-analytics'
+
+    implementation "androidx.drawerlayout:drawerlayout:1.0.0"
+    implementation 'com.google.firebase:firebase-perf:19.0.0'
+
+//    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
+    implementation 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:3.0.0'
+    implementation 'com.github.clans:fab:1.6.4'
+    implementation 'com.github.dmallcott:DismissibleImageView:1.0.1'
+
+
+
+    // Dagger dependencies
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+//    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.goebl:david-webb:1.3.0'
+//    implementation 'android.arch.work:work-runtime:1.0.1'
+
+
+///////////////////////////////// ads //////////////////////////
+//    implementation 'com.google.firebase:firebase-ads:19.0.0'
+//    implementation project(path: ':adad-sdk-banner-5.1.1')
+
+//    implementation project(':adad-sdk-banner-5.1.1')
+//    implementation project(path: ':adad-sdk-core-5.1.1')
+//    implementation project(path: ':adad-sdk-ad-5.1.1')
+
+//    implementation files('libs\\magnet-android-sdk-5.0.8.jar')
+
+//    implementation 'ir.tapsell.plus:tapsell-plus-sdk-android:1.1.3'
+
+//    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+//    implementation group: 'com.google.android.gms', name: 'play-services-ads', version: '15.0.0'
+///////////////////////////////// ads //////////////////////////
+
+//    implementation project(path: ':accountauthenticator')
+//    implementation "ir.sajjadyosefi.libraries:accountauthenticator 1.0.0"
+//    implementation 'ir.sajjadyosefi.libraries:xAccountAuthenticator:1.0.0'
+//    implementation 'com.github.yosefi1988:xAccountAuthenticator:1.3.0'
+//    implementation 'com.github.yosefi1988:xAccountAuthenticator:1.3.1-saman'
+//    implementation 'com.github.yosefi1988:xAccountAuthenticator:2.1.2'
+//    implementation 'com.github.yosefi1988:xAccountAuthenticator:4.0.3'
+//    implementation 'com.github.yosefi1988:xAccountAuthenticator:1.0-a'
+//    implementation 'ir.sajjadyosefi.libraries:xaa:5.0.5'
+//    implementation 'com.zarinpal:purchase:0.0.8-beta'
+//    implementation 'com.zarinpal:purchase:0.0.10'
+
+    implementation project(path: ':superpickerlibrary')
+
+
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    implementation project(path: ':ucrop')
+
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation project(path: ':KMPAutoCompleteTextView')
+
+    implementation files('D:\\Projects\\Android repositories\\accountauthenticator-release15.aar')
+
+    implementation 'com.zarinpal:purchase:0.0.10'
+}
+
+
+
+apply plugin: 'com.google.gms.google-services'
+
+
+

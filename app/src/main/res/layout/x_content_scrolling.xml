@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="afterDescendants"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/x_app_bar_main">
+
+    <TextView
+        android:id="@+id/textViewNoting"
+        android:text=""
+        style="@style/Style_TextView_Text" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/recyclerViewText"
+                style="@style/Style_TextView_Text"
+                android:visibility="gone"
+                android:layout_alignParentTop="true" />
+            <ir.sajjadyosefi.android.xTubeless.widget.recyclerview.RecyclerViewEmptySupport
+                android:id="@+id/recyclerView"
+                android:layout_below="@+id/recyclerViewText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="afterDescendants"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            <TextView
+                android:id="@+id/list_empty"
+                android:text=""
+                style="@style/Style_TextView_Text"/>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="@color/tubelessColor_button_normal"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/add_button"
+        app:borderWidth="0dp"
+        app:elevation="2dp"
+        app:fabSize="normal"
+        app:layout_anchor="@id/recyclerView"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_behavior="ir.sajjadyosefi.tubelessyafte.classes.anim.ScrollAwareFABBehavior" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="@color/tubelessColor_button_normal"
+        android:src="@drawable/search_button"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="30dp"
+        app:borderWidth="0dp"
+        app:elevation="2dp"
+
+        app:fabSize="normal"
+        app:layout_anchor="@id/recyclerView"
+        app:layout_anchorGravity="bottom|start"
+        app:layout_behavior="ir.sajjadyosefi.tubelessyafte.classes.anim.ScrollAwareFABBehavior" />
+</RelativeLayout>

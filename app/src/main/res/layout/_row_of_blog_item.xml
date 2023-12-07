@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="right"
+    android:background="#efefef"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/circle_background"
+        android:padding="2dp">
+
+        <include
+            layout="@layout/_part_user_avatar_layout">
+        </include>
+
+        <include
+            layout="@layout/_part_horizontal_line"></include>
+        <TextView
+            android:id="@+id/textViewTitle"
+            style="@style/Style_TextView_Title"
+            android:text="@string/find_date" />
+        <TextView
+            android:id="@+id/textViewStatment"
+            style="@style/Style_TextView_Text"
+            android:text="@string/find_date" />
+        <TextView
+            android:id="@+id/textViewStatment2"
+            style="@style/Style_TextView_Text"
+            android:text="@string/find_date" />
+        <LinearLayout
+            android:id="@+id/linearLayout42"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <include
+                layout="@layout/_part_visit_count"></include>
+            <include
+                layout="@layout/_part_share_layout"></include>
+            <include
+                android:id="@+id/linearLayoutFavorative"
+                layout="@layout/_part_favorative_layout">
+            </include>
+            <include
+                layout="@layout/_part_admin_remove"></include>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

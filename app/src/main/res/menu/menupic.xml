@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.helloworld.MainActivity" >
+    <item
+        android:id="@+id/action_regnewPost"
+        android:orderInCategory="100"
+        android:title="ارسال پست جدید"
+        app:itemTextColor="@color/black"
+        android:icon="@drawable/dot"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="گزارش محتوی"
+        app:itemTextColor="@color/black"
+        android:icon="@drawable/dot"
+        app:showAsAction="ifRoom"/>
+
+<!--    <item-->
+<!--        android:id="@+id/action_exit"-->
+<!--        android:orderInCategory="101"-->
+<!--        app:itemTextColor="@color/black"-->
+<!--        app:showAsAction="ifRoom"-->
+<!--        android:title="more"-->
+<!--        android:icon="@drawable/dot">-->
+<!--        <menu android:background="@color/colorTextGry">-->
+<!--            <item android:id="@+id/action_law"-->
+<!--                android:background="@color/colorBorderGry"-->
+<!--                android:showAsAction="ifRoom"-->
+<!--                app:itemTextColor="@color/black"-->
+
+<!--                android:icon="@drawable/dot"-->
+<!--                android:title="test"/>-->
+<!--            <item android:id="@+id/action_buysell"-->
+<!--                android:showAsAction="ifRoom"-->
+<!--                app:itemTextColor="@color/black"-->
+
+<!--                android:icon="@drawable/dot"-->
+<!--                android:title="test2"/>-->
+<!--        </menu>-->
+<!--    </item>-->
+</menu>

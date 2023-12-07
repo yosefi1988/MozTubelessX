@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fb_background_color"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    android:fitsSystemWindows="true"
+    android:scrollbarAlwaysDrawVerticalTrack="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fb_background_color"   >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:textDirection="rtl"
+            android:layoutDirection="rtl"
+            android:padding="10dp"
+            android:paddingTop="130dp">
+
+            <TextView
+                android:id="@+id/login_title"
+                style="@style/Style_TextView_Text"
+                android:text="@string/search_by_national_code" />
+
+            <EditText
+                android:id="@+id/editTextNationalCode"
+                style="@style/AppTheme.DayEditText"
+                android:drawableLeft="@android:drawable/ic_menu_search"
+                android:hint="@string/national_code"
+                android:inputType="number"  />
+
+            <TextView
+                android:id="@+id/textViewSearchByName"
+                style="@style/Style_TextView_Text"
+                android:text="@string/search_by_name" />
+
+
+            <Button
+                android:id="@+id/button_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search"
+                android:layout_marginTop="20dp"
+                android:text="@string/searchRequest"
+                android:textAllCaps="false"
+                android:textColor="#fff"  />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_search"
+            android:text="@string/searchRequest"
+            android:textAllCaps="false"
+            android:textColor="#fff"  />
+    </LinearLayout>
+
+</RelativeLayout>
