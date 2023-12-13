@@ -51,7 +51,7 @@
                 android:hint="@string/your_message" />
 
             <TextView
-                style="@style/Theme.DayTextView"
+                style="@style/Style_TextView_Text"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
                 android:visibility="gone"
@@ -98,11 +98,11 @@
         <Button
             android:id="@+id/buttonReg"
             android:text="@string/send"
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:layout_width="0dp"
             android:layout_weight="1"  />
         <Button
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:id="@+id/buttonBack"
             android:layout_width="0dp"
             android:layout_weight="1"

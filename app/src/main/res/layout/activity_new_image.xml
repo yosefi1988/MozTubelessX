@@ -216,11 +216,11 @@
         <Button
             android:id="@+id/buttonReg"
             android:text="@string/reg"
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:layout_width="0dp"
             android:layout_weight="1"  />
         <Button
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:id="@+id/buttonBack"
             android:layout_width="0dp"
             android:layout_weight="1"

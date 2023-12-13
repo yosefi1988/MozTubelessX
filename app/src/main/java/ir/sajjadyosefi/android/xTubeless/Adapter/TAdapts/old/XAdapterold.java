@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.classes.ITransactionsListRequest;
 import ir.sajjadyosefi.accountauthenticator.model.request.ATransactionListRequest;
 import ir.sajjadyosefi.accountauthenticator.model.response.ATransactionListResponse;
@@ -57,7 +57,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
+import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_BOURSE_TRAIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_CREATORS_POST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_TIMELINE;

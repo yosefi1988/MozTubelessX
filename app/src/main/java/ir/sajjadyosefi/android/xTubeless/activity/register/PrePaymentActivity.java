@@ -21,9 +21,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
@@ -113,7 +113,7 @@ public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
         metaData.put("mobile",mobileNumber);
 
         bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity.getIntent(this, bundle);
+        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.getIntent(this, bundle);
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         startActivityForResult(intent, 1000);
 

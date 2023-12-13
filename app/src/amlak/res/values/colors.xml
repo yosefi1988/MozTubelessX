@@ -14,7 +14,7 @@
 
     <color name="colorProgress">@color/tubelessColor_blue_03</color>
     <color name="fb_background_color">@color/colorPrimary</color>
-    <color name="fb_foreground_color">@color/tubelessColor_blue_03</color>
+    <color name="textview_colorful">@color/tubelessColor_blue_03</color>
 
 
     <color name="tubelessColor_button_disable">#716969</color>

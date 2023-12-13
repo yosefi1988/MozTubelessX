@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        style="@style/Style_TextView_Object_Colorful"
+                        style="@style/Style.TextView.Tubeless.Colorful"
                         android:id="@+id/user_wallet"
                         android:gravity="center" />
                     <Button
@@ -117,12 +117,12 @@
                                     android:paddingStart="10dp">
                                     <TextView
                                         android:id="@+id/textViewTitle"
-                                        style="@style/Style_TextView_Object_Colorful"
+                                        style="@style/Style.TextView.Tubeless.Colorful"
                                         android:layout_width="wrap_content"/>
 
                                     <TextView
                                         android:id="@+id/textViewStateName"
-                                        style="@style/Style_TextView_Object_Colorful"
+                                        style="@style/Style.TextView.Tubeless.Colorful"
                                         android:layout_width="wrap_content"/>
                                 </LinearLayout>
 
@@ -169,21 +169,21 @@
                                 <include  layout="@layout/_part_horizontal_line"></include>
                                 <TextView
                                     android:text="توضیحات"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewDescription"
                                     style="@style/Style_TextView_Text"/>
 
                                 <TextView
                                     android:text="تاریخ ها"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewDate"
                                     style="@style/Style_TextView_Text"/>
 
                                 <TextView
                                     android:text="راههای ارتباطی"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewCommiunicate"
                                     style="@style/Style_TextView_Text"/>

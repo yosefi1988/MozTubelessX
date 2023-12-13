@@ -32,7 +32,7 @@
                 android:id="@+id/login_title"
                 android:visibility="gone"
                 android:text="@string/reg_new_yafte"
-                style="@style/Style_TextView_Object_Colorful" />
+                style="@style/Style.TextView.Tubeless.Colorful" />
             <TextView
                 android:text="شماره پشتیبانی 09227087288"
                 style="@style/Style_TextView_Text" />

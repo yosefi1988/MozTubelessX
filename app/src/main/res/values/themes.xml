@@ -6,8 +6,8 @@
         <item name="colorPrimaryDark">@color/tubelessColor_blue_01</item>
         <item name="colorAccent">@color/tubelessColor_blue_01</item>
 
-        <item name="buttonStyle">@style/ThemeTubeless.Button</item>
-        <item name="android:buttonStyle">@style/ThemeTubeless.Button</item>
+        <item name="buttonStyle">@style/Style.Button.Tubeless</item>
+        <item name="android:buttonStyle">@style/Style.Button.Tubeless</item>
 
         <item name="android:editTextStyle">@style/AppTheme.DayEditText</item>
         <item name="editTextStyle">@style/AppTheme.DayEditText</item>
@@ -15,7 +15,7 @@
         <item name="radioButtonStyle">@style/MyRadioButton</item>
         <item name="android:radioButtonStyle">@style/MyRadioButton</item>
 
-        <item name="android:textViewStyle">@style/Theme.DayTextView</item>
+        <item name="android:textViewStyle">@style/Style.TextView.TubelessTheme</item>
     </style>
 
     <style name="TubelessTheme" parent="TubelessThemeBase"> </style>
@@ -47,8 +47,8 @@
         <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
 
-        <item name="buttonStyle">@style/ThemeSB24.Button</item>
-        <item name="android:buttonStyle">@style/ThemeSB24.Button</item>
+        <item name="buttonStyle">@style/Style.Button.SB24</item>
+        <item name="android:buttonStyle">@style/Style.Button.SB24</item>
     </style>
 
 
@@ -65,7 +65,7 @@
         <!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
         <!-- Customize your theme here. -->
 
-        <item name="buttonStyle">@style/ThemeSB24.Button</item>
-        <item name="android:buttonStyle">@style/ThemeSB24.Button</item>
+        <item name="buttonStyle">@style/Style.Button.SB24</item>
+        <item name="android:buttonStyle">@style/Style.Button.SB24</item>
     </style>
 </resources>

@@ -89,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        style="@style/Style_TextView_Object_Colorful"
+                        style="@style/Style.TextView.Tubeless.Colorful"
                         android:id="@+id/user_wallet"
                         android:gravity="center" />
                     <Button

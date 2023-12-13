@@ -105,7 +105,7 @@
 
 
             <TextView
-                style="@style/Theme.DayTextView"
+                style="@style/Style_TextView_Text"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
                 android:text="مثال:    پژو 405 مدل 1376 GLX " />

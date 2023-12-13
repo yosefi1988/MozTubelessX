@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Button-->
-    <style name="ThemeTubeless.Button" parent="Base.Widget.AppCompat.Button">
+    <style name="Style.Button.Tubeless" parent="Base.Widget.AppCompat.Button">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:textColor">@color/day_white_text</item>
         <item name="android:background">@drawable/widget_button</item>
@@ -9,7 +9,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <style name="ThemeSB24.Button" parent="Base.Widget.AppCompat.Button">
+    <style name="Style.Button.SB24" parent="Base.Widget.AppCompat.Button">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:textColor">@color/button_textColor</item>
         <item name="android:background">@drawable/widget_button</item>
@@ -20,18 +20,17 @@
     </style>
     <!--End Button-->
 
+    <!--TextView-->
 
+    <!--End TextView-->
 
     <style name="AppTheme.NightEditText" parent="@android:style/Widget.EditText">
         <item name="android:background">@drawable/rounded_edittext</item>
         <item name="android:imeOptions">flagNoExtractUi</item>
         <item name="android:textColorHint">@color/night_white_hint_text</item>
-        <item name="android:textColor">@color/night_white_text</item>
+        <item name="android:textColor">@color/textview_default</item>
         <!--        <item name="android:textSize">20dp</item>-->
     </style>
 
-    <style name="Theme.NightTextView" parent="@android:style/TextAppearance.Widget.TextView">
-        <item name="android:textColor">@color/night_white_text</item>
-        <item name="android:text"></item>
-    </style>
+
 </resources>

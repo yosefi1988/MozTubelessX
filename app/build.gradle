@@ -505,8 +505,6 @@ dependencies {
     implementation 'com.zarinpal:purchase:0.0.10'
 }
 
-
-
 apply plugin: 'com.google.gms.google-services'
 
 
