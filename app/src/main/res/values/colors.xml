@@ -78,4 +78,15 @@
 
     <color name="tubelessColor_button_disable">#716969</color>
     <color name="tubelessColor_button_normal">#422626</color>
+
+<!--SDK-->
+    <color name="button_textColor">#FFFFFFFF</color>
+
+    <color name="button_disable">#808385</color>
+    <color name="button_disable_border">#454647</color>
+    <color name="button">#03A9F4</color>
+    <color name="button_border">#25BBFF</color>
+    <color name="button_pressed">#1E89BA</color>
+    <color name="button_pressed_border">#1F9DD6</color>
+
 </resources>

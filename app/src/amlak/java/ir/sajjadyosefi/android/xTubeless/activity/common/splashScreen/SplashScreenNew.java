@@ -74,7 +74,7 @@ public class SplashScreenNew extends AppCompatActivity implements ISplashScreenV
         peresenter = new SplashScreenPresenterCompl(this,this);
 
         //setTheme(R.style.ThemeFullSCreenX);
-        //setTheme(R.style.AppNightTheme);
+        //setTheme(R.style.TubelessTheme);
 
 
         setContentView(R.layout.activity_splash_screen);
