@@ -11,7 +11,9 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.PostMessagesRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
@@ -31,6 +33,7 @@ import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -44,13 +47,19 @@ public class RetrofitHelperTubeless {
     private static RetrofitHelperTubeless apiManager;
     private int responceCountSize = 5;
 
-    private RetrofitHelperTubeless() {
+    Gson gson = new Gson();
+    Context context;
+
+
+    private RetrofitHelperTubeless(Context _context) {
+        context = _context;
 
         HostSelectionInterceptor interceptor = new HostSelectionInterceptor();
         //HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 
         OkHttpClient client = new OkHttpClient().newBuilder()
-                .addInterceptor(interceptor)
+//                .addInterceptor(interceptor)
+                .addInterceptor(new SimpleLoggingInterceptor())
                 .build();
 
 
@@ -70,18 +79,32 @@ public class RetrofitHelperTubeless {
 
     }
 
-    public static RetrofitHelperTubeless getInstance() {
+    public static RetrofitHelperTubeless getInstance(Context _context) {
         if (apiManager == null) {
-            apiManager = new RetrofitHelperTubeless();
+            apiManager = new RetrofitHelperTubeless(_context);
         }
         return apiManager;
     }
 
-
+    public class SimpleLoggingInterceptor implements Interceptor {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            Request request = chain.request();
+            Log.i( context.getString(R.string.Logger) + "url", String.valueOf(request.url()));
+            Log.i( context.getString(R.string.Logger) + "headers", String.valueOf(request.headers()));
+            if (request.body() != null)
+                Log.i( context.getString(R.string.Logger) + "contentType", String.valueOf(request.body().contentType()));
+            return chain.proceed(request);
+        }
+    }
 
     ///////////////////////////////////////////////////moz//////////////////////////////////////////////////
     public void config(LoginRequest request,Callback<Configuration> callback) {
         Call<Configuration> userCall = service.config(request);
+
+        if(BuildConfig.DEBUG)
+            Log.i( context.getString(R.string.Logger) + "request", String.valueOf(gson.toJson(request)));
+
         userCall.enqueue(callback);
     }
 

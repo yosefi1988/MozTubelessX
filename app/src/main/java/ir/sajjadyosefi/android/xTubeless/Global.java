@@ -186,7 +186,7 @@ public class Global extends MultiDexApplication {
 //        Adad.initialize("357418d6-115d-47d3-8fb4-a228d2c1b882");// جایگاه وارد کردن توکن یا شناسه ی اپلیکیشن مورد نظر
 
 
-        apiManagerTubeless = RetrofitHelperTubeless.getInstance();
+        apiManagerTubeless = RetrofitHelperTubeless.getInstance(getApplicationContext());
         LitePal.initialize(this);
 
 
