@@ -71,7 +71,7 @@
                 style="@style/Style_TextView_Text" />
             <EditText
                 android:id="@+id/editTextTitle"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/title" />
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:padding="-5dp"
                 android:visibility="gone"
                 android:orientation="horizontal">
@@ -127,7 +127,7 @@
 
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:height="140dp"
                 android:hint="متن آکهی" />
@@ -152,7 +152,7 @@
                     android:text="مبلغ جهت مشاهده پست(حداقل 10 ریال):"/>
                 <EditText
                     android:id="@+id/editTextAmount"
-                    style="@style/AppTheme.DayEditText"
+                    style="@style/Style.EditText_direct.Tubeless"
                     android:inputType="number"
                     android:text="50"
                     android:drawableLeft="@android:drawable/ic_menu_edit"

@@ -32,7 +32,7 @@
 
             <EditText
                 android:id="@+id/editTextNationalCode"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_search"
                 android:hint="@string/national_code"
                 android:inputType="number"  />

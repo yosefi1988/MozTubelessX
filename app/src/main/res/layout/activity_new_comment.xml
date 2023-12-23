@@ -45,7 +45,7 @@
 
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:background="@drawable/circle_background"
                 android:hint="@string/your_message" />

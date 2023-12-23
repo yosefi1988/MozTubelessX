@@ -9,8 +9,8 @@
         <item name="buttonStyle">@style/Style.Button.Tubeless</item>
         <item name="android:buttonStyle">@style/Style.Button.Tubeless</item>
 
-        <item name="android:editTextStyle">@style/AppTheme.DayEditText</item>
-        <item name="editTextStyle">@style/AppTheme.DayEditText</item>
+        <item name="android:editTextStyle">@style/Style.EditText.Tubeless</item>
+        <item name="editTextStyle">@style/Style.EditText.Tubeless</item>
 
         <item name="radioButtonStyle">@style/MyRadioButton</item>
         <item name="android:radioButtonStyle">@style/MyRadioButton</item>

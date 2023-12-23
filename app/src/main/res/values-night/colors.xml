@@ -9,4 +9,10 @@
     <color name="button_border">#1D8DBF</color>
     <color name="button_pressed">#104D68</color>
     <color name="button_pressed_border">#135573</color>
+
+
+    <color name="edittext_border">#857878</color>
+    <color name="edittext_back">#A6A6A6</color>
+    <color name="edittext_hint_text">#CA9A9A9A</color>
+
 </resources>

@@ -2,10 +2,6 @@
 <resources>
 
 
-
-    <color name="night_white_hint_text">#d65c5c5c</color>
-    <color name="day_white_hint_text">#cabcbcbc</color>
-
     <color name="day_white_text">#fff</color>
     <color name="day_white">#fff</color>
     <color name="day_contact_us_back">#cabcbcbc</color>
@@ -21,7 +17,6 @@
     <color name="day_dark_transparent">#5d151515</color>
 
     <color name="night_dark_accounting_border">#B1BCBE</color>
-    <color name="day_edittext_border">#fff</color>
 
 
 
@@ -45,9 +40,8 @@
 
 
     <color name="colorBlack">#000000</color>
-
-    <color name="colorButton">#991041</color>
     <color name="colorError">#991041</color>
+    <color name="colorButton">#991041</color>
 
 
 
@@ -89,5 +83,9 @@
     <color name="button_pressed">#1E89BA</color>
     <color name="button_pressed_border">#1F9DD6</color>
 
+    <color name="edittext_border">#E4E4E4</color>
+    <color name="edittext_border_error">@color/colorError</color>
+    <color name="edittext_back">#EDEDED</color>
+    <color name="edittext_hint_text">#cabcbcbc</color>
 
 </resources>

@@ -79,20 +79,20 @@
 
             <EditText
                 android:id="@+id/editTextTitle"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/subject" />
             <EditText
                 android:id="@+id/editTextPhone"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:inputType="phone"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/phoneNumber" />
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:inputType="textMultiLine"
                 android:lines="5"
                 android:textDirection="rtl"
