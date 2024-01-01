@@ -84,7 +84,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp" />
                 <TextView
-                    android:id="@+id/textViewCommentTitle"
                     android:text="توضیحات"
                     android:visibility="gone"
                     style="@style/Style.TextView.Tubeless.Colorful"/>
@@ -102,7 +101,7 @@
                     android:id="@+id/textViewAmounts"
                     android:visibility="gone"
                     style="@style/Style_TextView_Text"/>
-                <include android:layout_marginBottom="10dp" layout="@layout/_part_horizontal_line"></include>
+                <include layout="@layout/_part_horizontal_line"></include>
                 <TextView
                     android:text="تاریخ ها"
                     android:visibility="gone"
@@ -121,7 +120,6 @@
                     android:background="#ecf0f1" />
 
                 <TextView
-                    android:id="@+id/textViewCommentTitle"
                     android:text="آگهی دهنده"
                     android:visibility="gone"
                     style="@style/Style.TextView.Tubeless.Colorful"/>
@@ -148,7 +146,6 @@
                 </LinearLayout>
                 <include android:layout_marginBottom="10dp" layout="@layout/_part_horizontal_line"></include>
                 <TextView
-                    android:id="@+id/textViewCommentTitle"
                     android:text="نکته"
                     android:visibility="gone"
                     style="@style/Style.TextView.Tubeless.Colorful"/>

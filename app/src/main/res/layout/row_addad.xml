@@ -13,13 +13,14 @@
         android:id="@+id/relativeLayout"
         android:background="@drawable/circle_background"
         android:padding="2dp">
-        <ir.adad.client.Banner
-            android:id="@+id/banner_ad_view"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:visibility="visible"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="5dp" />
+
+<!--        <ir.adad.client.Banner-->
+<!--            android:id="@+id/banner_ad_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:visibility="visible"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_margin="5dp" />-->
     </RelativeLayout>
 </LinearLayout>

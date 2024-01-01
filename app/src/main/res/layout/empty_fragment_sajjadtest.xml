@@ -12,15 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <ir.sajjadyosefi.android.tubeless.view.widget.ViewPagerCustomDuration
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/imageView2" >
-
-    </ir.sajjadyosefi.android.tubeless.view.widget.ViewPagerCustomDuration>
+<!--    <ir.sajjadyosefi.android.tubeless.view.widget.ViewPagerCustomDuration-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:id="@+id/pager"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_below="@+id/imageView2" >-->
+<!--    </ir.sajjadyosefi.android.tubeless.view.widget.ViewPagerCustomDuration>-->
 
     <ImageView
         android:layout_width="wrap_content"

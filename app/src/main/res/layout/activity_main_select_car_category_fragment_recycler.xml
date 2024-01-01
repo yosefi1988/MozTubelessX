@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<ir.sls.android.slspush.views.CheckableRelativeLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -39,4 +39,4 @@
         android:textColor="#000"
         android:visibility="visible"
         android:text="@string/no_data_available" />
-</ir.sls.android.slspush.views.CheckableRelativeLayout>
+</RelativeLayout>

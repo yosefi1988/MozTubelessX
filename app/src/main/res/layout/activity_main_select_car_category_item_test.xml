@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ir.sajjadyosefi.android.tubeless.view.widget.JustifiedPersianTextView
+<TextView
     android:id="@+id/text_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

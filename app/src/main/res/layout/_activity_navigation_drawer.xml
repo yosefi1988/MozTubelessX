@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content" >
 
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ImageViewPlus
+                    <ir.sajjadyosefi.android.xTubeless.widget.imageView.ImageViewPlus
                         android:id="@+id/iv_menuCover"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

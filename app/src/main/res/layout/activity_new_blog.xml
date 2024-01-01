@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fb_background_color"
-    android:orientation="vertical"
-    android:textDirection="rtl"
-    android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
 
     <ScrollView

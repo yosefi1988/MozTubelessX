@@ -115,7 +115,6 @@
 
                 <include layout="@layout/_part_horizontal_line"></include>
                 <TextView
-                    android:id="@+id/textViewCommentTitle"
                     android:text="آگهی دهنده"
                     style="@style/Style.TextView.Tubeless.Colorful"/>
                 <LinearLayout
@@ -140,7 +139,6 @@
                 </LinearLayout>
                 <include android:layout_marginBottom="10dp" layout="@layout/_part_horizontal_line"></include>
                 <TextView
-                    android:id="@+id/textViewCommentTitle"
                     android:text="نکته"
                     android:visibility="gone"
                     style="@style/Style.TextView.Tubeless.Colorful"/>

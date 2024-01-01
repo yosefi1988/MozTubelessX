@@ -67,4 +67,11 @@
         <item name="buttonStyle">@style/Style.Button.SB24</item>
         <item name="android:buttonStyle">@style/Style.Button.SB24</item>
     </style>
+
+    <style name="TubelessTheme.NoActionBar.NoTranslucent2">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
 </resources>
