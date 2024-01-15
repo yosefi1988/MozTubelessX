@@ -9,7 +9,10 @@ public class TimelineItemRequest {
         this.IDApplication = AccountGeneral.getIDApplication() + "";
         this.IP = AccountGeneral.getIP();
         this.Store = AccountGeneral.getStore();
-        this.UserCode = Global.user2.getUserCodeAsString();
+        if ((Global.user2 != null))
+            this.UserCode = Global.user2.getUserCodeAsString();
+        else
+            this.UserCode = "";
     }
     public void setIDPost(String IDPost) {
         this.IDPost = IDPost;

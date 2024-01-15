@@ -443,6 +443,7 @@ public class ReadProfileActivity extends TubelessTransparentStatusBarActivity {
         if (Global.user2 != null)
             Global.apiManagerTubeless.getElectedUserByUserCode(req, callbackss);
         else {
+            Toast.makeText(getContext(), getContext().getString(R.string.not_login), Toast.LENGTH_LONG).show();
             finish();
         }
     }

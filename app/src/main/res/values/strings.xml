@@ -77,7 +77,7 @@
     <string name="startDownloadText">دانلود شروع شد.</string>
     <string name="GhablanDownloadShode">اینو قبلاً دانلود کردید</string>
     <string name="NotLoggedIn">برای دانلود تصاویر باید وارد حساب خود شوید</string>
-    <string name="NotLoggedIn3">ابتدا باید وارد حساب خود شوید</string>
+    <string name="NotLoggedIn3">ابتدا وارد حساب کاربری خود شوید.</string>
     <string name="EDIT_PROFILE">ویرایش پروفایل</string>
     <string name="LOGOUT_SUCCSESS">با موفقیت خارج شدید</string>
     <string name="notMatchPassword">رمز های عبور وارد شده یکسان نیست</string>

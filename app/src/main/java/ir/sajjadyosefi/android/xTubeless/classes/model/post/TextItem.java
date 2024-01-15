@@ -359,7 +359,7 @@ public class TextItem extends MainItem {
 //                    Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
 
                     if (Global.user2 == null) {
-                        Toast.makeText(mContext,"ابتدا وارد حساب کاربری خود شوید.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext,mContext.getResources().getString(R.string.NotLoggedIn3),Toast.LENGTH_LONG).show();
 
 
 
