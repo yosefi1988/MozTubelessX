@@ -8,7 +8,8 @@ import android.content.Intent;
 
 import com.google.gson.Gson;
 
-import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
+
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.classes.ITransactionsListRequest;
 import ir.sajjadyosefi.accountauthenticator.model.AUMIC;
@@ -25,7 +26,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
-import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_USER_OBJECT;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_USER_OBJECT;
 import static ir.sajjadyosefi.android.xTubeless.Global.getFileLocalPath;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.user.User2.deleteAllUsersData;

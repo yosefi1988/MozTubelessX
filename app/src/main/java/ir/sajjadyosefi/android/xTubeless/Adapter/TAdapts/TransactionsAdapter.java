@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.classes.ITransactionsListRequest;
 import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
 import ir.sajjadyosefi.accountauthenticator.model.request.ATransactionListRequest;
@@ -40,7 +40,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainVi
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
-import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
+import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
 
 
 public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerView.Adapter<TubelessMainViewHolder> {

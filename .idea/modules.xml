@@ -2,20 +2,42 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MozTubelessX-master.iml" filepath="$PROJECT_DIR$/.idea/modules/MozTubelessX-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX-master.KMPAutoCompleteTextView.iml" filepath="$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX-master.KMPAutoCompleteTextView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX-master.LitePal-core.iml" filepath="$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX-master.LitePal-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX-master.PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX-master.PagerSlidingTabStrip.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-ad-5.1.1/MozTubelessX-master.adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-ad-5.1.1/MozTubelessX-master.adad-sdk-ad-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-banner-5.1.1/MozTubelessX-master.adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-banner-5.1.1/MozTubelessX-master.adad-sdk-banner-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-core-5.1.1/MozTubelessX-master.adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-core-5.1.1/MozTubelessX-master.adad-sdk-core-5.1.1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MozTubelessX-master.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MozTubelessX-master.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX-master.applicationtestkotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX-master.applicationtestkotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX-master.faboptions.iml" filepath="$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX-master.faboptions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX-master.libraryMaterialEditText.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX-master.libraryMaterialEditText.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX-master.libraryNumberPicker.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX-master.libraryNumberPicker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX-master.superpickerlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX-master.superpickerlibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX-master.ucrop.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX-master.ucrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MozTubelessX.iml" filepath="$PROJECT_DIR$/.idea/modules/MozTubelessX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.iml" filepath="$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.main.iml" filepath="$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX.KMPAutoCompleteTextView.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.iml" filepath="$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX.LitePal-core.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.main.iml" filepath="$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX.PagerSlidingTabStrip.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-ad-5.1.1/MozTubelessX.adad-sdk-ad-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-ad-5.1.1/MozTubelessX.adad-sdk-ad-5.1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-banner-5.1.1/MozTubelessX.adad-sdk-banner-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-banner-5.1.1/MozTubelessX.adad-sdk-banner-5.1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adad-sdk-core-5.1.1/MozTubelessX.adad-sdk-core-5.1.1.iml" filepath="$PROJECT_DIR$/.idea/modules/adad-sdk-core-5.1.1/MozTubelessX.adad-sdk-core-5.1.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MozTubelessX.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.iml" filepath="$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/applicationtestkotlin/MozTubelessX.applicationtestkotlin.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.iml" filepath="$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/faboptions/MozTubelessX.faboptions.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.main.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryMaterialEditText/MozTubelessX.libraryMaterialEditText.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.main.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/libraryNumberPicker/MozTubelessX.libraryNumberPicker.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.main.iml" filepath="$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/superpickerlibrary/MozTubelessX.superpickerlibrary.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/ucrop/MozTubelessX.ucrop.unitTest.iml" />
     </modules>
   </component>
 </project>

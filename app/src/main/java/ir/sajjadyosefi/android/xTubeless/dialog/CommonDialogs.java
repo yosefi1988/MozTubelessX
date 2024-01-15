@@ -16,7 +16,7 @@ import androidx.core.app.ActivityCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
+
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
