@@ -1,5 +1,6 @@
 <resources>
     <string name="HOST" translatable="false">http://www.example.com</string>
+    <string name="Logger">SB24SDKLOG/</string>
 
     <string name="app_price">1000</string>
     <string name="app_pardakht_text" formatted="false">با پرداخت مبلغ %s تومان به صورت نامحدود از مطالب این نرم افزار استفاده کنید.\nقسمتی از این مبلغ صرف ایتام خواهد شد.\nدر صورت عدم تمایل به پرداخت مبلغ ، میتوانید تمام مطالب را به صورت رایگان در سایت ما مشاهده کنید :\n\n %s</string>
@@ -76,7 +77,7 @@
     <string name="startDownloadText">دانلود شروع شد.</string>
     <string name="GhablanDownloadShode">اینو قبلاً دانلود کردید</string>
     <string name="NotLoggedIn">برای دانلود تصاویر باید وارد حساب خود شوید</string>
-    <string name="NotLoggedIn3">ابتدا باید وارد حساب خود شوید</string>
+    <string name="NotLoggedIn3">ابتدا وارد حساب کاربری خود شوید.</string>
     <string name="EDIT_PROFILE">ویرایش پروفایل</string>
     <string name="LOGOUT_SUCCSESS">با موفقیت خارج شدید</string>
     <string name="notMatchPassword">رمز های عبور وارد شده یکسان نیست</string>
@@ -509,4 +510,5 @@
     <string name="electedAmlaksText">در صورت نیاز به عقد قرارداد با فروشنده یا موجر و یا نقل و انتقال ملک می توانید با دفاتر مشاوران املاک همکار با ما تماس بگیریدو با کمترین هزینه خدمات دریافت کنید.</string>
     <string name="Done">ok</string>
     <string name="serach">جستحو</string>
+    <string name="accept_and_countiue">می پذیرم</string>
 </resources>

@@ -169,21 +169,20 @@ public class CustomEditText extends AppCompatEditText {
 //        filterArray[0] = new InputFilter.LengthFilter(lengthInput);
 //        flag = mode;
 //        switch (flag) {
+
+
+        setTypeface(Typeface.createFromAsset(context.getAssets(),FONT_IRANSANS_MOBILE_NORMAL_TTF));
+
         switch (0) {
             case 0:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
+
 //                setWithdraw(filterArray);
                 break;
             case 1:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
                 setInputType(InputType.TYPE_CLASS_NUMBER);
 //                setWithdraw(filterArray);
                 break;
             case 2:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
                 String dateFormat = String.format("%s/%s/%s", getText().subSequence(0, 4),
                         getText().subSequence(4, 6), getText().subSequence(6, 8));
                 setText(dateFormat);
@@ -194,42 +193,30 @@ public class CustomEditText extends AppCompatEditText {
 //                setWithdraw(filterArray);
                 break;
             case 3:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
                 addTextChangedListener(amountWatcher);
                 setInputType(InputType.TYPE_CLASS_NUMBER);
 //                setWithdraw(filterArray);
                 break;
             case 4:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
 //                setWithdraw(filterArray);
                 setInputType(
                         InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 break;
             case 5:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
 //                setWithdraw(filterArray);
                 setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 break;
             case 6:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
 //                setWithdraw(filterArray);
                 setInputType(InputType.TYPE_CLASS_NUMBER);
                 addTextChangedListener(ShebaWatcher);
                 break;
             case 7:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
 //                setWithdraw(filterArray);
                 setInputType(InputType.TYPE_CLASS_NUMBER);
                 addTextChangedListener(CardWatcher);
                 break;
             case 8:
-                setTypeface(Typeface.createFromAsset(context.getAssets(),
-                        FONT_IRANSANS_MOBILE_NORMAL_TTF));
 //                setWithdraw(filterArray);
                 setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_PHONE);
                 break;
@@ -249,5 +236,12 @@ public class CustomEditText extends AppCompatEditText {
         }catch (Exception ex){
 
         }
+    }
+
+    public void SetErrorMode(boolean state){
+        if (state)
+            setBackground(context.getResources().getDrawable(R.drawable.widget_edittext_error));
+        else
+            setBackground(context.getResources().getDrawable(R.drawable.widget_edittext));
     }
 }

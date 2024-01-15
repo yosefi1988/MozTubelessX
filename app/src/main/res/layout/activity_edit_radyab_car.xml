@@ -237,7 +237,7 @@
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
 
-                    <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+                    <Button
                         android:id="@+id/btnCamera"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

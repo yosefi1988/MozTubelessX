@@ -20,7 +20,7 @@
         <TextView
             app:layout_collapseMode="parallax"
             app:layout_scrollFlags="scroll|enterAlways"
-            style="@style/Style_TextView_Object_Colorful"/>
+            style="@style/Style.TextView.Tubeless.Colorful"/>
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -55,7 +55,7 @@
                 app:layout_collapseMode="parallax"
                 android:layout_gravity="bottom"
                 android:text=""
-                style="@style/Style_TextView_Object"/>
+                style="@style/Style_TextView_Tubeless"/>
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -157,7 +157,7 @@
 
     <include
         layout="@layout/part_bottom_navigation_menu"
-        android:layout_gravity="@integer/app_gravity"
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/bbn_default_view_behavior"/>

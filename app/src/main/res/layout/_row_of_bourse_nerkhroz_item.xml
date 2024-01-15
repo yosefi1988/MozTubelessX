@@ -48,7 +48,7 @@
                     android:id="@+id/textViewTitle"
                     style="@style/Style_TextView_Title" />
                 <TextView
-                    android:id="@+id/textViewDate"
+                    android:id="@+id/textViewDate2"
                     style="@style/Style_TextView_Title" />
                 <TextView
                     android:id="@+id/textViewDescription"

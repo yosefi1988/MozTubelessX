@@ -23,7 +23,7 @@ public class zoomImageActivity extends Activity {
 
         Picasso.get()
                 .load(getIntent().getStringExtra("image"))
-                .placeholder(R.drawable.bg_search)
+                .placeholder(R.drawable.widget_edittext)
                 //.centerInside()
                 //.transform(transformation)
                 .into(touch, new com.squareup.picasso.Callback() {

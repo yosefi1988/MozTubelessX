@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fb_background_color"
-    android:orientation="vertical"
-    android:textDirection="rtl"
-    android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless" >
 
     <ScrollView
         android:id="@+id/scroll"
@@ -32,7 +25,7 @@
                 android:id="@+id/login_title"
                 android:visibility="gone"
                 android:text="@string/reg_new_yafte"
-                style="@style/Style_TextView_Object_Colorful" />
+                style="@style/Style.TextView.Tubeless.Colorful" />
             <TextView
                 android:text="شماره پشتیبانی 09227087288"
                 style="@style/Style_TextView_Text" />
@@ -79,20 +72,20 @@
 
             <EditText
                 android:id="@+id/editTextTitle"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/subject" />
             <EditText
                 android:id="@+id/editTextPhone"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:inputType="phone"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/phoneNumber" />
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:inputType="textMultiLine"
                 android:lines="5"
                 android:textDirection="rtl"

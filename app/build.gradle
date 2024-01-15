@@ -22,8 +22,8 @@ def final Kartesokht_VersionCode = 19
 def final Yafte_VersionName = "3.3.1"
 def final Yafte_VersionCode = 40
 
-def final Amlak_VersionName = "0.3.0"
-def final Amlak_VersionCode = 43
+def final Amlak_VersionName = "0.3.1"
+def final Amlak_VersionCode = 44
 
 def final Yadak_VersionName = "3.2.5"
 def final Yadak_VersionCode = 20
@@ -40,8 +40,12 @@ android {
 
 //    flavorDimensions "default"
     flavorDimensions("version_name", "market")
-    compileSdkVersion 28
+//    compileSdkVersion 28
+//    buildToolsVersion '28.0.3'
+
+    compileSdkVersion 29
     buildToolsVersion '28.0.3'
+
     configurations {
 //        all*.exclude module: 'okhttp'
         all*.exclude module: 'okio'
@@ -68,7 +72,8 @@ android {
         disable 'MissingTranslation', 'ExtraTranslation'
     }
     defaultConfig {
-        applicationId "${appId}"
+        applicationId "${appId}" 
+
         minSdkVersion 17
         targetSdkVersion 28
 
@@ -385,7 +390,10 @@ dependencies {
 
 //    ____________________________________________________________________________________________
 
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+//    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+
+
     implementation 'com.google.android.material:material:1.0.0'
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -491,12 +499,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation project(path: ':KMPAutoCompleteTextView')
 
-    implementation files('D:\\Projects\\Android repositories\\accountauthenticator-release15.aar')
+    //implementation files('D:\\Projects\\Android repositories\\accountauthenticator-release15.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 
     implementation 'com.zarinpal:purchase:0.0.10'
 }
-
-
 
 apply plugin: 'com.google.gms.google-services'
 

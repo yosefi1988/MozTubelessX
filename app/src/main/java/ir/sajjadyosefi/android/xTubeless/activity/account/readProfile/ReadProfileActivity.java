@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,50 +18,31 @@ import com.google.gson.JsonObject;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import butterknife.BindView;
-import ir.sajjadyosefi.accountauthenticator.model.AWallet;
-import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
-import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
+
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
-import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
-import ir.sajjadyosefi.android.xTubeless.classes.model.file.FileListProperties;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.MainItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.blog.CommentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.FavRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.electedUser.ElectedUserResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.ElectedUserItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.UserItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
 import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYPOSTS;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.file.File.MAP_1;
 
 /**
  * Created by sajjad on 2/11/2018.
@@ -239,7 +219,7 @@ public class ReadProfileActivity extends TubelessTransparentStatusBarActivity {
         }else {
             Picasso.get()
                     .load(electedUserItem.getAvatar())
-                    .placeholder(R.drawable.bg_search)
+                    .placeholder(R.drawable.widget_edittext)
                     //.centerInside()
                     .transform(transformation)
                     .into(userAvatarPhoto, new com.squareup.picasso.Callback() {
@@ -463,6 +443,7 @@ public class ReadProfileActivity extends TubelessTransparentStatusBarActivity {
         if (Global.user2 != null)
             Global.apiManagerTubeless.getElectedUserByUserCode(req, callbackss);
         else {
+            Toast.makeText(getContext(), getContext().getString(R.string.not_login), Toast.LENGTH_LONG).show();
             finish();
         }
     }

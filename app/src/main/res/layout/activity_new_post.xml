@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fb_background_color"
-    android:orientation="vertical"
-    android:textDirection="rtl"
-    android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless">
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
@@ -79,7 +72,7 @@
                 style="@style/Style_TextView_Text" />
             <EditText
                 android:id="@+id/editTextTitle"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:layoutDirection="rtl"
                 android:textDirection="rtl"
                 android:layout_marginBottom="20dp"
@@ -96,7 +89,7 @@
                 style="@style/Style_TextView_Text" />
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:height="140dp"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/comments"
@@ -112,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
                 <!--android:background="@android:color/transparent"-->
@@ -136,7 +129,7 @@
                 android:id="@+id/editTextDate"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:clickable="true" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
@@ -158,7 +151,7 @@
                     android:text="مبلغ جهت مشاهده پست(حداقل 10 ریال):" />
                 <EditText
                     android:id="@+id/editTextAmount"
-                    style="@style/AppTheme.DayEditText"
+                    style="@style/Style.EditText_direct.Tubeless"
                     android:drawableLeft="@android:drawable/ic_menu_edit"
                     android:hint="ریال"
                     android:inputType="number"

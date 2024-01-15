@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fb_background_color"
-    android:orientation="vertical"
-    android:layoutDirection="rtl"
-    android:textDirection="rtl"
-    android:fitsSystemWindows="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless" >
 
     <ScrollView
         android:id="@+id/scroll"
@@ -57,11 +50,11 @@
                     android:orientation="vertical"
                     android:gravity="center"
                     android:padding="20dp"
-                    android:background="@drawable/buttonshape_disable"
+                    android:background="@drawable/shape_button_disable"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-                        style="@style/Style_TextView_Object_Colorful"
+                        style="@style/Style.TextView.Tubeless.Colorful"
                         android:id="@+id/user_wallet"
                         android:gravity="center" />
                     <Button
@@ -84,7 +77,6 @@
                     android:scrollbarAlwaysDrawVerticalTrack="true">
 
                     <ScrollView
-                        android:id="@+id/scroll"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="50dp">
@@ -117,12 +109,12 @@
                                     android:paddingStart="10dp">
                                     <TextView
                                         android:id="@+id/textViewTitle"
-                                        style="@style/Style_TextView_Object_Colorful"
+                                        style="@style/Style.TextView.Tubeless.Colorful"
                                         android:layout_width="wrap_content"/>
 
                                     <TextView
                                         android:id="@+id/textViewStateName"
-                                        style="@style/Style_TextView_Object_Colorful"
+                                        style="@style/Style.TextView.Tubeless.Colorful"
                                         android:layout_width="wrap_content"/>
                                 </LinearLayout>
 
@@ -169,21 +161,21 @@
                                 <include  layout="@layout/_part_horizontal_line"></include>
                                 <TextView
                                     android:text="توضیحات"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewDescription"
                                     style="@style/Style_TextView_Text"/>
 
                                 <TextView
                                     android:text="تاریخ ها"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewDate"
                                     style="@style/Style_TextView_Text"/>
 
                                 <TextView
                                     android:text="راههای ارتباطی"
-                                    style="@style/Style_TextView_Object_Colorful"/>
+                                    style="@style/Style.TextView.Tubeless.Colorful"/>
                                 <TextView
                                     android:id="@+id/textViewCommiunicate"
                                     style="@style/Style_TextView_Text"/>

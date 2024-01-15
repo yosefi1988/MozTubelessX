@@ -14,8 +14,8 @@ import com.squareup.picasso.Transformation;
 import java.util.ArrayList;
 import java.util.List;
 
-import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.ITubelessAdapter;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -359,7 +359,7 @@ public class TextItem extends MainItem {
 //                    Toast.makeText(mContext,"user id : " + timelineItem.getUserID() ,Toast.LENGTH_SHORT).show();
 
                     if (Global.user2 == null) {
-                        Toast.makeText(mContext,"ابتدا وارد حساب کاربری خود شوید.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(mContext,mContext.getResources().getString(R.string.NotLoggedIn3),Toast.LENGTH_LONG).show();
 
 
 

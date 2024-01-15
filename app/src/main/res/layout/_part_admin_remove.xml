@@ -18,5 +18,5 @@
     <TextView
         android:id="@+id/textViewDelete"
         android:text="حذف"
-        style="@style/Style_TextView_Object" />
+        style="@style/Style_TextView_Tubeless" />
 </LinearLayout>

@@ -31,7 +31,6 @@
         <attr name="yearRange" format="integer" />
         <attr name="timezone" format="string" />
         <attr name="displayDescription" format="string" />
-
     </declare-styleable>
 
 </resources>

@@ -2,11 +2,6 @@
 <resources>
 
 
-
-    <color name="night_white_hint_text">#d65c5c5c</color>
-    <color name="day_white_hint_text">#cabcbcbc</color>
-
-    <color name="night_white_text">#b3aeae</color>
     <color name="day_white_text">#fff</color>
     <color name="day_white">#fff</color>
     <color name="day_contact_us_back">#cabcbcbc</color>
@@ -22,7 +17,6 @@
     <color name="day_dark_transparent">#5d151515</color>
 
     <color name="night_dark_accounting_border">#B1BCBE</color>
-    <color name="day_edittext_border">#fff</color>
 
 
 
@@ -46,9 +40,8 @@
 
 
     <color name="colorBlack">#000000</color>
-
-    <color name="colorButton">#991041</color>
     <color name="colorError">#991041</color>
+    <color name="colorButton">#991041</color>
 
 
 
@@ -65,7 +58,6 @@
 
     <color name="colorProgress">@color/colorWhite</color>
     <color name="fb_background_color">#e9ebee</color>
-    <color name="fb_foreground_color">#4267b2</color>
     <color name="linkColor">#00297C</color>
 
 
@@ -78,4 +70,22 @@
 
     <color name="tubelessColor_button_disable">#716969</color>
     <color name="tubelessColor_button_normal">#422626</color>
+
+<!--SDK-->
+    <color name="button_textColor">#FFFFFFFF</color>
+    <color name="textview_default">#858383</color>
+    <color name="textview_colorful">#4267b2</color>
+
+    <color name="button_disable">#808385</color>
+    <color name="button_disable_border">#454647</color>
+    <color name="button">#03A9F4</color>
+    <color name="button_border">#25BBFF</color>
+    <color name="button_pressed">#1E89BA</color>
+    <color name="button_pressed_border">#1F9DD6</color>
+
+    <color name="edittext_border">#E4E4E4</color>
+    <color name="edittext_border_error">@color/colorError</color>
+    <color name="edittext_back">#EDEDED</color>
+    <color name="edittext_hint_text">#cabcbcbc</color>
+
 </resources>

@@ -65,7 +65,7 @@
             android:weightSum="1"
             android:orientation="horizontal">
 
-            <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            <Button
                 android:id="@+id/button_search"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -75,7 +75,7 @@
                 android:visibility="invisible"
                 android:text="@string/search" />
 
-            <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+            <Button
                 android:id="@+id/button_register_cancel"
                 android:layout_width="0dp"
                 android:layout_height="40dp"

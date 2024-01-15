@@ -45,8 +45,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessListAmountsAdapter;
@@ -1265,7 +1265,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         metaData.put("mobile",mobileNumber);
 
         bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity.getIntent(this, bundle);
+        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.getIntent(this, bundle);
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         startActivityForResult(intent, 1000);
 
@@ -1294,7 +1294,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         metaData.put("mobile",mobileNumber);
 
         bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity.getIntent(this, bundle);
+        Intent intent = ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.getIntent(this, bundle);
         intent.putExtra("defaultValue",amountForRegNewPost_Toman);
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         startActivityForResult(intent, CALL_AGAIN );

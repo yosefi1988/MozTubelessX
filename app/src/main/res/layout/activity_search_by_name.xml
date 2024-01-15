@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:textDirection="rtl"
-    android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless" >
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -30,21 +24,21 @@
                 android:text="@string/serach_by_name" />
             <EditText
                 android:id="@+id/editTextName"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:textDirection="rtl"
                 android:hint="@string/name"  />
 
             <EditText
                 android:id="@+id/editTextFamily"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/family" />
 
             <EditText
                 android:id="@+id/editTextFather"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:textDirection="rtl"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/father_name"  />

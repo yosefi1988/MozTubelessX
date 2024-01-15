@@ -73,7 +73,7 @@
                     app:dd_numDots="5"
                     app:dd_scaleMultiplier="2" />
 
-                <ir.sajjadyosefi.android.tubeless.view.widget.JustifiedPersianTextView
+                <TextView
                     android:id="@+id/tvFooterText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -8,8 +9,12 @@ import com.google.gson.internal.Primitives;
 
 import java.lang.reflect.Type;
 
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
+import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
+import okhttp3.RequestBody;
+import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,6 +52,17 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
         JsonElement jsonElement = gson.toJsonTree(response.body());
         ServerResponseBase responseX = null;
 
+        try {
+            RequestBody request;
+            if(BuildConfig.DEBUG) {
+                Buffer buffer = new Buffer();
+                response.raw().request().body().writeTo(buffer);
+                request = response.raw().request().body();
+                Log.i( mContext.getString(R.string.Logger) + "SNO", response.raw().request().url().toString());
+                Log.i( mContext.getString(R.string.Logger) + "REQUEST", buffer.readUtf8());
+                Log.i( mContext.getString(R.string.Logger) + "RESPONSE", String.valueOf(jsonElement));
+            }
+        }catch (Exception exception){}
 
         try {
             if (response.body() == null){

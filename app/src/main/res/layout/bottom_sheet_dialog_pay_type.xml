@@ -36,12 +36,12 @@
                 android:id="@+id/pay_by_wallet"
                 android:layout_weight="1"
                 android:text="@string/pay_by_wallet"
-                style="@style/AppTheme.DayButton" />
+                style="@style/Style.Button.Tubeless" />
             <Button
                 android:id="@+id/pay_direct"
                 android:layout_weight="1"
                 android:text="@string/pay_direct"
-                style="@style/AppTheme.DayButton" />
+                style="@style/Style.Button.Tubeless" />
 
         </LinearLayout>
 

@@ -28,7 +28,7 @@
         <Button
             android:id="@+id/accept"
             android:text="@string/accept_and_countiue"
-            style="@style/AppTheme.DayButton" />
+            style="@style/Style.Button.Tubeless" />
 
 
         <View

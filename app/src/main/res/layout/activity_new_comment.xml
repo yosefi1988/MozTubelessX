@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fb_background_color"
-    android:orientation="vertical"
-    android:textDirection="rtl"
-    android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
+    style="@style/Style.RelativeLayout_direct.Tubeless" >
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
@@ -45,13 +38,13 @@
 
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/AppTheme.DayEditText"
+                style="@style/Style.EditText_direct.Tubeless"
                 android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:background="@drawable/circle_background"
                 android:hint="@string/your_message" />
 
             <TextView
-                style="@style/Theme.DayTextView"
+                style="@style/Style_TextView_Text"
                 android:textColor="@color/colorTextGry"
                 android:layout_marginTop="-10dp"
                 android:visibility="gone"
@@ -98,11 +91,11 @@
         <Button
             android:id="@+id/buttonReg"
             android:text="@string/send"
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:layout_width="0dp"
             android:layout_weight="1"  />
         <Button
-            style="@style/AppTheme.DayButton"
+            style="@style/Style.Button.Tubeless"
             android:id="@+id/buttonBack"
             android:layout_width="0dp"
             android:layout_weight="1"

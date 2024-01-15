@@ -1,16 +1,42 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Button-->
-    <style name="AppTheme.DayButton" parent="Base.Widget.AppCompat.Button">
+    <style name="Style.Button.Tubeless" parent="Base.Widget.AppCompat.Button">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:textColor">@color/day_white_text</item>
-        <item name="android:background">@drawable/button</item>
+        <item name="android:background">@drawable/widget_button</item>
 <!--        <item name="android:textSize">18dp</item>-->
         <item name="android:textAllCaps">false</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/iransans</item>
     </style>
+    <style name="Style.Button.SB24" parent="Base.Widget.AppCompat.Button">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textColor">@color/button_textColor</item>
+        <item name="android:background">@drawable/widget_button</item>
+        <!--        <item name="android:textSize">18dp</item>-->
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--End Button-->
 
     <!--TextView-->
+
+    <style name="Style.TextView.TubelessTheme" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:textColor">@color/textview_default</item>
+        <item name="android:text"></item>
+    </style>
+    <style name="Style_TextView_Tubeless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Style.TextView.Tubeless.Colorful" parent="Style_TextView_Tubeless">
+        <item name="android:textColor">@color/textview_colorful</item>
+    </style>
     <style name="Style_TextView_Title">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -23,20 +49,47 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">12sp</item>
-<!--        android:fontFamily="@font/iransans"-->
+        <!--        android:fontFamily="@font/iransans"-->
     </style>
-    <style name="Style_TextView_Object">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">14sp</item>
+    <!--End TextView-->
+
+    <!--EditText-->
+    <style name="Style.EditText.Tubeless" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/widget_edittext</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:imeOptions">flagNoExtractUi</item>
+        <item name="android:textColorHint">@color/edittext_hint_text</item>
     </style>
 
-    <style name="Style_TextView_Object_Colorful" parent="Style_TextView_Object">
-        <item name="android:textColor">@color/fb_foreground_color</item>
+    <style name="Style.EditText_direct.Tubeless" parent="@style/Style.EditText.Tubeless">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
-    <!--TextView-->
-<!--    radio-->
+    <!--End EditText-->
+
+    <style name="Style.RelativeLayout_direct.Tubeless" parent="@android:style/Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+<!--        <item name="android:layout_margin">10dp</item>-->
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:textDirection">rtl</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">@color/fb_background_color</item>
+    </style>
+
+
+
+
+
+    <!--    radio-->
     <style name="MyRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
 <!--        <item name="android:textSize">5dp</item>-->
 <!--        <item name="colorControlNormal">@color/tubelessColor_button_normal</item>-->
@@ -71,20 +124,6 @@
         <item name="android:layout_centerInParent">true</item>
     </style>
 
-    <!--EditText-->
-    <style name="AppTheme.DayEditText" parent="@android:style/Widget.EditText">
-        <item name="android:background">@drawable/bg_search</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textAlignment">viewStart</item>
-        <item name="android:gravity">start</item>
-        <item name="android:textDirection">locale</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:imeOptions">flagNoExtractUi</item>
-        <item name="android:textColorHint">@color/day_white_hint_text</item>
-    </style>
 
 
     <!-- This configures the styles for the text within the Toolbar  -->
@@ -94,6 +133,12 @@
         <item name="android:textColor">@color/colorWhite</item>
     </style>
 
-
+    <style name="CollapsingToolbarLayoutExpandedTextStyle" parent="TubelessThemeBase">
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:textSize">0.1sp</item>
+    </style>
+    <style name="TubelessDayTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!--    <style name="TubelessDayTheme.NoActionBar.NoTranslucent2" />-->
+    <!--    <style name="TubelessDayTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
 </resources>

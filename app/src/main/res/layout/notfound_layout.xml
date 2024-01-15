@@ -17,13 +17,14 @@
         android:layout_width="match_parent"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+
+        <Button
             android:id="@+id/buttonDownload"
             android:textColor="#FFFFFF"
             android:layout_width="0.0dp"
             android:layout_weight="0.5"
             android:layout_height="40dp"
-            android:background="@drawable/buttonshape_lightblue"
+            android:background="@drawable/shape_button_lightblue"
             android:shadowColor="#A8A8A8"
             android:shadowDx="3"
             android:layout_marginLeft="5dp"
@@ -32,14 +33,14 @@
             android:shadowRadius="16"
             android:layout_gravity="center_horizontal" />
 
-        <ir.sajjadyosefi.android.tubeless.view.widget.view.ButtonPlus
+        <Button
             android:textColor="#FFFFFF"
             android:layout_width="0.0dp"
             android:layout_weight="0.5"
             android:text="@string/cancel2"
             android:id="@+id/buttonCancel"
             android:layout_height="40dp"
-            android:background="@drawable/buttonshape_lightblue"
+            android:background="@drawable/shape_button_lightblue"
             android:shadowColor="#A8A8A8"
             android:shadowDx="3"
             android:layout_marginLeft="5dp"
