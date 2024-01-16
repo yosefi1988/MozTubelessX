@@ -9,6 +9,9 @@ public class StaticValue {
     public static int AdminUserID2 = 140326;
     public static int AdminUserID3 = 140234;
 
+    public static int CATEGORY_CAR_BRANDS_ID = 3012;
+    public static int CATEGORY_ID = 3009;
+
     public static String AdminMail1 = "yosefi1988@gmail.com";
     public static String AdminMail2 = "behrouzbb1989@gmail.com";
     public static String AdminMail3 = ".com";

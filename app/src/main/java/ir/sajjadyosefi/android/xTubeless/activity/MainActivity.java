@@ -97,7 +97,6 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
 import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_CAR_BRANDS_ID;
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Telegram;
 
