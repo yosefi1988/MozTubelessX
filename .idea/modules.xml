@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MozTubelessX-master.iml" filepath="$PROJECT_DIR$/.idea/modules/MozTubelessX-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MozTubelessX-master.iml" filepath="$PROJECT_DIR$/.idea/MozTubelessX-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX-master.KMPAutoCompleteTextView.iml" filepath="$PROJECT_DIR$/.idea/modules/KMPAutoCompleteTextView/MozTubelessX-master.KMPAutoCompleteTextView.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX-master.LitePal-core.iml" filepath="$PROJECT_DIR$/.idea/modules/LitePal-core/MozTubelessX-master.LitePal-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX-master.PagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/.idea/modules/PagerSlidingTabStrip/MozTubelessX-master.PagerSlidingTabStrip.iml" />

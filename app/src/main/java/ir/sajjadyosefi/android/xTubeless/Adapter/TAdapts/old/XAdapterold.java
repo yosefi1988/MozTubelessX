@@ -447,7 +447,8 @@ public class XAdapterold extends RecyclerView.Adapter<TubelessMainViewHolder> {
             if (viewType == VIEW_TYPE_TEXT_POST) {
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_text_item, parent, false);
             }else {
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_textpicture_item, parent, false);
+                //view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_textpicture_item, parent, false);
+                view = null;//LayoutInflater.from(parent.getContext()).inflate(R.layout._row_textpicture_item, parent, false);
             }
             holder = new PictureItemViewHolder(view);
         } else {
