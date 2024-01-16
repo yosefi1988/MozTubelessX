@@ -499,9 +499,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation project(path: ':KMPAutoCompleteTextView')
 
-    //implementation files('D:\\Projects\\Android repositories\\accountauthenticator-release15.aar')
-//    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
-    implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+
+    //msi
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+    //lop
+    //implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 
     implementation 'com.zarinpal:purchase:0.0.10'
 }

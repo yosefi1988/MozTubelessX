@@ -49,8 +49,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.annotations.Nullable;
-import ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.ChangePasswordActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.ChangePasswordActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.request.ATransactionListRequest;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
@@ -524,22 +524,23 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        if (grantResults.length > 0){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (grantResults.length > 0) {
             switch (requestCode) {
                 case PERMISSION_REQUEST_GALLERY_PHOTO:
-                    if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                         //GRANTED
                         mImagePresenter.chooseGalleryClick();
-                    }else {
+                    } else {
                         //DENIED
                         showSettingsDialog();
                     }
                     break;
                 case PERMISSION_REQUEST_TAKE_PHOTO:
-                    if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                         //GRANTED
                         mImagePresenter.cameraClick();
-                    }else {
+                    } else {
                         //DENIED
                         showSettingsDialog();
                     }
@@ -547,7 +548,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                 default:
                     break;
             }
-        }else {
+        } else {
 
 
         }

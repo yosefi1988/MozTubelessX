@@ -21,7 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity;
+
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;

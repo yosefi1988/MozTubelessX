@@ -46,8 +46,8 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 
-import ir.sajjadyosefi.accountauthenticator.activity.PaymentActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessListAmountsAdapter;

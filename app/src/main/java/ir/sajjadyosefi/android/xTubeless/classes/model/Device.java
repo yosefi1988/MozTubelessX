@@ -8,7 +8,7 @@ import android.os.Bundle;
 import com.google.gson.Gson;
 
 
-import ir.sajjadyosefi.accountauthenticator.activity.SignInActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.classes.IDeviceRegisterRequest;
 import ir.sajjadyosefi.accountauthenticator.model.response.AConfigResponse;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -17,8 +17,8 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 
 import static android.content.Context.MODE_PRIVATE;
-import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.KEY_ERROR_MESSAGE;
-import static ir.sajjadyosefi.accountauthenticator.activity.AuthenticatorActivity.PARAM_CONFIG;
+import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.KEY_ERROR_MESSAGE;
+import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_CONFIG;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.DEVICE_NOT_REGISTER;
 import ir.sajjadyosefi.accountauthenticator.model.request.ADeviceRegisterRequest;
 
