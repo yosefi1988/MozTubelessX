@@ -5,9 +5,20 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 
 public class StaticValue {
 
+
+    //todo change Instagram
+    public static final String Instagram                = "https://www.instagram.com/tubeless_sn/";
+
+    //todo change Telegram
+    public static final String Telegram                 = "https://t.me/Tubeless_SN";
+
     public static int AdminUserID1 = 200684;
     public static int AdminUserID2 = 140326;
     public static int AdminUserID3 = 140234;
+
+    public static int CATEGORY_CAR_BRANDS_ID = 3012;
+    public static int NOT_LOGN_USER = 20053 ;
+    public static int CATEGORY_ID = 3009;
 
     public static String AdminMail1 = "yosefi1988@gmail.com";
     public static String AdminMail2 = "behrouzbb1989@gmail.com";
@@ -18,7 +29,6 @@ public class StaticValue {
     public static String AdminMobile3 = "111";
 
 
-    public static int NOT_LOGN_USER = 20053 ;
 
 
     //    public static String Telegram = "tg://resolve?domain=partsilicon";
