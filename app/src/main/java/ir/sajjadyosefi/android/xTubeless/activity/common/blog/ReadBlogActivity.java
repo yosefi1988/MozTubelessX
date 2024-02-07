@@ -77,7 +77,7 @@ import static ir.sajjadyosefi.android.xTubeless.classes.model.file.File.MAP_1;
  * Created by sajjad on 2/11/2018.
  */
 
-public class ReadBlogActivity0 extends TubelessTransparentStatusBarActivity {
+public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
     Context mContext = null;
     ParentItem blogItem = null;
