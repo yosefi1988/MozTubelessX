@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="tubelessColor_blue_01">@color/tubelessColor_blue_03</color>
-    <color name="tubelessColor_blue_02">@color/tubelessColor_blue_03</color>
-    <color name="tubelessColor_blue_03">@color/tubelessColor_button_normal</color>
-
     <color name="colorPrimary">#F0F7FF</color>
     <color name="colorTextGry">#5A5A5A</color>
 
     <color name="colorAccent">@color/tubelessColor_blue_02</color>
     <color name="colorPrimaryDark">@color/tubelessColor_blue_03</color>
 
-
     <color name="colorProgress">@color/tubelessColor_blue_03</color>
-    <color name="fb_background_color">@color/colorPrimary</color>
     <color name="textview_colorful">@color/tubelessColor_blue_03</color>
-
-
-    <color name="tubelessColor_button_disable">#716969</color>
-    <color name="tubelessColor_button_normal">#422626</color>
-
+    <color name="tubelessColor_button_disable">#CFB9B9</color>
+    <color name="tubelessColor_button_normal">#683131</color>
     <color name="colorTest">@color/tubelessColor_button_normal</color>
+
+
+
+
+    <!--    sdk -->
+    <color name="tubelessColor_blue_01">@color/tubelessColor_blue_03</color>
+    <color name="tubelessColor_blue_02">@color/tubelessColor_blue_03</color>
+    <color name="tubelessColor_blue_03">@color/tubelessColor_button_normal</color>
+    <color name="fb_background_color">#EFEFEF</color>
+
+    <color name="day_white_hint_text">@color/tubelessColor_button_disable</color>
+    <color name="day_white_text">@color/tubelessColor_button_disable</color>
+    <color name="fb_foreground_color">#FF0000</color>
+    <color name="black">@color/ucrop_color_widget_text</color>
+
+
+    <!--    sdk theme -->
+        <color name="button_textColor">@color/tubelessColor_button_disable</color>
+        <color name="button_disable">@color/tubelessColor_button_disable</color>
+        <color name="button_disable_border">@color/tubelessColor_blue_03</color>
+        <color name="button">@color/tubelessColor_button_normal</color>
+        <color name="button_border">@color/tubelessColor_blue_03</color>
+        <color name="button_pressed">@color/tubelessColor_blue_02</color>
+        <color name="button_pressed_border">@color/tubelessColor_blue_03</color>
 
 </resources>
