@@ -111,6 +111,10 @@ public class FilterFragment extends Fragment {
         spinner = (Spinner) view.findViewById(R.id.spinner);
 
         editTextTitle = (EditText) view.findViewById(R.id.editTextTitle);
+
+        if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            buttonSelectCategory.setVisibility(View.GONE);
+        }
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -210,7 +214,7 @@ public class FilterFragment extends Fragment {
                         if (radioButton3.isChecked()) {
                             timelineSearchRequest.setTtc("5051");
                         }
-                    } if (PAGE_TYPE == TUBELESS) {
+                    }else if (PAGE_TYPE == TUBELESS) {
 
 
                     } else if ((PAGE_TYPE == AMLAK) || (PAGE_TYPE == TUBELESS) || (PAGE_TYPE == ESTEKHDAM) || (PAGE_TYPE == YADAK)) {

@@ -116,6 +116,11 @@ public class TubelessException extends Exception{
                 break;
             }
 
+            case DEVICE_NOT_REGISTER:{
+                message = "موبایل غیر استاندارد.";
+                break;
+            }
+
             default:{
                 message = "اینترنت شما متصل نیست";
             }

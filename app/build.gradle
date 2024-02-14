@@ -4,11 +4,11 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 //todo change version code before publish
-def final Moz_VersionName = "1.3.5"
-def final Moz_VersionCode = 29
+def final Moz_VersionName = "1.3.6"
+def final Moz_VersionCode = 30
 
-def final Estekhdam_VersionName = "1.4.3"
-def final Estekhdam_VersionCode = 32
+def final Estekhdam_VersionName = "1.4.4"
+def final Estekhdam_VersionCode = 33
 
 def final Tubeless_VersionName = "0.0.2"
 def final Tubeless_VersionCode = 3
@@ -19,11 +19,11 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "3.3.4"
-def final Yafte_VersionCode = 43
+def final Yafte_VersionName = "3.3.6"
+def final Yafte_VersionCode = 45
 
-def final Amlak_VersionName = "0.3.4"
-def final Amlak_VersionCode = 47
+def final Amlak_VersionName = "0.3.5"
+def final Amlak_VersionCode = 48
 
 def final Yadak_VersionName = "3.2.7"
 def final Yadak_VersionCode = 22

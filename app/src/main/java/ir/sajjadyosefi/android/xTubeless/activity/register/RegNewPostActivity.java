@@ -44,6 +44,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
@@ -389,6 +391,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             }
         }
 
+        if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            buttonSelectCategory.setVisibility(View.GONE);
+        }
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -681,8 +686,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 selectedDate = persianDatePicker.getDisplayDate();
                 try {
                     //String input = "Thu Jun 06 2015 00:00:00 GMT+0530 (India Standard Time)";
-                    DateFormat inputFormat = new SimpleDateFormat("E MMM dd HH:mm:ss 'GMT'z yyyy", Locale.ENGLISH);
-                    Date date = inputFormat.parse(selectedDate.toString());
+                    SimpleDateFormat inputFormat = new SimpleDateFormat("E MMM dd HH:mm:ss 'GMT'z yyyy", Locale.ENGLISH);
+                    Date date = inputFormat.parse(checkZ(selectedDate.toString()));
+
+                    String dateStr = inputFormat.format(date);
+
+
 
                     DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
                     outputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -729,7 +738,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 try {
                     //String input = "Thu Jun 06 2015 00:00:00 GMT+0530 (India Standard Time)";
                     DateFormat inputFormat = new SimpleDateFormat("E MMM dd HH:mm:ss 'GMT'z yyyy", Locale.ENGLISH);
-                    Date date = inputFormat.parse(persianDatePicker.getDisplayDate().toString());
+                    Date date = inputFormat.parse(checkZ(persianDatePicker.getDisplayDate().toString()));
 
 //                        DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 //                        DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -764,6 +773,28 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             }
         });
         dialog.show();
+    }
+
+    private String checkZ(String dateString) {
+        String regex = "^([A-Z]{3})\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\s+'GMT'(\\d{1,4})$";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(dateString);
+
+        if (matcher.matches()) {
+            // تاریخ معتبر است
+        } else {
+            // تاریخ نامعتبر است
+
+            String regex2 = "GMT";
+            Pattern pattern2 = Pattern.compile(regex2);
+            Matcher matcher2 = pattern2.matcher(dateString);
+
+            String dateString2 = matcher2.replaceAll("GMT+00:00");
+            dateString = dateString2;
+        }
+
+        return dateString;
     }
 
 

@@ -23,13 +23,13 @@
     <color name="fb_background_color">#EFEFEF</color>
 
     <color name="day_white_hint_text">@color/tubelessColor_button_disable</color>
-    <color name="day_white_text">@color/tubelessColor_button_disable</color>
+    <color name="day_white_text">@color/fb_background_color</color>
     <color name="fb_foreground_color">#FF0000</color>
     <color name="black">@color/ucrop_color_widget_text</color>
 
 
     <!--    sdk theme -->
-        <color name="button_textColor">@color/tubelessColor_button_disable</color>
+        <color name="button_textColor">@color/fb_background_color</color>
         <color name="button_disable">@color/tubelessColor_button_disable</color>
         <color name="button_disable_border">@color/tubelessColor_blue_03</color>
         <color name="button">@color/tubelessColor_button_normal</color>

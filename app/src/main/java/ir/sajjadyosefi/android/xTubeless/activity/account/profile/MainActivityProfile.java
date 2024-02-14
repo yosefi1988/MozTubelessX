@@ -260,7 +260,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
             buttonChangePassword.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (Global.user2.getMobileNumberConfirmed().equals("true")) {
+//                    if (Global.user2.getMobileNumberConfirmed().equals("true")) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("type", 1);
                         Intent intent = ChangePasswordActivity.getIntent(getContext(), bundle);
@@ -271,16 +271,16 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                         //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
                         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                         getActivity().startActivityForResult(intent, CHANGE_PASSWORD_REQUEST_CODE);
-                    }else {
-                        Toast.makeText(context,"دوباره تلاش کنید",Toast.LENGTH_LONG).show();
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                AppUtility.restartApplication(context);
-                            }
-                        },100);
-                    }
+//                    }else {
+//                        Toast.makeText(context,"دوباره تلاش کنید",Toast.LENGTH_LONG).show();
+//                        final Handler handler = new Handler();
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                AppUtility.restartApplication(context);
+//                            }
+//                        },100);
+//                    }
                 }
             });
         else

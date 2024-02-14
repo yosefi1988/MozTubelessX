@@ -12,8 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
@@ -236,6 +239,8 @@ public class PersianDatePicker extends LinearLayout {
         displayPersianDate.setPersianDate(yearNumberPicker.getValue(), monthNumberPicker.getValue(), dayNumberPicker.getValue());
         return displayPersianDate.getTime();
     }
+
+
 
     public void setDisplayDate(Date displayDate) {
         setDisplayPersianDate(new PersianCalendar2(displayDate.getTime()));

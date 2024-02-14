@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-    <color name="day_white_text">#fff</color>
     <color name="day_white">#fff</color>
     <color name="day_contact_us_back">#cabcbcbc</color>
     <color name="day_contact_us_border">#0e0e0e</color>
@@ -18,8 +16,6 @@
 
     <color name="night_dark_accounting_border">#B1BCBE</color>
 
-
-
     <color name="refreshcolor1">#ff9800</color>
     <color name="refreshcolor2">#ffaa2d</color>
     <color name="refreshcolor3">#ffc775</color>
@@ -32,9 +28,7 @@
     <color name="tubelessColor_yellow_02">#FFB60F</color>
     <color name="tubelessColor_yellow_03">#FDA116</color>
 
-    <color name="tubelessColor_blue_01">#1c326b</color>
-    <color name="tubelessColor_blue_02">#111f43</color>
-    <color name="tubelessColor_blue_03">#0b152d</color>
+
 
 
 
@@ -44,20 +38,11 @@
     <color name="colorButton">#991041</color>
 
 
-
-
-    <color name="colorPrimary">#FFC107</color>
-    <color name="colorTextGry">#5A5A5A</color>
-    <color name="colorPrimaryDark">#4267b2</color>
-    <color name="colorAccent">#4267b2</color>
-
     <color name="mainText">#ffffff</color>
     <color name="textAlt">#8D8F97</color>
     <color name="mainBackground">#2D313D</color>
 
 
-    <color name="colorProgress">@color/colorWhite</color>
-    <color name="fb_background_color">#e9ebee</color>
     <color name="linkColor">#00297C</color>
 
 
@@ -67,25 +52,13 @@
 
     <color name="colorWhite">#ffffff</color>
 
-
-    <color name="tubelessColor_button_disable">#716969</color>
-    <color name="tubelessColor_button_normal">#422626</color>
-
-<!--SDK-->
-    <color name="button_textColor">#FFFFFFFF</color>
+    <!--SDK-->
     <color name="textview_default">#858383</color>
-    <color name="textview_colorful">#4267b2</color>
-
-    <color name="button_disable">#808385</color>
-    <color name="button_disable_border">#454647</color>
-    <color name="button">#03A9F4</color>
-    <color name="button_border">#25BBFF</color>
-    <color name="button_pressed">#1E89BA</color>
-    <color name="button_pressed_border">#1F9DD6</color>
 
     <color name="edittext_border">#E4E4E4</color>
     <color name="edittext_border_error">@color/colorError</color>
     <color name="edittext_back">#EDEDED</color>
     <color name="edittext_hint_text">#cabcbcbc</color>
+
 
 </resources>
