@@ -776,7 +776,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     }
 
     private String checkZ(String dateString) {
-        String regex = "^([A-Z]{3})\\s+([A-Za-z]{3})\\s+(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2}):(\\d{1,2})\\s+'GMT'(\\d{1,4})$";
+        //فقط تاریخ
+        //String regex = "^([A-Z]{3})\\s+([A-Za-z]{3})\\s+(\\d{1,2})$";
+        //همه
+        String regex = "^([A-Z]{1}[a-z]{2}\\s[A-Z]{1}[a-z]{2}\\s)+(0[1-9]|[1-2][0-9]|[3][0-1])\\s([0-1][0-9]|[2][0-3])+:+([0-5][0-9])+:+([0-5][0-9])+\\s+GMT([+-])([0-1][0-9]|[2][0-3]):([0-5][0-9])+\\s+\\d{4}$";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(dateString);

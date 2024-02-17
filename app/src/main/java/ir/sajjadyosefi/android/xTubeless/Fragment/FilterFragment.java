@@ -112,7 +112,7 @@ public class FilterFragment extends Fragment {
 
         editTextTitle = (EditText) view.findViewById(R.id.editTextTitle);
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+        if (BuildConfig.FLAVOR_version_name.equals("yafte")||BuildConfig.FLAVOR_version_name.equals("moz")){
             buttonSelectCategory.setVisibility(View.GONE);
         }
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
