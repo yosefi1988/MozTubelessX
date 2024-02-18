@@ -16,13 +16,15 @@ import org.litepal.crud.LitePalSupport;
 import java.lang.reflect.Type;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
+
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.responses.LoginResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import retrofit2.Call;
@@ -327,6 +329,7 @@ public class User extends LitePalSupport implements IUser {
 
 	@Override
 	public IUser loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
+
 		return null;
 	}
 
@@ -409,7 +412,7 @@ public class User extends LitePalSupport implements IUser {
 								//save to db
 //								if (Global.user == null){
 //									if ((new User(tmpUser,request)).save()){
-									if (Global.SaveLogedInUser(context,new User(tmpUser,request))){
+									if (Global.SaveLogedInUserDataInDeviceLocalDatabase(context,new User(tmpUser,request))){
 //										Global.user = tmpUser;
 
 

@@ -222,31 +222,31 @@ public class KartesekhtFragment extends Fragment {
                     Toast.makeText(mContext,"در صورتی که از فیلتر شکن استفاده می کنید آن را خاموش کنید.",Toast.LENGTH_SHORT).show();
                 }else {
                     button.setEnabled(false);
-                    Global.apiManagerTubeless.config(null,new Callback<Configuration>() {
-                        @Override
-                        public void onResponse(Call<Configuration> call, Response<Configuration> response) {
-                            if (error == false) {
-//                                if (checkResult(response)) {
-//                                    ShowSelectSturceDialog(mContext,response.body().getConfiguration());
-//                                } else {
-//                                    callService(view);
-//                                }
-                            } else {
-//                                    callService();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<Configuration> call, Throwable t) {
-                            ((TubelessActivity)mContext).progressDialog.hide();
-
-                            Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
-                            Toast.makeText(mContext,"اینترنت خود را چک کنید",Toast.LENGTH_SHORT).show();
-                            error = true;
-                            if (button != null)
-                                button.setEnabled(true);
-                        }
-                    });
+//                    Global.apiManagerTubeless.config(null,new Callback<Configuration>() {
+//                        @Override
+//                        public void onResponse(Call<Configuration> call, Response<Configuration> response) {
+//                            if (error == false) {
+////                                if (checkResult(response)) {
+////                                    ShowSelectSturceDialog(mContext,response.body().getConfiguration());
+////                                } else {
+////                                    callService(view);
+////                                }
+//                            } else {
+////                                    callService();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<Configuration> call, Throwable t) {
+//                            ((TubelessActivity)mContext).progressDialog.hide();
+//
+//                            Toast.makeText(mContext,"عملیات با خطا مواجه شد",Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(mContext,"اینترنت خود را چک کنید",Toast.LENGTH_SHORT).show();
+//                            error = true;
+//                            if (button != null)
+//                                button.setEnabled(true);
+//                        }
+//                    });
                 }
             }
 

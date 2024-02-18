@@ -462,7 +462,7 @@ public class Global extends MultiDexApplication {
     }
 
 
-    public static final boolean SaveLogedInUser(Context context,User user){
+    public static final boolean SaveLogedInUserDataInDeviceLocalDatabase(Context context, User user){
         try {
             SharedPreferences prefs = null;
             prefs = context.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);

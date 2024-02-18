@@ -9,9 +9,9 @@ import java.util.List;
 
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
+
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;

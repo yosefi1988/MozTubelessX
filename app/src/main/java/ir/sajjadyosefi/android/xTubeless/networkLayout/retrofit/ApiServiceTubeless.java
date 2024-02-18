@@ -3,6 +3,7 @@ package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.PostMessagesRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
@@ -12,7 +13,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentReq
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.FavRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+
 //import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
@@ -77,8 +78,6 @@ public interface ApiServiceTubeless {
     Call<Object> contactUs(@Body ContactUsRequest request);
 
 
-
-
     @POST("Wallet/WalletCharge")
     Call<Object> chargeAccount(@Body ChargeRequest request);
 
@@ -86,15 +85,6 @@ public interface ApiServiceTubeless {
     Call<Object> getMyTRANSACTIONS(@Body TimelineRequest request);
 
     /////////////////////////////////////////////////////moz///////////////////////////////////////////
-
-
-
-    @POST("Account/Login")
-    Call<Configuration> config(@Body LoginRequest request);
-
-    @POST("Account/InsertMobileConfig")
-    Call<Object> deviceRegister(@Body DeviceRequest request);
-
     @POST("Customer/Login")
     Call<Object> login(@Body LoginRequest request);
 
@@ -167,10 +157,6 @@ public interface ApiServiceTubeless {
                                  @Query("count") int count);
 
 
-
-
-
-
     @GET("Api/Blog/deleteBlog")
     Call<Object> deleteTimelineItem(@Query("id") int id,
                                     @Query("userId") String userId);
@@ -179,14 +165,8 @@ public interface ApiServiceTubeless {
     Call<Object> invisibleTimelineItem(@Query("id") int id,
                                        @Query("userId") String userId);
 
-
-
-
-
     @POST("Api/User/userImageProfileAndAvatar")
     Call<Object> profileImages(@Body LoginRequest request);
-
-
 
 
     //////////////////////// image ///////////////////////
@@ -224,6 +204,13 @@ public interface ApiServiceTubeless {
             @Part("fileType") RequestBody fileType,
             @Part("senderType") RequestBody senderType);
 
-
-
+////////////////////////////// Start depricated /////////////////////////////////
+//    //used in KartesekhtFragment
+//    @POST("Account/Login")
+//    Call<Configuration> config(@Body LoginRequest request);
+//
+//    //not used
+//    @POST("Account/InsertMobileConfig")
+//    Call<Object> deviceRegister(@Body DeviceRequest request);
+////////////////////////////// End depricated /////////////////////////////////
 }

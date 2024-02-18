@@ -15,11 +15,13 @@ import ir.sajjadyosefi.accountauthenticator.classes.ITransactionsListRequest;
 import ir.sajjadyosefi.accountauthenticator.model.AUMIC;
 import ir.sajjadyosefi.accountauthenticator.model.request.ADeviceRegisterRequest;
 import ir.sajjadyosefi.android.xTubeless.Global;
+
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.model.IRegisterDeviceModel;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
@@ -103,22 +105,22 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
 
 
                 SignInActivity signInActivity = new SignInActivity();
-//                signInActivity.getUserDirect("110015",new ITransactionsListRequest<Boolean, Intent>() {
-//                    @Override
-//                    public void onResponse(Boolean isSuccess,Intent data) {
-//
-//                        if (data.hasExtra(PARAM_USER_OBJECT)){
-//                            Gson gson = new Gson();
-//                            User2 user = gson.fromJson(data.getExtras().getString(PARAM_USER_OBJECT)+"",User2.class);
-//                            Global.user2 = user;
-//                            AccountGeneral.setUserCode(Global.user2.getUserCode() + "");
-//
-//                            if(User2.savedToDataBase(Global.user2)){
-//                                Wallet.savedToDataBase(Global.user2);
-//                            }
-//                        }
-//                    }
-//                });
+                signInActivity.getUserDirect("110015",new ITransactionsListRequest<Boolean, Intent>() {
+                    @Override
+                    public void onResponse(Boolean isSuccess,Intent data) {
+
+                        if (data.hasExtra(PARAM_USER_OBJECT)){
+                            Gson gson = new Gson();
+                            User2 user = gson.fromJson(data.getExtras().getString(PARAM_USER_OBJECT)+"",User2.class);
+                            Global.user2 = user;
+                            AccountGeneral.setUserCode(Global.user2.getUserCode() + "");
+
+                            if(User2.savedToDataBase(Global.user2)){
+                                Wallet.savedToDataBase(Global.user2);
+                            }
+                        }
+                    }
+                });
             }else {
                 String accountName = sAccountHelper.getUserAccountName();
                 for (AUMIC mic : Global.aConfig.getUmic()) {

@@ -39,7 +39,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISpla
 //import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+ 
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.utility.CommonClass;

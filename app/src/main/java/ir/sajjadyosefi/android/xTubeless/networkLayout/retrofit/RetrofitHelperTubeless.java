@@ -15,6 +15,7 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.PostMessagesRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
@@ -28,7 +29,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
+
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -98,30 +99,10 @@ public class RetrofitHelperTubeless {
         }
     }
 
-    ///////////////////////////////////////////////////moz//////////////////////////////////////////////////
-    public void config(LoginRequest request,Callback<Configuration> callback) {
-        Call<Configuration> userCall = service.config(request);
-
-        if(BuildConfig.DEBUG)
-            Log.i( context.getString(R.string.Logger) + "request", String.valueOf(gson.toJson(request)));
-
-        userCall.enqueue(callback);
-    }
-
-    public void loginOrRregister(LoginRequest request, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.login(request);
-        userCall.enqueue(callback);
-    }
-
     public void loginOrRregisterMVP(LoginRequest request, Callback callback) {
         Call<Object> userCall = service.login(request);
         userCall.enqueue(callback);
     }
-
-    ///////////////////////////////////////////////////moz//////////////////////////////////////////////////
-
-
-
 
     public void getProfileImages(LoginRequest request, Callback callback) {
         Call<Object> userCall = service.profileImages(request);
@@ -217,19 +198,10 @@ public class RetrofitHelperTubeless {
     }
 
 
-//    public void getCategory(int catId, int index, TubelessRetrofitCallbackss callback) {
-//        Call<Object> userCall = service.getCategory(catId, index, responceCountSize * 1);
-//        userCall.enqueue(callback);
-//    }
-
     public void getCategoryLookUp(CategoriesLookUpRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.categoryLookUp(request);
         userCall.enqueue(callback);
     }
-
-
-
-
 
     public void chargeAccount(ChargeRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.chargeAccount(request);
@@ -300,18 +272,9 @@ public class RetrofitHelperTubeless {
         userCall.enqueue(callback);
     }
 
-    public void deviceRregister(DeviceRequest request, TubelessRetrofitCallbackss callback) {
-        Call<Object> userCall = service.deviceRegister(request);
-        userCall.enqueue(callback);
-    }
-
     public void deleteTimelineItem(int id, String userId, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.deleteTimelineItem(id,userId);
-
-
         Log.d("tubeless log", "id :" + id + " userId : " + userId);
-
-
         userCall.enqueue(callback);
     }
 
@@ -329,15 +292,34 @@ public class RetrofitHelperTubeless {
 //        Call<ServerResponse> userCall = service.search(searchRequest);
 //        userCall.enqueue(callback);
 //    }.
-
-
-
+//
 //    public void requestUpload2(MultipartBody.Part file, RequestBody userName, RequestBody password, RequestBody androidId , RequestBody serialRequestCode , RequestBody fileType , RequestBody senderType, TubelessRetrofitCallback<Object> callback) {
 //        Call<Object> userCall = service.upload2(file , userName,password,androidId, serialRequestCode , fileType , senderType);
 //        userCall.enqueue(callback);
 //    }
-
-
+//
+//    public void deviceRregister(DeviceRequest request, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.deviceRegister(request);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void getCategory(int catId, int index, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.getCategory(catId, index, responceCountSize * 1);
+//        userCall.enqueue(callback);
+//    }
+//
+//    public void config(LoginRequest request,Callback<Configuration> callback) {
+//        Call<Configuration> userCall = service.config(request);
+//
+//        if(BuildConfig.DEBUG)
+//            Log.i( context.getString(R.string.Logger) + "request", String.valueOf(gson.toJson(request)));
+//
+//        userCall.enqueue(callback);
+//    }
+//    public void loginOrRregister(LoginRequest request, TubelessRetrofitCallbackss callback) {
+//        Call<Object> userCall = service.login(request);
+//        userCall.enqueue(callback);
+//    }
 
 
     public static final class HostSelectionInterceptor implements Interceptor {

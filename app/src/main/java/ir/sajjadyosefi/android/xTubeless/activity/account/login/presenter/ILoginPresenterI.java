@@ -4,6 +4,7 @@ import android.content.Context;
 
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 
+
 public interface ILoginPresenterI {
     void tryToLoginByPhoneNumber(Context context,String phoneNumber, String password);
     void tryToLoginByMail(Context context,String email, String password);
