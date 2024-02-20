@@ -8,8 +8,10 @@
 
 
     <color name="colorProgress">@color/tubelessColor_blue_03</color>
+    <color name="textview_colorful">@color/tubelessColor_blue_03</color>
     <color name="tubelessColor_button_disable">#716969</color>
     <color name="tubelessColor_button_normal">#0077b5</color>
+
 
 
 

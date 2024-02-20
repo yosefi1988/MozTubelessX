@@ -35,7 +35,7 @@
     </style>
 
     <style name="Style.TextView.Tubeless.Colorful" parent="Style_TextView_Tubeless">
-        <item name="android:textColor">@color/textview_colorful</item>
+        <item name="android:textColor">@color/edittext_border</item>
     </style>
     <style name="Style_TextView_Title">
         <item name="android:layout_width">match_parent</item>
