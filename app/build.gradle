@@ -19,8 +19,8 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "3.3.7"
-def final Yafte_VersionCode = 46
+def final Yafte_VersionName = "3.3.8"
+def final Yafte_VersionCode = 47
 
 def final Amlak_VersionName = "0.3.6"
 def final Amlak_VersionCode = 49

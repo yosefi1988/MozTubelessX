@@ -374,7 +374,7 @@
     <string name="help">راهنمایی</string>
 
     <string name="error_message_10">موجودی شما کافی نیست</string>
-    <string name="error_message_11">شماره موبایل خود را تایید نکرده اید</string>
+    <string name="error_message_11">شماره موبایل تائید نشده است ، برای  تایید از پروفایل خارج و مجدد وارد شوید</string>
     <string name="error_message_103">نام کاربری و یا رمز عبور اشتباه وارد شده است</string>
     <string name="error_message_104">نام کاربری و یا رمز عبور اشتباه وارد شده است</string>
     <string name="error_message_108">متاسفانه آگهی مورد نظر را شما نمیتوانید ببینید</string>
