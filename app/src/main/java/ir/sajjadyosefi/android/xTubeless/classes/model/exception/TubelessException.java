@@ -117,7 +117,7 @@ public class TubelessException extends Exception{
             }
 
             case DEVICE_NOT_REGISTER:{
-                message = "موبایل غیر استاندارد.";
+                message = "دیتایی دریافت نشد.";
                 break;
             }
 
