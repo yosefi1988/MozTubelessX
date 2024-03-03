@@ -140,6 +140,8 @@ public class MainAdapter extends ITubelessAdapter {
             timelineRequest.setPageIndex(_current_page - 1 + "");
         }else {
             timelineRequest = new TimelineRequest(_current_page - 1);
+            if (timelineSearchRequest != null)
+                timelineRequest.setTtc(timelineSearchRequest.getTtc());
         }
 
         //Active

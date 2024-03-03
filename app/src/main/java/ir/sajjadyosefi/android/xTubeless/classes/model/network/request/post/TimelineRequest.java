@@ -26,6 +26,10 @@ public class TimelineRequest implements Serializable {
         this.ttc = ttc;
     }
 
+    public String getTtc() {
+        return ttc;
+    }
+
     public void setFaved(Boolean faved) {
         Faved = faved;
     }

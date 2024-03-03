@@ -105,6 +105,9 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
 
 
                 SignInActivity signInActivity = new SignInActivity();
+                //find wcrtgbwue
+                //در لاگین های بعدی هر دوتاش فراخوانی میشه
+                //110015 وقتی در یک اپ لاگین هستیم و اپ جدید نصب میکنیم
                 signInActivity.getUserDirect("110015",new ITransactionsListRequest<Boolean, Intent>() {
                     @Override
                     public void onResponse(Boolean isSuccess,Intent data) {
@@ -161,6 +164,10 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
             //load from server
             //save to litepal
             SignInActivity signInActivity = new SignInActivity();
+
+            //find wcrtgbwue
+            //در لاگین های بعدی هر دوتاش فراخوانی میشه
+            //در لاگین دفعات بعدی اکانت رو از سرور میخونه
             signInActivity.getUserDirect(sAccountHelper.getUserAccountID() + "", new ITransactionsListRequest<Boolean, Intent>() {
                 @Override
                 public void onResponse(Boolean isSuccess, Intent data) {
