@@ -470,16 +470,17 @@ public class TextItem extends MainItem {
             //2
             //.transform(new CircleTransform())
 
-            Picasso.get()
-//                    .load(timelineItem.getTitlePicture().replace("\\Blog\\","\\Blog\\Thumbnail\\"))
-                    .load(timelineItem.getTitlePicture())
-                    .transform(transformation)
-                    //.noPlaceholder()
-                    .placeholder(R.drawable.png_image)
-                    .error(R.drawable.png_image)
-                    .resizeDimen(R.dimen.simple_card_image_width, R.dimen.simple_card_image_height)
-                    .centerCrop()
-                    .into(holder.imageView);
+            if (timelineItem.getTitlePicture() != null)
+                Picasso.get()
+    //                    .load(timelineItem.getTitlePicture().replace("\\Blog\\","\\Blog\\Thumbnail\\"))
+                        .load(timelineItem.getTitlePicture())
+                        .transform(transformation)
+                        //.noPlaceholder()
+                        .placeholder(R.drawable.png_image)
+                        .error(R.drawable.png_image)
+                        .resizeDimen(R.dimen.simple_card_image_width, R.dimen.simple_card_image_height)
+                        .centerCrop()
+                        .into(holder.imageView);
         }
 //
         if (timelineItem.isSeen())

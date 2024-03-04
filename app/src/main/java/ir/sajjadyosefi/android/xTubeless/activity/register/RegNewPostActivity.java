@@ -73,7 +73,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.CategoriesLookUpRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewPostResponse;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.TimelineItemResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.category.CategoryListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.dialog.SubStractDialogClass;
@@ -89,12 +88,9 @@ import retrofit2.Call;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessListAmountsAdapter.SUBSCRIPTIONS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_MULTY_SELECT;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYFAVS;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
@@ -125,8 +121,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     public static String amountForSeenNewPost = "5000";
 
     //state
-    Spinner spinner;
-    private static int selectedState;
+    Spinner spinnerWidget;
+    private static long selectedCategoryID;
+    private static long selectedSpinnerID;
 
     private int PAGE_TYPE = 0;
     public static final int MOZ = 1;
@@ -178,7 +175,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         radioButton2 = findViewById(R.id.radioButton2);
         radioButton3 = findViewById(R.id.radioButton3);
         checkbox = findViewById(R.id.checkbox);
-        spinner = findViewById(R.id.spinner);
+        spinnerWidget = findViewById(R.id.spinner);
         sv = (ScrollView) findViewById(R.id.scroll);
 
 
@@ -459,7 +456,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
                 if (
-                        selectedState == 0 ||
+                        selectedCategoryID == 0 ||
                                 editTextDate.getText().toString().length() < 5 ||
                                 editTextText.getText().toString().length() < 5 ||
                                 editTextTitle.getText().toString().length() < 5) {
@@ -554,23 +551,38 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     }
 
     private void prepareRequest() {
+
+        //1-IDApplication
         aaaa.setIDApplication(AccountGeneral.getIDApplication() + "");
 
+        //2-UserCode
         if (Global.user2 != null) {
             aaaa.setUserCode(Global.user2.getUserCodeAsString());
         }
 
+        //3-Title
         aaaa.setTitle(SelectedCategoryTitle + editTextTitle.getText().toString());
+
+        //4-Text
         aaaa.setText(editTextText.getText().toString());
 
-        extracted();
+        //5-ttc
+        extracted(selectedCategoryID);
+
+        //6-State
         if (PAGE_TYPE == TUBELESS) {
             aaaa.setStateCode("8133");
-        }else {
-            aaaa.setStateCode(stateItems.get(selectedState - 1).getID() + "");
+        }else if (PAGE_TYPE == AMLAK) {
+            aaaa.setStateCode(String.valueOf(selectedSpinnerID));
+        }else{
+            //Category ?????
+            //aaaa.setStateCode(stateItems.get(selectedCategoryID - 1).getID() + "");
         }
+
+        //7-City
         aaaa.setCityCode("3044");
 
+        //8-Amount
         if (PAGE_TYPE == YAFTE) {
             aaaa.setAmount("0");
         }else if (PAGE_TYPE == AMLAK) {
@@ -582,10 +594,18 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 aaaa.setAmount("0");
             }
         }
+        List<Amounts> items = new ArrayList<>();
+        for (Amounts amountsItem : amountsList) {
+            items.add(amountsItem);
+        }
+        aaaa.setItems(items);
 
+
+        //9-ReciveMessage
         aaaa.setReciveMessage((checkbox.isChecked() ? "true" : "false"));
 
 
+        //10-PublishDate
         Date date = new Date();
         DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.ENGLISH);
         outputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -593,16 +613,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         aaaa.setPublishDate(output);
 //                    aaaa.setExpireDate(editTextDate.getText().toString());
 //                    aaaa.setExpireDate("2022-04-29 13:53:04.344");
+
+        //11-IP
         aaaa.setIP(AccountGeneral.getIP());
-        List<Amounts> items = new ArrayList<>();
-        for (Amounts amountsItem : amountsList) {
-            items.add(amountsItem);
-        }
-        aaaa.setItems(items);
+
+
         newYafte(aaaa);
     }
 
-    private void extracted() {
+    private void extracted(long catId) {
         if (PAGE_TYPE == MOZ) {
             if (radioButton1.isChecked()) {
                 aaaa.setTtc("7");
@@ -635,15 +654,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 aaaa.setTtc("5051");
             }
         }else if (PAGE_TYPE == AMLAK) {
-//            if (radioButton1.isChecked()) {
-//                aaaa.setTtc("8067");
-//            }
-//            if (radioButton2.isChecked()) {
-//                aaaa.setTtc("8068");
-//            }
-//            if (radioButton3.isChecked()) {
-//                aaaa.setTtc("8069");
-//            }
+            aaaa.setTtc(String.valueOf(catId));
         }else {
 
         }
@@ -849,21 +860,23 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                     x++;
                 }
                 SpinnerAdapterA spinnerAdapter = new SpinnerAdapterA(getContext(), stateNames);
-                spinner.setAdapter(spinnerAdapter);
-                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                spinnerWidget.setAdapter(spinnerAdapter);
+                spinnerWidget.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         if(defaultState && isFirst[0]) {
                             isFirst[0] = false;
-                            spinner.setSelection(8);
-                            selectedState = 8;
-                        }else
-                            selectedState = i;
+                            spinnerWidget.setSelection(8);
+                            selectedSpinnerID = stateItems.get(8-1).getID();
+                        }else {
+                            selectedSpinnerID = stateItems.get(i-1).getID();;
+                        }
                     }
 
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {
-                        selectedState = 0;
+                        selectedSpinnerID = 0;
+                        spinnerWidget.setSelection(0);
                     }
                 });
             }
@@ -980,17 +993,17 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 Bundle dd = data.getExtras();
 
                 List<ParentItem> list = (List<ParentItem>) dd.getSerializable("SelectedLIST");
-                long SelectedCategory = dd.getLong("SelectedCategory");
+                long SelectedCat = dd.getLong("SelectedCategory");
                 SelectedCategoryTitle = dd.getString("SelectedCategoryTitle") + "\n";
-                selectedState = 8133;
-                editTextDate.setText("2022-04-29 13:53:04.344");
+                selectedCategoryID = SelectedCat;
+//                editTextDate.setText("2022-04-29 13:53:04.344");
                 //editTextTitle.setText(SelectedCategoryTitle);
-                aaaa.setExpireDate("2022-04-29 13:53:04.345");
-                aaaa.setTtc(String.valueOf(SelectedCategory));
+//                aaaa.setExpireDate("2022-04-29 13:53:04.345");
+//                aaaa.setTtc(String.valueOf(SelectedCategory));
             }else {
-                aaaa.setTtc(null);
-                selectedState = 0;
-                editTextDate.setText("");
+//                aaaa.setTtc(null);
+                selectedCategoryID = 0;
+//                editTextDate.setText("");
             }
         }
     }
