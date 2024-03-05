@@ -116,7 +116,11 @@ public class TextItem extends MainItem {
     }
 
     public String getTitle() {
-        return title;
+        if (title != null && title.contains("null")) {
+            return title.replace("null", "");
+        } else {
+            return title;
+        }
     }
 
     public void setTitle(String title) {

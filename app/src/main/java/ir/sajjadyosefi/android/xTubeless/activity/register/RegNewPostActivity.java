@@ -378,15 +378,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         });
 
 
-        if (Global.user2.isUserAdmin()) {
-            buttonAddFiles.setEnabled(true);
-        }else {
-            if (Global.user2.isUserCreator() && PAGE_TYPE == AMLAK) {
+//        if (Global.user2.isUserAdmin()) {
+//            buttonAddFiles.setEnabled(true);
+//        }else {
+            if (PAGE_TYPE == AMLAK ) {      //Global.user2.isUserCreator() &&
                 buttonAddFiles.setEnabled(true);
             }else {
                 buttonAddFiles.setEnabled(false);
             }
-        }
+//        }
 
         if (BuildConfig.FLAVOR_version_name.equals("yafte")){
             buttonSelectCategory.setVisibility(View.GONE);

@@ -77,6 +77,15 @@
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop" />
 
+<!--                <ImageView-->
+<!--                    android:layout_gravity="left"-->
+<!--                    android:foregroundGravity="center_horizontal"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:padding="1dp"-->
+<!--                    android:src="@drawable/arrowleft" -->
+<!--                    android:scaleType="center" />-->
+
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/pager1"
                     android:layout_width="match_parent"

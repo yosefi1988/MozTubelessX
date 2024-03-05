@@ -22,8 +22,8 @@ def final Kartesokht_VersionCode = 21
 def final Yafte_VersionName = "3.3.8"
 def final Yafte_VersionCode = 47
 
-def final Amlak_VersionName = "1.0.0"
-def final Amlak_VersionCode = 50
+def final Amlak_VersionName = "1.0.1"
+def final Amlak_VersionCode = 51
 
 def final Yadak_VersionName = "3.2.7"
 def final Yadak_VersionCode = 22

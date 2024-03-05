@@ -75,6 +75,9 @@ public class FileUtils {
         java.io.File file = new java.io.File(url);
 
         Uri uri = null;
+//        Uri uri = Uri.parse("https:\\\\android-studio.ir\\wp-content\\uploads\\viewbinding\\android_view_binding.png");
+//        Uri uri = Uri.parse("https:\\\\sajjadyosefi.ir\\img\\profile.jpg");
+//        Uri uri = Uri.parse("https:\\\\test.sajjadyosefi.ir\\Images\\Blog\\2024\\30356_avatar_20240303_133230jpg_202433133253168.jpg");
 
         if (isFromFile)
             uri = Uri.fromFile(file);
