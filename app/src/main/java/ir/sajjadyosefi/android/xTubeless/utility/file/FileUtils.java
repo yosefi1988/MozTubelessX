@@ -71,13 +71,18 @@ public class FileUtils {
         }
     }
 
+    public static void openFileok(Activity activity, String url, Boolean isFromFile) throws IOException {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.parse(url), "image/*");
+        (activity).startActivity(intent);
+    }
     public static void openFile(Activity activity, String url, Boolean isFromFile) throws IOException {
         java.io.File file = new java.io.File(url);
 
         Uri uri = null;
 //        Uri uri = Uri.parse("https:\\\\android-studio.ir\\wp-content\\uploads\\viewbinding\\android_view_binding.png");
 //        Uri uri = Uri.parse("https:\\\\sajjadyosefi.ir\\img\\profile.jpg");
-//        Uri uri = Uri.parse("https:\\\\test.sajjadyosefi.ir\\Images\\Blog\\2024\\30356_avatar_20240303_133230jpg_202433133253168.jpg");
+//        Uri uri = Uri.parse("https://www.tgju.org/touch-icon-ipad.png");
 
         if (isFromFile)
             uri = Uri.fromFile(file);

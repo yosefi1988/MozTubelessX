@@ -168,7 +168,7 @@ public class File extends TubelessObject {
             @Override
             public void onClick(View view) {
                 try {
-                    FileUtils.openFile((Activity)(mContext),file.getUri().replace("\\","/"),false);
+                    FileUtils.openFile((Activity)(mContext),file.getUri().replace("\\","/").replace("http://","https://"),false);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -21,7 +21,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILogin
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
-import ir.sajjadyosefi.android.xTubeless.classes.Validator;
+import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;

@@ -17,7 +17,6 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -61,7 +60,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.Validator;
+import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;
 
@@ -70,7 +69,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBa
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.dialog.CommonDialogs;
 import ir.sajjadyosefi.android.xTubeless.service.ServiceGenerator;
-import ir.sajjadyosefi.android.xTubeless.utility.AppUtility;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.SamanString;
@@ -89,7 +87,6 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYPOSTS;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYPURCHESE;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYTRANSACTIONS;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_mmmmmmmmmmmmmmmmmmmmmmm2;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_mmmmmmmmmmmmmmmmmmmmmmmm;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;

@@ -1,6 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 
@@ -19,20 +18,14 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.model.IRegisterDeviceModel;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
-import ir.sajjadyosefi.android.xTubeless.classes.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_USER_OBJECT;
-import static ir.sajjadyosefi.android.xTubeless.Global.getFileLocalPath;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.user.User2.deleteAllUsersData;
-import static org.litepal.LitePalApplication.getContext;
 
 //import static org.litepal.LitePalApplication.getContext;
 

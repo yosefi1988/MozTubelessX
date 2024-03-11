@@ -1,4 +1,4 @@
-package ir.sajjadyosefi.android.xTubeless.classes;
+package ir.sajjadyosefi.android.xTubeless.utility;
 
 import android.content.Context;
 import android.widget.CheckBox;
