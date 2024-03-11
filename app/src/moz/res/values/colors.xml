@@ -11,6 +11,7 @@
     <color name="tubelessColor_button_normal">#683131</color>
     <color name="textview_colorful">@color/tubelessColor_blue_03</color>
     <color name="colorTest">@color/tubelessColor_button_normal</color>
+    <color name="edittext_border">#808080</color>
 
 
     <!--    sdk -->
@@ -22,7 +23,7 @@
     <color name="day_white_hint_text">@color/tubelessColor_button_disable</color>
     <color name="day_white_text">@color/fb_background_color</color>
     <color name="fb_foreground_color">#FF0000</color>
-    <color name="black">@color/ucrop_color_widget_text</color>
+    <color name="black">@color/colorTextGry</color>
 
 
     <!--    sdk theme -->

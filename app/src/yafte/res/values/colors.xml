@@ -12,6 +12,7 @@
 
     <color name="textview_colorful">@color/tubelessColor_blue_03</color>
     <color name="colorTest">@color/tubelessColor_button_normal</color>
+    <color name="edittext_border">#808080</color>
 
 
     <!--    sdk -->

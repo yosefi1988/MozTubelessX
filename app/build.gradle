@@ -4,11 +4,11 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 //todo change version code before publish
-def final Moz_VersionName = "1.3.7"
-def final Moz_VersionCode = 31
+def final Moz_VersionName = "2.0.0"
+def final Moz_VersionCode = 32
 
-def final Estekhdam_VersionName = "1.4.5"
-def final Estekhdam_VersionCode = 34
+def final Estekhdam_VersionName = "2.0.0"
+def final Estekhdam_VersionCode = 36
 
 def final Tubeless_VersionName = "0.0.2"
 def final Tubeless_VersionCode = 3
@@ -19,11 +19,11 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "3.3.8"
-def final Yafte_VersionCode = 47
+def final Yafte_VersionName = "4.0.2"
+def final Yafte_VersionCode = 50
 
-def final Amlak_VersionName = "1.0.1"
-def final Amlak_VersionCode = 51
+def final Amlak_VersionName = "1.0.2"
+def final Amlak_VersionCode = 52
 
 def final Yadak_VersionName = "3.2.7"
 def final Yadak_VersionCode = 22
@@ -241,8 +241,6 @@ android {
         myket {
             dimension "market"
             versionNameSuffix "-m"
-
-
         }
         bazzar {
             dimension "market"
@@ -252,15 +250,10 @@ android {
             dimension "market"
             versionNameSuffix "-s"
         }
-        iranApps {
-            dimension "market"
-            versionNameSuffix "-i"
-        }
         jhobin {
             dimension "market"
             versionNameSuffix "-j"
         }
-
 //        playStore {
 //            applicationId "${Tubeless_appId}"
 //            versionName "${Tubeless_VersionName}"
@@ -271,27 +264,6 @@ android {
 //            applicationId "${Tubeless_appId}"
 //            versionName "${Tubeless_VersionName}"
 //            versionNameSuffix "-b"
-//            versionCode Tubeless_VersionCode
-//        }
-//
-//        avvalMarket {
-//            versionName "${Tubeless_VersionName}"
-//            versionNameSuffix "-a"
-//            versionCode Tubeless_VersionCode
-//        }
-//
-//
-//        iranapps {
-//            applicationId "${Tubeless_appId}"
-//            versionName "${Tubeless_VersionName}"
-//            versionNameSuffix "-i"
-//            versionCode Tubeless_VersionCode
-//        }
-
-//        kandoo {
-//            applicationId "${Tubeless_appId}"
-//            versionName "${Tubeless_VersionName}"
-//            versionNameSuffix "-k"
 //            versionCode Tubeless_VersionCode
 //        }
     }

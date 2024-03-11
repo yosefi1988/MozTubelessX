@@ -185,6 +185,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         }
         if (BuildConfig.FLAVOR_version_name.equals("moz")) {
             PAGE_TYPE = MOZ;
+            buttonSelectCategory.setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
             PAGE_TYPE = TUBELESS;
@@ -209,7 +210,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             radioButton3.setVisibility(View.VISIBLE);
             linearLayoutMoz.setVisibility(View.GONE);
             checkbox.setVisibility(View.GONE);
-
+            buttonSelectCategory.setVisibility(View.GONE);
+            //selectedCategoryID
             editTextText.setHint( getContext().getString(R.string.yafte_hint));
         }
 
@@ -388,9 +390,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             }
 //        }
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")){
-            buttonSelectCategory.setVisibility(View.GONE);
-        }
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -455,6 +454,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             public void onClick(View view) {
                 final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
+                //old cat
+                if (PAGE_TYPE == YAFTE || PAGE_TYPE == MOZ)
+                    if (extracted(selectedCategoryID) != 0) {
+                        selectedCategoryID = extracted(selectedCategoryID);
+                    }
+
                 if (
                         selectedCategoryID == 0 ||
                                 editTextDate.getText().toString().length() < 5 ||
@@ -482,15 +487,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 //                if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
                     if (PAGE_TYPE == YAFTE) {
-                        if (radioButton3.isChecked()) {
-                            modalPayType(getContext());
-                        }else {
+//                        if (radioButton3.isChecked()) {
+//                            modalPayType(getContext());
+//                        }else {
                             if (isFreeStore(getContext(), StaticValue.configuration)) {
                                 prepareRequest();
                             }else {
                                 modalPayType(getContext());
                             }
-                        }
+//                        }
                     }else if (PAGE_TYPE == AMLAK) {
                         if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
                             if (Global.user2.isUserAdmin()) {
@@ -561,7 +566,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         }
 
         //3-Title
-        aaaa.setTitle(SelectedCategoryTitle + editTextTitle.getText().toString());
+        aaaa.setTitle((SelectedCategoryTitle == null ? "" : SelectedCategoryTitle) + editTextTitle.getText().toString());
 
         //4-Text
         aaaa.setText(editTextText.getText().toString());
@@ -572,11 +577,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         //6-State
         if (PAGE_TYPE == TUBELESS) {
             aaaa.setStateCode("8133");
-        }else if (PAGE_TYPE == AMLAK) {
+        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
             aaaa.setStateCode(String.valueOf(selectedSpinnerID));
         }else{
-            //Category ?????
-            //aaaa.setStateCode(stateItems.get(selectedCategoryID - 1).getID() + "");
+
         }
 
         //7-City
@@ -617,11 +621,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         //11-IP
         aaaa.setIP(AccountGeneral.getIP());
 
-
         newYafte(aaaa);
     }
 
-    private void extracted(long catId) {
+    private int extracted(long catId) {
+        aaaa.setTtc("0");
+
         if (PAGE_TYPE == MOZ) {
             if (radioButton1.isChecked()) {
                 aaaa.setTtc("7");
@@ -658,6 +663,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         }else {
 
         }
+        return Integer.parseInt(aaaa.getTtc());
     }
 
     private void date() {
