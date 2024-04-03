@@ -95,7 +95,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FR
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_MYPURCHESE;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity.LOGIN_REQUEST_NEW_COMMENT;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
 
 
 public class ListFragment extends Fragment  {

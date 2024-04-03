@@ -45,8 +45,6 @@ import com.google.gson.Gson;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -71,7 +69,6 @@ import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFrag
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.dialog.CommonDialogs;
@@ -90,11 +87,8 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.IT
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_MULTY_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_FILTER;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_LIST_CATEGORIES_DATA;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.fragmentx2;
-import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_MYFAVS;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_CAR_BRANDS_ID;
 import static ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout.Url.Instagram;

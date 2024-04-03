@@ -22,6 +22,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
@@ -39,8 +44,11 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -50,16 +58,20 @@ import butterknife.OnClick;
 import io.reactivex.annotations.Nullable;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.ChangePasswordActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
+import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
+import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.accountauthenticator.model.request.ATransactionListRequest;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;
@@ -173,6 +185,8 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     File mPhotoFile;
     private FileCompressor mCompressor;
 
+    public static final int WALLETCHARGE_REQUEST_CODE = 01225;
+
 
     public synchronized static Intent getIntent(Context context) {
         return getIntent(context,new Bundle());
@@ -235,11 +249,31 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
         getImageFromSeviceStream();
 
+
         charge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-                getContext().startActivity(intent);
+//                Intent intent = new Intent(getContext(), PrePaymentActivity.class);
+//                getContext().startActivity(intent);
+
+
+                //old
+//                Bundle bundle = new Bundle();
+//                bundle.putInt("type" , 1);
+//                bundle.putInt("amount", 1200);
+//                bundle.putString("metaData", "meta Data 1000");
+//                bundle.putString("tax ", "90");
+//                bundle.putString("portService", "50");
+//                Intent intent = PaymentActivity.getIntent(getContext(),bundle);
+//                //intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+//                //intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_ADMIN_USER);
+//                //intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//                //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//                bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//                startActivityForResult(intent, WALLETCHARGE_REQUEST_CODE);
+
+                //new
+                mGetNameActivity.launch(intent);
             }
         });
         buttonReciveReport.setOnClickListener(new View.OnClickListener() {
@@ -339,7 +373,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
             }
         });
 
-        if (Global.user2.getUserTypeCode() == 3){
+        if (Global.user2 != null && Global.user2.getUserTypeCode() == 3){
             buttonCreatorMessages.setVisibility(View.VISIBLE);
             buttonCreatorMessages.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -369,12 +403,63 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         if(Global.user2 != null)
             getImageFromSevice();
 
-        if (isFreeStore(context, StaticValue.configuration)) {
-            linearLayoutWallet.setVisibility(View.GONE);
-            buttonReciveReport.setVisibility(View.GONE);
-        }
+        try {
+            if (isFreeStore(context, StaticValue.configuration)) {
+                linearLayoutWallet.setVisibility(View.GONE);
+                buttonReciveReport.setVisibility(View.GONE);
+            }
+        }catch (Exception ex){}
+
+
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 1);
+        bundle.putInt("amount", 800);   //with type = 2
+        bundle.putString("metaData", "meta Data 10 + 30");
+        bundle.putString("tax", "10");
+        bundle.putBoolean("isCharge", true);  //use in charge wallet
+
+        bundle.putString("portService", "30");
+        intent = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
 
     }
+    Intent intent;
+    ActivityResultLauncher<Intent> mGetNameActivity;
+    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                Intent data = result.getData();
+                Intent x;
+                if (PaymentActivity.isPaymentSuccess()) {
+                    x = PaymentActivity.getPaymentIntent();
+                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+                    x.getIntExtra("amount",10);
+                    x.getStringExtra("ReturnData");
+                    x.getStringExtra("metaData");
+                    x.getStringExtra("item1");
+                    x.getIntExtra("type",10);
+
+                    Gson gson = new Gson();
+                    ReturnData returnData = new ReturnData();
+                    returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), ReturnData.class);
+                    Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
+                    Wallet.savedToDataBase(Global.user2);
+
+
+                    //todo update database
+                    //user amount
+
+                }else {
+                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
+                }
+                PaymentActivity.PaymentDone();
+            }
+        }
+    };
+
 
     @Override
     public SystemBarTintManager getSystemBarTint() {
@@ -1032,5 +1117,35 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
             }
         }catch (Exception ex){
         }
+    }
+
+    private class ReturnData{
+        public AWallet getWallet() {
+            return wallet;
+        }
+
+        public void setWallet(AWallet wallet) {
+            this.wallet = wallet;
+        }
+
+        public TubelessException getTubelessException() {
+            return tubelessException;
+        }
+
+        public void setTubelessException(TubelessException tubelessException) {
+            this.tubelessException = tubelessException;
+        }
+
+        public List<ATransaction> getTransactionList() {
+            return transactionList;
+        }
+
+        public void setTransactionList(List<ATransaction> transactionList) {
+            this.transactionList = transactionList;
+        }
+
+        List<ATransaction> transactionList = new ArrayList<ATransaction>();
+        AWallet wallet = new AWallet();
+        TubelessException tubelessException = new TubelessException();
     }
 }

@@ -45,7 +45,7 @@ import static ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment.context;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment.showUserRegPostDialog;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.DO_ACCEPT;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.DO_INVISIBLE;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
 
 /**
  * Created by sajjad on 7/30/2017.

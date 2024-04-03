@@ -19,8 +19,8 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "4.0.2"
-def final Yafte_VersionCode = 50
+def final Yafte_VersionName = "4.0.3"
+def final Yafte_VersionCode = 51
 
 def final Amlak_VersionName = "1.0.2"
 def final Amlak_VersionCode = 52
@@ -74,7 +74,7 @@ android {
     defaultConfig {
         applicationId "${appId}" 
 
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 28
 
         //versionCode Tubeless_VersionCode
@@ -88,7 +88,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            useProguard false
+            useProguard true
             debuggable true
 
 //            minifyEnabled true
@@ -108,12 +108,12 @@ android {
 
         debug {
             minifyEnabled false
-            useProguard false
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             versionNameSuffix "-dev"
             manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
 
-            debuggable true
+            //debuggable true
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
@@ -122,6 +122,7 @@ android {
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
 
         }
+
     }
 //    productFlavors {
 //        prod {
@@ -382,6 +383,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.okhttp:okhttp:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
     //    implementation 'com.github.mmoamenn:ProgressWindow_Android:0.0.2'
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
@@ -453,8 +455,6 @@ dependencies {
 //    implementation 'com.github.yosefi1988:xAccountAuthenticator:4.0.3'
 //    implementation 'com.github.yosefi1988:xAccountAuthenticator:1.0-a'
 //    implementation 'ir.sajjadyosefi.libraries:xaa:5.0.5'
-//    implementation 'com.zarinpal:purchase:0.0.8-beta'
-//    implementation 'com.zarinpal:purchase:0.0.10'
 
     implementation project(path: ':superpickerlibrary')
 
@@ -473,11 +473,15 @@ dependencies {
 
 
     //msi
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release3.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+//    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
+
     //lop
     //implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 
-    implementation 'com.zarinpal:purchase:0.0.10'
+    implementation "com.zarinpal:payment-provider:0.5.3"
+    implementation 'com.google.code.gson:gson:2.10'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

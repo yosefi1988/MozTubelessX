@@ -1,15 +1,15 @@
-package ir.sajjadyosefi.android.xTubeless.activity.register;
+package ir.sajjadyosefi.android.xTubeless.activity.payment;
 
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -23,23 +23,18 @@ import java.util.List;
 
 
 import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
-import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ChargeRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
 public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
@@ -55,7 +50,7 @@ public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
         super.onCreate(savedInstanceState);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        setContentView(R.layout.activity_payment);
+        setContentView(R.layout.activity_prepayment);
         setRootActivity();
         btnPay = findViewById(R.id.btnPay);
         buttonBack = findViewById(R.id.buttonBack);
@@ -67,13 +62,15 @@ public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
             this.finish();
         });
 
+        paymentinit(10000,"discription","09123678522");
+
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 phone = editTextPhone.getText().toString();
                 amount = editTextAmount.getText().toString();
                 discription = editTextDiscription.getText().toString();
-                payment(Integer.parseInt(editTextAmount.getText().toString()),discription,phone);
+                payment();
             }
         });
 
@@ -97,8 +94,9 @@ public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
             editTextAmount.setText(String.valueOf(defaultValue));
     }
 
-
-    private void payment(long amount,String discription,String mobileNumber) {
+    Intent intent;
+    ActivityResultLauncher<Intent> mGetNameActivity;
+    private void paymentinit(long amount,String discription,String mobileNumber) {
         //payment = charge by method
         //done
         Bundle bundle = new Bundle();
@@ -112,9 +110,67 @@ public class PrePaymentActivity extends TubelessTransparentStatusBarActivity {
         metaData.put("mobile",mobileNumber);
 
         bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = PaymentActivity.getIntent(this, bundle);
+        intent = PaymentActivity.getIntent(this, bundle);
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-        startActivityForResult(intent, 1000);
+
+
+        //new
+        mGetNameActivity =
+                registerForActivityResult(
+                        new ActivityResultContracts.StartActivityForResult(),
+                        result -> {
+                            if (result.getResultCode() == RESULT_OK) {
+                                Intent data = result.getData();
+                                Intent x;
+                                if (PaymentActivity.isPaymentSuccess()) {
+                                    x = PaymentActivity.getPaymentIntent();
+                                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+                                    x.getIntExtra("amount",10);
+                                    x.getStringExtra("ReturnData");
+                                    x.getStringExtra("metaData");
+                                    x.getStringExtra("item1");
+                                    x.getIntExtra("type",10);
+
+                                    ReturnData returnData = new ReturnData();
+                                    returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(),ReturnData.class);
+                                    Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
+                                    Wallet.savedToDataBase(Global.user2);
+
+
+                                    //todo update database
+                                    //user amount
+
+                                }else {
+                                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
+                                }
+
+                                PaymentActivity.PaymentDone();
+                                this.finish();
+                            }
+                        });
+        mGetNameActivity.launch(intent);
+
+        //old
+        //startActivityForResult(intent,1000);
+
+
+        //        Bundle bundle = new Bundle();
+//        bundle.putInt("type" , 1);
+//        Intent intent = SignInActivity.getIntent(context,bundle);
+////        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
+////                    intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
+//        intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
+//        //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
+//        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//        startActivityForResult(intent, 1000);
+    }
+    private void payment() {
+
+        mGetNameActivity.launch(intent);
+
+        //old
+        //startActivityForResult(intent,1000);
+
 
         //        Bundle bundle = new Bundle();
 //        bundle.putInt("type" , 1);

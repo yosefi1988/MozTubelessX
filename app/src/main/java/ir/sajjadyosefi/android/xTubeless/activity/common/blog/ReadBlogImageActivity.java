@@ -41,7 +41,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;

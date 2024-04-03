@@ -25,6 +25,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,6 +52,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
@@ -58,11 +63,13 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
@@ -92,7 +99,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LI
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.PrePaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
@@ -213,6 +220,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             buttonSelectCategory.setVisibility(View.GONE);
             //selectedCategoryID
             editTextText.setHint( getContext().getString(R.string.yafte_hint));
+
+            if (BuildConfig.FLAVOR_market.equals("myket"))
+                buttonAddFiles.setVisibility(View.GONE);
         }
 
         if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
@@ -462,7 +472,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
                 if (
                         selectedCategoryID == 0 ||
-                                editTextDate.getText().toString().length() < 5 ||
+                                (editTextDate.getText().toString().length() < 5 || editTextDate.getText().toString().contains("انتخاب")) ||
                                 editTextText.getText().toString().length() < 5 ||
                                 editTextTitle.getText().toString().length() < 5) {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.values_not_correct), new View.OnClickListener() {
@@ -553,6 +563,16 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //                        }
 ////                    }
 ////                }
+
+
+
+
+
+
+
+
+
+        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
     }
 
     private void prepareRequest() {
@@ -965,33 +985,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         }
         Intent x;
 
-        if (requestCode == 1000 || requestCode == CALL_AGAIN) {
-            if (PaymentActivity.isPaymentSuccess()) {
-                x = PaymentActivity.getPaymentIntent();
-//                Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+        if ( requestCode == CALL_AGAIN) {
 
-                x.getIntExtra("amount", 10);
-                x.getStringExtra("ReturnData");
-                x.getStringExtra("metaData");
-                x.getStringExtra("item1");
-                x.getIntExtra("type", 10);
-
-//                Gson gson = new Gson();
-//                PrePaymentActivity.ReturnData returnData = new PrePaymentActivity.ReturnData();
-//                returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), PrePaymentActivity.ReturnData.class);
-//                Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-//                Wallet.savedToDataBase(Global.user2);
-
-
-                //todo update database
-                //user amount
-
-//                send to server
-                prepareRequest();
-            } else {
-                Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
-            }
-            PaymentActivity.PaymentDone();
         }
 
         if (requestCode == REQUEST_CATEGORY_LIST) {
@@ -1306,24 +1301,40 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 
     private void payment(long amount,String discription,String mobileNumber) {
-        //payment = charge by method
-        //done
+        //old
+//        //payment = charge by method
+//        //done
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("type", 2);
+//        bundle.putInt("amount ", (int) amount);
+//        bundle.putString("tax", "10");
+//        bundle.putString("portService", "5");
+//
+//        Gson gson = new Gson();
+//        HashMap<String,String> metaData = new HashMap<String,String>();
+//        metaData.put("amount", amount + "0");
+//        metaData.put("discription",discription);
+//        metaData.put("mobile",mobileNumber);
+//
+//        bundle.putString("metaData", gson.toJson(metaData));
+//        Intent intent = PaymentActivity.getIntent(this, bundle);
+//        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//        startActivityForResult(intent, 1000);
+
+
         Bundle bundle = new Bundle();
         bundle.putInt("type", 2);
-        bundle.putInt("amount", (int) amount);
-
-        Gson gson = new Gson();
-        HashMap<String,String> metaData = new HashMap<String,String>();
-        metaData.put("amount", amount + "0");
-        metaData.put("discription",discription);
-        metaData.put("mobile",mobileNumber);
-
-        bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = PaymentActivity.getIntent(this, bundle);
+        bundle.putInt("amount",  (int) amount);   //with type = 2
+        bundle.putString("metaData", "meta Data 10 + 30");
+        bundle.putString("tax", "10");
+        bundle.putString("portService", "30");
+        intent = PaymentActivity.getIntent(getContext(), bundle);
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-        startActivityForResult(intent, 1000);
+        mGetNameActivity.launch(intent);
 
-        //        Bundle bundle = new Bundle();
+
+
+//        Bundle bundle = new Bundle();
 //        bundle.putInt("type" , 1);
 //        Intent intent = SignInActivity.getIntent(context,bundle);
 ////        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
@@ -1339,7 +1350,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         //done
         Bundle bundle = new Bundle();
         bundle.putInt("type", 2);
-        bundle.putInt("amount", (int) amount);
+        bundle.putInt("amount ", (int) amount);
 
         Gson gson = new Gson();
         HashMap<String,String> metaData = new HashMap<String,String>();
@@ -1353,5 +1364,42 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
         startActivityForResult(intent, CALL_AGAIN );
     }
+
+    Intent intent;
+    ActivityResultLauncher<Intent> mGetNameActivity;
+    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                if (PaymentActivity.isPaymentSuccess()) {
+                    Intent x = PaymentActivity.getPaymentIntent();
+//                Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+
+                    x.getIntExtra("amount", 10);
+                    x.getStringExtra("ReturnData");
+                    x.getStringExtra("metaData");
+                    x.getStringExtra("item1");
+                    x.getIntExtra("type", 10);
+
+//                Gson gson = new Gson();
+//                PrePaymentActivity.ReturnData returnData = new PrePaymentActivity.ReturnData();
+//                returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), PrePaymentActivity.ReturnData.class);
+//                Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
+//                Wallet.savedToDataBase(Global.user2);
+
+
+                    //todo update database
+                    //user amount
+
+//                send to server
+                    prepareRequest();
+                } else {
+                    Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
+                }
+                PaymentActivity.PaymentDone();
+
+            }
+        }
+    };
 
 }

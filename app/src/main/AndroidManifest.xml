@@ -191,14 +191,14 @@
 <!--        <data-->
 <!--            android:host="@string/zarinpalpayment"-->
 <!--            android:scheme="@string/schemezarinpalpayment" />-->
-        <activity android:name=".activity.register.PrePaymentActivity">
-            <intent-filter tools:ignore="AppLinkUrlError">
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+<!--        <activity android:name=".activity.payment.PrePaymentActivity">-->
+<!--            <intent-filter tools:ignore="AppLinkUrlError">-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-            </intent-filter>
-        </activity>
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name="com.yalantis.ucrop.UCropActivity"  />
 <!--        <activity android:name="ir.moslem_deris.apps.zarinpal.PaymentActivity"  />-->
 
