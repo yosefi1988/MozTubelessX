@@ -101,7 +101,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
                 //find wcrtgbwue
                 //در لاگین های بعدی هر دوتاش فراخوانی میشه
                 //110015 وقتی در یک اپ لاگین هستیم و اپ جدید نصب میکنیم
-                signInActivity.getUserDirect("110015",new ITransactionsListRequest<Boolean, Intent>() {
+                signInActivity.getUserDirect("11",new ITransactionsListRequest<Boolean, Intent>() {
                     @Override
                     public void onResponse(Boolean isSuccess,Intent data) {
 

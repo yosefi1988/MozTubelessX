@@ -19,8 +19,8 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "4.0.3"
-def final Yafte_VersionCode = 51
+def final Yafte_VersionName = "4.0.4"
+def final Yafte_VersionCode = 52
 
 def final Amlak_VersionName = "1.0.2"
 def final Amlak_VersionCode = 52
@@ -123,6 +123,9 @@ android {
 
         }
 
+        packagingOptions{
+            exclude 'META-INF/core_release.kotlin_module'
+        }
     }
 //    productFlavors {
 //        prod {

@@ -52,7 +52,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
@@ -63,7 +62,6 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 
@@ -121,10 +119,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     LinearLayout linearLayoutMoz;
     ScrollView sv;
     NewBlogRequest aaaa = new NewBlogRequest();
+    boolean isDirectPaymentInRegPostRequest = false;
     static List<File> filesList;
     private int REQUEST_FILE_LIST = 525;
 
-    public static int amountForRegNewPost_Toman = 1000;
+    public static int amountForRegNewPost_Toman = 1200;
     public static String amountForSeenNewPost = "5000";
 
     //state
@@ -566,12 +565,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-
-
-
-
-
-
         mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
     }
 
@@ -641,6 +634,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         //11-IP
         aaaa.setIP(AccountGeneral.getIP());
 
+        //12
+        aaaa.setDirectPay(isDirectPaymentInRegPostRequest);
         newYafte(aaaa);
     }
 
@@ -1243,8 +1238,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //                    paymentSharj(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
 
                     //3
-                    Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-                    getContext().startActivity(intent);
+//                    Intent intent = new Intent(getContext(), PrePaymentActivity.class);
+//                    getContext().startActivity(intent);
+
+                    //4
+                    //new
+                    payByWalet(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
 
                 }else {
                     //modal
@@ -1274,7 +1273,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 PrePaymentActivity.phone = Global.sAccountHelper.getUserAccountName();
                 //amount = amountForRegNewPost;
                 PrePaymentActivity.discription = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
-                payment(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
+                paymentDirect(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
             }
         });
         dialog.show();
@@ -1300,27 +1299,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     }
 
 
-    private void payment(long amount,String discription,String mobileNumber) {
-        //old
-//        //payment = charge by method
-//        //done
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("type", 2);
-//        bundle.putInt("amount ", (int) amount);
-//        bundle.putString("tax", "10");
-//        bundle.putString("portService", "5");
-//
-//        Gson gson = new Gson();
-//        HashMap<String,String> metaData = new HashMap<String,String>();
-//        metaData.put("amount", amount + "0");
-//        metaData.put("discription",discription);
-//        metaData.put("mobile",mobileNumber);
-//
-//        bundle.putString("metaData", gson.toJson(metaData));
-//        Intent intent = PaymentActivity.getIntent(this, bundle);
-//        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-//        startActivityForResult(intent, 1000);
-
+    private void paymentDirect(long amount, String discription, String mobileNumber) {
 
         Bundle bundle = new Bundle();
         bundle.putInt("type", 2);
@@ -1328,21 +1307,32 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putString("metaData", "meta Data 10 + 30");
         bundle.putString("tax", "10");
         bundle.putString("portService", "30");
-        intent = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-        mGetNameActivity.launch(intent);
+        bundle.putBoolean("isCharge", false);  //use in charge wallet
+        bundle.putBoolean("isDirectPayment", true);
+        isDirectPaymentInRegPostRequest = true;
 
+        intentPaymentActivity = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPaymentActivity);
+        mGetNameActivity.launch(intentPaymentActivity);
 
+    }
 
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("type" , 1);
-//        Intent intent = SignInActivity.getIntent(context,bundle);
-////        intent.putExtra(AuthenticatorActivity.ARG_ACCOUNT_TYPE, AccountGeneral.ACCOUNT_TYPE);
-////                    intent.putExtra(AuthenticatorActivity.ARG_AUTH_TYPE, AccountGeneral.AUTHTOKEN_TYPE_FULL_ACCESS);
-//        intent.putExtra(AuthenticatorActivity.ARG_IS_ADDING_NEW_ACCOUNT, true);
-//        //intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
-//        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-//        startActivityForResult(intent, 1000);
+    private void payByWalet(long amount, String discription, String mobileNumber) {
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 1);
+        bundle.putBoolean("isCharge", true);  //use in charge wallet
+
+        bundle.putInt("amount",  (int) amount);   //with type = 2
+        bundle.putString("metaData", "meta Data 10 + 30");
+        bundle.putString("tax", "10");
+        bundle.putString("portService", "30");
+        bundle.putBoolean("isDirectPayment", true);
+        isDirectPaymentInRegPostRequest = true;
+
+        intentPaymentActivity = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPaymentActivity);
+        mGetNameActivity.launch(intentPaymentActivity);
     }
 
     private void paymentSharj(long amount,String discription,String mobileNumber) {
@@ -1365,7 +1355,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         startActivityForResult(intent, CALL_AGAIN );
     }
 
-    Intent intent;
+    Intent intentPaymentActivity;
     ActivityResultLauncher<Intent> mGetNameActivity;
     ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
         @Override

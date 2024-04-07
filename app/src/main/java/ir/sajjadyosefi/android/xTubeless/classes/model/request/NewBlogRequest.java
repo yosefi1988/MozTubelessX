@@ -128,9 +128,13 @@ public class NewBlogRequest {
     private String ReciveMessage;
     private String PublishDate;
     private String ExpireDate;
+    private boolean DirectPay;
     private String IP;
     private String Store;
     private List<Amounts> Items = new ArrayList<>();
 
 
+    public void setDirectPay(boolean isdirect) {
+        DirectPay = isdirect;
+    }
 }
