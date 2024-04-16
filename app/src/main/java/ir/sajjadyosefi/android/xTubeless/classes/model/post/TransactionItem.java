@@ -3,14 +3,11 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 import android.content.Context;
 import android.view.View;
 
-import androidx.recyclerview.widget.RecyclerView;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.ITubelessAdapter;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.MainAdapter;
-import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainViewHolder;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
 import ir.sajjadyosefi.android.xTubeless.utility.SamanString;
 
 /**
@@ -21,9 +18,13 @@ public class TransactionItem extends ParentItem {
     private String Amount;
     private String PersianCreatedOn;
     private String RefrenceNo;
-    private String TransactionTypeCode;
+    private int TransactionTypeCode;
     private String TransactionTypeName;
+    private float Zarib;
     private String PostTitle;
+    private String Image;
+    private String Icon;
+    private String CreatorName;
     private String PostId;
 
 
@@ -43,6 +44,38 @@ public class TransactionItem extends ParentItem {
         PersianCreatedOn = persianCreatedOn;
     }
 
+    public float getZarib() {
+        return Zarib;
+    }
+
+    public void setZarib(float zarib) {
+        Zarib = zarib;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        this.Image = image;
+    }
+
+    public String getIcon() {
+        return Icon;
+    }
+
+    public void setIcon(String icon) {
+        Icon = icon;
+    }
+
+    public String getCreatorName() {
+        return CreatorName;
+    }
+
+    public void setCreatorName(String creatorName) {
+        CreatorName = creatorName;
+    }
+
     public String getRefrenceNo() {
         return RefrenceNo;
     }
@@ -51,11 +84,11 @@ public class TransactionItem extends ParentItem {
         RefrenceNo = refrenceNo;
     }
 
-    public String getTransactionTypeCode() {
+    public int getTransactionTypeCode() {
         return TransactionTypeCode;
     }
 
-    public void setTransactionTypeCode(String transactionTypeCode) {
+    public void setTransactionTypeCode(int transactionTypeCode) {
         TransactionTypeCode = transactionTypeCode;
     }
 
@@ -190,16 +223,16 @@ public class TransactionItem extends ParentItem {
         TransactionItemViewHolder holder = (TransactionItemViewHolder) holder0;
         final TransactionItem transactionItem = (TransactionItem)item;
 
-        holder.textViewAmount.setText(" مبلغ تراکنش: " + SamanString.addSpratorX(Float.parseFloat(transactionItem.getAmount()))    + " ریال");
-        holder.textViewDate.setText("تاریخ: " + transactionItem.getPersianCreatedOn());
+        holder.textViewTitle.setText(transactionItem.getTransactionTypeName());//+" - " + transactionItem.getTransactionTypeCode());
+        holder.textViewAmount.setText(" مبلغ تراکنش: " + SamanString.addSpratorX(Float.parseFloat(transactionItem.getAmount()))    + " ریال" );//+ "X" + transactionItem.getZarib());
+        holder.textViewDate.setText("تاریخ: " + transactionItem.getPersianCreatedOn()+ " شناسه تراکنش: " + transactionItem.getID());
         holder.textViewRef.setText("کدرهگیری: " + transactionItem.getRefrenceNo());
-        holder.textViewTitle.setText(transactionItem.getTransactionTypeName());
 
         holder.textViewRef.setVisibility(View.GONE);
 
         if (transactionItem.getPostTitle() != null) {
             holder.textViewpay.setVisibility(View.VISIBLE);
-            holder.textViewpay.setText("جهت پست: " +transactionItem.getPostTitle());
+            holder.textViewpay.setText("جهت پست: " + transactionItem.getRefrenceNo() + " - " +transactionItem.getPostTitle());
         }else
             holder.textViewpay.setVisibility(View.GONE);
 

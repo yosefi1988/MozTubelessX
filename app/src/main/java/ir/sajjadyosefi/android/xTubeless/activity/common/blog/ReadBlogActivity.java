@@ -790,7 +790,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         req.setIDPost(((MainItem)blogItem).getID() + "");
 
         if (Global.user2 != null)
-            Global.apiManagerTubeless.getTimelineItem(req, callbackss);
+            Global.apiManagerTubeless.getTimelineItem(req, readBlogCallBack);
         else {
             finish();
         }
@@ -1303,7 +1303,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         Global.apiManagerTubeless.deleteBlogComment(id,userId ,ssssssss);
     }
 
-    TubelessRetrofitCallbackss callbackss = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
+    TubelessRetrofitCallbackss readBlogCallBack = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
         @Override
         public void t_beforeSendRequest() {
             if (progressDialog != null)

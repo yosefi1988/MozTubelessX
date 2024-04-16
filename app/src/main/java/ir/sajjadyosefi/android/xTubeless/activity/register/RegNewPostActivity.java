@@ -109,7 +109,7 @@ import static ir.sajjadyosefi.android.xTubeless.utility.DateTime.SamanDateTime.g
 public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 
-    public Button buttonReg,  buttonBack ,buttonAddFiles ,buttonSelectCategory;
+    public Button buttonReg,  buttonBack , btnAddFiles,buttonSelectCategory;
     EditText editTextText, editTextTitle, editTextAmount;
     TextView editTextDate,login_title,titleTextView,editTextTitleExample;
     LinearLayout linearLayoutAmount;
@@ -169,7 +169,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         login_title = findViewById(R.id.login_title);
         titleTextView = findViewById(R.id.titleTextView);
         editTextTitleExample = findViewById(R.id.editTextTitleExample);
-        buttonAddFiles = findViewById(R.id.buttonAddFiles);
+        btnAddFiles = findViewById(R.id.buttonAddFiles);
         buttonSelectCategory = findViewById(R.id.buttonSelectCategory);
 
 
@@ -219,9 +219,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             buttonSelectCategory.setVisibility(View.GONE);
             //selectedCategoryID
             editTextText.setHint( getContext().getString(R.string.yafte_hint));
-
-            if (BuildConfig.FLAVOR_market.equals("myket"))
-                buttonAddFiles.setVisibility(View.GONE);
         }
 
         if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
@@ -393,9 +390,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //            buttonAddFiles.setEnabled(true);
 //        }else {
             if (PAGE_TYPE == AMLAK ) {      //Global.user2.isUserCreator() &&
-                buttonAddFiles.setEnabled(true);
+                btnAddFiles.setEnabled(true);
+            }else if (PAGE_TYPE == YAFTE ) {      //Global.user2.isUserCreator() &&
+                btnAddFiles.setEnabled(true);
             }else {
-                buttonAddFiles.setEnabled(false);
+                btnAddFiles.setEnabled(false);
             }
 //        }
 
@@ -422,7 +421,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
             }
         });
-        buttonAddFiles.setOnClickListener(new View.OnClickListener() {
+        btnAddFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                if (BuildConfig.FLAVOR_market.equals("bazzar")) {

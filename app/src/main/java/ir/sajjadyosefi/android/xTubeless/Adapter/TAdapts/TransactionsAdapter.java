@@ -149,11 +149,15 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
                     transactionItem.setAmount(String.valueOf(aTransactionItem.getAmount()));
                     transactionItem.setID(Integer.parseInt(aTransactionItem.getID()));
                     transactionItem.setPersianCreatedOn(aTransactionItem.getDateTime());    //todo convert date
-                    transactionItem.setPostId(aTransactionItem.getID());
+                    transactionItem.setPostId(aTransactionItem.getRefrenceNo());
                     transactionItem.setPostTitle(aTransactionItem.getTitle());
                     transactionItem.setRefrenceNo(aTransactionItem.getRefrenceNo());
-                    //transactionItem.setTransactionTypeCode(aTransactionItem.);
-                    //transactionItem.setTransactionTypeName(aTransactionItem.);
+                    transactionItem.setTransactionTypeCode(aTransactionItem.getTTC());
+                    transactionItem.setTransactionTypeName(aTransactionItem.getTTN());
+                    transactionItem.setZarib(aTransactionItem.getZarib());
+                    transactionItem.setImage(aTransactionItem.getImage());
+                    transactionItem.setIcon(aTransactionItem.getIcon());
+                    transactionItem.setCreatorName(aTransactionItem.getCreatorFullName());
                     ((ListFragment) fragment).dataList.add(transactionItem);
 
                     if (isRefresh) {
