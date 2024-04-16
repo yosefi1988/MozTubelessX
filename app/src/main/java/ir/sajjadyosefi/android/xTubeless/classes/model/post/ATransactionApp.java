@@ -23,9 +23,10 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainVi
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.utility.SamanString;
 
-public abstract class ATransactionApp extends ATransaction implements IItems {
+public class ATransactionApp extends ATransaction implements IItems {
 
-    public void fill(Context mContext, TransactionsAdapter xAdapter, int listType, TubelessMainViewHolder holder0 , ParentItem item, int position) {
+    @Override
+    public void fill(Context mContext, ITubelessAdapter xAdapter, int listType, TubelessMainViewHolder holder0 , ParentItem item, int position, ListFragment fragment) {
         TransactionItemViewHolder holder = (TransactionItemViewHolder) holder0;
 
         //final ATransactionApp timelineItem = (ATransactionApp) item;
@@ -94,7 +95,7 @@ public abstract class ATransactionApp extends ATransaction implements IItems {
 
 
 
-    public void onclicks(Context mContext, TransactionsAdapter xAdapter, int listType, TubelessMainViewHolder holder, ATransactionApp timelineItem, int position) {
+    public void onclicks(Context mContext, ITubelessAdapter xAdapter, int listType, TubelessMainViewHolder holder, ATransactionApp timelineItem, int position) {
 
 //        holder.imageViewMenu.setClickable(true);
 //        holder.imageViewMenu.setOnClickListener(new View.OnClickListener() {
@@ -222,6 +223,8 @@ public abstract class ATransactionApp extends ATransaction implements IItems {
         });
         popup.show();
     }
+
+
 
 
 //    protected abstract void share(Context mContext, int listType, ATransactionApp timelineItem);

@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,15 +34,20 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.ATransactionApp;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.EmptyTextItem;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TransactionItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.EmptyTextViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
+import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.Tubeless_ITEM_TYPE;
 
 
 public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerView.Adapter<TubelessMainViewHolder> {
@@ -61,15 +68,28 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
 
     public TimelineRequest timelineSearchRequest = null;
 
+    private final static int FADE_DURATION = 500; //FADE_DURATION in milliseconds
+
     public TransactionsAdapter() {
 
     }
 
-    public TransactionsAdapter(int listType, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle) {
-         new TransactionsAdapter(listType, null, context, rootView, recyclerView, linearLayoutManager, mSwipeRefreshLayout, fragment, bundle,null,null) ;
+    public void firstLoadAndRefresh(Context context) {
+        loadTimeline(context,1,false);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if (onScrollListener != null)
+                    onScrollListener.reset();
+                ((ListFragment)fragment).dataList.clear();
+                loadTimeline(context,1,true);
+                mSwipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
-    public TransactionsAdapter(int listType, CategoryItem categoryItem, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle, TextView emptyView2 , TimelineRequest searchRequest) {
+    @Override
+    public void init(int listType, CategoryItem categoryItem, Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle, TextView emptyView2, TimelineRequest searchRequest) {
 
         this.listType = listType;
         this.categoryItem = categoryItem;
@@ -108,30 +128,9 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
         firstLoadAndRefresh(context);
     }
 
-    private final static int FADE_DURATION = 500; //FADE_DURATION in milliseconds
-
-
-    public void firstLoadAndRefresh(Context context) {
-        loadTimeline(context,1,false);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                if (onScrollListener != null)
-                    onScrollListener.reset();
-                ((ListFragment)fragment).dataList.clear();
-                loadTimeline(context,1,true);
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-        });
-    }
-
-    @Override
-    public void init(int listType, CategoryItem categoryItem, Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle, TextView emptyView2, TimelineRequest searchRequest) {
-
-    }
-
     private void loadTimeline(Context context,int _current_page, boolean isRefresh) {
         ((TubelessActivity) context).progressDialog.show();
+        Gson gson = new Gson();
         SignInActivity signInActivity = new SignInActivity();
         ATransactionListRequest xxxxxxxxxxx = new ATransactionListRequest(Global.user2.getUserCodeAsString(), "10", (_current_page - 1) + "");
         signInActivity.getTransactionsList(xxxxxxxxxxx, new ITransactionsListRequest<Boolean, Intent>() {
@@ -141,40 +140,27 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
 
                 Bundle bundle = intent.getExtras();
                 String config = bundle.getString(PARAM_TRANSACTION_LIST);
-                ATransactionListResponse responseX2 = new Gson().fromJson(config, ATransactionListResponse.class);
                 //String error = bundle.getString(KEY_ERROR_MESSAGE);
 
-                for (ATransaction item : responseX2.getTransactionList()) {
-//                    ATransactionApp aTransactionApp = new ATransactionApp() {
-//                        @Override
-//                        public void fill(Context mContext, RecyclerView.Adapter<RecyclerView.ViewHolder> xAdapter, int listType, PostViewHolder holder0 , ParentItem item, int position, ListFragment fragment) {
-//
-//                        }
-//
-//                        @Override
-//                        public void modal(Context mContext, View view, int listType, ATransactionApp timelineItem) {
-//                            super.modal(mContext, view, listType, timelineItem);
-//                        }
-//                    };
-//                    aTransactionApp.setAmount(item.getAmount());
-//                    aTransactionApp.setTTC(item.getTTC());
-//                    aTransactionApp.setTTN(item.getTTN());
-//                    aTransactionApp.setCreatorFullName(item.getCreatorFullName());
-//                    aTransactionApp.setDateTime(item.getDateTime());
-//                    aTransactionApp.setIcon(item.getIcon());
-//                    aTransactionApp.setID(item.getID());
-//                    aTransactionApp.setImage(item.getImage());
-//                    aTransactionApp.setZarib(item.getZarib());
-//                    aTransactionApp.setRefrenceNo(item.getRefrenceNo());
-//                    aTransactionApp.setTitle(item.getTitle());
-//
-////                        item.setType(Tubeless_ITEM_TYPE);
-////                    ((ListFragment) fragment).list.add(aTransactionApp);
-//                    if (isRefresh) {
-//                        adapter.notifyDataSetChanged();
-//                    } else {
-//                        adapter.notifyItemInserted(((ListFragment) fragment).list.size());
-//                    }
+                ATransactionListResponse aTransactionListResponse = new Gson().fromJson(config, ATransactionListResponse.class);
+                for (ATransaction aTransactionItem : aTransactionListResponse.getTransactionList()) {
+                    TransactionItem transactionItem = new TransactionItem();
+
+                    transactionItem.setAmount(String.valueOf(aTransactionItem.getAmount()));
+                    transactionItem.setID(Integer.parseInt(aTransactionItem.getID()));
+                    transactionItem.setPersianCreatedOn(aTransactionItem.getDateTime());    //todo convert date
+                    transactionItem.setPostId(aTransactionItem.getID());
+                    transactionItem.setPostTitle(aTransactionItem.getTitle());
+                    transactionItem.setRefrenceNo(aTransactionItem.getRefrenceNo());
+                    //transactionItem.setTransactionTypeCode(aTransactionItem.);
+                    //transactionItem.setTransactionTypeName(aTransactionItem.);
+                    ((ListFragment) fragment).dataList.add(transactionItem);
+
+                    if (isRefresh) {
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        adapter.notifyItemInserted(((ListFragment) fragment).dataList.size());
+                    }
                 }
             }
         });
@@ -219,7 +205,7 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
         }
         if (((ListFragment)fragment).dataList.get(position) instanceof TransactionItem) {
             final TransactionItem item = (TransactionItem) ((ListFragment)fragment).dataList.get(position);
-//            item.fill(context,this , listType, holder, item, position);
+            item.fill(context,this , listType, holder, item, position,((ListFragment)fragment));
 //        }else if (((ListFragment)fragment).list.get(position) instanceof ATransactionApp) {
 //            final ATransactionApp item = (ATransactionApp) ((ListFragment)fragment).list.get(position);
 //            item.fill(context,this , listType, holder, item, position);
@@ -229,8 +215,8 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
     public int getItemViewType(int position) {
         if (((ListFragment)fragment).dataList.get(position) instanceof EmptyTextItem){
             return VIEW_EMPTY_TEXT;
-//        }else if (((ListFragment)fragment).list.get(position) instanceof ATransactionApp){
-//            return VIEW_TYPE_TRANSACTION;
+        }else if (((ListFragment)fragment).dataList.get(position) instanceof TransactionItem){
+            return VIEW_TYPE_TRANSACTION;
         }else {
             return 0;
         }

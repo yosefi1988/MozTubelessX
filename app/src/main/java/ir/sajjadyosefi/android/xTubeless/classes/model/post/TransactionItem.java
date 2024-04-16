@@ -1,19 +1,31 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.post;
 
 import android.content.Context;
+import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.ITubelessAdapter;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.MainAdapter;
+import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
+import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainViewHolder;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.tmp.TimelineItem;
+import ir.sajjadyosefi.android.xTubeless.utility.SamanString;
 
 /**
  * Created by sajjad on 1/20/2018.
  */
 
 public class TransactionItem extends ParentItem {
+    private String Amount;
+    private String PersianCreatedOn;
+    private String RefrenceNo;
+    private String TransactionTypeCode;
+    private String TransactionTypeName;
+    private String PostTitle;
+    private String PostId;
+
 
     public String getAmount() {
         return Amount;
@@ -70,56 +82,6 @@ public class TransactionItem extends ParentItem {
     public void setPostId(String postId) {
         PostId = postId;
     }
-
-    private String Amount;
-    private String PersianCreatedOn;
-    private String RefrenceNo;
-    private String TransactionTypeCode;
-    private String TransactionTypeName;
-    private String PostTitle;
-    private String PostId;
-
-
-    public TransactionItem(TimelineItem item) {
-
-    }
-
-//    public void fill(Context mContext,
-//                     MainAdapter xAdapter,
-//                     int listType,
-//                     PostViewHolder holder0,
-//                     IItems item,
-//                     int position) {
-//
-//        super.fill(mContext, xAdapter, listType,holder0,item, position);
-//
-//        TransactionViewHolder holder = (TransactionViewHolder) holder0;
-//        final TransactionItem transactionItem = (TransactionItem)item;
-//
-//
-////        holder.textViewAmount.setText(" مبلغ تراکنش: " + SamanString.addSpratorX(Integer.parseInt(transactionItem.getAmount())) + " ریال");
-//        holder.textViewAmount.setText(" مبلغ تراکنش: " + SamanString.addSpratorX(Float.parseFloat(transactionItem.getAmount()))    + " ریال");
-//        holder.textViewDate.setText("تاریخ: " + transactionItem.getPersianCreatedOn());
-//        holder.textViewRef.setText("کدرهگیری: " + transactionItem.getRefrenceNo());
-//        holder.textViewTitle.setText(transactionItem.getTransactionTypeName());
-//
-//        holder.textViewRef.setVisibility(View.GONE);
-//
-//        if (transactionItem.getPostTitle() != null) {
-//            holder.textViewpay.setVisibility(View.VISIBLE);
-//            holder.textViewpay.setText("جهت مشاهده: " +transactionItem.getPostTitle());
-//        }else
-//            holder.textViewpay.setVisibility(View.GONE);
-//
-//
-//        if (Float.parseFloat(transactionItem.getAmount()) > 0) {
-//            holder.imageviewup.setVisibility(View.VISIBLE);
-//            holder.imageviewdown.setVisibility(View.GONE);
-//        } else {
-//            holder.imageviewdown.setVisibility(View.VISIBLE);
-//            holder.imageviewup.setVisibility(View.GONE);
-//        }
-//    }
 
     @Override
     protected void share(Context mContext, int listType, ParentItem timelineItem0) {
@@ -223,6 +185,33 @@ public class TransactionItem extends ParentItem {
 
     @Override
     public void fill(Context mContext, ITubelessAdapter xAdapter, int listType, TubelessMainViewHolder holder0, ParentItem item, int position, ListFragment fragment) {
+//        super.fill(mContext, xAdapter, listType,holder0,item, position);
+
+        TransactionItemViewHolder holder = (TransactionItemViewHolder) holder0;
+        final TransactionItem transactionItem = (TransactionItem)item;
+
+        holder.textViewAmount.setText(" مبلغ تراکنش: " + SamanString.addSpratorX(Float.parseFloat(transactionItem.getAmount()))    + " ریال");
+        holder.textViewDate.setText("تاریخ: " + transactionItem.getPersianCreatedOn());
+        holder.textViewRef.setText("کدرهگیری: " + transactionItem.getRefrenceNo());
+        holder.textViewTitle.setText(transactionItem.getTransactionTypeName());
+
+        holder.textViewRef.setVisibility(View.GONE);
+
+        if (transactionItem.getPostTitle() != null) {
+            holder.textViewpay.setVisibility(View.VISIBLE);
+            holder.textViewpay.setText("جهت پست: " +transactionItem.getPostTitle());
+        }else
+            holder.textViewpay.setVisibility(View.GONE);
+
+
+        if (Float.parseFloat(transactionItem.getAmount()) > 0) {
+            holder.imageviewup.setVisibility(View.VISIBLE);
+            holder.imageviewdown.setVisibility(View.GONE);
+        } else {
+            holder.imageviewdown.setVisibility(View.VISIBLE);
+            holder.imageviewup.setVisibility(View.GONE);
+        }
 
     }
+
 }

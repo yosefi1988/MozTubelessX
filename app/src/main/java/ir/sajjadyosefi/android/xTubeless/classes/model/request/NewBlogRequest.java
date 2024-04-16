@@ -137,4 +137,8 @@ public class NewBlogRequest {
     public void setDirectPay(boolean isdirect) {
         DirectPay = isdirect;
     }
+
+    public boolean isDirectPay() {
+        return DirectPay;
+    }
 }

@@ -565,7 +565,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 
 
-        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
+        intentActivityResultLauncherForDirectPayment = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResultCallbackForDirectPayment);
+        intentActivityResultLauncherForWalletPayment = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResultCallbackForWalletPayment);
     }
 
     private void prepareRequest() {
@@ -1044,7 +1045,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 NewPostResponse responseX = (NewPostResponse) response;
 
                 if (responseX.getTubelessException().getCode() > 0) {
-                    updateWallet(responseX);
+                    updateWallet(blogItem,responseX);
                     boolean havePic = false;
                     if (filesList.size()>=3){
                         havePic = true;
@@ -1100,18 +1101,21 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         Global.apiManagerTubeless.registerNewBlog(blogItem, ssssssss);
     }
 
-    private void updateWallet(NewPostResponse response) {
+    private void updateWallet(NewBlogRequest blogItem, NewPostResponse response) {
         //todo save new balanse
 
-        if (Global.user2.getWallet() != null)
-            Global.user2.getWallet().setAmount(response.getWallet().getAmount());
+        if (blogItem.isDirectPay()){
 
-        Wallet wallet = new Wallet();
-        AWallet aWallet = wallet.loadWalletData();
-        wallet.updateWalletAmount(response.getWallet().getAmount());
+        }else {
+            if (Global.user2.getWallet() != null)
+                Global.user2.getWallet().setAmount(response.getWallet().getAmount());
 
+            Wallet wallet = new Wallet();
+            AWallet aWallet = wallet.loadWalletData();
+            wallet.updateWalletAmount(response.getWallet().getAmount());
 
-        aWallet = wallet.loadWalletData();
+            aWallet = wallet.loadWalletData();
+        }
     }
 
 
@@ -1225,33 +1229,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
                     Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
-
-                    //1
-//                    Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-//                    intent.putExtra("defaultValue",amountForRegNewPost_Toman);
-//                    ((Activity)getContext()).startActivityForResult(intent,CALL_AGAIN);
-
-                    //2
-//                    PrePaymentActivity.phone = Global.sAccountHelper.getUserAccountName();
-//                    //amount = amountForRegNewPost;
-//                    PrePaymentActivity.discription = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
-//                    paymentSharj(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
-
-                    //3
-//                    Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-//                    getContext().startActivity(intent);
-
-                    //4
-                    //new
                     payByWalet(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
-
                 }else {
                     //modal
                     //amountForRegNewPost
 //                    Toast.makeText(mContext,"کیف پول شما غیرفعال است",Toast.LENGTH_SHORT).show();
-
                     prepareRequest();
-
 //                    CommonDialogs.modalAmountConfirm(mContext, amountForRegNewPost_Toman, new View.OnClickListener() {
 //                        @Override
 //                        public void onClick(View view) {
@@ -1311,9 +1294,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putBoolean("isDirectPayment", true);
         isDirectPaymentInRegPostRequest = true;
 
-        intentPaymentActivity = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentPaymentActivity);
-        mGetNameActivity.launch(intentPaymentActivity);
+        intentpaymentactivityForDirectPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForDirectPayment);
+        intentActivityResultLauncherForDirectPayment.launch(intentpaymentactivityForDirectPayment);
 
     }
 
@@ -1327,12 +1310,12 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putString("metaData", "meta Data 10 + 30");
         bundle.putString("tax", "10");
         bundle.putString("portService", "30");
-        bundle.putBoolean("isDirectPayment", true);
-        isDirectPaymentInRegPostRequest = true;
+        bundle.putBoolean("isDirectPayment", false);
+        isDirectPaymentInRegPostRequest = false;
 
-        intentPaymentActivity = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentPaymentActivity);
-        mGetNameActivity.launch(intentPaymentActivity);
+        intentpaymentactivityForWalletPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForWalletPayment);
+        intentActivityResultLauncherForWalletPayment.launch(intentpaymentactivityForWalletPayment);
     }
 
     private void paymentSharj(long amount,String discription,String mobileNumber) {
@@ -1355,9 +1338,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         startActivityForResult(intent, CALL_AGAIN );
     }
 
-    Intent intentPaymentActivity;
-    ActivityResultLauncher<Intent> mGetNameActivity;
-    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
+    Intent intentpaymentactivityForDirectPayment;
+    Intent intentpaymentactivityForWalletPayment;
+    ActivityResultLauncher<Intent> intentActivityResultLauncherForDirectPayment;
+    ActivityResultLauncher<Intent> intentActivityResultLauncherForWalletPayment;
+    ActivityResultCallback<ActivityResult> activityResultCallbackForDirectPayment = new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
             if (result.getResultCode() == RESULT_OK) {
@@ -1382,6 +1367,42 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                     //user amount
 
 //                send to server
+                    isDirectPaymentInRegPostRequest = true;
+                    prepareRequest();
+                } else {
+                    Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
+                }
+                PaymentActivity.PaymentDone();
+
+            }
+        }
+    };
+    ActivityResultCallback<ActivityResult> activityResultCallbackForWalletPayment = new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                if (PaymentActivity.isPaymentSuccess()) {
+                    Intent x = PaymentActivity.getPaymentIntent();
+//                Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+
+                    x.getIntExtra("amount", 10);
+                    x.getStringExtra("ReturnData");
+                    x.getStringExtra("metaData");
+                    x.getStringExtra("item1");
+                    x.getIntExtra("type", 10);
+
+//                Gson gson = new Gson();
+//                PrePaymentActivity.ReturnData returnData = new PrePaymentActivity.ReturnData();
+//                returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), PrePaymentActivity.ReturnData.class);
+//                Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
+//                Wallet.savedToDataBase(Global.user2);
+
+
+                    //todo update database
+                    //user amount
+
+//                send to server
+                    isDirectPaymentInRegPostRequest = false;
                     prepareRequest();
                 } else {
                     Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
