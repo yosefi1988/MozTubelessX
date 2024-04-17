@@ -297,9 +297,9 @@ public class FilterFragment extends Fragment {
             }
         });
 
-        if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
+        if (BuildConfig.FLAVOR_market.equals("bazzar") || BuildConfig.FLAVOR_market.equals("myket")) {
             buttonShareApp.setVisibility(View.GONE);
-        }else {
+        } else {
             buttonShareApp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

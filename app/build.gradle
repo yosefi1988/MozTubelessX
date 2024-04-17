@@ -19,8 +19,8 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "4.0.4"
-def final Yafte_VersionCode = 52
+def final Yafte_VersionName = "4.1.1"
+def final Yafte_VersionCode = 54
 
 def final Amlak_VersionName = "1.0.2"
 def final Amlak_VersionCode = 52
@@ -476,7 +476,7 @@ dependencies {
 
 
     //msi
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release4.aar')
 //    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
 
     //lop

@@ -84,6 +84,7 @@ import ir.sajjadyosefi.android.xTubeless.dialog.SubStractDialogClass;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import ir.sajjadyosefi.android.xTubeless.service.FileUploadService;
 import ir.sajjadyosefi.android.xTubeless.utility.DateConverterSjd;
+import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.utility.file.UriUtil;
 import ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.PersianDatePicker;
 import ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.util.PersianCalendar2;
@@ -94,6 +95,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessListAmountsAdapte
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
+import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
@@ -1015,12 +1017,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void t_afterGetResponse() {
-
+                ((TubelessActivity) getContext()).progressDialog.hide();
             }
 
             @Override
             public void t_complite() {
-
             }
 
             @Override
@@ -1225,6 +1226,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         button_pay_by_wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isDirectPaymentInRegPostRequest = false;
                 if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
                     Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
@@ -1243,7 +1245,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //
 //                        }
 //                    });
-
                 }
             }
         });
@@ -1282,15 +1283,22 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 
 
     private void paymentDirect(long amount, String discription, String mobileNumber) {
-
         Bundle bundle = new Bundle();
         bundle.putInt("type", 2);
-        bundle.putInt("amount",  (int) amount);   //with type = 2
-        bundle.putString("metaData", "meta Data 10 + 30");
-        bundle.putString("tax", "10");
-        bundle.putString("portService", "30");
-        bundle.putBoolean("isCharge", false);  //use in charge wallet
-        bundle.putBoolean("isDirectPayment", true);
+        //bundle.putInt("amount", 11000);//ريال
+        bundle.putInt("amount",  (int) amount * 10);   //with type = 2
+
+        if ((new Validator()).isIranianMobileNumber(sAccountHelper.getAccountX().name))
+            bundle.putString("phone", sAccountHelper.getAccountX().name);
+        else {
+            bundle.putString("phone","00");
+        }
+        bundle.putString("metaData", "meta Data 1000");
+
+        bundle.putString("tax", "9");
+        bundle.putString("portService", "5");
+        bundle.putBoolean("isCharge", false);//   <==== //use true for charge wallet
+        bundle.putBoolean("isDirectPayment", true);     //valid when isCharge = false
         isDirectPaymentInRegPostRequest = true;
 
         intentpaymentactivityForDirectPayment = PaymentActivity.getIntent(getContext(), bundle);
@@ -1310,31 +1318,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putString("tax", "10");
         bundle.putString("portService", "30");
         bundle.putBoolean("isDirectPayment", false);
-        isDirectPaymentInRegPostRequest = false;
 
         intentpaymentactivityForWalletPayment = PaymentActivity.getIntent(getContext(), bundle);
         bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForWalletPayment);
         intentActivityResultLauncherForWalletPayment.launch(intentpaymentactivityForWalletPayment);
-    }
-
-    private void paymentSharj(long amount,String discription,String mobileNumber) {
-        //payment = charge by method
-        //done
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", 2);
-        bundle.putInt("amount ", (int) amount);
-
-        Gson gson = new Gson();
-        HashMap<String,String> metaData = new HashMap<String,String>();
-        metaData.put("amount", amount + "0");
-        metaData.put("discription",discription);
-        metaData.put("mobile",mobileNumber);
-
-        bundle.putString("metaData", gson.toJson(metaData));
-        Intent intent = PaymentActivity.getIntent(this, bundle);
-        intent.putExtra("defaultValue",amountForRegNewPost_Toman);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
-        startActivityForResult(intent, CALL_AGAIN );
     }
 
     Intent intentpaymentactivityForDirectPayment;
@@ -1365,6 +1352,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                     //todo update database
                     //user amount
 
+                    ((TubelessActivity) getContext()).progressDialog.show();
 //                send to server
                     isDirectPaymentInRegPostRequest = true;
                     prepareRequest();
