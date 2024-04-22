@@ -241,8 +241,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }else {
             return "myket";
         }
-
-
     }
 
     public static boolean isFreeStore(Context mContext , Configuration configuration)  {
@@ -397,7 +395,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
-        loadNews();
+        //loadNews();
 
 ////        toolbar
 ////          mBottomNavigation

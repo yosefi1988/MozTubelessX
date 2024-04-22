@@ -51,6 +51,19 @@ public class RetrofitHelperTubeless {
     Gson gson = new Gson();
     Context context;
 
+    public class SimpleLoggingInterceptor implements Interceptor {
+        @Override
+        public Response intercept(Chain chain) throws IOException {
+            //Request request = chain.request();
+            Request request = chain.request().newBuilder().build();
+
+            Log.i( context.getString(R.string.Logger) + "xurl", String.valueOf(request.url()));
+            Log.i( context.getString(R.string.Logger) + "headers", String.valueOf(request.headers()));
+            if (request.body() != null)
+                Log.i( context.getString(R.string.Logger) + "contentType", String.valueOf(request.body().contentType()));
+            return chain.proceed(request);
+        }
+    }
 
     private RetrofitHelperTubeless(Context _context) {
         context = _context;
@@ -87,17 +100,6 @@ public class RetrofitHelperTubeless {
         return apiManager;
     }
 
-    public class SimpleLoggingInterceptor implements Interceptor {
-        @Override
-        public Response intercept(Chain chain) throws IOException {
-            Request request = chain.request();
-            Log.i( context.getString(R.string.Logger) + "url", String.valueOf(request.url()));
-            Log.i( context.getString(R.string.Logger) + "headers", String.valueOf(request.headers()));
-            if (request.body() != null)
-                Log.i( context.getString(R.string.Logger) + "contentType", String.valueOf(request.body().contentType()));
-            return chain.proceed(request);
-        }
-    }
 
     public void loginOrRregisterMVP(LoginRequest request, Callback callback) {
         Call<Object> userCall = service.login(request);
@@ -361,4 +363,6 @@ public class RetrofitHelperTubeless {
 //            return chain.proceed(request);
         }
     }
+
+
 }

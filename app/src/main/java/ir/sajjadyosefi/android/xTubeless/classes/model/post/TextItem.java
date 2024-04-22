@@ -374,7 +374,8 @@ public class TextItem extends MainItem {
                         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                         ((Activity)mContext).startActivityForResult(intent, LOGIN_REQUEST);
                     } else {
-                        if (isFreeStore(mContext, StaticValue.configuration)) {
+                        //if (isFreeStore(mContext, StaticValue.configuration)) {
+                        if (Global.aConfig.getStoreList().get(0).getPermissions().isViewFree()) {
                             //free
                             Intent intent ;
                             if (timelineItem.getTTC() == 5047)

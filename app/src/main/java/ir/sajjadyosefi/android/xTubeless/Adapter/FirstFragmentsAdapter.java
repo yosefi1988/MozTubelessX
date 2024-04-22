@@ -240,8 +240,11 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
                     } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                        //1
 //                        fragmentx1 = new SearchByNameFragment();
 
+
+                        //2
                         TimelineRequest searchRequest = new TimelineRequest("", 0);
                         searchRequest.setTtc(null);
                         searchRequest.setPageSize("10");
@@ -254,6 +257,11 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                             searchRequest.setUserCode(null);
                         }
                         fragmentx1 = new FilterFragment(searchRequest);
+
+
+                        //3
+                        //fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
+
                     } else if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
                         fragmentx1 =  new FilterFragment(null);
 //                        fragmentx1 = new ListFragment(context, ITEM_TYPE_AMLAK_LIST_1);

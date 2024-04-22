@@ -391,14 +391,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //        if (Global.user2.isUserAdmin()) {
 //            buttonAddFiles.setEnabled(true);
 //        }else {
-            if (PAGE_TYPE == AMLAK ) {      //Global.user2.isUserCreator() &&
-                btnAddFiles.setEnabled(true);
-            }else if (PAGE_TYPE == YAFTE ) {      //Global.user2.isUserCreator() &&
-                btnAddFiles.setEnabled(true);
-            }else {
-                btnAddFiles.setEnabled(false);
-            }
+//            if (PAGE_TYPE == AMLAK ) {      //Global.user2.isUserCreator() &&
+//                btnAddFiles.setEnabled(true);
+//            }else if (PAGE_TYPE == YAFTE ) {      //Global.user2.isUserCreator() &&
+//                btnAddFiles.setEnabled(true);
+//            }else {
+//                btnAddFiles.setEnabled(false);
+//            }
 //        }
+        btnAddFiles.setEnabled(Global.aConfig.getStoreList().get(0).getPermissions().isSendImageInPost());
 
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -495,31 +496,39 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 } else {
                     //go to reg
 
-//                if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
-                    if (PAGE_TYPE == YAFTE) {
-//                        if (radioButton3.isChecked()) {
-//                            modalPayType(getContext());
+                    //1 old permission
+////                if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+//                    if (PAGE_TYPE == YAFTE) {
+////                        if (radioButton3.isChecked()) {
+////                            modalPayType(getContext());
+////                        }else {
+//                            if (isFreeStore(getContext(), StaticValue.configuration)) {
+//                                prepareRequest();
+//                            }else {
+//                                modalPayType(getContext());
+//                            }
+////                        }
+//                    }else if (PAGE_TYPE == AMLAK) {
+//                        if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
+//                            if (Global.user2.isUserAdmin()) {
+//                                modalPayType(getContext());
+//                            } else {
+//                                prepareRequest();
+//                            }
 //                        }else {
-                            if (isFreeStore(getContext(), StaticValue.configuration)) {
-                                prepareRequest();
-                            }else {
-                                modalPayType(getContext());
-                            }
+//                            prepareRequest();
 //                        }
-                    }else if (PAGE_TYPE == AMLAK) {
-                        if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
-                            if (Global.user2.isUserAdmin()) {
-                                modalPayType(getContext());
-                            } else {
-                                prepareRequest();
-                            }
-                        }else {
-                            prepareRequest();
-                        }
-                    }else {
+//                    }else {
+//                        prepareRequest();
+//                    }
+////                }
+
+                    //2 new permission
+                    if (Global.aConfig.getStoreList().get(0).getPermissions().isPostFree()) {
                         prepareRequest();
+                    }else {
+                        modalPayType(getContext());
                     }
-//                }
 
                 }
             }
