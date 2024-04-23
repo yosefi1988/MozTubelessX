@@ -45,7 +45,7 @@ public interface ApiServiceTubeless {
 //                             @Query("index") int index,
 //                             @Query("count") int count);
 
-    @POST("Post/NewPost")
+    @POST("Post/NewPost2")
     Call<Object> newBlog(@Body NewBlogRequest request);
 
     @POST("Post/PostList")
@@ -59,7 +59,8 @@ public interface ApiServiceTubeless {
 
     @POST("ElectedUsers/getElectedUserById")
     Call<Object> getElectedUserByID(@Body TimelineItemRequest request);
-    @POST("Post/PostDetailsNew")
+
+    @POST("Post/PostDetailsNew2")
     Call<Object> getTimelineItem(@Body TimelineItemRequest request);
 
     @POST("Post/MyPostList")
