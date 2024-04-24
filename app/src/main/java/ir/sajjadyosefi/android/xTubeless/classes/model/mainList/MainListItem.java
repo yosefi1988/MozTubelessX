@@ -96,7 +96,7 @@ public class MainListItem extends ParentItem {
                 //stringBuilder.append(" : ");
             }else if (BuildConfig.FLAVOR_version_name.equals("moz")){
                 //stringBuilder.append(" : ");
-             }else if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+             }else if (BuildConfig.FLAVOR_version_name.equals("winner")){
                 //stringBuilder.append(" : ");
              }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
                 //stringBuilder.append(" : ");

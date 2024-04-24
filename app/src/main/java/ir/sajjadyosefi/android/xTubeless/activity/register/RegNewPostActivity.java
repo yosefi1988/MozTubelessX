@@ -195,7 +195,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             PAGE_TYPE = MOZ;
             buttonSelectCategory.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
             PAGE_TYPE = TUBELESS;
             rgRadios.setVisibility(View.GONE);
             linearLayoutMoz.setVisibility(View.GONE);

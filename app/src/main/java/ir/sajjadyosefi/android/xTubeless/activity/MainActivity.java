@@ -494,7 +494,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                 BuildConfig.FLAVOR_version_name.equals("estekhdam") ||
                         BuildConfig.FLAVOR_version_name.equals("moz") ||
                         BuildConfig.FLAVOR_version_name.equals("amlak") ||
-                        BuildConfig.FLAVOR_version_name.equals("tubeless") ||
+                        BuildConfig.FLAVOR_version_name.equals("winner") ||
                         BuildConfig.FLAVOR_version_name.equals("yadak") ||
                         BuildConfig.FLAVOR_version_name.equals("bourse")) {
             getBottomNavigation().setVisibility(View.VISIBLE);
@@ -1234,7 +1234,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         getBottomNavigation().setSelectedIndex(lastSelectedPosition, false);
                     }
                 }
-            } else if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+            } else if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                 //tubeless
                 if (null != getViewPager() && !(position == 3 || position == 2)) {
                     getViewPager().setCurrentItem(position);

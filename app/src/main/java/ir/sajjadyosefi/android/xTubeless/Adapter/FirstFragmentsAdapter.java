@@ -155,7 +155,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     }
 
     private void setCount() {
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")){
+        if (BuildConfig.FLAVOR_version_name.equals("winner")){
             PAGE_COUNT = 2;
         }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
             PAGE_COUNT = 3;
@@ -220,7 +220,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         switch (position){
             case 0:
                 if (fragmentx1 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                         //fragmentx1 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
 
                         //ContainerActivity > ListFragment > CategoryAdapter
@@ -309,7 +309,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
             case 1:
                 if (fragmentx2 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
                     } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
@@ -349,7 +349,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                fragment = fragmentNotifications.newInstance(context,position,LIST_TIMELINE );
 
                 if (fragmentx3 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                         fragmentx3 = new BlankFragment();
                     } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
                         TimelineRequest searchRequest = new TimelineRequest("",0);
@@ -418,7 +418,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
 //                        fragmentx4 = new BourseDataFragment(context);
                         fragmentx4 = new TwoLevelListFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                    } else if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                         fragmentx4 = new BlankFragment();
                     } else {
                         fragmentx4 = new BlankFragment();

@@ -4,14 +4,14 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 //todo change version code before publish
-def final Moz_VersionName = "2.0.0"
-def final Moz_VersionCode = 32
+def final Moz_VersionName = "2.0.2"
+def final Moz_VersionCode = 34
 
 def final Estekhdam_VersionName = "2.0.0"
 def final Estekhdam_VersionCode = 36
 
-def final Tubeless_VersionName = "0.0.2"
-def final Tubeless_VersionCode = 3
+def final Winner_VersionName = "0.0.2"
+def final Winner_VersionCode = 3
 
 def final CarNews_VersionName = "1.0.2"
 def final CarNews_VersionCode = 3
@@ -19,8 +19,8 @@ def final CarNews_VersionCode = 3
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
 
-def final Yafte_VersionName = "4.1.1"
-def final Yafte_VersionCode = 54
+def final Yafte_VersionName = "4.1.2"
+def final Yafte_VersionCode = 55
 
 def final Amlak_VersionName = "1.0.2"
 def final Amlak_VersionCode = 52
@@ -33,7 +33,6 @@ def final Bourse_VersionCode = 22
 
 //def githubProperties = new Properties()
 //githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
-
 
 android {
     def final appId = 'ir.sajjadyosefi.android'
@@ -52,20 +51,13 @@ android {
     }
 
     signingConfigs {
-        TubelessSajjadSigning {
+        SajjadYosefiSigning {
             storeFile file("D:\\Documents\\sajjad\\Key\\xTubeless\\xTubeless98")
             storePassword "sajjadolsvutv@42viubdvf"
             keyAlias "keySajjad"
             keyPassword 'Yosefi$24s;dgoj'
         }
-//        TubelessSajjadSigning {
-//            storeFile file("D:\\Documents\\sajjad\\Key\\TubelessKey")
-//            storePassword "sajjad1367589525"
-//            keyAlias "TubelessKey01"
-//            keyPassword 'sajjad13672564261'
-//        }
     }
-
 
     lintOptions {
         checkReleaseBuilds false
@@ -77,12 +69,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
 
-        //versionCode Tubeless_VersionCode
-        //versionName "${Tubeless_VersionName}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
         multiDexEnabled true //important
-
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -90,10 +78,6 @@ android {
             minifyEnabled false
             useProguard true
             debuggable true
-
-//            minifyEnabled true
-//            useProguard false
-//            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules_2.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
             //manifestPlaceholders = [pn: "com.hamsa.debug"]
@@ -101,7 +85,7 @@ android {
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
-            signingConfig signingConfigs.TubelessSajjadSigning
+            signingConfig signingConfigs.SajjadYosefiSigning
             buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
         }
@@ -112,7 +96,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             versionNameSuffix "-dev"
             manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
-
             //debuggable true
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
@@ -120,33 +103,21 @@ android {
             //resValue "string", "app_name", appName + "-debug"
             buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
-
         }
 
         packagingOptions{
             exclude 'META-INF/core_release.kotlin_module'
         }
     }
-//    productFlavors {
-//        prod {
-//            applicationId "ir.sajjadyosefi.tubeless.tubeless"
-//            versionCode 3
-//        }
-//        dev {
-//            applicationId "ir.sajjadyosefi.tubeless.tubeless.dev"
-//            versionCode 3
-//        }
-//    }
-
 
     productFlavors {
-        tubeless {
+        winner {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"
 
-            applicationIdSuffix ".xTubeless"
-            versionName "${Tubeless_VersionName}"
-            versionCode Tubeless_VersionCode
+            applicationIdSuffix ".xWinner"
+            versionName "${Winner_VersionName}"
+            versionCode Winner_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/png_icon"
             ]
@@ -259,31 +230,29 @@ android {
             versionNameSuffix "-j"
         }
 //        playStore {
-//            applicationId "${Tubeless_appId}"
-//            versionName "${Tubeless_VersionName}"
+//            applicationId "${Tubeles-s_appId}"
+//            versionName "${Winner_VersionName}"
 //            versionNameSuffix "-a"
-//            versionCode Tubeless_VersionCode
+//            versionCode Winner_VersionCode
 //        }
 //        bazaar {
-//            applicationId "${Tubeless_appId}"
-//            versionName "${Tubeless_VersionName}"
+//            applicationId "${Tubeles-s_appId}"
+//            versionName "${Winner_VersionName}"
 //            versionNameSuffix "-b"
-//            versionCode Tubeless_VersionCode
+//            versionCode Winner_VersionCode
 //        }
     }
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            def project = "tubeless"
+            def project = "xApps"
             def SEP = "_"
             def flavor = variant.productFlavors[0].name
-            def buildType = "=" // variant.variantData.variantConfiguration.buildType.name
+            def buildType = variant.buildType.name
             def version = variant.versionName
             def date = new Date();
             def formattedDate = date.format('yyMMdd_HHmm')
-
             def newApkName = project + SEP + flavor + SEP + buildType + SEP + version + SEP + formattedDate + ".apk"
-
             outputFileName = new File(newApkName)
         }
     }

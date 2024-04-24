@@ -166,7 +166,7 @@ public class FilterFragment extends Fragment {
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
             PAGE_TYPE = TUBELESS;
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);

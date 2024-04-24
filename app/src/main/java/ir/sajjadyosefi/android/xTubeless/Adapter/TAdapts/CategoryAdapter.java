@@ -259,7 +259,7 @@ public class CategoryAdapter extends ITubelessAdapter {
                          } else {
                              //read blog
                              //Search by filter
-                             if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+                             if (BuildConfig.FLAVOR_version_name.equals("winner")) {
                                  if ( selectType == LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS){
                                      String path = new String();
                                      for (CategoryItem item1: categoryItemStack) {

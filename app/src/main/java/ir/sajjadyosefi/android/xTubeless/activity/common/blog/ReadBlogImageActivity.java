@@ -266,7 +266,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilderTitle.append(mainItem.getTitle());
         textViewTitle.setText(stringBuilderTitle.toString());
 
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
 
         } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
 
@@ -281,7 +281,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilderTitle.append(title);
 
 
-        if (BuildConfig.FLAVOR_version_name.equals("tubeless")) {
+        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
 
         } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
 
