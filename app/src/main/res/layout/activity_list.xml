@@ -167,7 +167,6 @@
         <!--app:layout_anchorGravity="bottom|end"-->
         <!--app:backgroundTint="#42a5f5"-->
         <!--android:layout_margin="20dp"-->
-        <!--app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior"-->
         <!--android:layout_alignParentBottom="true"-->
         <!--android:layout_alignParentRight="true" />-->
 
@@ -185,7 +184,6 @@
         <!--app:fabSize="normal"-->
         <!--app:layout_anchor="@id/recyclerList"-->
         <!--app:layout_anchorGravity="bottom|start"-->
-        <!--app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior"-->
         <!--android:layout_alignParentBottom="true"-->
         <!--android:layout_alignParentLeft="true" />-->
 

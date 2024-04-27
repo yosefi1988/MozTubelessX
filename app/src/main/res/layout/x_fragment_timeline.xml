@@ -3,6 +3,7 @@
     android:id="@+id/LinearLayout01"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -163,23 +164,34 @@
 <!--                    app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
 <!--            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
 
-<!--            android:src="@drawable/png_icon"-->
+
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabList"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:background="@android:color/transparent"
-                android:layout_marginRight="35dp"
-                android:layout_marginBottom="50dp"
+                android:id="@+id/fabInFtagment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tubelessColor_button_normal"
+                android:layout_marginBottom="40dp"
                 android:layout_marginLeft="30dp"
-                app:borderWidth="0dp"
+                android:src="@drawable/add_button"
+                app:elevation="2dp"
+                app:fabSize="normal"
+                app:layout_anchor="@id/recyclerView"
+                app:layout_anchorGravity="bottom|end"  />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab2InFtagment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/tubelessColor_button_normal"
+                android:layout_marginBottom="40dp"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/search_button"
                 app:elevation="2dp"
                 app:fabSize="normal"
                 android:visibility="gone"
                 app:layout_anchor="@id/recyclerView"
                 app:layout_anchorGravity="bottom|start" />
-<!--                app:layout_behavior=".classes.ScrollAwareFABBehavior" />-->
-
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

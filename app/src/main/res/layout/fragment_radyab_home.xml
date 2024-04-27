@@ -24,7 +24,6 @@
             <!--&lt;!&ndash;app:fabSize="normal"&ndash;&gt;-->
             <!--&lt;!&ndash;app:layout_anchor="@id/listView"&ndash;&gt;-->
             <!--&lt;!&ndash;app:layout_anchorGravity="bottom|start"&ndash;&gt;-->
-            <!--&lt;!&ndash;app:layout_behavior="ir.mahanco.mahansocial.Utilities.ScrollAwareFABBehavior" />&ndash;&gt;-->
 
     <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 

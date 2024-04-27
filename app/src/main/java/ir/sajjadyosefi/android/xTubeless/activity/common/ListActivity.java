@@ -20,7 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.zl.reik.dilatingdotsprogressbar.DilatingDotsProgressBar;
 
-import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.MainAdapter;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity;
@@ -41,7 +40,7 @@ public class ListActivity extends Activity {
     private CoordinatorLayout mCoordinatorLayout;
     private View fragmentRootView;
     private Activity activity;
-    private FloatingActionButton floatingActionButton ,floatingActionButtonList;
+    private FloatingActionButton floatingActionButtonAdd, floatingActionButtonListSearch;
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -88,8 +87,8 @@ public class ListActivity extends Activity {
         mTextViewNoting                 = (TextView) findViewById(R.id.nothing_text);
         mSwipeRefreshLayout             = (SwipeRefreshLayout)  findViewById(R.id.swipeRefreshLayout);
         mProgressBar                    = (DilatingDotsProgressBar) findViewById(R.id.PBSjd);
-        floatingActionButton            = (FloatingActionButton) findViewById(R.id.fab);
-        floatingActionButtonList            = (FloatingActionButton) findViewById(R.id.fabList);
+        floatingActionButtonAdd         = (FloatingActionButton) findViewById(R.id.fabInFtagment);
+        floatingActionButtonListSearch  = (FloatingActionButton) findViewById(R.id.fab2InFtagment);
         int a = 5 ;
         a++;
 
@@ -141,8 +140,8 @@ public class ListActivity extends Activity {
 
 
 
-        if (floatingActionButton != null)
-            floatingActionButton.setOnClickListener(new View.OnClickListener() {
+        if (floatingActionButtonAdd != null)
+            floatingActionButtonAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
@@ -172,8 +171,8 @@ public class ListActivity extends Activity {
                 }
             });
 
-        if (floatingActionButtonList != null)
-            floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
+        if (floatingActionButtonListSearch != null)
+            floatingActionButtonListSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //                if (idHeader == 16 || idHeader == 17 || idHeader == 18) {

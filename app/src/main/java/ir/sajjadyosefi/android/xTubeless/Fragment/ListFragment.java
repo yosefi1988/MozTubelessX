@@ -6,12 +6,16 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +64,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.Time
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.MainItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+import ir.sajjadyosefi.android.xTubeless.utility.Display;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.RecyclerViewEmptySupport;
 
 
@@ -117,7 +123,7 @@ public class ListFragment extends Fragment  {
     public ArrayList<ParentItem> listForReturn;
 
     private int scrolledPos = 0;
-    private FloatingActionButton fab1,fab2,floatingActionButtonList;
+    private FloatingActionButton fab1;
 
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
@@ -251,9 +257,18 @@ public class ListFragment extends Fragment  {
             mTextViewNoting = (TextView) view.findViewById(R.id.nothing_text);
             mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
             mProgressBar = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
-            fab1 = (FloatingActionButton) view.findViewById(R.id.fab);
-            fab2 = (FloatingActionButton) view.findViewById(R.id.fab2);
-            floatingActionButtonList = (FloatingActionButton) view.findViewById(R.id.fabList);
+            fab1 = (FloatingActionButton) view.findViewById(R.id.fabInFtagment);
+
+            if (getActivity().getClass().getSimpleName().contains("Main")){
+                CoordinatorLayout.LayoutParams params1 = new CoordinatorLayout.LayoutParams(
+                        CoordinatorLayout.LayoutParams.WRAP_CONTENT,
+                        CoordinatorLayout.LayoutParams.WRAP_CONTENT
+                );
+                params1.setMargins(Display.dp2px(getContext(), 30), DeviceUtil.getDisplayHeightAsPixel(getContext()), Display.dp2px(getContext(), 30), 0);
+                params1.anchorGravity = Gravity.START;
+                fab1.setLayoutParams(params1);
+            }
+
 
             if(listType == LIST_CATEGORY_ONE_SELECT || listType == LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS || listType == LIST_CATEGORY_MULTY_SELECT) {
                 BrowseCategoryLayout = (LinearLayout) view.findViewById(R.id.BrowseCategoryLayout);
@@ -350,11 +365,9 @@ public class ListFragment extends Fragment  {
         }
         if (listType == ITEM_TYPE_TRANS){
             fab1.setVisibility(View.GONE);
-            fab2.setVisibility(View.GONE);
         }
         if (listType == FRAGMENT_LOTTERY_SEARCH_RESULT){
             fab1.setVisibility(View.GONE);
-            fab2.setVisibility(View.GONE);
         }
         if (listType == ITEM_TYPE_AMLAK_LIST_1) {
             fab1.setVisibility(View.GONE);
@@ -429,6 +442,7 @@ public class ListFragment extends Fragment  {
         //font 4
 //        FontChangeCrawler fontChanger = new FontChangeCrawler(getContext().getAssets(), FONT_IRANSANS_MOBILE_NORMAL_TTF);
 //        fontChanger.replaceFonts((ViewGroup) this.getView());
+
     }
 
 //    TransactionsAdapter mainAdapter;
@@ -614,23 +628,6 @@ public class ListFragment extends Fragment  {
 //        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 //        mLayoutManager = new LinearLayoutManager(context);
 //        mRecyclerView.setLayoutManager(mLayoutManager);
-
-
-        if (fab2 != null) {
-            fab2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //2  ok = filter
-                    //صفحه فیلتر ها
-                    //پست های من
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("type" , FRAGMENT_FILTER);
-//                        bundle.putSerializable("LIST", (Serializable) responseX.getData());
-                    getActivity().startActivity(ContainerActivity.getIntent(getContext(),bundle));
-                }
-            });
-        }
-
         if (fab1 != null) {
             fab1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -815,26 +812,6 @@ public class ListFragment extends Fragment  {
                 }
             });
 
-            floatingActionButtonList.setBackgroundResource(R.drawable.dot);
-            if (floatingActionButtonList != null)
-                floatingActionButtonList.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-//                    if (idHeader == 16 || idHeader == 17 || idHeader == 18) {
-//                        Intent intent = new Intent(context, NewYafteActivity.class);
-//                        Bundle bundle = new Bundle();
-//                        bundle.putInt(ContactUsActivity.Type,16);
-//                        intent.putExtras(bundle);
-//                        startActivity(intent);
-//                        ((Activity)context).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-//                    }else {
-//                        //                    context.startActivity(new Intent(context, UploadPictureActivity.class));
-//                        context.startActivity(new Intent(context, NewBlogActivity.class));
-//                    }
-
-
-                    }
-                });
 
 //        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override

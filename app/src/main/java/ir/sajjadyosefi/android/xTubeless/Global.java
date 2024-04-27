@@ -68,7 +68,7 @@ public class Global extends MultiDexApplication {
     public static SAccounts sAccountHelper = null;
     //_________________________________
 
-    public static final String REST_API_IP_ADDRESS2                       = "http://test.sajjadyosefi.ir";   //internet Dns
+    public static final String REST_API_IP_ADDRESS2                       = "http://test.balabarkaran.com";   //internet Dns
 //    public static final String REST_API_IP_ADDRESS2                         = "http://192.168.1.5:80";   //local Dns
 
     public static RetrofitHelperPost apiManagerPost;
