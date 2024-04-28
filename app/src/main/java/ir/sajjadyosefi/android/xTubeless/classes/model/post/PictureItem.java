@@ -41,11 +41,12 @@ import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 import ir.sajjadyosefi.android.xTubeless.utility.file.FileUtils;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment.context;
 import static ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment.showUserRegPostDialog;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.DO_ACCEPT;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.DO_INVISIBLE;
-import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
+
 
 /**
  * Created by sajjad on 7/30/2017.

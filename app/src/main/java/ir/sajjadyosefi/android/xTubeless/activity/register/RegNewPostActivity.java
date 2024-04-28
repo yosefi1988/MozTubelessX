@@ -35,7 +35,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.gson.Gson;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.Serializable;
@@ -44,7 +43,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -67,8 +65,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparent
 
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
@@ -91,15 +88,15 @@ import ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.util.Pers
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
+import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessListAmountsAdapter.SUBSCRIPTIONS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
-import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
-import static ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity.GO_TO_LOGIN;
+
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
@@ -139,7 +136,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     public static final int YADAK = 3;
     public static final int YAFTE = 4;
     public static final int AMLAK = 5;
-    public static final int TUBELESS = 6;
+    public static final int WINNER = 6;
 
     
     //default
@@ -196,14 +193,16 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             buttonSelectCategory.setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR_version_name.equals("winner")) {
-            PAGE_TYPE = TUBELESS;
+            PAGE_TYPE = WINNER;
             rgRadios.setVisibility(View.GONE);
             linearLayoutMoz.setVisibility(View.GONE);
             //((View)findViewById(R.id.linearLayoutImage)).setVisibility(View.GONE);
             ((View)findViewById(R.id.relativeLayoutState)).setVisibility(View.GONE);
-            ((View)findViewById(R.id.editTextDate)).setVisibility(View.GONE);
             ((View)findViewById(R.id.textViewStateTitle)).setVisibility(View.GONE);
-            ((View)findViewById(R.id.textViewDateTitle)).setVisibility(View.GONE);
+
+            //((View)findViewById(R.id.textViewDateTitle)).setVisibility(View.GONE);
+            //((View)findViewById(R.id.editTextDate)).setVisibility(View.GONE);
+
             ((View)findViewById(R.id.textViewTitle2)).setVisibility(View.GONE);
             //((View)findViewById(R.id.editTextTitle)).setVisibility(View.GONE);
         }
@@ -317,7 +316,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
             titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
         }
-        if (PAGE_TYPE == TUBELESS){
+        if (PAGE_TYPE == WINNER){
             login_title.setText(R.string.regNewEstekhdamTitle);
 //            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
@@ -554,7 +553,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 //        ss.setAndroidId(androidId);
 //        sendAvatar(ss,((File) files),(((File) files).getUri()));
 
-        if (PAGE_TYPE != TUBELESS)
+        if (PAGE_TYPE != WINNER)
             getCategories();
         prepareList(getRootActivity());
 
@@ -599,7 +598,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         extracted(selectedCategoryID);
 
         //6-State
-        if (PAGE_TYPE == TUBELESS) {
+        if (PAGE_TYPE == WINNER) {
             aaaa.setStateCode("8133");
         }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
             aaaa.setStateCode(String.valueOf(selectedSpinnerID));
@@ -685,6 +684,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
                 aaaa.setTtc("5051");
             }
         }else if (PAGE_TYPE == AMLAK) {
+            aaaa.setTtc(String.valueOf(catId));
+        }else if (PAGE_TYPE == WINNER) {
             aaaa.setTtc(String.valueOf(catId));
         }else {
 
@@ -1235,37 +1236,37 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         button_pay_by_wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                isDirectPaymentInRegPostRequest = false;
-                if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
-                    Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                    payByWalet(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
-                }else {
-                    //modal
-                    //amountForRegNewPost
-//                    Toast.makeText(mContext,"کیف پول شما غیرفعال است",Toast.LENGTH_SHORT).show();
-                    prepareRequest();
-//                    CommonDialogs.modalAmountConfirm(mContext, amountForRegNewPost_Toman, new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            // pay by wallet
-//                            dialog.dismiss();
-//
-//
-//                        }
-//                    });
-                }
+//                isDirectPaymentInRegPostRequest = false;
+//                if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
+//                    Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
+//                    dialog.dismiss();
+//                    payByWalet(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
+//                }else {
+//                    //modal
+//                    //amountForRegNewPost
+////                    Toast.makeText(mContext,"کیف پول شما غیرفعال است",Toast.LENGTH_SHORT).show();
+//                    prepareRequest();
+////                    CommonDialogs.modalAmountConfirm(mContext, amountForRegNewPost_Toman, new View.OnClickListener() {
+////                        @Override
+////                        public void onClick(View view) {
+////                            // pay by wallet
+////                            dialog.dismiss();
+////
+////
+////                        }
+////                    });
+//                }
             }
         });
         button_pay_direct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //go to payment
-                dialog.dismiss();
-                PrePaymentActivity.phone = Global.sAccountHelper.getUserAccountName();
-                //amount = amountForRegNewPost;
-                PrePaymentActivity.discription = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
-                paymentDirect(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
+//                //go to payment
+//                dialog.dismiss();
+//                PrePaymentActivity.phone = Global.sAccountHelper.getUserAccountName();
+//                //amount = amountForRegNewPost;
+//                PrePaymentActivity.discription = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
+//                paymentDirect(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
             }
         });
         dialog.show();

@@ -125,8 +125,8 @@
                 android:text="@string/datefor"
                 style="@style/Style_TextView_Text" />
             <TextView
-                android:text="انتخاب کنید"
                 android:id="@+id/editTextDate"
+                android:text="انتخاب کنید"
                 android:layout_marginBottom="20dp"
                 android:textAlignment="center"
                 style="@style/Style.EditText_direct.Tubeless"

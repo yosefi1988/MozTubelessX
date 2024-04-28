@@ -42,7 +42,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
+
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
@@ -181,8 +181,8 @@ public class ReadBlogActivityx extends TubelessTransparentStatusBarActivity {
         buttonCharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-                ((Activity) mContext).startActivityForResult(intent, CALL_AGAIN);
+
+
             }
         });
 

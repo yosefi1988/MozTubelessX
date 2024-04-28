@@ -22,7 +22,7 @@
     <string name="SupportNumber">09123678522</string>
     <string name="Model">مدل :</string>
     <string name="regNewEstekhdamTitleText">عنوان آگهی:</string>
-    <string name="regNewEstekhdamTitleTextExample">مثال:    78 متر ویلایی با پارکینگ \n           زمین قلفتی در مصلی شهرقدس\n          آپارتمان 185 متری دوخواب</string>
+    <string name="regNewEstekhdamTitleTextExample">اسامی برندگان قرعه کشی و...</string>
     <string name="regNewEstekhdamTitleText2">توصیف متنی</string>
     <string name="regNewEstekhdamTitleHint">توصیف متنی شامل : رنگ، نوع، مدل، تیپ، سایز، محل</string>
     <string name="state">"استان : "</string>

@@ -47,7 +47,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
@@ -68,7 +67,7 @@ import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.payment.PrePaymentActivity;
+
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
@@ -273,9 +272,10 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //                startActivityForResult(intent, WALLETCHARGE_REQUEST_CODE);
 
                 //new
-                mGetNameActivity.launch(intent);
+                mGetNameActivity.launch(intentPayment);
             }
         });
+
         buttonReciveReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -420,12 +420,12 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         bundle.putBoolean("isCharge", true);  //use in charge wallet
 
         bundle.putString("portService", "30");
-        intent = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
         mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
 
     }
-    Intent intent;
+    Intent intentPayment;
     ActivityResultLauncher<Intent> mGetNameActivity;
     ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
         @Override
@@ -1119,7 +1119,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }
     }
 
-    private class ReturnData{
+    public static class ReturnData{
         public AWallet getWallet() {
             return wallet;
         }
@@ -1145,7 +1145,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }
 
         List<ATransaction> transactionList = new ArrayList<ATransaction>();
-        AWallet wallet = new AWallet();
+        public AWallet wallet = new AWallet();
         TubelessException tubelessException = new TubelessException();
     }
 }

@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.blog;
 
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -24,23 +25,28 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+
+import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile;
-import ir.sajjadyosefi.android.xTubeless.Adapter.ViewPagerAdapter;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.account.profile.MainActivityProfile;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+
 import ir.sajjadyosefi.android.xTubeless.bussines.lottery.activity.SearchLotteryActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
-import ir.sajjadyosefi.android.xTubeless.classes.model.file.FileListProperties;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.MainItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
@@ -58,7 +64,6 @@ import ir.sajjadyosefi.android.xTubeless.utility.RoundedCornersTransformation;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_AMLAK_LIST_1;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.READ_BLOG_COMMENTS;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.file.File.MAP_1;
@@ -74,6 +79,39 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     UserItem blogCreator = null;
     public static int CALL_AGAIN = 45;
     //private static NonSwipeableViewPager mPager;
+    Intent intentPayment;
+    ActivityResultLauncher<Intent> mGetNameActivity;
+    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result.getResultCode() == RESULT_OK) {
+                Intent data = result.getData();
+                Intent x;
+                if (PaymentActivity.isPaymentSuccess()) {
+                    x = PaymentActivity.getPaymentIntent();
+                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
+                    x.getIntExtra("amount",10);
+                    x.getStringExtra("ReturnData");
+                    x.getStringExtra("metaData");
+                    x.getStringExtra("item1");
+                    x.getIntExtra("type",10);
+
+                    Gson gson = new Gson();
+                    MainActivityProfile.ReturnData returnData = new MainActivityProfile.ReturnData();
+                    returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), MainActivityProfile.ReturnData.class);
+                    Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
+                    Wallet.savedToDataBase(Global.user2);
+
+                    //todo update database
+                    //user amount
+
+                }else {
+                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
+                }
+                PaymentActivity.PaymentDone();
+            }
+        }
+    };
 
 
     @Override
@@ -114,6 +152,9 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         buttonCharge = findViewById(R.id.buttonCharge);
         buttonElectedAmlak = findViewById(R.id.buttonElectedAmlak);
         buttonreport = findViewById(R.id.buttonreport);
+
+
+
 
         Gson gson = new Gson();
 
@@ -159,11 +200,11 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
             }
         });
 
+
         buttonCharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getContext(), PrePaymentActivity.class);
-//                ((Activity) mContext).startActivityForResult(intent, CALL_AGAIN);
+                mGetNameActivity.launch(intentPayment);
             }
         });
 
@@ -203,6 +244,20 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
                 finish();
             }
         });
+
+
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("type", 1);
+        bundle.putInt("amount", 800);   //with type = 2
+        bundle.putString("metaData", "meta Data 10 + 30");
+        bundle.putString("tax", "10");
+        bundle.putBoolean("isCharge", true);  //use in charge wallet
+
+        bundle.putString("portService", "30");
+        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
+        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), xxxxxxxxxxxx2);
     }
 
 
@@ -579,7 +634,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         req.setIDPost(((MainItem)blogItem).getID() + "");
 
         if (Global.user2 != null)
-            Global.apiManagerTubeless.getTimelineItem(req, callbackss);
+            Global.apiManagerTubeless.getTimelineItem(req, callbackReadBlog);
         else {
             finish();
         }
@@ -945,7 +1000,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         Global.apiManagerTubeless.deleteBlogComment(id,userId ,ssssssss);
     }
 
-    TubelessRetrofitCallbackss callbackss = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
+    TubelessRetrofitCallbackss callbackReadBlog = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
         @Override
         public void t_beforeSendRequest() {
             if (progressDialog != null)

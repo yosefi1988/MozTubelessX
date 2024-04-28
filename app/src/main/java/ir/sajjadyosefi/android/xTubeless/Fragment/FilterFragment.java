@@ -31,7 +31,6 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity;
@@ -47,13 +46,12 @@ import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCategory;
-import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.payType;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_FILTER_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.AMLAK;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.ESTEKHDAM;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.MOZ;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.TUBELESS;
+import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.WINNER;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.YADAK;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.YAFTE;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
@@ -167,7 +165,7 @@ public class FilterFragment extends Fragment {
             rgRadios.setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR_version_name.equals("winner")) {
-            PAGE_TYPE = TUBELESS;
+            PAGE_TYPE = WINNER;
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);
             checkbox.setVisibility(View.GONE);
@@ -187,7 +185,7 @@ public class FilterFragment extends Fragment {
             public void onClick(View viewButton) {
                 if (validData()) {
                     int state;
-                    if (PAGE_TYPE == TUBELESS)
+                    if (PAGE_TYPE == WINNER)
                         state = 8133;
                     else
                         state = stateItems.get(selectedState - 1).getID();
@@ -214,10 +212,10 @@ public class FilterFragment extends Fragment {
                         if (radioButton3.isChecked()) {
                             timelineSearchRequest.setTtc("5051");
                         }
-                    }else if (PAGE_TYPE == TUBELESS) {
+                    }else if (PAGE_TYPE == WINNER) {
 
 
-                    } else if ((PAGE_TYPE == AMLAK) || (PAGE_TYPE == TUBELESS) || (PAGE_TYPE == ESTEKHDAM) || (PAGE_TYPE == YADAK)) {
+                    } else if ((PAGE_TYPE == AMLAK) || (PAGE_TYPE == WINNER) || (PAGE_TYPE == ESTEKHDAM) || (PAGE_TYPE == YADAK)) {
                         if (SelectedCategory == 0) {
                             timelineSearchRequest.setTtc(null);
                         } else {
@@ -320,7 +318,7 @@ public class FilterFragment extends Fragment {
             checkbox.setVisibility(View.GONE);
         }
 
-        if(PAGE_TYPE == TUBELESS)
+        if(PAGE_TYPE == WINNER)
             checkbox.setVisibility(View.GONE);
 
         return view;
@@ -396,7 +394,7 @@ public class FilterFragment extends Fragment {
 
     private boolean validData() {
         boolean isValid = true;
-        if (PAGE_TYPE != TUBELESS)
+        if (PAGE_TYPE != WINNER)
             if(spinner.getSelectedItemPosition() == 0){
                 isValid = false;
             }

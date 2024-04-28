@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">winner</string>
+    <string name="app_name">برنده</string>
     <string name="file_provider_authorities">ir.sajjadyosefi.android.xTubless.provider</string>
 
     <string name="app_name_file">winner</string>
@@ -20,6 +20,7 @@
         فروشگاه</string>
     <string name="zarinpalpayment">zarinpalpayment7</string>
     <string name="schemezarinpalpayment">return7</string>
+    <string name="datefor">تاریخ قرعه کشی:</string>
 
     <string name="paySecoundMessage"></string>
     <string name="allNotices">همه آگهی ها</string>

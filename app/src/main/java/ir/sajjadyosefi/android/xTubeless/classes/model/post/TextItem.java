@@ -374,8 +374,7 @@ public class TextItem extends MainItem {
                         bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                         ((Activity)mContext).startActivityForResult(intent, LOGIN_REQUEST);
                     } else {
-                        //if (isFreeStore(mContext, StaticValue.configuration)) {
-                        if (Global.aConfig.getStoreList().get(0).getPermissions().isViewFree()) {
+                        if (isFreeStore(mContext, StaticValue.configuration)) {
                             //free
                             Intent intent ;
                             if (timelineItem.getTTC() == 5047)
@@ -399,26 +398,29 @@ public class TextItem extends MainItem {
                             mContext.startActivity(intent);
                             ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
                         }else {
+                            if (Global.aConfig.getStoreList().get(0).getPermissions().isViewFree()) {
+                            }else {
 //                            if ((timelineItem.getAmount() >= Global.user2.getWallet().getAmount()) && !isSeen()) {
 //
 //                                Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
 //                            } else {
-                            Intent intent = new Intent(mContext, ReadBlogActivity.class);
-                            Gson gson = new Gson();
-                            String json = gson.toJson(timelineItem);
+                                Intent intent = new Intent(mContext, ReadBlogActivity.class);
+                                Gson gson = new Gson();
+                                String json = gson.toJson(timelineItem);
 
-                            // Old Transfer
-                            //intent.putExtra("Object", json);
+                                // Old Transfer
+                                //intent.putExtra("Object", json);
 
-                            //New Transfer
-                            Bundle bundle = new Bundle();
-                            bundle.putString("Object", json);
-                            bundle.putString("Type", "NewTimelineItem");
-                            intent.putExtras(bundle);
+                                //New Transfer
+                                Bundle bundle = new Bundle();
+                                bundle.putString("Object", json);
+                                bundle.putString("Type", "NewTimelineItem");
+                                intent.putExtras(bundle);
 
-                            mContext.startActivity(intent);
-                            ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                                mContext.startActivity(intent);
+                                ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
 //                            }
+                            }
                         }
                     }
                 }
