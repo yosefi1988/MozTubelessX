@@ -30,6 +30,9 @@
     <!-- fileupload service -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
+
+
     <application
         android:name=".GlobalLevel2"
         android:allowBackup="true"

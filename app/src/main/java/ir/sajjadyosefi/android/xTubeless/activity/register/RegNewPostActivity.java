@@ -60,6 +60,7 @@ import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
+import ir.sajjadyosefi.android.xTubeless.activity.activities.ITubelessPayActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 
@@ -105,7 +106,7 @@ import static ir.sajjadyosefi.android.xTubeless.dialog.SubStractDialogClass.subs
 import static ir.sajjadyosefi.android.xTubeless.utility.DateTime.SamanDateTime.getGeorgianCalendar;
 
 
-public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
+public class RegNewPostActivity extends TubelessTransparentStatusBarActivity implements ITubelessPayActivity {
 
 
     public Button buttonReg,  buttonBack , btnAddFiles,buttonSelectCategory;
@@ -122,7 +123,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
     static List<File> filesList;
     private int REQUEST_FILE_LIST = 525;
 
-    public static int amountForRegNewPost_Toman = 1200;
+    public static int amountForRegNewPost_Toman = 5200;     //PostAmount from config
     public static String amountForSeenNewPost = "5000";
 
     //state
@@ -572,14 +573,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
 ////                    }
 ////                }
 
-
-
-        intentActivityResultLauncherForDirectPayment = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResultCallbackForDirectPayment);
-        intentActivityResultLauncherForWalletPayment = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResultCallbackForWalletPayment);
     }
-
     private void prepareRequest() {
-
         //1-IDApplication
         aaaa.setIDApplication(AccountGeneral.getIDApplication() + "");
 
@@ -648,7 +643,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         aaaa.setDirectPay(isDirectPaymentInRegPostRequest);
         newYafte(aaaa);
     }
-
     private int extracted(long catId) {
         aaaa.setTtc("0");
 
@@ -692,14 +686,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         }
         return Integer.parseInt(aaaa.getTtc());
     }
-
     private void date() {
-
         DateConverterSjd dateUtiliti = new DateConverterSjd();
-
         String sss = dateUtiliti.getCurrentShamsidate();
 //        dateUtiliti.getCurrentShamsidate(timelineItem.getDate());
-
     }
 
     String dateTmpDisplay = "";
@@ -1236,37 +1226,38 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         button_pay_by_wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                isDirectPaymentInRegPostRequest = false;
-//                if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
-//                    Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
-//                    dialog.dismiss();
-//                    payByWalet(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
-//                }else {
-//                    //modal
-//                    //amountForRegNewPost
-////                    Toast.makeText(mContext,"کیف پول شما غیرفعال است",Toast.LENGTH_SHORT).show();
-//                    prepareRequest();
-////                    CommonDialogs.modalAmountConfirm(mContext, amountForRegNewPost_Toman, new View.OnClickListener() {
-////                        @Override
-////                        public void onClick(View view) {
-////                            // pay by wallet
-////                            dialog.dismiss();
-////
-////
-////                        }
-////                    });
-//                }
+                isDirectPaymentInRegPostRequest = false;
+                if ((amountForRegNewPost_Toman >= Global.user2.getWallet().getAmount())) {
+                    Toast.makeText(mContext,"موجودی کیف پول شما کافی نمی باشد",Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    payByWalet(amountForRegNewPost_Toman,"discription","phone");
+                }else {
+                    //modal
+                    //amountForRegNewPost
+//                    Toast.makeText(mContext,"کیف پول شما غیرفعال است",Toast.LENGTH_SHORT).show();
+                    prepareRequest();
+//                    CommonDialogs.modalAmountConfirm(mContext, amountForRegNewPost_Toman, new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            // pay by wallet
+//                            dialog.dismiss();
+//
+//
+//                        }
+//                    });
+                }
             }
         });
         button_pay_direct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                //go to payment
-//                dialog.dismiss();
-//                PrePaymentActivity.phone = Global.sAccountHelper.getUserAccountName();
-//                //amount = amountForRegNewPost;
-//                PrePaymentActivity.discription = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
-//                paymentDirect(amountForRegNewPost_Toman,PrePaymentActivity.discription,PrePaymentActivity.phone);
+                //go to payment
+                dialog.dismiss();
+//                amount = amountForRegNewPost;
+
+                String phone = Global.sAccountHelper.getUserAccountName();
+                String description = Global.sAccountHelper.getUserAccountName() + " pay:" + amountForRegNewPost_Toman + " for reg post";
+                paymentDirect(amountForRegNewPost_Toman,description,phone);
             }
         });
         dialog.show();
@@ -1311,10 +1302,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putBoolean("isDirectPayment", true);     //valid when isCharge = false
         isDirectPaymentInRegPostRequest = true;
 
-        intentpaymentactivityForDirectPayment = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForDirectPayment);
-        intentActivityResultLauncherForDirectPayment.launch(intentpaymentactivityForDirectPayment);
+        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
 
+        initInterface(this,true);
+        mGetNameActivity.launch(intentPayment);
     }
 
     private void payByWalet(long amount, String discription, String mobileNumber) {
@@ -1329,85 +1321,26 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity {
         bundle.putString("portService", "30");
         bundle.putBoolean("isDirectPayment", false);
 
-        intentpaymentactivityForWalletPayment = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForWalletPayment);
-        intentActivityResultLauncherForWalletPayment.launch(intentpaymentactivityForWalletPayment);
+        //intentpaymentactivityForWalletPayment = PaymentActivity.getIntent(getContext(), bundle);
+        //bundle.putParcelable(AccountManager.KEY_INTENT, intentpaymentactivityForWalletPayment);
+
+        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
+        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
+
+        initInterface(this,false);
+        mGetNameActivity.launch(intentPayment);
     }
 
-    Intent intentpaymentactivityForDirectPayment;
-    Intent intentpaymentactivityForWalletPayment;
-    ActivityResultLauncher<Intent> intentActivityResultLauncherForDirectPayment;
-    ActivityResultLauncher<Intent> intentActivityResultLauncherForWalletPayment;
-    ActivityResultCallback<ActivityResult> activityResultCallbackForDirectPayment = new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK) {
-                if (PaymentActivity.isPaymentSuccess()) {
-                    Intent x = PaymentActivity.getPaymentIntent();
-//                Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-
-                    x.getIntExtra("amount", 10);
-                    x.getStringExtra("ReturnData");
-                    x.getStringExtra("metaData");
-                    x.getStringExtra("item1");
-                    x.getIntExtra("type", 10);
-
-//                Gson gson = new Gson();
-//                PrePaymentActivity.ReturnData returnData = new PrePaymentActivity.ReturnData();
-//                returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), PrePaymentActivity.ReturnData.class);
-//                Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-//                Wallet.savedToDataBase(Global.user2);
-
-
-                    //todo update database
-                    //user amount
-
-                    ((TubelessActivity) getContext()).progressDialog.show();
-//                send to server
-                    isDirectPaymentInRegPostRequest = true;
-                    prepareRequest();
-                } else {
-                    Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
-                }
-                PaymentActivity.PaymentDone();
-
-            }
-        }
-    };
-    ActivityResultCallback<ActivityResult> activityResultCallbackForWalletPayment = new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK) {
-                if (PaymentActivity.isPaymentSuccess()) {
-                    Intent x = PaymentActivity.getPaymentIntent();
-//                Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-
-                    x.getIntExtra("amount", 10);
-                    x.getStringExtra("ReturnData");
-                    x.getStringExtra("metaData");
-                    x.getStringExtra("item1");
-                    x.getIntExtra("type", 10);
-
-//                Gson gson = new Gson();
-//                PrePaymentActivity.ReturnData returnData = new PrePaymentActivity.ReturnData();
-//                returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), PrePaymentActivity.ReturnData.class);
-//                Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-//                Wallet.savedToDataBase(Global.user2);
-
-
-                    //todo update database
-                    //user amount
-
-//                send to server
-                    isDirectPaymentInRegPostRequest = false;
-                    prepareRequest();
-                } else {
-                    Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
-                }
-                PaymentActivity.PaymentDone();
-
-            }
-        }
-    };
+    @Override
+    public void payOk(boolean _isDirectPaymentInRegPostRequest) {
+        ((TubelessActivity) getContext()).progressDialog.show();
+        //send to server
+        isDirectPaymentInRegPostRequest = _isDirectPaymentInRegPostRequest;
+        prepareRequest();
+    }
+    @Override
+    public void payNotOk() {
+        Toast.makeText(getContext(), getContext().getString(R.string.pay_not_success), Toast.LENGTH_LONG).show();
+    }
 
 }

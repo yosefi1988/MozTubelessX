@@ -376,29 +376,11 @@ public class TextItem extends MainItem {
                     } else {
                         if (isFreeStore(mContext, StaticValue.configuration)) {
                             //free
-                            Intent intent ;
-                            if (timelineItem.getTTC() == 5047)
-                                intent = new Intent(mContext, ReadBlogImageActivity.class);
-                            else
-                                intent = new Intent(mContext, ReadBlogActivity.class);
-
-
-                            Gson gson = new Gson();
-                            String json = gson.toJson(timelineItem);
-
-                            // Old Transfer
-                            //intent.putExtra("Object", json);
-
-                            //New Transfer
-                            Bundle bundle = new Bundle();
-                            bundle.putString("Object", json);
-                            bundle.putString("Type", "NewTimelineItem");
-                            intent.putExtras(bundle);
-
-                            mContext.startActivity(intent);
-                            ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+                            GoToReadBlog();
                         }else {
                             if (Global.aConfig.getStoreList().get(0).getPermissions().isViewFree()) {
+                                //ViewFree
+                                GoToReadBlog();
                             }else {
 //                            if ((timelineItem.getAmount() >= Global.user2.getWallet().getAmount()) && !isSeen()) {
 //
@@ -424,6 +406,30 @@ public class TextItem extends MainItem {
                         }
                     }
                 }
+            }
+
+            private void GoToReadBlog() {
+                Intent intent ;
+                if (timelineItem.getTTC() == 5047)
+                    intent = new Intent(mContext, ReadBlogImageActivity.class);
+                else
+                    intent = new Intent(mContext, ReadBlogActivity.class);
+
+
+                Gson gson = new Gson();
+                String json = gson.toJson(timelineItem);
+
+                // Old Transfer
+                //intent.putExtra("Object", json);
+
+                //New Transfer
+                Bundle bundle = new Bundle();
+                bundle.putString("Object", json);
+                bundle.putString("Type", "NewTimelineItem");
+                intent.putExtras(bundle);
+
+                mContext.startActivity(intent);
+                ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
             }
         };
         holder.textViewDate.setOnClickListener(onContentClick);

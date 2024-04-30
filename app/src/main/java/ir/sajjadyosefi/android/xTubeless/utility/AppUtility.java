@@ -271,7 +271,7 @@ public class AppUtility {
 //
 //
 //        bundle.putBoolean("isOnline" ,false);
-//        bundle.putString("address", "http://www.balabarkaran.com");
+//        bundle.putString("address", "http://test.sajjadyosefi.ir");
 //
 //        drawerLayout.closeDrawer(Gravity.RIGHT);
 //        intent.putExtras(bundle);

@@ -78,41 +78,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     ParentItem blogItem = null;
     UserItem blogCreator = null;
     public static int CALL_AGAIN = 45;
-    //private static NonSwipeableViewPager mPager;
-    Intent intentPayment;
-    ActivityResultLauncher<Intent> mGetNameActivity;
-    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK) {
-                Intent data = result.getData();
-                Intent x;
-                if (PaymentActivity.isPaymentSuccess()) {
-                    x = PaymentActivity.getPaymentIntent();
-                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-                    x.getIntExtra("amount",10);
-                    x.getStringExtra("ReturnData");
-                    x.getStringExtra("metaData");
-                    x.getStringExtra("item1");
-                    x.getIntExtra("type",10);
-
-                    Gson gson = new Gson();
-                    MainActivityProfile.ReturnData returnData = new MainActivityProfile.ReturnData();
-                    returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), MainActivityProfile.ReturnData.class);
-                    Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-                    Wallet.savedToDataBase(Global.user2);
-
-                    //todo update database
-                    //user amount
-
-                }else {
-                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
-                }
-                PaymentActivity.PaymentDone();
-            }
-        }
-    };
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -140,7 +105,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
         user_profile_photo = findViewById(R.id.user_profile_photo);
-        //mPager = (NonSwipeableViewPager) findViewById(R.id.pager);
         textViewTitle = findViewById(R.id.textViewTitle);
         textViewDescription = findViewById(R.id.textViewDescription);
         textViewText = findViewById(R.id.textViewText);
@@ -149,18 +113,11 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         buttonInvisible = findViewById(R.id.buttonInvisible);
         buttonAccept = findViewById(R.id.buttonAccept);
         buttonBack = findViewById(R.id.buttonBack);
-        buttonCharge = findViewById(R.id.buttonCharge);
+        //buttonCharg_e = findViewById(R.id.buttonCharg_e); // parent
         buttonElectedAmlak = findViewById(R.id.buttonElectedAmlak);
         buttonreport = findViewById(R.id.buttonreport);
 
-
-
-
         Gson gson = new Gson();
-
-        //old Transfer
-//        String objectString = getIntent().getStringExtra("Object");
-
         //new transfer
         Bundle intent = getIntent().getExtras();
         String objectString = intent.getString("Object");
@@ -200,14 +157,12 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
             }
         });
 
-
         buttonCharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mGetNameActivity.launch(intentPayment);
             }
         });
-
 
         buttonInvisible.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,20 +199,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
                 finish();
             }
         });
-
-
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", 1);
-        bundle.putInt("amount", 800);   //with type = 2
-        bundle.putString("metaData", "meta Data 10 + 30");
-        bundle.putString("tax", "10");
-        bundle.putBoolean("isCharge", true);  //use in charge wallet
-
-        bundle.putString("portService", "30");
-        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
-        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), xxxxxxxxxxxx2);
     }
 
 
@@ -347,7 +288,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
 
     TextView textViewTitle, textViewDescription, textViewText, textViewElectedAmlak;
-    Button buttonInvisible, buttonAccept, buttonBack, buttonCharge,buttonElectedAmlak, buttonreport;
+    Button buttonInvisible, buttonAccept, buttonBack, buttonElectedAmlak, buttonreport;
     ImageButton buttonFav;
     ImageView user_profile_photo, imageView, imageView2;
 

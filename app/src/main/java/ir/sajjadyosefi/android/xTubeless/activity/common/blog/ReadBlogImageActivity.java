@@ -125,7 +125,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         buttonInvisible = findViewById(R.id.buttonInvisible);
         buttonAccept = findViewById(R.id.buttonAccept);
         buttonBack = findViewById(R.id.buttonBack);
-        buttonCharge = findViewById(R.id.buttonCharge);
+        //buttonCharg_e = findViewById(R.id.buttonCharg_e); parent
         buttonElectedAmlak = findViewById(R.id.buttonElectedAmlak);
         buttonreport = findViewById(R.id.buttonreport);
         mRecyclerViewTimeline = findViewById(R.id.recyclerView);
@@ -177,8 +177,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         buttonCharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getContext(), PrePaymentActivityx.class);
-//                ((Activity) mContext).startActivityForResult(intent, CALL_AGAIN);
+                mGetNameActivity.launch(intentPayment);
             }
         });
 
@@ -364,7 +363,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
 
 
     TextView textViewTitle, textViewDescription, textViewDate, textViewAmounts, textViewText,textViewCreator, textViewElectedAmlak,textViewAmountTitle, textViewCommentTitle;
-    Button buttonMessages, buttonInvisible, buttonAccept, buttonBack, buttonCharge,buttonElectedAmlak, buttonreport;
+    Button buttonMessages, buttonInvisible, buttonAccept, buttonBack, buttonElectedAmlak, buttonreport;
     ImageButton buttonFav;
     ImageView imageviewPicture,user_profile_photo, imageView;
 

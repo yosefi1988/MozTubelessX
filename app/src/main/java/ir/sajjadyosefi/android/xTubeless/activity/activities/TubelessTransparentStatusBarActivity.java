@@ -14,7 +14,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 //import com.crashlytics.android.Crashlytics;
 //import io.fabric.sdk.android.Fabric;
 
-public abstract class TubelessTransparentStatusBarActivity extends TubelessActivity {
+public abstract class TubelessTransparentStatusBarActivity extends TubelessPayActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

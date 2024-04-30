@@ -279,8 +279,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         buttonReciveReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-////                        //تراکنش های من
-
+                //تراکنش های من
                 ATransactionListRequest xxxxxxxxxxx = new ATransactionListRequest("110012","10","0");
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("type" , FRAGMENT_MYTRANSACTIONS);
@@ -322,11 +321,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         buttonLastSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                        //خرید های من
-//                timelineSearchRequest = new TimelineRequest();
-//                timelineSearchRequest.setPageSize("10");
-//                timelineSearchRequest.setPageIndex("1");
-
+                //خرید های من
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("type" , FRAGMENT_MYPURCHESE);
                 bundle2.putInt("CAT_COUNT", 10);
@@ -409,56 +404,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                 buttonReciveReport.setVisibility(View.GONE);
             }
         }catch (Exception ex){}
-
-
-
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", 1);
-        bundle.putInt("amount", 800);   //with type = 2
-        bundle.putString("metaData", "meta Data 10 + 30");
-        bundle.putString("tax", "10");
-        bundle.putBoolean("isCharge", true);  //use in charge wallet
-
-        bundle.putString("portService", "30");
-        intentPayment = PaymentActivity.getIntent(getContext(), bundle);
-        bundle.putParcelable(AccountManager.KEY_INTENT, intentPayment);
-        mGetNameActivity = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),xxxxxxxxxxxx2 );
-
     }
-    Intent intentPayment;
-    ActivityResultLauncher<Intent> mGetNameActivity;
-    ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result.getResultCode() == RESULT_OK) {
-                Intent data = result.getData();
-                Intent x;
-                if (PaymentActivity.isPaymentSuccess()) {
-                    x = PaymentActivity.getPaymentIntent();
-                    //Toast.makeText(getContext(),"pay success" ,Toast.LENGTH_LONG).show();
-                    x.getIntExtra("amount",10);
-                    x.getStringExtra("ReturnData");
-                    x.getStringExtra("metaData");
-                    x.getStringExtra("item1");
-                    x.getIntExtra("type",10);
-
-                    Gson gson = new Gson();
-                    ReturnData returnData = new ReturnData();
-                    returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), ReturnData.class);
-                    Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-                    Wallet.savedToDataBase(Global.user2);
-
-
-                    //todo update database
-                    //user amount
-
-                }else {
-                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
-                }
-                PaymentActivity.PaymentDone();
-            }
-        }
-    };
 
 
     @Override
