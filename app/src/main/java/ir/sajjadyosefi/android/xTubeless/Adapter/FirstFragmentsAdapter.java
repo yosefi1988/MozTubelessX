@@ -166,6 +166,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
             PAGE_COUNT = 2;
         }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
             PAGE_COUNT = 3;
+        }else if (BuildConfig.FLAVOR_version_name.equals("businesses")){
+            PAGE_COUNT = 2;
         }else {
             PAGE_COUNT = 2;
         }
@@ -289,6 +291,8 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
                         //fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_BOURSE_TRAIN);//FRAGMENTLIST_TYPE_MOZ_TIMELINE
                         fragmentx1  =  new BlankFragment();
+                    } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+                        fragmentx1 =  new FilterFragment(null);
                     } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
                         fragmentx1 =  new FilterFragment(null);
                     } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
@@ -317,6 +321,9 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
                         //fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                         fragmentx2 = new BlankFragment(context);
+                    } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+                        fragmentx2 = new ListFragment(context, LIST_TYPE_AMLAK_TIMELINE);
+
                     } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
 //                        fragmentx2 = new BlankFragment(context);

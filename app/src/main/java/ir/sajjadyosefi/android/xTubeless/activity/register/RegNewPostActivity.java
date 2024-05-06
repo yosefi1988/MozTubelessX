@@ -134,6 +134,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
     public static final int YAFTE = 4;
     public static final int AMLAK = 5;
     public static final int WINNER = 6;
+    public static final int BUSINESSES = 7;
 
     
     //default
@@ -193,7 +194,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             PAGE_TYPE = WINNER;
             rgRadios.setVisibility(View.GONE);
             linearLayoutMoz.setVisibility(View.GONE);
-            //((View)findViewById(R.id.linearLayoutImage)).setVisibility(View.GONE);
             ((View)findViewById(R.id.relativeLayoutState)).setVisibility(View.GONE);
             ((View)findViewById(R.id.textViewStateTitle)).setVisibility(View.GONE);
 
@@ -208,6 +208,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             linearLayoutMoz.setVisibility(View.GONE);
             rgRadios.setVisibility(View.GONE);
 
+        }
+        if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+            PAGE_TYPE = BUSINESSES;
+            linearLayoutMoz.setVisibility(View.GONE);
+            rgRadios.setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
             PAGE_TYPE = YAFTE;
@@ -302,6 +307,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         if (PAGE_TYPE == YAFTE) {
             login_title.setText(R.string.regNewEstekhdamTitle);
         }
+        if (PAGE_TYPE == BUSINESSES) {
+            login_title.setText(R.string.regNewEstekhdamTitle);
+        }
         if (PAGE_TYPE == YADAK){
             //5043
             login_title.setText(R.string.regNewEstekhdamTitle);
@@ -362,20 +370,19 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                 }
             }
         });
-
-        if (Global.user2.isUserAdmin()) {
-            if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+        if (PAGE_TYPE == BUSINESSES) {
+            linearLayoutAmount.setVisibility(View.VISIBLE);
+        }else {
+            if (Global.user2.isUserAdmin()) {
+                if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+                    linearLayoutAmount.setVisibility(View.GONE);
+                } else {
+                    linearLayoutAmount.setVisibility(View.VISIBLE);
+                }
+            } else {
                 linearLayoutAmount.setVisibility(View.GONE);
-            }else {
-                linearLayoutAmount.setVisibility(View.VISIBLE);
             }
-        } else {
-            linearLayoutAmount.setVisibility(View.GONE);
         }
-//        if (BuildConfig.FLAVOR_market.equals("bazzar")) {
-//            ((View)findViewById(R.id.linearLayoutImage)).setVisibility(View.GONE);
-//        }
-
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -605,8 +612,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             aaaa.setAmount("0");
         }else if (PAGE_TYPE == AMLAK) {
             aaaa.setAmount("0");
-        }else {
-            if (Global.user2.isUserAdmin()) {
+        }else if (PAGE_TYPE == BUSINESSES) {
+            aaaa.setAmount(editTextAmount.getText().toString());
+        }else{
+             if (Global.user2.isUserAdmin()) {
                 aaaa.setAmount(editTextAmount.getText().toString());
             } else {
                 aaaa.setAmount("0");
@@ -676,6 +685,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         }else if (PAGE_TYPE == AMLAK) {
             aaaa.setTtc(String.valueOf(catId));
         }else if (PAGE_TYPE == WINNER) {
+            aaaa.setTtc(String.valueOf(catId));
+        }else if (PAGE_TYPE == BUSINESSES) {
             aaaa.setTtc(String.valueOf(catId));
         }else {
 

@@ -12,7 +12,7 @@
     <string name="onlyMonaghese3">------</string>
     <string name="noticeType">--------</string>
     <!--    new-->
-    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitle">ثبت کمپین جدید</string>
     <string name="regNewEstekhdamTitleText">عنوان: (بدون عبارت مزایده و یا مناقصه)</string>
     <string name="regNewEstekhdamTitleTextExample">مثال:    اسناد املاک مربوط به قوه قضاییه \n           سند کمپانی خوروی پراید\n          کیف مدارک چرمی دسته دار</string>
     <string name="smsText3">آگهی شما تائید شد.</string>

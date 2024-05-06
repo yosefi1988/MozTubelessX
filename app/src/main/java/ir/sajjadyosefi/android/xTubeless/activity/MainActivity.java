@@ -498,7 +498,8 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         BuildConfig.FLAVOR_version_name.equals("amlak") ||
                         BuildConfig.FLAVOR_version_name.equals("winner") ||
                         BuildConfig.FLAVOR_version_name.equals("yadak") ||
-                        BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                        BuildConfig.FLAVOR_version_name.equals("bourse")||
+                        BuildConfig.FLAVOR_version_name.equals("businesses")) {
             getBottomNavigation().setVisibility(View.VISIBLE);
         }else {
             getBottomNavigation().setVisibility(View.GONE);
@@ -1218,6 +1219,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
             if (BuildConfig.FLAVOR_version_name.equals("moz") ||
                     BuildConfig.FLAVOR_version_name.equals("amlak") ||
+                    BuildConfig.FLAVOR_version_name.equals("businesses") ||
                     BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
                 // yadak
                 if (null != getViewPager() && position != 2) {
