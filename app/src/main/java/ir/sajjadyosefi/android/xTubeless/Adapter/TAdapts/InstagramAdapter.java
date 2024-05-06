@@ -42,7 +42,8 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.old.XAdapterold.VIEW_EMPTY_TEXT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter.VIEW_EMPTY_TEXT;
+
 
 public class InstagramAdapter extends ITubelessAdapter {
     private View rootView;

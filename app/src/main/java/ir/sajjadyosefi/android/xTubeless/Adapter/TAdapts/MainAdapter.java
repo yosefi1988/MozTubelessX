@@ -51,7 +51,8 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.IT
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_MYPURCHESE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_FILTER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_MYPOSTS;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.old.XAdapterold.VIEW_EMPTY_TEXT;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter.VIEW_EMPTY_TEXT;
+
 
 public class MainAdapter extends ITubelessAdapter {
     private View rootView;
@@ -66,6 +67,7 @@ public class MainAdapter extends ITubelessAdapter {
     private TextView emptyView2;
     public LinearLayoutManager mLayoutManager = null ;
     EndlessRecyclerOnScrollListener onScrollListener;
+
 
     public TimelineRequest timelineSearchRequest = null;
 
