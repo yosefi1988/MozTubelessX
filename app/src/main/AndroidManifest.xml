@@ -101,7 +101,7 @@
             android:theme="@style/ThemeFullSCreenX"
             android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity
-            android:name="ir.sajjadyosefi.accountauthenticator.activity.SignInActivity"
+            android:name="ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.filter.filterDetailsActivity"
@@ -325,11 +325,13 @@
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.ironsource.mediationsdk.testSuite.TestSuiteActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.NoTitleBar" />
+
+<!--        <activity-->
+<!--            android:name="com.ironsource.mediationsdk.testSuite.TestSuiteActivity"-->
+<!--            android:configChanges="orientation|screenSize"-->
+<!--            android:hardwareAccelerated="true"-->
+<!--            android:theme="@android:style/Theme.NoTitleBar" />-->
+
         <provider
             android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider"
             android:authorities="${applicationId}.IronsourceLifecycleProvider" />

@@ -1,8 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.request;
 
 
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-
 public class CategoriesLookUpRequest {
     private long CategoryCode;
     private long ParentId;

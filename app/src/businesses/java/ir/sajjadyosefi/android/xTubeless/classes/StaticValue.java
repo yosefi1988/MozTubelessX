@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.classes;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.bourseState.BourseState;
 import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 
 public class StaticValue {
@@ -7,6 +8,11 @@ public class StaticValue {
     public static int AdminUserID1 = 200684;
     public static int AdminUserID2 = 140326;
     public static int AdminUserID3 = 140234;
+
+
+    public static int CATEGORY_CAR_BRANDS_ID = 3012;
+    public static int CATEGORY_ID = 3009;
+
 
     public static String AdminMail1 = "yosefi1988@gmail.com";
     public static String AdminMail2 = "behrouzbb1989@gmail.com";
@@ -35,6 +41,9 @@ public class StaticValue {
     public static final int Tubeless_ITEM_TYPE = 1;
     public static final int PROGRESS_TYPE = 2;
 
-
+    public static Configuration configuration;
+    public static BourseState bourseState = null;
+    public static int USER_TYPE_ADMIN = 3;
+    public static int USER_TYPE_CREATOR = 2;
 
 }

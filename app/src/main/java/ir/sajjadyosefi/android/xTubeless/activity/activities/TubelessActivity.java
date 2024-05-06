@@ -7,22 +7,14 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
@@ -30,8 +22,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 //import com.crashlytics.android.Crashlytics;
 //import io.fabric.sdk.android.Fabric;
-
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 
 
 public abstract class TubelessActivity extends AppCompatActivity {

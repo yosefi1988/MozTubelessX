@@ -12,11 +12,9 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.request.ChargeRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.FavRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 
 //import ir.sajjadyosefi.android.xTubeless.classes.modelY.request.common.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;

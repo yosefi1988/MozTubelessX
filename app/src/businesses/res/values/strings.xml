@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">business</string>
+    <string name="app_name_file">businesses</string>
+
+    <string name="file_provider_authorities">ir.sajjadyosefi.android.xCarNews.provider</string>
+
+
+    <string name="allNotices">همه آگهی ها</string>
+    <string name="onlyMoz">------</string>
+    <string name="onlyMonaghese">-----</string>
+    <string name="onlyMonaghese3">------</string>
+    <string name="noticeType">--------</string>
+    <!--    new-->
+    <string name="regNewEstekhdamTitle">ثبت مورد جدید</string>
+    <string name="regNewEstekhdamTitleText">عنوان: (بدون عبارت مزایده و یا مناقصه)</string>
+    <string name="regNewEstekhdamTitleTextExample">مثال:    اسناد املاک مربوط به قوه قضاییه \n           سند کمپانی خوروی پراید\n          کیف مدارک چرمی دسته دار</string>
+    <string name="smsText3">آگهی شما تائید شد.</string>
+
+
+</resources>

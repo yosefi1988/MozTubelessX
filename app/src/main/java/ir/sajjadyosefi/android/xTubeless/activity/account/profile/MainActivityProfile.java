@@ -23,10 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
@@ -57,7 +53,6 @@ import butterknife.OnClick;
 import io.reactivex.annotations.Nullable;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.ChangePasswordActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
-import ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity;
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.ATransaction;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
@@ -70,7 +65,6 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;

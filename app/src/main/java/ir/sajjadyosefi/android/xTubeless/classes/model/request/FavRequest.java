@@ -1,7 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.request;
 
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-
 public class FavRequest {
     private String IDPost;
     private String UserCode;

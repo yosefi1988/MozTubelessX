@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -25,10 +22,8 @@ import ir.sajjadyosefi.android.xTubeless.Fragment.FilterFragment;
 
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.IItems;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
-import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
 
 /**

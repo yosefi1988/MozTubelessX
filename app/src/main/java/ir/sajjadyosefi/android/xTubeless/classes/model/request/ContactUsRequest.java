@@ -2,7 +2,6 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.request;
 
 
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
 public class ContactUsRequest {
 

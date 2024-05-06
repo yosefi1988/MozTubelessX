@@ -1,5 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.networkLayout;
 
+import ir.sajjadyosefi.android.xTubeless.Global;
+
 /**
  * Created by sajjad yosefi .
  */

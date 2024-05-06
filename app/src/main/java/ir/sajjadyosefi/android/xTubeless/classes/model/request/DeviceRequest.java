@@ -1,12 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.request;
 
 
-import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.model.IRegisterDeviceModel;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
-import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
-
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.NOT_LOGN_USER;
 //import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 
 public class DeviceRequest {

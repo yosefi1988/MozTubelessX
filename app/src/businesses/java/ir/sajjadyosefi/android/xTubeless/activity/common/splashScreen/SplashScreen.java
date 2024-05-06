@@ -15,22 +15,8 @@ import androidx.core.content.ContextCompat;
 
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.splunk.mint.Mint;
-
-//import ir.sajjadyosefi.android.tubeless.Class.model.AppStatus;
-import ir.adad.ad.AdadAdListener;
-import ir.adad.banner.AdadBannerAd;
-import ir.adad.core.Adad;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;
@@ -63,12 +49,13 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     //sim card
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (AndroidOs.isPermissionGranted(grantResults)) {
                     peresenter.registerDevice();
                 } else {
-                    Toast.makeText(this,this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
                 }
                 break;
         }

@@ -1,7 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit;
 
 
-import android.accounts.AccountManager;
 import android.content.Context;
 import android.util.Log;
 
@@ -11,10 +10,7 @@ import com.google.gson.GsonBuilder;
 import java.io.IOException;
 
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
-import ir.sajjadyosefi.android.xTubeless.BuildConfig;
-import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.PostMessagesRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineItemRequest;
@@ -25,10 +21,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogCommentReq
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.FavRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.ImageRequest;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.DownloadUploadPicture.RemoteApi;
-import ir.sajjadyosefi.android.xTubeless.classes.model.config.Configuration;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.ContactUsRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.request.NewBlogRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.request.DeviceRequest;
 
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import okhttp3.Interceptor;

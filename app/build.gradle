@@ -13,8 +13,8 @@ def final Estekhdam_VersionCode = 37
 def final Winner_VersionName = "0.0.2"
 def final Winner_VersionCode = 3
 
-def final CarNews_VersionName = "1.0.2"
-def final CarNews_VersionCode = 3
+def final Businesses_VersionName = "1.0.2"
+def final Businesses_VersionCode = 3
 
 def final Kartesokht_VersionName = "1.0.9"
 def final Kartesokht_VersionCode = 21
@@ -202,12 +202,12 @@ android {
             ]
         }
 
-        carNews {
+        businesses {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"
-            applicationIdSuffix ".xCarNews"
-            versionName "${CarNews_VersionName}"
-            versionCode CarNews_VersionCode
+            applicationIdSuffix ".xBusinesses"
+            versionName "${Businesses_VersionName}"
+            versionCode Businesses_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/png_icon"
             ]
@@ -291,8 +291,8 @@ android {
 //            manifest.srcFile 'other/AndroidManifest.xml'
 //            manifest.srcFile 'src/main/AndroidManifest.xml'
         }
-        carNews {
-            res.srcDirs = ['src/carNews/res']
+        businesses {
+            res.srcDirs = ['src/businesses/res']
         }
 
     }

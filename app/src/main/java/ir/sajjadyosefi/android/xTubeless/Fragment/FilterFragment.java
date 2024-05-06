@@ -23,21 +23,18 @@ import com.ironsource.mediationsdk.ISBannerSize;
 import com.ironsource.mediationsdk.IronSource;
 import com.ironsource.mediationsdk.IronSourceBannerLayout;
 import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
-import com.ironsource.mediationsdk.integration.IntegrationHelper;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.sdk.LevelPlayBannerListener;
 
 import java.util.List;
 import java.util.Objects;
 
-import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -49,7 +46,6 @@ import ir.sajjadyosefi.android.xTubeless.utility.AppUtility;
 import retrofit2.Call;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCategory;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;

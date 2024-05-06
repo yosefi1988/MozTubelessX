@@ -12,11 +12,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,20 +32,15 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.ATransactionApp;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.EmptyTextItem;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TransactionItem;
-import ir.sajjadyosefi.android.xTubeless.classes.model.response.NewTimelineListResponse;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.EmptyTextViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainViewHolder;
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
-import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.Tubeless_ITEM_TYPE;
 
 
 public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerView.Adapter<TubelessMainViewHolder> {
