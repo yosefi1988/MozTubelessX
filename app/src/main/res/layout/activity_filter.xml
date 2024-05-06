@@ -165,6 +165,11 @@
                     android:text="@string/regNewEstekhdamTitle"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+            <FrameLayout
+                android:id="@+id/banner_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

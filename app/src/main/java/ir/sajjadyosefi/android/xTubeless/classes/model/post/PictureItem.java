@@ -382,7 +382,7 @@ public class PictureItem extends MainItem {
 
                         if (item.getItemId() == R.id.action_regnewPost){
                             if (Global.user2 == null){
-                                Toast.makeText(mContext, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                                Toast.makeText(mContext, mContext.getString(R.string.must_login), Toast.LENGTH_LONG).show();
                                 Bundle bundle = null;
                                 if (bundle == null){
                                     bundle = new Bundle();

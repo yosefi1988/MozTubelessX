@@ -12,21 +12,25 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
-//import com.zarinpal.ewallets.purchase.OnCallbackRequestPaymentListener;
-//import com.zarinpal.ewallets.purchase.PaymentRequest;
-//import com.zarinpal.ewallets.purchase.ZarinPal;
+import com.ironsource.mediationsdk.ISBannerSize;
+import com.ironsource.mediationsdk.IronSource;
+import com.ironsource.mediationsdk.IronSourceBannerLayout;
+import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
+import com.ironsource.mediationsdk.integration.IntegrationHelper;
+import com.ironsource.mediationsdk.logger.IronSourceError;
+import com.ironsource.mediationsdk.sdk.LevelPlayBannerListener;
 
 import java.util.List;
 import java.util.Objects;
 
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.android.xTubeless.Adapter.SpinnerAdapterA;
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -44,6 +48,8 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import ir.sajjadyosefi.android.xTubeless.utility.AppUtility;
 import retrofit2.Call;
 
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCategory;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
@@ -81,6 +87,11 @@ public class FilterFragment extends Fragment {
     List<CategoryItem> stateItems = null;
     private TimelineRequest timelineSearchRequest;
 
+    //ad
+    private FrameLayout bannerParentLayout;
+    private IronSourceBannerLayout ironSourceBannerLayout;
+    //private Placement rewardedVideoPlacementInfo;
+
     EditText editTextTitle;
     private static int selectedState;
 
@@ -107,6 +118,9 @@ public class FilterFragment extends Fragment {
         buttonShareApp = (Button) view.findViewById(R.id.buttonShareApp);
         buttonSelectCategory = (Button) view.findViewById(R.id.buttonSelectCategory);
         spinner = (Spinner) view.findViewById(R.id.spinner);
+
+        //ad
+        bannerParentLayout = view.findViewById(R.id.banner_frame_layout);
 
         editTextTitle = (EditText) view.findViewById(R.id.editTextTitle);
 
@@ -283,15 +297,86 @@ public class FilterFragment extends Fragment {
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Global.user2 == null) {
-                    Toast.makeText(getContext(), "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
-                }else {
-                    //if (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) {
-                        getContext().startActivity(new Intent(getContext(), RegNewPostActivity.class));
-                    //} else {
-                    //   showUserRegPostDialog(getContext(), getActivity().findViewById(android.R.id.content));
-                    //}
+//                if (Global.user2 == null) {
+//                    Toast.makeText(mContext, mContext.getString(R.string.must_login), Toast.LENGTH_LONG).show();
+//                    Bundle bundle = null;
+//                    if (bundle == null){
+//                        bundle = new Bundle();
+//                    }
+//                    Intent intent = SignInActivity.getIntent(mContext,bundle);
+//                    bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+//                    ((Activity)mContext).startActivityForResult(intent, GO_TO_LOGIN);
+//                }else {
+//                    //if (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) {
+//                        getContext().startActivity(new Intent(getContext(), RegNewPostActivity.class));
+//                    //} else {
+//                    //   showUserRegPostDialog(getContext(), getActivity().findViewById(android.R.id.content));
+//                    //}
+//                }
+
+
+
+
+                // call IronSource.destroyBanner() before loading a new banner
+                if (bannerParentLayout != null) {
+                    destroyBanner();
                 }
+
+                // choose banner size
+                // you can pick any banner size: ISBannerSize.BANNER, ISBannerSize.LARGE, ISBannerSize.RECTANGLE, ISBannerSize.SMART or even define a custom banner size by providing width and height
+                // initialize IronSourceBanner object, using the IronSource.createBanner API
+                ironSourceBannerLayout = IronSource.createBanner(getActivity(), ISBannerSize.BANNER);
+
+                if (ironSourceBannerLayout != null) {
+                    // add IronSourceBanner to your container
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT);
+                    bannerParentLayout.addView(ironSourceBannerLayout, 0, layoutParams);
+
+                    // set the banner listener
+                    ironSourceBannerLayout.setLevelPlayBannerListener(new LevelPlayBannerListener() {
+                        @Override
+                        public void onAdLoaded(AdInfo adInfo) {
+                            int a = 5;
+                        }
+
+                        @Override
+                        public void onAdLoadFailed(IronSourceError ironSourceError) {
+                            int a = 5;
+
+                        }
+
+                        @Override
+                        public void onAdClicked(AdInfo adInfo) {
+                            int a = 5;
+
+                        }
+
+                        @Override
+                        public void onAdLeftApplication(AdInfo adInfo) {
+                            int a = 5;
+
+                        }
+
+                        @Override
+                        public void onAdScreenPresented(AdInfo adInfo) {
+                            int a = 5;
+
+                        }
+
+                        @Override
+                        public void onAdScreenDismissed(AdInfo adInfo) {
+                            int a = 5;
+
+                        }
+                    });
+
+                    // load ad into the created banner
+                    //log("loadBanner");
+                    IronSource.loadBanner(ironSourceBannerLayout);
+                } else {
+                    //log("IronSource.createBanner returned null");
+                }
+
             }
         });
 
@@ -322,6 +407,16 @@ public class FilterFragment extends Fragment {
             checkbox.setVisibility(View.GONE);
 
         return view;
+    }
+
+    //ad
+    private void destroyBanner() {
+        if (bannerParentLayout != null) {
+            //log("destroyBanner");
+            IronSource.destroyBanner(ironSourceBannerLayout);
+            bannerParentLayout.removeView(ironSourceBannerLayout);
+        }
+
     }
 
     @Override

@@ -104,7 +104,7 @@ public class SearchByNameFragment extends Fragment {
             public void onClick(View view) {
                 if (Global.user2 == null){
                     Bundle bundle = new Bundle();
-                    Toast.makeText(getContext(), "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
                     Intent intent = SignInActivity.getIntent(getContext(),bundle);
                     bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                     getActivity().startActivityForResult(intent, GO_TO_LOGIN);

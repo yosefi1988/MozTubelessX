@@ -42,6 +42,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.ironsource.mediationsdk.ISBannerSize;
+import com.ironsource.mediationsdk.IronSource;
+import com.ironsource.mediationsdk.IronSourceBannerLayout;
+import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
+import com.ironsource.mediationsdk.integration.IntegrationHelper;
+import com.ironsource.mediationsdk.logger.IronSourceError;
+import com.ironsource.mediationsdk.sdk.InitializationListener;
+import com.ironsource.mediationsdk.sdk.LevelPlayBannerListener;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
@@ -565,6 +573,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //
 //            }
 //        },10000);
+
+
+
+
     }
 
     private void loadNews() {
@@ -1391,4 +1403,13 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 
 
+    //ad
+    protected void onResume() {
+        super.onResume();
+        IronSource.onResume(this);
+    }
+    protected void onPause() {
+        super.onPause();
+        IronSource.onPause(this);
+    }
 }

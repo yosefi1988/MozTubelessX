@@ -636,7 +636,7 @@ public class ListFragment extends Fragment  {
                     //TIMELINE Yafte
                     if (listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE || listType == ITEM_TYPE_FILTER) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
                             if (bundle == null) {
                                 bundle = new Bundle();
@@ -656,7 +656,7 @@ public class ListFragment extends Fragment  {
                     }
                     if (listType == FRAGMENTLIST_YADAK_TIMELINE ) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
                             if (bundle == null) {
                                 bundle = new Bundle();
@@ -675,7 +675,7 @@ public class ListFragment extends Fragment  {
 
                     if (listType == LIST_TYPE_AMLAK_TIMELINE || listType ==  LIST_TYPE_AMLAK_FILTER) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
                             if (bundle == null) {
                                 bundle = new Bundle();
@@ -695,7 +695,7 @@ public class ListFragment extends Fragment  {
 
                     if (listType == LIST_TYPE_IMAGE_IN_YADAK) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
                             if (bundle == null) {
                                 bundle = new Bundle();
                             }
@@ -723,7 +723,7 @@ public class ListFragment extends Fragment  {
                         }
                     } else if (listType == ITEM_TYPE_AMLAK_LIST_1) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
                             if (bundle == null) {
                                 bundle = new Bundle();
@@ -748,7 +748,7 @@ public class ListFragment extends Fragment  {
                         context.startActivity(new Intent(context, RegNewPostActivity.class));
                     } else if (listType == ITEM_TYPE_MYFAVS) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
                             if (bundle == null) {
                                 bundle = new Bundle();
@@ -772,7 +772,7 @@ public class ListFragment extends Fragment  {
 
                     } else if (listType == FRAGMENT_POST_SEARCH_RESULT) {
                         if (Global.user2 == null) {
-                            Toast.makeText(context, "ابتدا وارد شوید", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
                             if (bundle == null) {
                                 bundle = new Bundle();
                             }
