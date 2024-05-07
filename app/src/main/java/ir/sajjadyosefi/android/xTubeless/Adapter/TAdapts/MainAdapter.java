@@ -80,7 +80,7 @@ public class MainAdapter extends ITubelessAdapter {
 //    }
 
     @Override
-    public void init(int listType, CategoryItem categoryItem, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle, TextView emptyView2 , TimelineRequest searchRequest) {
+    public void init(int listType, CategoryItem categoryItem, final Context context, View rootView, RecyclerView recyclerView, LinearLayoutManager linearLayoutManager, SwipeRefreshLayout mSwipeRefreshLayout, Fragment fragment, Bundle bundle, TextView emptyView2 , TimelineRequest _searchRequest) {
 
         this.listType = listType;
         this.fragment = fragment;
@@ -93,7 +93,7 @@ public class MainAdapter extends ITubelessAdapter {
         this.mSwipeRefreshLayout = mSwipeRefreshLayout ;
         this.adapter = this;
         this.bundle = bundle;
-        this.timelineSearchRequest = searchRequest;
+        this.timelineSearchRequest = _searchRequest;
 
         if (((ListFragment)fragment).dataList == null)
             ((ListFragment)fragment).dataList = new ArrayList<>();

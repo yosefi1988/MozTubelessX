@@ -60,6 +60,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     //Main Adapter
     //---------------New Category----------------------//
     public static int LIST_TYPE_AMLAK_TIMELINE = 23;
+    public static int FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE = 232;
     public static int FRAGMENTLIST_TYPE_MOZ_TIMELINE = 2;
     public static int ITEM_TYPE_MYFAVS = 34;
     public static int ITEM_TYPE_MYPURCHESE = 3;                 //خرید های من - مشاهده شده ها
@@ -322,8 +323,18 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         //fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                         fragmentx2 = new BlankFragment(context);
                     } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
-                        fragmentx2 = new ListFragment(context, LIST_TYPE_AMLAK_TIMELINE);
+                        TimelineRequest searchRequest = new TimelineRequest("",0);
+                        searchRequest.setTtc("8105");
+                        searchRequest.setPageSize("10");
+                        searchRequest.setPageIndex("0");
+                        searchRequest.setActive(true);
+                        if(Global.user2 != null){
+                            searchRequest.setUserCode(Global.user2.getUserCodeAsString());
+                        }else {
+                            searchRequest.setUserCode(null);
+                        }
 
+                        fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE, searchRequest);
                     } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
 //                        fragmentx2 = new BlankFragment(context);

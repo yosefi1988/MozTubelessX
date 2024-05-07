@@ -73,6 +73,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LI
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_TIMELINE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_CREATORS_POST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_YADAK_TIMELINE;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_All;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_ANALIZE_Old;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_BOURSE_NEWS;
@@ -165,10 +166,10 @@ public class ListFragment extends Fragment  {
     public static final String      ARG_HEADER = "ARG_HEADER";
     public static Context           context;
 
-    public ListFragment(Context context, int listType, TimelineRequest searchRequest) {
+    public ListFragment(Context context, int listType, TimelineRequest _searchRequest) {
         this.context = context;
         this.listType = listType;
-        this.searchRequest = searchRequest;
+        this.searchRequest = _searchRequest;
         constractorInit();
     }
     public ListFragment(Context context, int listType) {
@@ -354,6 +355,7 @@ public class ListFragment extends Fragment  {
                 listType == TYPE_ITEM_Message_FROM_USERS ||
                 listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm2 ||
                 listType == ITEM_TYPE_FILTER ||
+                listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ||
                 listType == ITEM_TYPE_MYFAVS ||
                 listType == ITEM_TYPE_TRANS ||
                 listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm
@@ -466,6 +468,7 @@ public class ListFragment extends Fragment  {
                 listType == ITEM_TYPE_MYFAVS ||
                 listType == FRAGMENTLIST_YADAK_TIMELINE ||
                 listType == ITEM_TYPE_FILTER ||
+                listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ||
                 listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE ||
                 listType == FRAGMENTLIST_TYPE_BOURSE_TRAIN ||
                 listType == TYPE_BOURSE_ANALIZE_All ||
@@ -629,7 +632,7 @@ public class ListFragment extends Fragment  {
                 @Override
                 public void onClick(View v) {
                     //TIMELINE Yafte
-                    if (listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE || listType == ITEM_TYPE_FILTER) {
+                    if (listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE || listType == ITEM_TYPE_FILTER || listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE) {
                         if (Global.user2 == null) {
                             Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
