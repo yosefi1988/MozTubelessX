@@ -324,7 +324,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         fragmentx2 = new BlankFragment(context);
                     } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
                         TimelineRequest searchRequest = new TimelineRequest("",0);
-                        searchRequest.setTtc("8105");
+                        searchRequest.setTtc("9138");
                         searchRequest.setPageSize("10");
                         searchRequest.setPageIndex("0");
                         searchRequest.setActive(true);

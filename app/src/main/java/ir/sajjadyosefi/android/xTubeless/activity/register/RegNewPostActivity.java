@@ -213,6 +213,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             PAGE_TYPE = BUSINESSES;
             linearLayoutMoz.setVisibility(View.GONE);
             rgRadios.setVisibility(View.GONE);
+            buttonSelectCategory.setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
             PAGE_TYPE = YAFTE;
@@ -469,7 +470,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                 final BottomSheetDialog dialog = new BottomSheetDialog(getContext());
 
                 //old cat
-                if (PAGE_TYPE == YAFTE || PAGE_TYPE == MOZ)
+                if (PAGE_TYPE == YAFTE || PAGE_TYPE == MOZ || PAGE_TYPE == BUSINESSES)
                     if (extracted(selectedCategoryID) != 0) {
                         selectedCategoryID = extracted(selectedCategoryID);
                     }
@@ -598,7 +599,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         //6-State
         if (PAGE_TYPE == WINNER) {
             aaaa.setStateCode("8133");
-        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
+        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == BUSINESSES || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
             aaaa.setStateCode(String.valueOf(selectedSpinnerID));
         }else{
 
@@ -687,7 +688,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         }else if (PAGE_TYPE == WINNER) {
             aaaa.setTtc(String.valueOf(catId));
         }else if (PAGE_TYPE == BUSINESSES) {
-            aaaa.setTtc(String.valueOf(catId));
+            aaaa.setTtc("9138");
         }else {
 
         }
