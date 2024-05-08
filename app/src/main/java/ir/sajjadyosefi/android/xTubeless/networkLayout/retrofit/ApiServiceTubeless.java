@@ -46,7 +46,8 @@ public interface ApiServiceTubeless {
     @POST("Post/NewPost2")
     Call<Object> newBlog(@Body NewBlogRequest request);
 
-    @POST("Post/PostList")
+
+    @POST("Post/PostListWithAd")    //   or   @POST("Post/PostList")
     Call<Object> getTimeline(@Body TimelineRequest request);
 
     @POST("ElectedUsers/getElectedUserByApplicationId")
@@ -60,6 +61,9 @@ public interface ApiServiceTubeless {
 
     @POST("Post/PostDetailsNew2")
     Call<Object> getTimelineItem(@Body TimelineItemRequest request);
+
+    @POST("Post/ClickOnAdShowDetails")
+    Call<Object> ClickOnAdShowDetails(@Body TimelineItemRequest request);
 
     @POST("Post/MyPostList")
     Call<Object> getMyPOST(@Body TimelineRequest request);

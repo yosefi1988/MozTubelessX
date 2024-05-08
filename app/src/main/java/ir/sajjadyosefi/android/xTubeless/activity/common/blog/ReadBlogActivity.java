@@ -180,12 +180,7 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
             }
         });
 
-        buttonCharge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mGetNameActivity.launch(intentPayment);
-            }
-        });
+
 
 
         buttonInvisible.setOnClickListener(new View.OnClickListener() {
@@ -791,6 +786,13 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
         TimelineItemRequest req = new TimelineItemRequest();
         req.setIDPost(((MainItem)blogItem).getID() + "");
+
+        buttonCharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetNameActivity.launch(intentPayment);
+            }
+        });
 
         if (Global.user2 != null)
             Global.apiManagerTubeless.getTimelineItem(req, readBlogCallBack);
