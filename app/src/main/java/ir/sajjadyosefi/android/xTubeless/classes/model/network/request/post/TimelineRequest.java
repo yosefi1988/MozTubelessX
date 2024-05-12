@@ -14,6 +14,7 @@ public class TimelineRequest implements Serializable {
     private Boolean IsActive;
     private Boolean Visited = null;
     private Boolean Faved = null;
+    private String Store;
 
 
     //filter
@@ -63,4 +64,7 @@ public class TimelineRequest implements Serializable {
         IsActive = active;
     }
 
+    public void setStore(String store) {
+        Store = store;
+    }
 }

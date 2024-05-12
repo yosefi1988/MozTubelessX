@@ -78,7 +78,7 @@ import static ir.sajjadyosefi.android.xTubeless.classes.model.file.File.MAP_1;
  * Created by sajjad on 2/11/2018.
  */
 
-public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
+public class ReadBlogActivityx extends TubelessTransparentStatusBarActivity {
 
     Context mContext = null;
     ParentItem blogItem = null;
@@ -795,7 +795,11 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         });
 
         if (Global.user2 != null)
-            Global.apiManagerTubeless.getTimelineItem(req, readBlogCallBack);
+            if (((MainItem)blogItem).getTTC() == 9138)
+                Global.apiManagerTubeless.getAdItem(req, readBlogCallBack);
+            else
+                Global.apiManagerTubeless.getTimelineItem(req, readBlogCallBack);
+
         else {
             finish();
         }

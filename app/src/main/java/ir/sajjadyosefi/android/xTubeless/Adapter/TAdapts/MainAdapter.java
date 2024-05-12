@@ -52,6 +52,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.IT
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_FILTER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_MYPOSTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter.VIEW_EMPTY_TEXT;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.getAppDownloadedStore;
 
 
 public class MainAdapter extends ITubelessAdapter {
@@ -171,6 +172,9 @@ public class MainAdapter extends ITubelessAdapter {
             timelineRequest.setVisited(false);
         }
 
+        //Store
+        timelineRequest.setStore(getAppDownloadedStore());
+
         //User Code
         if (listType != FRAGMENTLIST_TYPE_MOZ_CREATORS_POST) {
             if (Global.user2 == null) {
@@ -219,6 +223,7 @@ public class MainAdapter extends ITubelessAdapter {
 //                        item.setType(Tubeless_ITEM_TYPE);
                     JsonObject jsonObject = gson.toJsonTree(item).getAsJsonObject();
                     //MainItem mainItem = gson.fromJson(jsonObject, MainItem.class);
+
 
 //                        if (mainItem.getTTC() == 5047) {
 //                            PictureItem post = gson.fromJson(jsonObject, PictureItem.class);
@@ -273,6 +278,7 @@ public class MainAdapter extends ITubelessAdapter {
     }
     public static int VIEW_TYPE_TEXT_POST = 1;
     public static int VIEW_TYPE_TEXT_IMAGE_POST = 2;
+    public static int VIEW_TYPE_TEXT_IMAGE_AD_POST = 3;
     @Override
     public TubelessMainViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         //BuildConfig.FLAVOR_version_name.equals("amlak")
@@ -287,6 +293,8 @@ public class MainAdapter extends ITubelessAdapter {
 
         if (viewType == VIEW_TYPE_TEXT_POST) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_text_item, parent, false);
+        } else if (viewType == VIEW_TYPE_TEXT_IMAGE_AD_POST) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_textpicture_aditem, parent, false);
         } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout._row_textpicture_item, parent, false);
         }
@@ -312,10 +320,14 @@ public class MainAdapter extends ITubelessAdapter {
         if (((ListFragment)fragment).dataList.get(position) instanceof EmptyTextItem){
             return VIEW_EMPTY_TEXT;
         }else if (((ListFragment)fragment).dataList.get(position) instanceof MainItem){
-            if ((((TextItem) ((ListFragment) fragment).dataList.get(position)).getTitlePicture()) == null) {
-                return VIEW_TYPE_TEXT_POST;
+            if ((((TextItem) ((ListFragment) fragment).dataList.get(position)).getTTC()) == 9138) {
+                return VIEW_TYPE_TEXT_IMAGE_AD_POST;
             } else {
-                return VIEW_TYPE_TEXT_IMAGE_POST;
+                if ((((TextItem) ((ListFragment) fragment).dataList.get(position)).getTitlePicture()) == null) {
+                    return VIEW_TYPE_TEXT_POST;
+                } else {
+                    return VIEW_TYPE_TEXT_IMAGE_POST;
+                }
             }
         }
         return 0;

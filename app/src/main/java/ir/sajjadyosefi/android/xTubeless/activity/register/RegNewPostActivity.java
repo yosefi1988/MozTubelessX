@@ -63,6 +63,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparent
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 
+import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
@@ -91,6 +92,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
 

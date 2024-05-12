@@ -114,7 +114,7 @@ public class RetrofitHelperTubeless {
     }
 
 
-    String countInPage = "15";
+    String countInPage = "10";
     public void getTimeline(TimelineRequest request, TubelessRetrofitCallbackss callback) {
         request.setPageSize(countInPage);
         Call<Object> userCall;
@@ -249,6 +249,11 @@ public class RetrofitHelperTubeless {
 
     public void getTimelineItem(TimelineItemRequest request, TubelessRetrofitCallbackss callback) {
         Call<Object> userCall = service.getTimelineItem(request);
+        userCall.enqueue(callback);
+    }
+
+    public void getAdItem(TimelineItemRequest request, TubelessRetrofitCallbackss callback) {
+        Call<Object> userCall = service.ClickOnAdShowDetails(request);
         userCall.enqueue(callback);
     }
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/fb_background_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/circle_border"
+        android:orientation="vertical"
+        android:padding="5sp"
+        android:layout_margin="5sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="1dp">
+            <LinearLayout
+                android:id="@+id/linearLayoutCenter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:clickable="true"
+                android:orientation="vertical">
+                <TextView android:text="ad" android:gravity="left" style="@style/Style_TextView_Text"/>
+                <TextView android:id="@+id/textViewTitle" style="@style/Style_TextView_Title"/>
+                <ImageView
+                    android:id="@+id/imageviewPicture"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"  />
+                <TextView android:id="@+id/textViewLocation" style="@style/Style_TextView_Text"/>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/circle_border"
+                    android:src="@drawable/png_image" />
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="rtl"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:src="@drawable/png_time"
+                        android:padding="4dp"
+                        style="@style/TitleBarImage" />
+                    <TextView  android:id="@+id/textViewDate" style="@style/Style_TextView_Text"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="1dp">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:gravity="left"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/imageviewMessage"
+                            android:src="@drawable/png_comments"
+                            style="@style/TitleBarImage" />
+                        <ImageView
+                            android:id="@+id/imageviewfav"
+                            android:src="@drawable/png_star"
+                            style="@style/TitleBarImage" />
+                        <ImageView
+                            android:id="@+id/imageViewpay"
+                            android:src="@drawable/png_blue_eye"
+                            style="@style/TitleBarImage" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
