@@ -381,7 +381,7 @@ public class FilterFragment extends Fragment {
             }
         });
 
-        if (BuildConfig.FLAVOR_market.equals("bazzar") || BuildConfig.FLAVOR_market.equals("myket")) {
+        if (!BuildConfig.FLAVOR_market.equals("winner")) {
             buttonShareApp.setVisibility(View.GONE);
         } else {
             buttonShareApp.setOnClickListener(new View.OnClickListener() {

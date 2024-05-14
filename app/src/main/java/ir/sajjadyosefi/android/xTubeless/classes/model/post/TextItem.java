@@ -21,6 +21,7 @@ import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
+import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadAdActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogImageActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -410,7 +411,9 @@ public class TextItem extends MainItem {
 
             private void GoToReadBlog() {
                 Intent intent ;
-                if (timelineItem.getTTC() == 5047)
+                if (timelineItem.getTTC() == 9138)
+                    intent = new Intent(mContext, ReadAdActivity.class);
+                else if (timelineItem.getTTC() == 5047)
                     intent = new Intent(mContext, ReadBlogImageActivity.class);
                 else
                     intent = new Intent(mContext, ReadBlogActivity.class);

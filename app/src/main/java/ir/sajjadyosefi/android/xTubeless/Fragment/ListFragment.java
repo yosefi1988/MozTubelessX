@@ -634,7 +634,7 @@ public class ListFragment extends Fragment  {
                 @Override
                 public void onClick(View v) {
                     //TIMELINE Yafte
-                    if (listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE || listType == ITEM_TYPE_FILTER || listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE) {
+                    if (listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE || listType == ITEM_TYPE_FILTER ) {
                         if (Global.user2 == null) {
                             Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
@@ -735,7 +735,21 @@ public class ListFragment extends Fragment  {
                         } else {
                             showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
                         }
-                    } else if (listType == ITEM_TYPE_MYPURCHESE) {
+                    } else if (listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ) {
+                        if (Global.user2 == null) {
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
+
+                            if (bundle == null) {
+                                bundle = new Bundle();
+                            }
+                            Intent intent = SignInActivity.getIntent(getContext(), bundle);
+                            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+                            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+                        } else {
+                            context.startActivity(new Intent(context, RegNewPostActivity.class));
+                        }
+                    }
+                    else if (listType == ITEM_TYPE_MYPURCHESE) {
                         if (Global.user2 != null) {
                             context.startActivity(new Intent(context, RegNewPostActivity.class));
                         } else {

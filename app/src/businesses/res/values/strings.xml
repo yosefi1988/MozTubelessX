@@ -11,6 +11,8 @@
     <string name="onlyMonaghese">-----</string>
     <string name="onlyMonaghese3">------</string>
     <string name="noticeType">--------</string>
+    <string name="reg_new_yafte2">ثبت نتایج</string>
+
     <!--    new-->
     <string name="regNewEstekhdamTitle">ثبت کمپین جدید</string>
     <string name="regNewEstekhdamTitleText">عنوان: (بدون عبارت مزایده و یا مناقصه)</string>
