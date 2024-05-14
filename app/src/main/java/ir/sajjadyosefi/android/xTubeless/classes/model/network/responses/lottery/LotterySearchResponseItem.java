@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.ITubelessAdapter;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.LotteryAdapter;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.MainAdapter;
+import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.account.readProfile.ReadProfileActivity;
@@ -223,6 +225,7 @@ public class LotterySearchResponseItem extends ParentItem
         View.OnClickListener onShareClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //1
 //                Bundle bundle2 = new Bundle();
 //                bundle2.putInt("type", FRAGMENT_Message);
 //                bundle2.putInt("CAT_COUNT", 10);
@@ -230,15 +233,49 @@ public class LotterySearchResponseItem extends ParentItem
 //                bundle2.putBoolean("isOwner", isOwner);
 //                bundle2.putString("userId", userItem.getUi());
 //                mContext.startActivity(ContainerActivity.getIntent(mContext, bundle2));
-                Intent intent = new Intent(mContext, ReadProfileActivity.class);
-                Gson gson = new Gson();
-                String json = gson.toJson(item);
-                Bundle bundle = new Bundle();
-                bundle.putString("Object", json);
-                bundle.putString("Type", "electedUserItem");//"TimelineItem");
-                intent.putExtras(bundle);
-                mContext.startActivity(intent);
-                ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+
+                //2 elected User Item
+//                Intent intent = new Intent(mContext, ReadProfileActivity.class);
+//                Gson gson = new Gson();
+//                String json = gson.toJson(item);
+//                Bundle bundle = new Bundle();
+//                bundle.putString("Object", json);
+//                bundle.putString("Type", "electedUserItem");//"TimelineItem");
+//                intent.putExtras(bundle);
+//                mContext.startActivity(intent);
+//                ((Activity) mContext).overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+
+                //3
+                StringBuilder stringBuilder0 = new StringBuilder();
+
+                stringBuilder0.append("قرعه کشی در");
+                stringBuilder0.append(" ");
+                stringBuilder0.append(item.getName());
+                stringBuilder0.append("\n");
+
+                stringBuilder0.append("توضیحات:");
+
+                stringBuilder0.append("\n");
+                stringBuilder0.append("منتشر شده از اپلیکیشن");
+                stringBuilder0.append(BuildConfig.FLAVOR_version_name);
+                stringBuilder0.append("\n");
+                if (BuildConfig.FLAVOR_market.equals("bazzar")){
+//                    stringBuilder0.append("https://cafebazaar.ir/app/ir.sajjadyosefi.android.xYafte");
+                    stringBuilder0.append("آدرس دانلود فایل نصبی");
+
+                }else if (BuildConfig.FLAVOR_market.equals("myket")){
+//                    stringBuilder0.append("https://myket.ir/app/ir.sajjadyosefi.android.xYafte");
+                    stringBuilder0.append("آدرس دانلود فایل نصبی");
+                }else {
+                    stringBuilder0.append("آدرس دانلود فایل نصبی");
+                }
+                stringBuilder0.append("\n");
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT, stringBuilder0.toString() );
+                intent.setType("text/plain");
+                ((Activity)mContext).startActivityForResult(intent , 60);
             }
         };
         View.OnClickListener onViewDetailsClick = new View.OnClickListener() {

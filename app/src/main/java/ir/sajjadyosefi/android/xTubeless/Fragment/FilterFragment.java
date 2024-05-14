@@ -88,8 +88,8 @@ public class FilterFragment extends Fragment {
     private TimelineRequest timelineSearchRequest;
 
     //ad
-    private FrameLayout bannerParentLayout;
-    private IronSourceBannerLayout ironSourceBannerLayout;
+//    private FrameLayout bannerParentLayout;
+//    private IronSourceBannerLayout ironSourceBannerLayout;
     //private Placement rewardedVideoPlacementInfo;
 
     EditText editTextTitle;
@@ -120,7 +120,7 @@ public class FilterFragment extends Fragment {
         spinner = (Spinner) view.findViewById(R.id.spinner);
 
         //ad
-        bannerParentLayout = view.findViewById(R.id.banner_frame_layout);
+        //bannerParentLayout = view.findViewById(R.id.banner_frame_layout);
 
         editTextTitle = (EditText) view.findViewById(R.id.editTextTitle);
 
@@ -411,14 +411,14 @@ public class FilterFragment extends Fragment {
     }
 
     //ad
-    private void destroyBanner() {
-        if (bannerParentLayout != null) {
-            //log("destroyBanner");
-            IronSource.destroyBanner(ironSourceBannerLayout);
-            bannerParentLayout.removeView(ironSourceBannerLayout);
-        }
-
-    }
+//    private void destroyBanner() {
+//        if (bannerParentLayout != null) {
+//            //log("destroyBanner");
+//            IronSource.destroyBanner(ironSourceBannerLayout);
+//            bannerParentLayout.removeView(ironSourceBannerLayout);
+//        }
+//
+//    }
 
     @Override
     public void onStart() {

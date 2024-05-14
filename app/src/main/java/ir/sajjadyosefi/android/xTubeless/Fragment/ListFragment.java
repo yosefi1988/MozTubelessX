@@ -66,6 +66,7 @@ import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.RecyclerViewEmptySu
 
 
 import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_WINNER_TIMELINE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_AMLAK_LIST_1;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_MULTY_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
@@ -136,10 +137,10 @@ public class ListFragment extends Fragment  {
     private TimelineRequest searchRequest;
     public static FirstFragmentsAdapter.CalendarPageListener CalendarPageFragmentListener ;
 
-    public ListFragment(Context context,FirstFragmentsAdapter.CalendarPageListener listener, int listType, Intent intent) {
+    public ListFragment(Context context,FirstFragmentsAdapter.CalendarPageListener listener, int _listType, Intent intent) {
         CalendarPageFragmentListener = listener;
         this.context = context;
-        this.listType = listType;
+        this.listType = _listType;
         this.intent = intent;
     }
 //    public static ListFragment newInstance(Context context, int page, int list, int headerId) {
@@ -166,15 +167,15 @@ public class ListFragment extends Fragment  {
     public static final String      ARG_HEADER = "ARG_HEADER";
     public static Context           context;
 
-    public ListFragment(Context context, int listType, TimelineRequest _searchRequest) {
+    public ListFragment(Context context, int _listType, TimelineRequest _searchRequest) {
         this.context = context;
-        this.listType = listType;
+        this.listType = _listType;
         this.searchRequest = _searchRequest;
         constractorInit();
     }
-    public ListFragment(Context context, int listType) {
+    public ListFragment(Context context, int _listType) {
         this.context = context;
-        this.listType = listType;
+        this.listType = _listType;
         constractorInit();
     }
     public ListFragment(Context context, Intent intent) {
@@ -190,14 +191,14 @@ public class ListFragment extends Fragment  {
     }
     public ListFragment() {
     }
-    public ListFragment(Context context,List<ParentItem> list, int listType) {
+    public ListFragment(Context context,List<ParentItem> list, int _listType) {
         this.context = context;
-        this.listType = listType;
+        this.listType = _listType;
         this.dataList = list;
     }
-    public ListFragment(Context context,List<ParentItem> list, int listType , Bundle bundle) {
+    public ListFragment(Context context,List<ParentItem> list, int _listType , Bundle bundle) {
         this.context = context;
-        this.listType = listType;
+        this.listType = _listType;
         this.dataList = list;
         this.bundle = bundle;
     }
@@ -465,6 +466,7 @@ public class ListFragment extends Fragment  {
         emptyView2 = (TextView) mRoot.findViewById(R.id.list_empty);
 
         if(listType == LIST_TYPE_AMLAK_TIMELINE ||
+                listType == FRAGMENTLIST_TYPE_WINNER_TIMELINE ||
                 listType == ITEM_TYPE_MYFAVS ||
                 listType == FRAGMENTLIST_YADAK_TIMELINE ||
                 listType == ITEM_TYPE_FILTER ||
@@ -644,14 +646,34 @@ public class ListFragment extends Fragment  {
                             getActivity().startActivityForResult(intent, GO_TO_LOGIN);
                         } else {
                             if (Global.user2 != null
-                                    //&& (Global.user2.isUserAdmin() || Global.user2.isUserCreator())
-                                    || BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                                    &&
+                                    //(Global.user2.isUserAdmin() || Global.user2.isUserCreator()) ||
+                                    BuildConfig.FLAVOR_version_name.equals("yafte")) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
                             } else {
                                 showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
                             }
                         }
                     }
+
+                    if (listType == FRAGMENTLIST_TYPE_WINNER_TIMELINE) {
+                        if (Global.user2 == null) {
+                            Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
+                            if (bundle == null) {
+                                bundle = new Bundle();
+                            }
+                            Intent intent = SignInActivity.getIntent(getContext(), bundle);
+                            bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+                            getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+                        } else {
+                            if (Global.user2.isUserAdmin()) {
+                                context.startActivity(new Intent(context, RegNewPostActivity.class));
+                            } else {
+                                showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
+                            }
+                        }
+                    }
+
                     if (listType == FRAGMENTLIST_YADAK_TIMELINE ) {
                         if (Global.user2 == null) {
                             Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();

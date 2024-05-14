@@ -158,7 +158,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        categoryItemStack.clear();//main activity not work  home and etc...
+        //categoryItemStack.clear();//main activity not work  home and etc...
 
         setContentView(R.layout.x_activity_container);
         mContext = this;

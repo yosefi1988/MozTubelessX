@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.bussines.lottery.activity;
 
+import android.accounts.AccountManager;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,10 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.appcompat.widget.Toolbar;
+
+import ir.sajjadyosefi.accountauthenticator.activity.accounts.SignInActivity;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
+import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.post.activity.SearchByNationalCodeActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.TubelessObject;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
@@ -40,6 +44,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_WINNER_TIMELINE;
+import static ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment.showUserRegPostDialog;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_LOTTERY_SEARCH_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_POST_SEARCH_RESULT;
 
@@ -71,6 +78,27 @@ public class SearchLotteryActivity extends TubelessTransparentStatusBarActivity{
 
         editTextName = (EditText) findViewById(R.id.editTextName);
 
+        ((Button)findViewById(R.id.button_reg)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+
+                //if (listType == FRAGMENTLIST_TYPE_WINNER_TIMELINE) {
+                    if (Global.user2 == null) {
+                        Toast.makeText(getContext(),  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
+                        Intent intent = SignInActivity.getIntent(getContext(), bundle);
+                        bundle.putParcelable(AccountManager.KEY_INTENT, intent);
+                        getActivity().startActivityForResult(intent, GO_TO_LOGIN);
+                    } else {
+                        if (Global.user2.isUserAdmin()) {
+                            getContext().startActivity(new Intent(getContext(), RegNewPostActivity.class));
+                        } else {
+                            showUserRegPostDialog(getContext(), getActivity().findViewById(android.R.id.content));
+                        }
+                    }
+                //}
+            }
+        });
         ((Button)findViewById(R.id.button_search)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

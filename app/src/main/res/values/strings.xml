@@ -468,7 +468,6 @@
     <string name="add_amounts">افزودن مبالغ کارشناسی شده</string>
     <string name="filesTitle">فایل های pdf یا تصاویر</string>
     <string name="amounts_title">مبالغ کارشناسی شده: (فقط مزایده)</string>
-    <string name="reg_new_yafte2">ثبت یک گمشده</string>
     <string name="comments">متن آکهی</string>
 
     <string name="main_text">متن آکهی :</string>
@@ -494,7 +493,7 @@
     <string name="pay_direct">پرداخت مستقیم</string>
     <string name="pay_not_success">پرداخت موفق نبود</string>
     <string name="yafte_hint">مشخصات کامل نظیر رنگ اندازه کد شناسایی کد ملی شماره تماس و...</string>
-    <string name="normalUserMessage">شما کاربر عادی هستید . این امکان فقط برای مشاورین املاک فعال است؛ اگر از مشاوران املاک هستید درخواست خود را با شماره تماس برای ما ارسال کنید.</string>
+    <string name="normalUserMessage">شما کاربر عادی هستید . این امکان فقط برای ادمین ها فعال است؛ اگر از متقاضی ثبت نتایج هستید درخواست خود را با شماره تماس برای ما ارسال کنید.</string>
     <string name="requestForElectedUsers">ثبت درخواست همکاری</string>
     <string name="requestHamkari">درخواست همکاری املاک</string>
     <string name="reportElectedUsers">گزارش کاربر متخلف</string>

@@ -109,6 +109,10 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         textViewDescription = findViewById(R.id.textViewDescription);
         textViewText = findViewById(R.id.textViewText);
         textViewElectedAmlak = findViewById(R.id.textViewElectedAmlak);
+        textViewAmountTitle = findViewById(R.id.textViewAmountTitle);
+        textViewAmounts = findViewById(R.id.textViewAmounts);
+
+
         buttonFav = findViewById(R.id.buttonFav);
         buttonInvisible = findViewById(R.id.buttonInvisible);
         buttonAccept = findViewById(R.id.buttonAccept);
@@ -154,13 +158,6 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
                 aaaa.setUserCode(Global.user2.getUserCodeAsString());
                 aaaa.setIDPost(((MainItem) blogItem).getID() + "");
                 actionOnPost(aaaa, DO_FAV);
-            }
-        });
-
-        buttonCharge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mGetNameActivity.launch(intentPayment);
             }
         });
 
@@ -287,8 +284,9 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
     }
 
 
-    TextView textViewTitle, textViewDescription, textViewText, textViewElectedAmlak;
-    Button buttonInvisible, buttonAccept, buttonBack, buttonElectedAmlak, buttonreport;
+    TextView textViewTitle, textViewDescription, textViewDate, textViewAmounts, textViewText,textViewCreator, textViewElectedAmlak,textViewAmountTitle, textViewCommentTitle;
+    Button buttonInvisible, buttonAccept, buttonBack, buttonElectedAmlak, buttonreport , buttonMessages;
+
     ImageButton buttonFav;
     ImageView user_profile_photo, imageView, imageView2;
 
@@ -574,11 +572,29 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         TimelineItemRequest req = new TimelineItemRequest();
         req.setIDPost(((MainItem)blogItem).getID() + "");
 
+        buttonCharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetNameActivity.launch(intentPayment);
+            }
+        });
+
+//        if (Global.user2 != null)
+//            Global.apiManagerTubeless.getTimelineItem(req, callbackReadBlog);
+//        else {
+//            finish();
+//        }
         if (Global.user2 != null)
-            Global.apiManagerTubeless.getTimelineItem(req, callbackReadBlog);
+            if (((MainItem)blogItem).getTTC() == 9138)
+                Global.apiManagerTubeless.getAdItem(req, callbackReadBlog);
+            else
+                Global.apiManagerTubeless.getTimelineItem(req, callbackReadBlog);
+
         else {
             finish();
         }
+
+
     }
 
     private void fillData(TextItem timelineItem) {
@@ -955,27 +971,18 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
         }
 
         @Override
-        public void t_complite() {
-
-        }
-
+        public void t_complite() { }
 
         @Override
         public void t_responseNull() {
             Toast.makeText(mContext,"اوه! ما دچار مشکل شدیم.",Toast.LENGTH_LONG).show();
         }
 
-
         @Override
-        public void t_retry(Call<Object> call) {
-
-        }
-
+        public void t_retry(Call<Object> call) {}
 
         @Override
         public void t_onSuccess(Object response) {
-            int a = 5 ;
-            a++;
             Gson gson = new Gson();
 
             JsonObject jsonObject = gson.toJsonTree(response).getAsJsonObject();
@@ -988,11 +995,10 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
 
                 blogItem = textItem;
                 fillData(textItem);
-                initSlideShow(fileList,textItem);
 
                 if (Global.user2.getWallet() != null)
                     Global.user2.getWallet().setAmount(((TimelineItemResponse) response).getWallet().getAmount());
-                
+
                  Wallet wallet = new Wallet();
                 AWallet aWallet = wallet.loadWalletData();
                 wallet.updateWalletAmount(((TimelineItemResponse) response).getWallet().getAmount());
@@ -1001,17 +1007,24 @@ public class ReadBlogActivity extends TubelessTransparentStatusBarActivity {
                 aWallet = wallet.loadWalletData();
 
                 ListFragment.fragment.seenMethod(((MainItem)blogItem).getID());
+                initSlideShow(fileList,textItem);
                 blogCreator = itemResponse.creator;
                 initCreator(itemResponse.creator);
             }else if (((TimelineItemResponse)response).getTubelessException().getCode() == -10){
                 buttonCharge.setEnabled(true);
                 buttonCharge.setVisibility(View.VISIBLE);
 //                    textViewText.setVisibility(View.GONE);
+                buttonMessages.setVisibility(View.GONE);
+                buttonMessages.setEnabled(false);
 
                 textViewText.setText("محتوی غیر قابل نمایش");
                 textViewText.setVisibility(View.VISIBLE);
                 TubelessException sException = new TubelessException(-10);
                 sException.handleServerMessage(mContext,((ServerResponseBase) response));
+
+                textViewAmountTitle.setVisibility(View.VISIBLE);
+                textViewAmounts.setVisibility(View.VISIBLE);
+                textViewAmounts.setText("محتوی غیر قابل نمایش"+"\n");
             }
         }
 

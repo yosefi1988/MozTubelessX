@@ -62,6 +62,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int LIST_TYPE_AMLAK_TIMELINE = 23;
     public static int FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE = 232;
     public static int FRAGMENTLIST_TYPE_MOZ_TIMELINE = 2;
+    public static int FRAGMENTLIST_TYPE_WINNER_TIMELINE = 222;
     public static int ITEM_TYPE_MYFAVS = 34;
     public static int ITEM_TYPE_MYPURCHESE = 3;                 //خرید های من - مشاهده شده ها
     public static int LIST_TYPE_MYPOSTS = 33;
@@ -310,7 +311,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
             case 1:
                 if (fragmentx2 == null) {
                     if (BuildConfig.FLAVOR_version_name.equals("winner")) {
-                        fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
+                        fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_WINNER_TIMELINE);
                     } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
                     } else if (BuildConfig.FLAVOR_version_name.equals("amlak")) {

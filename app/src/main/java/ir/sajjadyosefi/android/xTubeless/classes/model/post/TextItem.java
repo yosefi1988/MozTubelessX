@@ -492,7 +492,7 @@ public class TextItem extends MainItem {
                         .placeholder(R.drawable.png_image)
                         .error(R.drawable.png_image)
                         .resizeDimen(R.dimen.simple_card_image_width, R.dimen.simple_card_image_height)
-                        .centerCrop()
+                        .centerInside()
                         .into(holder.imageView);
         }
 //
