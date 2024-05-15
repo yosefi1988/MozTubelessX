@@ -4,32 +4,32 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 
 //todo change version code before publish
-def final Moz_VersionName = "2.0.3"
-def final Moz_VersionCode = 35
+def final Moz_VersionName = "2.0.4"
+def final Moz_VersionCode = 36
 
-def final Estekhdam_VersionName = "2.0.1"
-def final Estekhdam_VersionCode = 37
+def final Estekhdam_VersionName = "2.0.2"
+def final Estekhdam_VersionCode = 38
 
-def final Winner_VersionName = "0.0.2"
-def final Winner_VersionCode = 3
+def final Winner_VersionName = "0.0.3"
+def final Winner_VersionCode = 4
 
-def final Businesses_VersionName = "1.0.2"
-def final Businesses_VersionCode = 3
+def final Businesses_VersionName = "1.0.3"
+def final Businesses_VersionCode = 4
 
-def final Kartesokht_VersionName = "1.0.9"
-def final Kartesokht_VersionCode = 21
+def final Kartesokht_VersionName = "1.0.10"
+def final Kartesokht_VersionCode = 22
 
-def final Yafte_VersionName = "4.2.1"
-def final Yafte_VersionCode = 59
+def final Yafte_VersionName = "4.2.2"
+def final Yafte_VersionCode = 60
 
-def final Amlak_VersionName = "1.0.3"
-def final Amlak_VersionCode = 53
+def final Amlak_VersionName = "1.0.4"
+def final Amlak_VersionCode = 54
 
-def final Yadak_VersionName = "3.2.7"
-def final Yadak_VersionCode = 22
+def final Yadak_VersionName = "3.2.8"
+def final Yadak_VersionCode = 23
 
-def final Bourse_VersionName = "4.1.2"
-def final Bourse_VersionCode = 22
+def final Bourse_VersionName = "4.1.3"
+def final Bourse_VersionCode = 23
 
 //def githubProperties = new Properties()
 //githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
