@@ -96,7 +96,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.user.User2.deleteAllUsersData;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.SelectSource;
 
@@ -932,7 +932,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
                 try {
                     if (response.body() == null){
-                        new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL);
+                        new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL);
                     }
 
                     responseX = gson.fromJson(jsonElement.getAsString(), ServerResponseBase.class);
@@ -969,7 +969,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                             new TubelessException(responseX.getTubelessException().getCode());
                         }
                     }else {
-                        new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL);
+                        new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL);
                     }
                 }catch (Exception sException) {
                     int a = 5 ;

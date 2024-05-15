@@ -31,6 +31,7 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
+import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.EmptyTextItem;
 
@@ -40,7 +41,9 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainVi
 import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TransactionItemViewHolder;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnScrollListener;
 
+import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.KEY_ERROR_MESSAGE;
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_TRANSACTION_LIST;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_UNKNOWN;
 
 
 public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerView.Adapter<TubelessMainViewHolder> {
@@ -132,32 +135,37 @@ public class TransactionsAdapter extends ITubelessAdapter {//extends RecyclerVie
                 ((TubelessActivity) context).progressDialog.hide();
 
                 Bundle bundle = intent.getExtras();
-                String config = bundle.getString(PARAM_TRANSACTION_LIST);
-                //String error = bundle.getString(KEY_ERROR_MESSAGE);
+                if (intent.hasExtra(PARAM_TRANSACTION_LIST)) {
+                    String config = bundle.getString(PARAM_TRANSACTION_LIST);
+                    ATransactionListResponse aTransactionListResponse = new Gson().fromJson(config, ATransactionListResponse.class);
+                    for (ATransaction aTransactionItem : aTransactionListResponse.getTransactionList()) {
+                        TransactionItem transactionItem = new TransactionItem();
 
-                ATransactionListResponse aTransactionListResponse = new Gson().fromJson(config, ATransactionListResponse.class);
-                for (ATransaction aTransactionItem : aTransactionListResponse.getTransactionList()) {
-                    TransactionItem transactionItem = new TransactionItem();
+                        transactionItem.setAmount(String.valueOf(aTransactionItem.getAmount()));
+                        transactionItem.setID(Integer.parseInt(aTransactionItem.getID()));
+                        transactionItem.setPersianCreatedOn(aTransactionItem.getDateTime());    //todo convert date
+                        transactionItem.setPostId(aTransactionItem.getRefrenceNo());
+                        transactionItem.setPostTitle(aTransactionItem.getTitle());
+                        transactionItem.setRefrenceNo(aTransactionItem.getRefrenceNo());
+                        transactionItem.setTransactionTypeCode(aTransactionItem.getTTC());
+                        transactionItem.setTransactionTypeName(aTransactionItem.getTTN());
+                        transactionItem.setZarib(aTransactionItem.getZarib());
+                        transactionItem.setImage(aTransactionItem.getImage());
+                        transactionItem.setIcon(aTransactionItem.getIcon());
+                        transactionItem.setCreatorName(aTransactionItem.getCreatorFullName());
+                        ((ListFragment) fragment).dataList.add(transactionItem);
 
-                    transactionItem.setAmount(String.valueOf(aTransactionItem.getAmount()));
-                    transactionItem.setID(Integer.parseInt(aTransactionItem.getID()));
-                    transactionItem.setPersianCreatedOn(aTransactionItem.getDateTime());    //todo convert date
-                    transactionItem.setPostId(aTransactionItem.getRefrenceNo());
-                    transactionItem.setPostTitle(aTransactionItem.getTitle());
-                    transactionItem.setRefrenceNo(aTransactionItem.getRefrenceNo());
-                    transactionItem.setTransactionTypeCode(aTransactionItem.getTTC());
-                    transactionItem.setTransactionTypeName(aTransactionItem.getTTN());
-                    transactionItem.setZarib(aTransactionItem.getZarib());
-                    transactionItem.setImage(aTransactionItem.getImage());
-                    transactionItem.setIcon(aTransactionItem.getIcon());
-                    transactionItem.setCreatorName(aTransactionItem.getCreatorFullName());
-                    ((ListFragment) fragment).dataList.add(transactionItem);
-
-                    if (isRefresh) {
-                        adapter.notifyDataSetChanged();
-                    } else {
-                        adapter.notifyItemInserted(((ListFragment) fragment).dataList.size());
+                        if (isRefresh) {
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            adapter.notifyItemInserted(((ListFragment) fragment).dataList.size());
+                        }
                     }
+                } else if (intent.hasExtra(KEY_ERROR_MESSAGE)) {
+                    String error = bundle.getString(KEY_ERROR_MESSAGE);
+                    TubelessException sException = new TubelessException();
+                    sException.handleServerMessage(context,new TubelessException(ERR_CODE_UNKNOWN,error));
+
                 }
             }
         });

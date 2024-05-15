@@ -63,7 +63,6 @@ import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparent
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.list.FileListActivity;
 
-import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Amounts;
 import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.file.File;
@@ -92,13 +91,12 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
-import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.blog.ReadBlogActivity.CALL_AGAIN;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 import static ir.sajjadyosefi.android.xTubeless.dialog.SubStractDialogClass.subscribeItem;
 import static ir.sajjadyosefi.android.xTubeless.utility.DateTime.SamanDateTime.getGeorgianCalendar;
@@ -871,7 +869,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 
             @Override
             public void t_responseNull() {
-                new TubelessException().handleServerMessage(getContext(), new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(getContext(), new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override

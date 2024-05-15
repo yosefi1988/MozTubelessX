@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import androidx.recyclerview.widget.RecyclerView;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.ITubelessAdapter;
 import ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.MainAdapter;
 import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
@@ -26,7 +25,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.viewHolder.TubelessMainVi
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofitCallbackss;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 
@@ -242,7 +241,7 @@ public class CommentItem extends ParentItem {
 
             @Override
             public void t_responseNull() {
-                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(mContext,new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override
@@ -277,7 +276,7 @@ public class CommentItem extends ParentItem {
 
             @Override
             public void t_responseNull() {
-                new TubelessException().handleServerMessage(mContext,new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(mContext,new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override

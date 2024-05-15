@@ -105,9 +105,9 @@ public class SearchByNationalCodeActivity extends TubelessTransparentStatusBarAc
 
                     try {
                         if (editTextNationalCode.getText().toString().length() != 10) {
-                            throw new TubelessException(TubelessException.NATIONAL_CODE_NOT_TRUE);
+                            throw new TubelessException(TubelessException.ERR_CODE_NATIONAL_CODE_NOT_TRUE);
                         } else if (!CommonClass.IsNumber(editTextNationalCode.getText().toString())) {
-                            throw new TubelessException(TubelessException.NATIONAL_CODE_NOT_TRUE);
+                            throw new TubelessException(TubelessException.ERR_CODE_NATIONAL_CODE_NOT_TRUE);
                         } else {
                             SearchRequest requestSearchRequest = new SearchRequest(editTextNationalCode.getText().toString(), searchType);
                             Global.apiManagerPost.search(requestSearchRequest, new PostRetrofitCallback<Object>(getContext(), null,true,null, new Callback<Object>() {

@@ -13,19 +13,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
-import com.ironsource.mediationsdk.ISBannerSize;
-import com.ironsource.mediationsdk.IronSource;
-import com.ironsource.mediationsdk.IronSourceBannerLayout;
-import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
-import com.ironsource.mediationsdk.logger.IronSourceError;
-import com.ironsource.mediationsdk.sdk.LevelPlayBannerListener;
 
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +41,6 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.TubelessRetrofit
 import ir.sajjadyosefi.android.xTubeless.utility.AppUtility;
 import retrofit2.Call;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static ir.sajjadyosefi.accountauthenticator.activity.payments.PaymentActivity.GO_TO_LOGIN;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCategory;
@@ -62,7 +54,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActi
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.YAFTE;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewYadakActivity.REQUEST_CATEGORY_LIST;
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.CATEGORY_ID;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 //import com.astuetz.PagerSlidingTabStripDefault;
@@ -449,7 +441,7 @@ public class FilterFragment extends Fragment {
 
             @Override
             public void t_responseNull() {
-                new TubelessException().handleServerMessage(getContext(),new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(getContext(),new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override

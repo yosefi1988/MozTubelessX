@@ -32,7 +32,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_RESPONSE_BODY_IS_NULL;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostDialog;
 
 public class User extends LitePalSupport implements IUser {
@@ -272,7 +272,7 @@ public class User extends LitePalSupport implements IUser {
 
 				try {
 					if (response.body() == null){
-						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+						presenter.onThrowException(new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL));
 					}
 
 					responseX = gson.fromJson(jsonElement.getAsString(), ServerResponseBase.class);
@@ -292,7 +292,7 @@ public class User extends LitePalSupport implements IUser {
 							presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
 						}
 					}else {
-						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+						presenter.onThrowException(new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL));
 					}
 				}catch (Exception sException) {
 					if (presenter != null)
@@ -386,7 +386,7 @@ public class User extends LitePalSupport implements IUser {
 
 				try {
 					if (response.body() == null){
-						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+						presenter.onThrowException(new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL));
 					}
 
 					try {
@@ -452,7 +452,7 @@ public class User extends LitePalSupport implements IUser {
 							presenter.onThrowException(new TubelessException(responseX.getTubelessException().getCode()));
 						}
 					}else {
-						presenter.onThrowException(new TubelessException(TUBELESS_RESPONSE_BODY_IS_NULL));
+						presenter.onThrowException(new TubelessException(ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL));
 					}
 				}catch (Exception sException) {
 					if (presenter != null)

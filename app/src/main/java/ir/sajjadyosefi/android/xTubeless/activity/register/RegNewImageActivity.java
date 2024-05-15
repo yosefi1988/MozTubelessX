@@ -74,7 +74,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.
 import static ir.sajjadyosefi.android.xTubeless.Adapter.EndlessList_AdapterFile.lastCheckedPosition2;
 
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.amountForSeenNewPost;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 import static ir.sajjadyosefi.android.xTubeless.dialog.SubStractDialogClass.subscribeItem;
 import static ir.sajjadyosefi.android.xTubeless.utility.DateTime.SamanDateTime.getGeorgianCalendar;
@@ -546,7 +546,7 @@ public class RegNewImageActivity extends TubelessTransparentStatusBarActivity {
 
             @Override
             public void t_responseNull() {
-                new TubelessException().handleServerMessage(getContext(), new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(getContext(), new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override

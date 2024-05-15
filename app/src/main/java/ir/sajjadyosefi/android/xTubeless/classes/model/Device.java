@@ -19,7 +19,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessExcepti
 import static android.content.Context.MODE_PRIVATE;
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.KEY_ERROR_MESSAGE;
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_CONFIG;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.DEVICE_NOT_REGISTER;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_DEVICE_NOT_REGISTER;
 import ir.sajjadyosefi.accountauthenticator.model.request.ADeviceRegisterRequest;
 
 
@@ -148,10 +148,10 @@ public class Device implements IRegisterDeviceModel {
 						Global.aConfig = responseX2.getConfig();
 						peresenter.onSuccessDeviceRegister();
 					} else {
-						peresenter.onThrowException(new TubelessException(DEVICE_NOT_REGISTER));
+						peresenter.onThrowException(new TubelessException(ERR_CODE_DEVICE_NOT_REGISTER));
 					}
 				}else {
-					peresenter.onThrowException(new TubelessException(DEVICE_NOT_REGISTER));
+					peresenter.onThrowException(new TubelessException(ERR_CODE_DEVICE_NOT_REGISTER));
 				}
 			}
 		});

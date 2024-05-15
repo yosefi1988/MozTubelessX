@@ -12,8 +12,7 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accountin
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_PASSWORD_IS_EMPTY;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_PASSWORD_NOT_CORRECT;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_PASSWORD_IS_EMPTY;
 
 public class LoginPresenterComplI implements ILoginPresenterI {
     IUser iUser;
@@ -34,7 +33,7 @@ public class LoginPresenterComplI implements ILoginPresenterI {
     @Override
     public void tryToLoginByPhoneNumber(Context context,String phoneNumber, String password) {
         if(password.length() < 2){
-            onThrowException(new TubelessException(TUBELESS_PASSWORD_IS_EMPTY));
+            onThrowException(new TubelessException(ERR_CODE_TUBELESS_PASSWORD_IS_EMPTY));
         }else {
             LoginRequest loginRequest = new LoginRequest(context, phoneNumber, password, getAndroidId(context));
             iLoginView.showProgressBar();

@@ -22,7 +22,6 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
-import ir.sajjadyosefi.android.xTubeless.Fragment.ListFragment;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessTransparentStatusBarActivity;
@@ -36,10 +35,10 @@ import ir.sajjadyosefi.android.xTubeless.utility.xUtility.Validation;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import retrofit2.Call;
 
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_CHECK_INPUT_VALUES;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_CONTENT_IS_COPIED;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_COMPLETE;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_OPERATION_NOT_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_CHECK_INPUT_VALUES;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_CONTENT_IS_COPIED;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_COMPLETE;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.TUBELESS_TRY_AGAIN;
 
 
@@ -374,13 +373,13 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
                     message.setMetaData(stringBuilderMeta[0].toString());
 
                     if (message.getText() != null && message.getText().toString().contains(editTextText.getText().toString())) {
-                        new TubelessException().handleServerMessage(context, new TubelessException(TUBELESS_CONTENT_IS_COPIED));
+                        new TubelessException().handleServerMessage(context, new TubelessException(ERR_CODE_TUBELESS_CONTENT_IS_COPIED));
                     } else {
                         message.setText(editTextText.getText().toString() + "\n\n\n" + message.getPhoneNumber());
                         sendMessage(message);
                     }
                 } else {
-                    new TubelessException().handleServerMessage(context, new TubelessException(TUBELESS_CHECK_INPUT_VALUES));
+                    new TubelessException().handleServerMessage(context, new TubelessException(ERR_CODE_TUBELESS_CHECK_INPUT_VALUES));
                 }
             }
         });
@@ -418,7 +417,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
             @Override
             public void t_responseNull() {
                 request.setText("");
-                new TubelessException().handleServerMessage(getContext(), new TubelessException(TUBELESS_OPERATION_NOT_COMPLETE));
+                new TubelessException().handleServerMessage(getContext(), new TubelessException(ERR_CODE_TUBELESS_OPERATION_NOT_COMPLETE));
             }
 
             @Override
@@ -430,7 +429,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
             @Override
             public void t_onSuccess(Object response) {
                 editTextText.setText("");
-                new TubelessException().handleServerMessage(getContext(), new TubelessException(TUBELESS_OPERATION_COMPLETE));
+                new TubelessException().handleServerMessage(getContext(), new TubelessException(ERR_CODE_TUBELESS_OPERATION_COMPLETE));
             }
         });
     }
