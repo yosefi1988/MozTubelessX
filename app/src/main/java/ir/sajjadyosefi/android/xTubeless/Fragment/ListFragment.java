@@ -645,14 +645,14 @@ public class ListFragment extends Fragment  {
                             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                             getActivity().startActivityForResult(intent, GO_TO_LOGIN);
                         } else {
-                            if (Global.user2 != null
-                                    &&
-                                    //(Global.user2.isUserAdmin() || Global.user2.isUserCreator()) ||
-                                    BuildConfig.FLAVOR_version_name.equals("yafte")) {
+//                            if (Global.user2 != null
+//                                    &&
+//                                    //(Global.user2.isUserAdmin() || Global.user2.isUserCreator()) ||
+//                                    BuildConfig.FLAVOR_version_name.equals("yafte")) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
-                            } else {
-                                showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
-                            }
+//                            } else {
+//                                showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
+//                            }
                         }
                     }
 

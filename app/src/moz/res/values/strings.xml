@@ -32,6 +32,7 @@
     <string name="onlyMonaghese2">مناقصه</string>
     <string name="requestCreator">درخواست ثبت مزایده یا مناقصه</string>
     <string name="createorContent">@string/requestCreator</string>
+    <string name="reg_new_yafte2">ثبت نتایج</string>
 
 
     <string name="onlyMonaghese3">فقط پیدا شده</string>
