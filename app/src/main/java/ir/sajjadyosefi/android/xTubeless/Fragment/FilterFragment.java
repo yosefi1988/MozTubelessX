@@ -47,6 +47,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCa
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_FILTER_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.AMLAK;
+import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.BUSINESSES;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.ESTEKHDAM;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.MOZ;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.WINNER;
@@ -176,7 +177,11 @@ public class FilterFragment extends Fragment {
             rgRadios.setVisibility(View.GONE);
             checkbox.setVisibility(View.GONE);
         }
-
+        if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+            PAGE_TYPE = BUSINESSES;
+            rgRadios.setVisibility(View.GONE);
+            buttonSelectCategory.setVisibility(View.GONE);
+        }
 
 
         if (timelineSearchRequest == null){
