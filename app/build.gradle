@@ -232,16 +232,17 @@ android {
             dimension "market"
             versionNameSuffix "-s"
         }
-        jhobin {
-            dimension "market"
-            versionNameSuffix "-j"
-        }
-//        playStore {
-//            applicationId "${Tubeles-s_appId}"
-//            versionName "${Winner_VersionName}"
-//            versionNameSuffix "-a"
-//            versionCode Winner_VersionCode
+//        jhobin {
+//            dimension "market"
+//            versionNameSuffix "-j"
 //        }
+        playStore {
+            dimension "market"
+            //applicationId "${Tubeles-s_appId}"
+            //versionName "${Winner_VersionName}"
+            versionNameSuffix "-a"
+            //versionCode Winner_VersionCode
+        }
 //        bazaar {
 //            applicationId "${Tubeles-s_appId}"
 //            versionName "${Winner_VersionName}"
