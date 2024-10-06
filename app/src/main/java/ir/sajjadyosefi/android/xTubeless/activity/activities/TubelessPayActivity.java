@@ -60,8 +60,6 @@ public class TubelessPayActivity extends TubelessActivity{
         }
     };
 
-
-
     @Override
     public SystemBarTintManager getSystemBarTint() {
         return null;

@@ -454,13 +454,14 @@ dependencies {
 
 
     //msi
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release2.aar')
 //    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-release.aar')
 
     //lop
     //implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 
-    implementation "com.zarinpal:payment-provider:0.5.3"
+//    implementation "com.zarinpal:payment-provider:0.5.3"
     implementation 'com.google.code.gson:gson:2.10'
 
 
