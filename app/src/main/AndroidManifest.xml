@@ -173,7 +173,7 @@
         <activity  android:name=".activity.examples.MainActivityRxJavaList"></activity>
 
         <activity
-            android:name=".activity.common.splashScreen.SplashScreenNew"
+            android:name=".activity.common.splashScreen.SplashScreenNew2"
             android:theme="@style/ThemeFullSCreenX">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

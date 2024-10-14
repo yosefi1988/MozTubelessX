@@ -30,7 +30,7 @@ import static ir.sajjadyosefi.android.xTubeless.Global.user2;
 
 
 //mvp
-public class SplashScreenNew extends AppCompatActivity implements ISplashScreenView {
+public class SplashScreenNew2 extends AppCompatActivity implements ISplashScreenView {
 
     Context context;
     private SplashScreenPresenterCompl peresenter;
