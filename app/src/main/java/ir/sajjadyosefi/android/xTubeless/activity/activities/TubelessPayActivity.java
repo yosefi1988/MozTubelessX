@@ -27,7 +27,7 @@ public class TubelessPayActivity extends TubelessActivity{
     protected Intent intentPayment;
     protected ActivityResultLauncher<Intent> mGetNameActivity;
     protected ITubelessPayActivity iTubelessPayActivity;
-    protected boolean isDirectPaymentInRegPostRequest;
+    protected boolean isDirectPaymentInRegPostRequest = false;
     private ActivityResultCallback<ActivityResult> xxxxxxxxxxxx2 = new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
@@ -46,14 +46,16 @@ public class TubelessPayActivity extends TubelessActivity{
                     Gson gson = new Gson();
                     MainActivityProfile.ReturnData returnData = new MainActivityProfile.ReturnData();
                     try {
-                        returnData = gson.fromJson(x.getStringExtra("ReturnData").toString(), MainActivityProfile.ReturnData.class);
+                        returnData = gson.fromJson(x.getStringExtra("ReturnData"), MainActivityProfile.ReturnData.class);
                         Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
                         Wallet.savedToDataBase(Global.user2);
                     }catch (Exception ex){ }
-                    iTubelessPayActivity.payOk(isDirectPaymentInRegPostRequest);
+
+                    if (iTubelessPayActivity != null)
+                        iTubelessPayActivity.payOk(isDirectPaymentInRegPostRequest);
                 }else {
-                    iTubelessPayActivity.payNotOk();
-                    //Toast.makeText(getContext(),"pay not ok" ,Toast.LENGTH_LONG).show();
+                    if (iTubelessPayActivity != null)
+                        iTubelessPayActivity.payNotOk();
                 }
                 PaymentActivity.PaymentDone();
             }
