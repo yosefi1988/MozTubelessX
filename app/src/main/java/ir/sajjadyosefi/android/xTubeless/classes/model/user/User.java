@@ -9,9 +9,9 @@ import com.google.gson.internal.Primitives;
 
 //import org.litepal.LitePal;
 //import org.litepal.annotation.Column;
-
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
+//
+//import org.litepal.annotation.Column;
+//import org.litepal.crud.LitePalSupport;
 
 import java.lang.reflect.Type;
 
@@ -35,11 +35,12 @@ import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostDialog;
 
-public class User extends LitePalSupport implements IUser {
+//public class User extends LitePalSupport implements IUser {
+public class User  implements IUser {
 
 	private Context context;
 	//_____________ ok ________________
-	@Column(unique = true, defaultValue = "unknown")
+//	@Column(unique = true, defaultValue = "unknown")
 	private long userId;
 	private String AvatarUrl;
 	private String Name;

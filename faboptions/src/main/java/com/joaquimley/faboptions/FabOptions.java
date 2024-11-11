@@ -156,7 +156,7 @@ public class FabOptions extends FrameLayout implements View.OnClickListener {
     @ColorInt
     private int getThemeAccentColor(final Context context) {
         final TypedValue value = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
+        context.getTheme().resolveAttribute(androidx.appcompat.R.attr.colorAccent, value, true);
         return value.data;
     }
 

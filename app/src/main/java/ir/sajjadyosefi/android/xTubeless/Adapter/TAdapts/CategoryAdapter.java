@@ -210,7 +210,7 @@ public class CategoryAdapter extends ITubelessAdapter {
     public static int VIEW_TYPE_UserItem = 2;
     @Override
     public TubelessMainViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        //BuildConfig.FLAVOR_version_name.equals("amlak")
+        //BuildConfig.FLAVOR.equals("amlak")
         TubelessMainViewHolder holder = null;
         View view;
 
@@ -260,7 +260,7 @@ public class CategoryAdapter extends ITubelessAdapter {
                          } else {
                              //read blog
                              //Search by filter
-                             if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+                             if (BuildConfig.FLAVOR.equals("winner")) {
                                  if ( selectType == LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS){
                                      String path = new String();
                                      for (CategoryItem item1: categoryItemStack) {

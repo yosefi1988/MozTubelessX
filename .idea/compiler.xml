@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
-      <module name="MozTubelessX-master.app" target="11" />
-      <module name="MozTubelessX-master.applicationtestkotlin" target="11" />
-      <module name="MozTubelessX-master.faboptions" target="11" />
-      <module name="MozTubelessX-master.KMPAutoCompleteTextView" target="11" />
-      <module name="MozTubelessX-master.libraryMaterialEditText" target="11" />
-      <module name="MozTubelessX-master.libraryNumberPicker" target="11" />
-      <module name="MozTubelessX-master.LitePal-core" target="11" />
-      <module name="MozTubelessX-master.PagerSlidingTabStrip" target="11" />
-      <module name="MozTubelessX-master.superpickerlibrary" target="11" />
-      <module name="MozTubelessX-master.ucrop" target="11" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="21" />
   </component>
 </project>

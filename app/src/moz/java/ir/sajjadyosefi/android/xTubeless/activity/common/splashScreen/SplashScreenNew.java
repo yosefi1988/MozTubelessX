@@ -92,7 +92,7 @@ public class SplashScreenNew extends AppCompatActivity implements ISplashScreenV
     @Override
     public void onSplashScreenDone() {
         final Handler handler = new Handler();
-//        if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+//        if (BuildConfig.FLAVOR_mar ket.equals("bazzar")) {
 //            if (isFreeStore(context, StaticValue.configuration)) {
 //                handler.postDelayed(new Runnable() {
 //                    @Override

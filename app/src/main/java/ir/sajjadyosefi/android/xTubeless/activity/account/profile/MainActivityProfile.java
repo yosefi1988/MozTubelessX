@@ -47,9 +47,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.annotations.Nullable;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.ChangePasswordActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
@@ -115,10 +112,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     Context context;
     Activity activity;
 
-    @BindView(R.id.ueditTextNameUserId)
     TextView ueditTextNameUserId;
-
-    @BindView(R.id.linearLayoutWallet)
     LinearLayout linearLayoutWallet;
 
 //    @BindView(R.id.editTextPhone)
@@ -127,50 +121,33 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //    @BindView(R.id.editTextEmail)
 //    EditText editTextEmail;
 
-    @BindView(R.id.header_cover_image)
-    ImageView headerProfileImage;
-    @BindView(R.id.user_profile_photo)
-    ImageButton userAvatarPhoto;
+    ImageView headerProfileImage; //header_cover_image
+    ImageButton userAvatarPhoto;    //user_profile_photo
 
-    @BindView(R.id.user_profile_name)
-    TextView userProfileName;
-
-    @BindView(R.id.user_wallet)
-    TextView user_wallet;
+    TextView user_wallet;   //user_wallet
 
 //    @BindView(R.id.user_profile_short_bio)
     TextView userProfileShortBio;
 //    @BindView(R.id.profile_layout)
 //    RelativeLayout profileLayout;
-    @BindView(R.id.textViewProgress)
-    TextView txtProgress;
-    @BindView(R.id.upload_file_progress)
-    Button uploadFileProgress;
-    @BindView(R.id.charge)
+
+    TextView txtProgress;       //textViewProgress
+    Button uploadFileProgress;  //upload_file_progress
     Button charge;
 
-    @BindView(R.id.buttonFav)
     Button buttonFav;
-    @BindView(R.id.buttonMyPost)
     Button buttonMyPost;
-    @BindView(R.id.buttonCreatorsPost)
     Button buttonCreatorsPost;
-    @BindView(R.id.buttonMessages)
     Button buttonMessages;
-    @BindView(R.id.buttonCreatorMessages)
     Button buttonCreatorMessages;
-    @BindView(R.id.buttonLastSeen)
     Button buttonLastSeen;
 
-    @BindView(R.id.buttonReciveReport)
     Button buttonReciveReport;
 
-    @BindView(R.id.buttonChangePassword)
     Button buttonChangePassword;
 
 
-    @BindView(R.id.btn_upload_file_without_progress)
-    Button btnUploadFileWithoutProgress;
+    Button btnUploadFileWithoutProgress;        //btn_upload_file_without_progress
 
     private ImagePresenter mImagePresenter;
     private FileUploaderPresenter mUploaderPresenter;
@@ -198,8 +175,6 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_main);
-        ButterKnife.bind(this);
-
 
 
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
@@ -551,53 +526,53 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }
     }
 
-    @OnClick({R.id.user_profile_photo,R.id.buttonSignOut,R.id.buttonBack,R.id.header_cover_image, R.id.upload_file_progress, R.id.btn_upload_file_without_progress})
+    //@OnClick({R.id.user_profile_photo,R.id.buttonSignOut,R.id.buttonBack,R.id.header_cover_image, R.id.upload_file_progress, R.id.btn_upload_file_without_progress})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.buttonBack:
-                finish();
-                break;
-            case R.id.buttonSignOut:
-                CommonDialogs.modal2(context,new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Account user = sAccountHelper.getUserAccount();
-                        if (sAccountHelper.removeAccount(user)){
-                            //db
-                            deleteAllUsersData();
-                            Global.ClearLogedInUser(getContext());
-                            Global.user2 = null;
-                        }
-
-                        Toast.makeText(getApplicationContext(), "از حساب کاربری خارج شدید.", Toast.LENGTH_SHORT).show();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                setResult(Activity.RESULT_OK, getIntent());
-                                finish();
-                            }
-                        }, 100);
-
-                        finish();
-                    }
-                });
-
-                break;
-            case R.id.user_profile_photo:
-//                selectImage(this);
-                SELECTED_IMAGE = AVATAR_SELECTED;
-                break;
-            case R.id.header_cover_image:
-//                selectImage(this);
-                SELECTED_IMAGE = PROFILE_SELECTED;
-                break;
-            case R.id.upload_file_progress:
-                mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), Global.user2.getUserCode() + "", "avatar");
-                break;
-            case R.id.btn_upload_file_without_progress:
-                DialogUtil.showLoadingDialog(this);
-                mUploaderPresenter.onFileSelectedWithoutShowProgress(mImagePresenter.getImage(), "androidwave", "info@androidwave");
-                break;
+//            case R.id.buttonBack:
+//                finish();
+//                break;
+//            case R.id.buttonSignOut:
+//                CommonDialogs.modal2(context,new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Account user = sAccountHelper.getUserAccount();
+//                        if (sAccountHelper.removeAccount(user)){
+//                            //db
+//                            deleteAllUsersData();
+//                            Global.ClearLogedInUser(getContext());
+//                            Global.user2 = null;
+//                        }
+//
+//                        Toast.makeText(getApplicationContext(), "از حساب کاربری خارج شدید.", Toast.LENGTH_SHORT).show();
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                setResult(Activity.RESULT_OK, getIntent());
+//                                finish();
+//                            }
+//                        }, 100);
+//
+//                        finish();
+//                    }
+//                });
+//
+//                break;
+//            case R.id.user_profile_photo:
+////                selectImage(this);
+//                SELECTED_IMAGE = AVATAR_SELECTED;
+//                break;
+//            case R.id.header_cover_image:
+////                selectImage(this);
+//                SELECTED_IMAGE = PROFILE_SELECTED;
+//                break;
+//            case R.id.upload_file_progress:
+//                mUploaderPresenter.onFileSelected(mImagePresenter.getImage(), Global.user2.getUserCode() + "", "avatar");
+//                break;
+//            case R.id.btn_upload_file_without_progress:
+//                DialogUtil.showLoadingDialog(this);
+//                mUploaderPresenter.onFileSelectedWithoutShowProgress(mImagePresenter.getImage(), "androidwave", "info@androidwave");
+//                break;
         }
     }
 

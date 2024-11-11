@@ -109,34 +109,34 @@ public class SearchByNationalCodeActivity extends TubelessTransparentStatusBarAc
                         } else if (!CommonClass.IsNumber(editTextNationalCode.getText().toString())) {
                             throw new TubelessException(TubelessException.ERR_CODE_NATIONAL_CODE_NOT_TRUE);
                         } else {
-                            SearchRequest requestSearchRequest = new SearchRequest(editTextNationalCode.getText().toString(), searchType);
-                            Global.apiManagerPost.search(requestSearchRequest, new PostRetrofitCallback<Object>(getContext(), null,true,null, new Callback<Object>() {
-                                @Override
-                                public void onResponse(Call<Object> call, Response<Object> response) {
-                                    Gson gson = new Gson();
-                                    JsonElement jsonElement = gson.toJsonTree(response.body());
-                                    ServerResponse responseX = gson.fromJson(jsonElement, ServerResponse.class);
-
-
-                                    if (responseX.getType().equals("NoResult")) {
-                                        showNotAnyResultDialog(responseX);
-                                    } else if (responseX.getType().equals("SearchResult")) {
-                                        if (responseX.getData() != null) {
-                                            if (responseX.getData().size() == 1) {
-                                                goToResult(responseX);
-                                            } else if (responseX.getData().size() >= 2) {
-                                                showManyResultDialog(responseX);
-                                            } else {
-                                                Toast.makeText(getActivity(), responseX.getMessage(), Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<Object> call, Throwable t) {
-                                }
-                            }));
+//                            SearchRequest requestSearchRequest = new SearchRequest(editTextNationalCode.getText().toString(), searchType);
+//                            Global.apiManagerPost.search(requestSearchRequest, new PostRetrofitCallback<Object>(getContext(), null,true,null, new Callback<Object>() {
+//                                @Override
+//                                public void onResponse(Call<Object> call, Response<Object> response) {
+//                                    Gson gson = new Gson();
+//                                    JsonElement jsonElement = gson.toJsonTree(response.body());
+//                                    ServerResponse responseX = gson.fromJson(jsonElement, ServerResponse.class);
+//
+//
+//                                    if (responseX.getType().equals("NoResult")) {
+//                                        showNotAnyResultDialog(responseX);
+//                                    } else if (responseX.getType().equals("SearchResult")) {
+//                                        if (responseX.getData() != null) {
+//                                            if (responseX.getData().size() == 1) {
+//                                                goToResult(responseX);
+//                                            } else if (responseX.getData().size() >= 2) {
+//                                                showManyResultDialog(responseX);
+//                                            } else {
+//                                                Toast.makeText(getActivity(), responseX.getMessage(), Toast.LENGTH_LONG).show();
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Call<Object> call, Throwable t) {
+//                                }
+//                            }));
 
 
                         }

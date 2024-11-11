@@ -18,7 +18,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import ir.sajjadyosefi.android.xTubeless.R;
 
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+//import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 //import com.crashlytics.android.Crashlytics;
 //import io.fabric.sdk.android.Fabric;
@@ -68,10 +68,10 @@ public abstract class TubelessActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
+//    @Override
+//    protected void attachBaseContext(Context newBase) {
+////        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+//    }
 
 
     public Context getContext(){

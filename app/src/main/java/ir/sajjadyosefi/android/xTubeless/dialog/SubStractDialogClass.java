@@ -44,34 +44,34 @@ public class SubStractDialogClass extends Dialog implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonSave:
-                boolean valid = true;
-
-                if (editTextTitle.getText().toString().length() == 0){
-                    valid = false;
-                }
-
-                if (editTextValue.getText().toString().length() == 0){
-                    valid = false;
-                }
-
-                if(valid) {
-                    subscribeItem = new Amounts();
-                    subscribeItem.setText(editTextTitle.getText().toString());
-                    subscribeItem.setValue(editTextValue.getText().toString());
-                    dismiss();
-                }else {
-                    SubStractDialogClass.subscribeItem = null;
-                    Toast.makeText(getContext(),"مقادیر ورودی صحیح نیست" , Toast.LENGTH_LONG).show();
-                }
-
-                break;
-            case R.id.buttonCancel:
-                subscribeItem = null;
-                dismiss();
-                break;
-            default:
-                break;
+//            case R.id.buttonSave:
+//                boolean valid = true;
+//
+//                if (editTextTitle.getText().toString().length() == 0){
+//                    valid = false;
+//                }
+//
+//                if (editTextValue.getText().toString().length() == 0){
+//                    valid = false;
+//                }
+//
+//                if(valid) {
+//                    subscribeItem = new Amounts();
+//                    subscribeItem.setText(editTextTitle.getText().toString());
+//                    subscribeItem.setValue(editTextValue.getText().toString());
+//                    dismiss();
+//                }else {
+//                    SubStractDialogClass.subscribeItem = null;
+//                    Toast.makeText(getContext(),"مقادیر ورودی صحیح نیست" , Toast.LENGTH_LONG).show();
+//                }
+//
+//                break;
+//            case R.id.buttonCancel:
+//                subscribeItem = null;
+//                dismiss();
+//                break;
+//            default:
+//                break;
         }
         //dismiss();
     }

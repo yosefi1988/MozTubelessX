@@ -407,45 +407,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
         }
     }
 
-    @Override
-    public SystemBarTintManager getSystemBarTint() {
-        return null;
-    }
 
-    @Override
-    public boolean hasTranslucentNavigation() {
-        return false;
-    }
-
-    @Override
-    public boolean hasTranslucentStatusBar() {
-        return false;
-    }
-
-    @Override
-    public BottomNavigation getBottomNavigation() {
-        return null;
-    }
-
-    @Override
-    public int getNavigationBarHeight() {
-        return 0;
-    }
-
-    @Override
-    public boolean hasManagedToolbarScroll() {
-        return false;
-    }
-
-    @Override
-    public boolean hasAppBarLayout() {
-        return false;
-    }
-
-    @Override
-    public Toolbar getToolbar() {
-        return null;
-    }
 
     Fragment prepareFragment() {
 

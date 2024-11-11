@@ -125,13 +125,13 @@ public class RegNewImageActivity extends TubelessTransparentStatusBarActivity {
         filesList.add(Emptylist);
 
 
-        if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+        if (BuildConfig.FLAVOR.equals("estekhdam")) {
             PAGE_TYPE = ESTEKHDAM;
         }
-        if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+        if (BuildConfig.FLAVOR.equals("moz")) {
             PAGE_TYPE = MOZ;
         }
-        if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+        if (BuildConfig.FLAVOR.equals("yadak")) {
             PAGE_TYPE = YADAK;
         }
 

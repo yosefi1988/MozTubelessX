@@ -90,15 +90,15 @@ public class MainListItem extends ParentItem {
             }
             stringBuilder.append(" ");
 
-            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+            if (BuildConfig.FLAVOR.equals("bourse")){
                 //stringBuilder.append(" : ");
-            }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+            }else if (BuildConfig.FLAVOR.equals("yafte")){
                 //stringBuilder.append(" : ");
-            }else if (BuildConfig.FLAVOR_version_name.equals("moz")){
+            }else if (BuildConfig.FLAVOR.equals("moz")){
                 //stringBuilder.append(" : ");
-             }else if (BuildConfig.FLAVOR_version_name.equals("winner")){
+             }else if (BuildConfig.FLAVOR.equals("winner")){
                 //stringBuilder.append(" : ");
-             }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+             }else if (BuildConfig.FLAVOR.equals("kartesokht")){
                 //stringBuilder.append(" : ");
             }else{
                 stringBuilder.append("-");
@@ -124,7 +124,7 @@ public class MainListItem extends ParentItem {
 //                stringBuilder.append("-");
 //            }
 //
-//            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//            if (BuildConfig.FLAVOR.equals("bourse")){
 //                //stringBuilder.append(" : ");
 //            }else {
 //                stringBuilder.append(" مدل: ");

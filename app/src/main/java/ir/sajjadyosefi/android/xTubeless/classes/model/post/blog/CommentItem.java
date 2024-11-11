@@ -121,7 +121,7 @@ public class CommentItem extends ParentItem {
 //                stringBuilder.append("-");
 //            }
 //
-//            if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//            if (BuildConfig.FLAVOR.equals("bourse")){
 //                //stringBuilder.append(" : ");
 //            }else {
 //                stringBuilder.append(" مدل: ");

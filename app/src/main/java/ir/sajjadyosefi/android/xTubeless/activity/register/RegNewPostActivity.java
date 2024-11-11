@@ -182,15 +182,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         sv = (ScrollView) findViewById(R.id.scroll);
 
 
-        if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+        if (BuildConfig.FLAVOR.equals("estekhdam")) {
             PAGE_TYPE = ESTEKHDAM;
             rgRadios.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+        if (BuildConfig.FLAVOR.equals("moz")) {
             PAGE_TYPE = MOZ;
             buttonSelectCategory.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        if (BuildConfig.FLAVOR.equals("winner")) {
             PAGE_TYPE = WINNER;
             rgRadios.setVisibility(View.GONE);
             linearLayoutMoz.setVisibility(View.GONE);
@@ -203,19 +203,19 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             ((View)findViewById(R.id.textViewTitle2)).setVisibility(View.GONE);
             //((View)findViewById(R.id.editTextTitle)).setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+        if (BuildConfig.FLAVOR.equals("yadak")) {
             PAGE_TYPE = YADAK;
             linearLayoutMoz.setVisibility(View.GONE);
             rgRadios.setVisibility(View.GONE);
 
         }
-        if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+        if (BuildConfig.FLAVOR.equals("businesses")) {
             PAGE_TYPE = BUSINESSES;
             linearLayoutMoz.setVisibility(View.GONE);
             rgRadios.setVisibility(View.GONE);
             buttonSelectCategory.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
             PAGE_TYPE = YAFTE;
             radioButton3.setVisibility(View.VISIBLE);
             linearLayoutMoz.setVisibility(View.GONE);
@@ -225,17 +225,17 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             editTextText.setHint( getContext().getString(R.string.yafte_hint));
         }
 
-        if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+        if (BuildConfig.FLAVOR.equals("amlak")) {
             PAGE_TYPE = AMLAK;
             radioButton3.setVisibility(View.VISIBLE);
             linearLayoutMoz.setVisibility(View.GONE);
             editTextText.setHint( getContext().getString(R.string.yafte_hint));
 
-            if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
+            //if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
                 if (!Global.user2.isUserAdmin()) {
                     linearLayoutAmount.setVisibility(View.INVISIBLE);
                 }
-            }
+            //}
             rgRadios.setVisibility(View.GONE);
         }
 
@@ -375,11 +375,11 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             linearLayoutAmount.setVisibility(View.VISIBLE);
         }else {
             if (Global.user2.isUserAdmin()) {
-                if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+                //if (BuildConfig.FLAVOR_market.equals("bazzar")) {
                     linearLayoutAmount.setVisibility(View.GONE);
-                } else {
+                //} else {
                     linearLayoutAmount.setVisibility(View.VISIBLE);
-                }
+                //}
             } else {
                 linearLayoutAmount.setVisibility(View.GONE);
             }
@@ -431,7 +431,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         btnAddFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+//                if (BuildConfig.FLAVOR_mark et.equals("bazzar")) {
 //                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 //                        Bundle bundle = new Bundle();
 //                        bundle.putInt("FILE_COUNT", 4);
@@ -501,7 +501,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                     //go to reg
 
                     //1 old permission
-////                if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+////                if (BuildConfig.FLAVOR.equals("bourse")) {
 //                    if (PAGE_TYPE == YAFTE) {
 ////                        if (radioButton3.isChecked()) {
 ////                            modalPayType(getContext());
@@ -513,7 +513,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 //                            }
 ////                        }
 //                    }else if (PAGE_TYPE == AMLAK) {
-//                        if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
+//                        if (BuildConfig.FLAV OR_market.equals("bazzar") ) {
 //                            if (Global.user2.isUserAdmin()) {
 //                                modalPayType(getContext());
 //                            } else {
@@ -567,7 +567,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 
 //todo uncomment
 ////        ckeckButtons
-////                if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+////                if (BuildConfig.FLAVOR.equals("bourse")) {
 ////                    if (isFreeStore(getContext(), StaticValue.configuration)) {
 ////                    }else {
 //                        if ((amountForRegNewPost >= Global.user2.getWallet().getAmount())) {

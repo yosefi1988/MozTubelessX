@@ -130,7 +130,7 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
             editTextPhone.setVisibility(View.VISIBLE);
         }
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("yadak")) {
+        if (BuildConfig.FLAVOR.equals("yafte") || BuildConfig.FLAVOR.equals("yadak")) {
             radioButton5.setVisibility(View.GONE);
         }
 
@@ -216,47 +216,47 @@ public class ContactUsActivity extends TubelessTransparentStatusBarActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
-                    case R.id.radioButton1:
-                        radioButton1.setChecked(true);
-                        radioButton2.setChecked(false);
-                        radioButton3.setChecked(false);
-                        radioButton4.setChecked(false);
-                        radioButton5.setChecked(false);
-                        messageType = SUGGESTION;
-                        break;
-                    case R.id.radioButton2:
-                        radioButton1.setChecked(false);
-                        radioButton2.setChecked(true);
-                        radioButton3.setChecked(false);
-                        radioButton4.setChecked(false);
-                        radioButton5.setChecked(false);
-                        messageType = ORDER_APP;
-                        break;
-                    case R.id.radioButton3:
-                        radioButton1.setChecked(false);
-                        radioButton2.setChecked(false);
-                        radioButton3.setChecked(true);
-                        radioButton4.setChecked(false);
-                        radioButton5.setChecked(false);
-                        messageType = CONTACT_US;
-                        break;
-
-                    case R.id.radioButton4:
-                        radioButton1.setChecked(false);
-                        radioButton2.setChecked(false);
-                        radioButton3.setChecked(false);
-                        radioButton4.setChecked(true);
-                        radioButton5.setChecked(false);
-                        messageType = CONTENT_REPORT;
-                        break;
-                    case R.id.radioButton5:
-                        radioButton1.setChecked(false);
-                        radioButton2.setChecked(false);
-                        radioButton3.setChecked(false);
-                        radioButton4.setChecked(false);
-                        radioButton5.setChecked(true);
-                        messageType = CREATOR_REQUEST;
-                        break;
+//                    case R.id.radioButton1:
+//                        radioButton1.setChecked(true);
+//                        radioButton2.setChecked(false);
+//                        radioButton3.setChecked(false);
+//                        radioButton4.setChecked(false);
+//                        radioButton5.setChecked(false);
+//                        messageType = SUGGESTION;
+//                        break;
+//                    case R.id.radioButton2:
+//                        radioButton1.setChecked(false);
+//                        radioButton2.setChecked(true);
+//                        radioButton3.setChecked(false);
+//                        radioButton4.setChecked(false);
+//                        radioButton5.setChecked(false);
+//                        messageType = ORDER_APP;
+//                        break;
+//                    case R.id.radioButton3:
+//                        radioButton1.setChecked(false);
+//                        radioButton2.setChecked(false);
+//                        radioButton3.setChecked(true);
+//                        radioButton4.setChecked(false);
+//                        radioButton5.setChecked(false);
+//                        messageType = CONTACT_US;
+//                        break;
+//
+//                    case R.id.radioButton4:
+//                        radioButton1.setChecked(false);
+//                        radioButton2.setChecked(false);
+//                        radioButton3.setChecked(false);
+//                        radioButton4.setChecked(true);
+//                        radioButton5.setChecked(false);
+//                        messageType = CONTENT_REPORT;
+//                        break;
+//                    case R.id.radioButton5:
+//                        radioButton1.setChecked(false);
+//                        radioButton2.setChecked(false);
+//                        radioButton3.setChecked(false);
+//                        radioButton4.setChecked(false);
+//                        radioButton5.setChecked(true);
+//                        messageType = CREATOR_REQUEST;
+//                        break;
 
 
                 }

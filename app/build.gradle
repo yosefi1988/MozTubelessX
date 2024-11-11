@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.crashlytics'
-//apply plugin: 'com.google.gms.google-services'
 
 
 //todo change version code before publish
@@ -22,8 +21,8 @@ def final Kartesokht_VersionCode = 22
 def final Yafte_VersionName = "5.0.0"
 def final Yafte_VersionCode = 62
 
-def final Amlak_VersionName = "1.0.4"
-def final Amlak_VersionCode = 54
+def final Amlak_VersionName = "2.0.0"
+def final Amlak_VersionCode = 55
 
 def final Yadak_VersionName = "3.2.8"
 def final Yadak_VersionCode = 23
@@ -36,18 +35,18 @@ def final Bourse_VersionCode = 23
 
 android {
     def final appId = 'ir.sajjadyosefi.android'
+//    namespace 'ir.sajjadyosefi.android.xTubeless'
 
-//    flavorDimensions "default"
-    flavorDimensions("version_name", "market")
-//    compileSdkVersion 28
-//    buildToolsVersion '28.0.3'
+    compileSdk 34
+    flavorDimensions "version_name"
 
-    compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+//    configurations {
+//        all*.exclude module: 'okio'
+////        exclude group: 'com.squareup.okio', module: 'okio'
+//    }
 
-    configurations {
-//        all*.exclude module: 'okhttp'
-        all*.exclude module: 'okio'
+    buildFeatures {
+        buildConfig true
     }
 
     signingConfigs {
@@ -71,10 +70,11 @@ android {
         disable 'MissingTranslation', 'ExtraTranslation'
     }
     defaultConfig {
-        applicationId "${appId}" 
+//        applicationId "${appId}"
+        applicationId "ir.sajjadyosefi.android.xTubeless"
 
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true //important
@@ -82,8 +82,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
-            useProguard true
+            minifyEnabled true 
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules_2.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
@@ -99,10 +98,9 @@ android {
 
         debug {
             minifyEnabled false
-            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            versionNameSuffix "-dev"
-            manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
+            //versionNameSuffix "-dev"
+            //manifestPlaceholders = [pn: "ir.sajjadyosefi.android.xTubeless"]
             //debuggable true
 
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
@@ -112,9 +110,11 @@ android {
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
         }
 
-        packagingOptions{
-            exclude 'META-INF/core_release.kotlin_module'
-        }
+
+    }
+
+    packagingOptions{
+        exclude 'META-INF/core_release.kotlin_module'
     }
 
     productFlavors {
@@ -185,9 +185,19 @@ android {
         }
         amlak {
             dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
 
-            applicationIdSuffix ".xAmlak"
+            //R OK
+            //App Not Found
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xTubeless"
+
+//            namespace "ir.sajjadyosefi.android.xAmlak"
+//            applicationId "ir.sajjadyosefi.android.xAmlak"
+
+
+            resValue "string", "app_name", "@strings/app_name"
+//
+////            applicationIdSuffix ".xAmlak"
             versionName "${Amlak_VersionName}"
             versionCode Amlak_VersionCode
             manifestPlaceholders = [
@@ -198,9 +208,7 @@ android {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"
 
-            applicationId "android.sajjadyosefi.ir.ksokht"      //json => ir.sajjadyosefi.android.xKsokht
-//            applicationIdSuffix ".xKsokht"     => bazar
-
+            applicationId "android.sajjadyosefi.ir.ksokht"
 
             versionName "${Kartesokht_VersionName}"
             versionCode Kartesokht_VersionCode
@@ -220,34 +228,24 @@ android {
             ]
         }
 
-        myket {
-            dimension "market"
-            versionNameSuffix "-m"
-        }
-        bazzar {
-            dimension "market"
-            versionNameSuffix "-b"
-        }
-        socialNetwork {
-            dimension "market"
-            versionNameSuffix "-s"
-        }
-//        jhobin {
+//        myket {
 //            dimension "market"
-//            versionNameSuffix "-j"
+//            versionNameSuffix "-m"
 //        }
-        playStore {
-            dimension "market"
-            //applicationId "${Tubeles-s_appId}"
-            //versionName "${Winner_VersionName}"
-            versionNameSuffix "-a"
-            //versionCode Winner_VersionCode
-        }
-//        bazaar {
-//            applicationId "${Tubeles-s_appId}"
-//            versionName "${Winner_VersionName}"
+//        bazzar {
+//            dimension "market"
 //            versionNameSuffix "-b"
-//            versionCode Winner_VersionCode
+//        }
+//        socialNetwork {
+//            dimension "market"
+//            versionNameSuffix "-s"
+//        }
+//        playStore {
+//            dimension "market"
+//            //applicationId "${Tubeles-s_appId}"
+//            //versionName "${Winner_VersionName}"
+//            versionNameSuffix "-a"
+//            //versionCode Winner_VersionCode
 //        }
     }
 
@@ -281,7 +279,6 @@ android {
 //            manifest.srcFile 'other/AndroidManifest.xml'
             manifest.srcFile 'src/main/AndroidManifest.xml'
         }
-
         moz {
             res.srcDirs = ['src/moz/res']
             java.srcDirs = ['src/moz/java']
@@ -314,17 +311,17 @@ ext {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.firebase:firebase-crashlytics:17.2.1'
-    implementation project(path: ':LitePal-core')
-    implementation project(path: ':LitePal-core')
-    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+//    implementation 'com.google.firebase:firebase-crashlytics:19.2.1'
+
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+
 
 
     def core_version = "1.5.0"
     implementation "androidx.core:core:$core_version"
 
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
 
 //    implementation 'org.fabiomsr:moneytextview:1.1.0'
     implementation 'com.github.justzak:dilatingdotsprogressbar:1.0.1'
@@ -343,52 +340,51 @@ dependencies {
 
 //    ____________________________________________________________________________________________
 
-    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
 
 
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.android.material:material:1.12.0'
 
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation project(path: ':libraryNumberPicker')
 //    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
 
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:1.10.19'
 
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp:okhttp:2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //    implementation 'com.github.mmoamenn:ProgressWindow_Android:0.0.2'
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
-    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+    implementation 'com.google.android.gms:play-services-auth:21.2.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
 
 
 //    implementation "me.henrytao:smooth-app-bar-layout:25.3.1.0"
     implementation 'com.github.andremion:counterfab:1.2.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-//    implementation 'org.litepal.android:java:3.0.0'
 
 
 //    implementation 'com.github.imtuann:FloatingActionButtonExpandable:1.1.2'
 //    implementation 'com.bowyer.app:fabtransitionlayout:0.4.0@aar'
-    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+//    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 //    implementation('com.crashlytics.sdk.android:ii:2.10.1@aar') {
 //        transitive = true;
 //    }
 
-    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-analytics:22.1.2'
     //implementation 'com.google.firebase:firebase-analytics:17.2.0'
     //implementation platform('com.google.firebase:firebase-bom:31.1.1')
     //implementation 'com.google.firebase:firebase-analytics'
 
-    implementation "androidx.drawerlayout:drawerlayout:1.0.0"
-    implementation 'com.google.firebase:firebase-perf:19.0.0'
+    implementation "androidx.drawerlayout:drawerlayout:1.2.0"
+    implementation 'com.google.firebase:firebase-perf:21.0.1'
 
 //    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
     implementation 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:3.0.0'
@@ -398,6 +394,7 @@ dependencies {
 
 
     // Dagger dependencies
+    //noinspection OutdatedLibrary
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
@@ -447,14 +444,14 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0'
 
 
-    implementation 'com.jakewharton:butterknife:10.2.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+//    implementation 'com.jakewharton:butterknife:10.2.3'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
     implementation project(path: ':KMPAutoCompleteTextView')
 
 
     //msi
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release1.aar')
+    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 //    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
     implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-release.aar')
 
@@ -465,13 +462,23 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10'
 
 
-    //ad
-    implementation files('D:\\android\\AndroidStudioProjects\\OtherLibs\\IronSourceAdQuality-v7.19.0.aar')
-    implementation files('D:\\android\\AndroidStudioProjects\\OtherLibs\\mediationsdk-8.0.0.aar')
-    implementation 'com.google.android.gms:play-services-appset:16.0.0'
-    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'com.google.android.gms:play-services-basement:18.1.0'
+//    //ad
+//    implementation files('D:\\android\\AndroidStudioProjects\\OtherLibs\\IronSourceAdQuality-v7.19.0.aar')
+//    implementation files('D:\\android\\AndroidStudioProjects\\OtherLibs\\mediationsdk-8.0.0.aar')
+//    implementation 'com.google.android.gms:play-services-appset:16.0.0'
+//    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+//    implementation 'com.google.android.gms:play-services-basement:18.1.0'
 
+
+    ///////////// group 1 /////////////
+//    implementation('com.squareup.okio:okio:3.0.0') {
+//        exclude group: 'com.squareup.okio', module: 'okio-jvm'
+//    }
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+//    implementation 'com.squareup.okio:okio:3.0.0'
+//    implementation 'com.squareup.okio:okio:2.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    ////////// end group 1 /////////////
 }
 
 apply plugin: 'com.google.gms.google-services'

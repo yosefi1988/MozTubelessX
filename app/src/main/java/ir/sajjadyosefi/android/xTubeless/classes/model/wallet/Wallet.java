@@ -1,9 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model.wallet;
 
 
-import org.litepal.LitePal;
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
 
 import java.util.List;
 
@@ -16,9 +13,15 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 
-public class Wallet extends LitePalSupport {
+//import org.litepal.LitePal;
+//import org.litepal.annotation.Column;
+//import org.litepal.crud.LitePalSupport;
 
-    @Column(nullable = false)
+
+//public class Wallet extends LitePalSupport {
+public class Wallet  {
+
+//    @Column(nullable = false)
     private long Amount;
     private int userCode;
     private User2 user;
@@ -61,7 +64,7 @@ public class Wallet extends LitePalSupport {
             wallet.setUser(user);
             wallet.setUserCode(user.getUserCode());
 
-            wallet.save();
+//            wallet.save();
             return true;
         }catch (Exception ex) {
 
@@ -75,7 +78,7 @@ public class Wallet extends LitePalSupport {
         try {
             Wallet wallet = new Wallet();
             wallet.setAmount(newAmount);
-            wallet.updateAll("UserCode = ?", Global.user2.getUserCodeAsString());
+//            wallet.updateAll("UserCode = ?", Global.user2.getUserCodeAsString());
             int a = 0;
             a++;
             return true;
@@ -86,7 +89,7 @@ public class Wallet extends LitePalSupport {
 
     public static boolean deleteAllWallets() {
         try {
-            int bbbb = LitePal.deleteAll(Wallet.class);
+//            int bbbb = LitePal.deleteAll(Wallet.class);
             return true;
         }catch (Exception ex) {
             return false;
@@ -96,15 +99,15 @@ public class Wallet extends LitePalSupport {
 
     public AWallet loadWalletData() {
         try {
-            List<Wallet> wallets = LitePal.where("UserCode = ? ", Global.user2.getUserCodeAsString()).find(Wallet.class);
+//            List<Wallet> wallets = LitePal.where("UserCode = ? ", Global.user2.getUserCodeAsString()).find(Wallet.class);
 
 
-            if (wallets.size() == 1) {
-                AWallet aWallet = new AWallet();
-                aWallet.setAmount(wallets.get(0).Amount);
-
-                return aWallet;
-            }
+//            if (wallets.size() == 1) {
+//                AWallet aWallet = new AWallet();
+//                aWallet.setAmount(wallets.get(0).Amount);
+//
+//                return aWallet;
+//            }
             int a = 0;
             a++;
         }catch (Exception ex){

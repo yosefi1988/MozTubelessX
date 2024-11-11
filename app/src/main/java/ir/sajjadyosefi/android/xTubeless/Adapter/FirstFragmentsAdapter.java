@@ -152,23 +152,23 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     }
 
     private void setCount() {
-        if (BuildConfig.FLAVOR_version_name.equals("winner")){
+        if (BuildConfig.FLAVOR.equals("winner")){
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("yafte")){
+        }else if (BuildConfig.FLAVOR.equals("yafte")){
             PAGE_COUNT = 3;
-        }else if (BuildConfig.FLAVOR_version_name.equals("yadak")){
+        }else if (BuildConfig.FLAVOR.equals("yadak")){
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+        }else if (BuildConfig.FLAVOR.equals("bourse")){
             PAGE_COUNT = 4;
-        }else if (BuildConfig.FLAVOR_version_name.equals("moz")){
+        }else if (BuildConfig.FLAVOR.equals("moz")){
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("amlak")){
+        }else if (BuildConfig.FLAVOR.equals("amlak")){
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")){
+        }else if (BuildConfig.FLAVOR.equals("estekhdam")){
             PAGE_COUNT = 2;
-        }else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+        }else if (BuildConfig.FLAVOR.equals("kartesokht")){
             PAGE_COUNT = 3;
-        }else if (BuildConfig.FLAVOR_version_name.equals("businesses")){
+        }else if (BuildConfig.FLAVOR.equals("businesses")){
             PAGE_COUNT = 2;
         }else {
             PAGE_COUNT = 2;
@@ -191,7 +191,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     }
 
     public void notifyList() {
-//        if (BuildConfig.FLAVOR_version_name.equals("bourse")){
+//        if (BuildConfig.FLAVOR.equals("bourse")){
 //            boolean isVip = true;
 //            if (isVip){
 //                fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
@@ -219,7 +219,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
         switch (position){
             case 0:
                 if (fragmentx1 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+                    if (BuildConfig.FLAVOR.equals("winner")) {
                         //fragmentx1 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
 
                         //ContainerActivity > ListFragment > CategoryAdapter
@@ -238,7 +238,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         fragmentx1 = new ListFragment(context, calendarPageListenerObject, LIST_CATEGORY_ONE_SELECT, intent);
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                    } else if (BuildConfig.FLAVOR.equals("yafte")) {
                         //1
 //                        fragmentx1 = new SearchByNameFragment();
 
@@ -261,11 +261,11 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         //3
                         //fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
 
-                    } else if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+                    } else if (BuildConfig.FLAVOR.equals("amlak")) {
                         fragmentx1 =  new FilterFragment(null);
 //                        fragmentx1 = new ListFragment(context, ITEM_TYPE_AMLAK_LIST_1);
 
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                    } else if (BuildConfig.FLAVOR.equals("yadak")) {
                         if (fragmentx1 == null) {
                         fragmentx1 = new ListFragment(context, FRAGMENTLIST_YADAK_TIMELINE);
 //                        List<IItems> iItems = new ArrayList<>();
@@ -276,7 +276,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
 
                         }
-                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                    } else if (BuildConfig.FLAVOR.equals("kartesokht")) {
 
                         TimelineRequest searchRequest = new TimelineRequest("", 0);
                         searchRequest.setTtc(null);
@@ -290,14 +290,14 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                             searchRequest.setUserCode(null);
                         }
                         fragmentx1 = new FilterFragment(searchRequest);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                    } else if (BuildConfig.FLAVOR.equals("bourse")) {
                         //fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_BOURSE_TRAIN);//FRAGMENTLIST_TYPE_MOZ_TIMELINE
                         fragmentx1  =  new BlankFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+                    } else if (BuildConfig.FLAVOR.equals("businesses")) {
                         fragmentx1 =  new FilterFragment(null);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+                    } else if (BuildConfig.FLAVOR.equals("moz")) {
                         fragmentx1 =  new FilterFragment(null);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+                    } else if (BuildConfig.FLAVOR.equals("estekhdam")) {
 //                        fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
                         fragmentx1 =  new FilterFragment(null);
 //                        fragmentx1 =  new BlankFragment();
@@ -310,20 +310,20 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
             case 1:
                 if (fragmentx2 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+                    if (BuildConfig.FLAVOR.equals("winner")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_WINNER_TIMELINE);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                    } else if (BuildConfig.FLAVOR.equals("yafte")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+                    } else if (BuildConfig.FLAVOR.equals("amlak")) {
                         fragmentx2 = new ListFragment(context, LIST_TYPE_AMLAK_TIMELINE);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                    } else if (BuildConfig.FLAVOR.equals("yadak")) {
                         fragmentx2 = new ListFragment(context, LIST_TYPE_IMAGE_IN_YADAK);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                    } else if (BuildConfig.FLAVOR.equals("kartesokht")) {
                         fragmentx2 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                    } else if (BuildConfig.FLAVOR.equals("bourse")) {
                         //fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
                         fragmentx2 = new BlankFragment(context);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+                    } else if (BuildConfig.FLAVOR.equals("businesses")) {
                         TimelineRequest searchRequest = new TimelineRequest("",0);
                         searchRequest.setTtc("9138");
                         searchRequest.setPageSize("10");
@@ -336,10 +336,10 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         }
 
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE, searchRequest);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+                    } else if (BuildConfig.FLAVOR.equals("estekhdam")) {
                         fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
 //                        fragmentx2 = new BlankFragment(context);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+                    } else if (BuildConfig.FLAVOR.equals("moz")) {
 ////                        fragmentx2 = new BlankFragment(supportFragmentManager,this);
 //                        List<IItems> iItems = new ArrayList<>();
 //                        CategoryFiltersNode newNode = createRootNode();
@@ -363,9 +363,9 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                fragment = fragmentNotifications.newInstance(context,position,LIST_TIMELINE );
 
                 if (fragmentx3 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+                    if (BuildConfig.FLAVOR.equals("winner")) {
                         fragmentx3 = new BlankFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                    } else if (BuildConfig.FLAVOR.equals("yafte")) {
                         TimelineRequest searchRequest = new TimelineRequest("",0);
                         searchRequest.setTtc("5051");
                         searchRequest.setPageSize("10");
@@ -379,9 +379,9 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
                         fragmentx3 = new ListFragment(context, ITEM_TYPE_FILTER, searchRequest);
 
-                    } else if (BuildConfig.FLAVOR_version_name.equals("kartesokht")) {
+                    } else if (BuildConfig.FLAVOR.equals("kartesokht")) {
                         fragmentx3 = new ListFragment(context, FRAGMENTLIST_TYPE_MOZ_TIMELINE);
-                    } else if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                    } else if (BuildConfig.FLAVOR.equals("yadak")) {
 
                         //Fragment CATEGORY
                         Bundle bundle = new Bundle();
@@ -393,11 +393,11 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         intent.putExtras(bundle);
                         fragmentx3 = new ListFragment(context, intent);
 
-                    } else if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+                    } else if (BuildConfig.FLAVOR.equals("estekhdam")) {
 
 //                        fragmentx3 =  new FilterFragment(null);
                         fragmentx3 =  new BlankFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                    } else if (BuildConfig.FLAVOR.equals("bourse")) {
 //                        if (!isFreeStore(context, StaticValue.configuration)) {
 //                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
 //                        } else {
@@ -413,7 +413,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                            }
 //                        }
                         fragmentx3 =  new BlankFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+                    } else if (BuildConfig.FLAVOR.equals("moz")) {
                         fragmentx3 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
                     } else {
                         fragmentx3 = new BlankFragment();
@@ -429,10 +429,10 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                fragment = fragmentNotifications.newInstance(context,position,LIST_TIMELINE );
 
                 if (fragmentx4 == null) {
-                    if (BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                    if (BuildConfig.FLAVOR.equals("bourse")) {
 //                        fragmentx4 = new BourseDataFragment(context);
                         fragmentx4 = new TwoLevelListFragment();
-                    } else if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+                    } else if (BuildConfig.FLAVOR.equals("winner")) {
                         fragmentx4 = new BlankFragment();
                     } else {
                         fragmentx4 = new BlankFragment();

@@ -182,7 +182,7 @@ public class MainAdapter extends ITubelessAdapter {
             } else {
                 timelineRequest.setUserCode(Global.user2.getUserCodeAsString());
             }
-            if(BuildConfig.FLAVOR_version_name.equals("amlak") && ((Activity) context).getIntent().hasExtra("AMLAK_USERCODE")) {
+            if(BuildConfig.FLAVOR.equals("amlak") && ((Activity) context).getIntent().hasExtra("AMLAK_USERCODE")) {
                 timelineRequest.setUserCode(((Activity) context).getIntent().getStringExtra("AMLAK_USERCODE"));
             }
         }
@@ -249,7 +249,7 @@ public class MainAdapter extends ITubelessAdapter {
                 }
 
 //                    //empty view 1
-//                    if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("yadak")) {
+//                    if (BuildConfig.FLAVOR.equals("yafte") || BuildConfig.FLAVOR.equals("yadak")) {
 //
 //                    }else {
 //                        if (_current_page == 1 && ((ListFragment)fragment).list.size() == 0){
@@ -281,7 +281,7 @@ public class MainAdapter extends ITubelessAdapter {
     public static int VIEW_TYPE_TEXT_IMAGE_AD_POST = 3;
     @Override
     public TubelessMainViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        //BuildConfig.FLAVOR_version_name.equals("amlak")
+        //BuildConfig.FLAVOR.equals("amlak")
         TubelessMainViewHolder holder = null;
         View view;
 

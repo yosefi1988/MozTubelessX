@@ -24,9 +24,6 @@ import com.google.gson.Gson;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
-//import org.litepal.LitePal;
-
-import org.litepal.LitePal;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -48,7 +45,7 @@ import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTu
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelperPost;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+//import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.getAppDownloadedStore;
@@ -71,7 +68,7 @@ public class Global extends MultiDexApplication {
     public static final String REST_API_IP_ADDRESS2                       = "http://test.sajjadyosefi.ir";   //internet Dns
 //    public static final String REST_API_IP_ADDRESS2                         = "http://192.168.1.5:80";   //local Dns
 
-    public static RetrofitHelperPost apiManagerPost;
+    //public static RetrofitHelperPost apiManagerPost;
     public static RetrofitHelperLottery apiManagerLottery;
     public static RetrofitHelperTubeless apiManagerTubeless;
     public static RetrofitHelperEpolice retrofitHelperEpolice;
@@ -152,7 +149,7 @@ public class Global extends MultiDexApplication {
         //Sets whether analytics collection is enabled for this app on this device.
         firebaseAnalytics.setAnalyticsCollectionEnabled(true);
         //Sets the minimum engagement time required before starting a session. The default value is 10000 (10 seconds). Let's make it 20 seconds just for the fun
-        firebaseAnalytics.setMinimumSessionDuration(20000);
+        //firebaseAnalytics.setMinimumSessionDuration(20000);
         //Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).
         firebaseAnalytics.setSessionTimeoutDuration(500);
         //Sets the user ID property.
@@ -166,7 +163,7 @@ public class Global extends MultiDexApplication {
 
 //        MobileAds.initialize(this, "ca-app-pub-6595298957852131/3747952719");
 
-        apiManagerPost = RetrofitHelperPost.getInstance();
+        //apiManagerPost = RetrofitHelperPost.getInstance();
         apiManagerLottery = RetrofitHelperLottery.getInstance();
         retrofitHelperEpolice = RetrofitHelperEpolice.getInstance(this);
         retrofitHelperNerkhRoz = RetrofitHelperNerkhRoz.getInstance(this);
@@ -175,10 +172,10 @@ public class Global extends MultiDexApplication {
 //        FontChanger.overrideDefaultFont(this, "DEFAULT", FONT_IRANSANS_MOBILE_NORMAL_TTF);
 
         //font 6 ok
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath(FONT_IRANSANS_MOBILE_NORMAL_TTF)
-                .setFontAttrId(R.attr.fontPath)
-                .build());
+//        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+//                .setDefaultFontPath(FONT_IRANSANS_MOBILE_NORMAL_TTF)
+//                //.setFontAttrId(R.attr.fontPath)
+//                .build());
 
 
 //        Adad.setEnabled(true);
@@ -187,7 +184,7 @@ public class Global extends MultiDexApplication {
 
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance(getApplicationContext());
-        LitePal.initialize(this);
+//        LitePal.initialize(this);
 
 
 

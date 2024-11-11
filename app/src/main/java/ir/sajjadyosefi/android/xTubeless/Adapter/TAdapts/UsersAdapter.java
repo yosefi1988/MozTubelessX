@@ -176,7 +176,7 @@ public class UsersAdapter extends ITubelessAdapter {
                 }
 
 //                    //empty view 1
-//                    if (BuildConfig.FLAVOR_version_name.equals("yafte") || BuildConfig.FLAVOR_version_name.equals("yadak")) {
+//                    if (BuildConfig.FLAVOR.equals("yafte") || BuildConfig.FLAVOR.equals("yadak")) {
 //
 //                    }else {
 //                        if (_current_page == 1 && ((ListFragment)fragment).list.size() == 0){
@@ -202,7 +202,7 @@ public class UsersAdapter extends ITubelessAdapter {
     public static int VIEW_TYPE_UserItem = 2;
     @Override
     public TubelessMainViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        //BuildConfig.FLAVOR_version_name.equals("amlak")
+        //BuildConfig.FLAVOR.equals("amlak")
         TubelessMainViewHolder holder = null;
         View view;
 

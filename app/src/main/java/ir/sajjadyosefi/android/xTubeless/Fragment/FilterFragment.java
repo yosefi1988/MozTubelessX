@@ -117,7 +117,7 @@ public class FilterFragment extends Fragment {
 
         editTextTitle = (EditText) view.findViewById(R.id.editTextTitle);
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")||BuildConfig.FLAVOR_version_name.equals("moz")){
+        if (BuildConfig.FLAVOR.equals("yafte")||BuildConfig.FLAVOR.equals("moz")){
             buttonSelectCategory.setVisibility(View.GONE);
         }
         buttonSelectCategory.setOnClickListener(new View.OnClickListener() {
@@ -143,41 +143,41 @@ public class FilterFragment extends Fragment {
 
             }
         });
-        if (BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+        if (BuildConfig.FLAVOR.equals("estekhdam")) {
             PAGE_TYPE = ESTEKHDAM;
             rgRadios.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+        if (BuildConfig.FLAVOR.equals("moz")) {
             PAGE_TYPE = MOZ;
         }
-        if (BuildConfig.FLAVOR_version_name.equals("yadak")) {
+        if (BuildConfig.FLAVOR.equals("yadak")) {
             PAGE_TYPE = YADAK;
             rgRadios.setVisibility(View.GONE);
         }
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
             PAGE_TYPE = YAFTE;
             radioButton3.setVisibility(View.VISIBLE);
             buttonBack.setVisibility(View.GONE);
             buttonReg.setVisibility(View.VISIBLE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+        if (BuildConfig.FLAVOR.equals("amlak")) {
             PAGE_TYPE = AMLAK;
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+        if (BuildConfig.FLAVOR.equals("amlak")) {
             PAGE_TYPE = AMLAK;
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        if (BuildConfig.FLAVOR.equals("winner")) {
             PAGE_TYPE = WINNER;
             radioButton3.setVisibility(View.VISIBLE);
             rgRadios.setVisibility(View.GONE);
             checkbox.setVisibility(View.GONE);
         }
-        if (BuildConfig.FLAVOR_version_name.equals("businesses")) {
+        if (BuildConfig.FLAVOR.equals("businesses")) {
             PAGE_TYPE = BUSINESSES;
             rgRadios.setVisibility(View.GONE);
             buttonSelectCategory.setVisibility(View.GONE);
@@ -378,17 +378,17 @@ public class FilterFragment extends Fragment {
             }
         });
 
-        if (!BuildConfig.FLAVOR_market.equals("winner")) {
+        //if (!BuildConfig.FLAVOR_market.equals("winner")) {
             buttonShareApp.setVisibility(View.GONE);
-        } else {
-            buttonShareApp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    AppUtility appUtility = new AppUtility();
-                    appUtility.shareApp(getContext());
-                }
-            });
-        }
+        //} else {
+        //    buttonShareApp.setOnClickListener(new View.OnClickListener() {
+        //        @Override
+        //        public void onClick(View view) {
+        //            AppUtility appUtility = new AppUtility();
+        //            appUtility.shareApp(getContext());
+        //        }
+        //    });
+        //}
         getCategories();
 
         if(Global.user2 != null){

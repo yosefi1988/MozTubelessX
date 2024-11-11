@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.litepal.LitePal;
+//import org.litepal.LitePal;
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Global;
@@ -37,6 +37,7 @@ public class SplashScreenNew extends AppCompatActivity implements ISplashScreenV
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (AndroidOs.isPermissionGranted(grantResults)) {

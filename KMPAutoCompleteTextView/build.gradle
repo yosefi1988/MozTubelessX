@@ -1,17 +1,16 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    namespace 'ir.sajjadYosefi.objectKmpautotextview'
+    compileSdk 34
+
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
     }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
     }
     buildTypes {
         release {
@@ -19,6 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '35.0.0 rc1'
 }
 
 dependencies {

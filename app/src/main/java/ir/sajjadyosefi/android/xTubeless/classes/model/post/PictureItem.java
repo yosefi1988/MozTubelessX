@@ -391,7 +391,7 @@ public class PictureItem extends MainItem {
                                 bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                                 ((Activity)mContext).startActivityForResult(intent, GO_TO_LOGIN);
                             }else {
-                                if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR_version_name.equals("yafte")|| BuildConfig.FLAVOR_version_name.equals("yadak")) {
+                                if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR.equals("yafte")|| BuildConfig.FLAVOR.equals("yadak")) {
                                     mContext.startActivity(new Intent(mContext, RegNewImageActivity.class));
                                 } else {
                                     showUserRegPostDialog(mContext, ((Activity)mContext).findViewById(android.R.id.content));

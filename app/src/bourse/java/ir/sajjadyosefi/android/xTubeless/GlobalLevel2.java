@@ -27,18 +27,6 @@ public class GlobalLevel2 extends Global {
         AccountGeneral.setSchemezarinpalpayment(this.getString(R.string.schemezarinpalpayment));
 
 
-        if (BuildConfig.FLAVOR_market.equals("myket") ) {
-//            MagnetSDK.initialize(getApplicationContext());
-//            if (BuildConfig.DEBUG) {
-//                MagnetSDK.getSettings().setTestMode(true);
-//            } else {
-//                MagnetSDK.getSettings().setTestMode(false);
-//            }
-
-//            TapsellPlus.initialize(this, "esaohdhqicloeoqojffeteerbddecqkcecoabcckcnrofigptnmsghsmfkacoqmoratktg");
-        }
-
-
 //        Picasso.Builder builder = new Picasso.Builder(this);
 //        builder.downloader(new OkHttp3Downloader(this,Integer.MAX_VALUE));
 //        Picasso built = builder.build();

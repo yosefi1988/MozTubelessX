@@ -459,14 +459,14 @@ public class TextItem extends MainItem {
         } else if (timelineItem.getTTC() == 8067 || timelineItem.getTTC() == 8068 || timelineItem.getTTC() == 8069) {
             holder.textViewDate.setText("تاریخ ثبت : " + timelineItem.getDateTime() + "");
         } else {
-            if (BuildConfig.FLAVOR_version_name.equals("winner")){
+            if (BuildConfig.FLAVOR.equals("winner")){
                 holder.textViewDate.setText("تاریخ ثبت : " + timelineItem.getDateTime());
             }else {
                 holder.textViewDate.setText("فرصت تا " + timelineItem.getDateTimeExpire() + " (تاریخ ثبت : " + timelineItem.getDateTime() + ")");
             }
         }
 
-        if (BuildConfig.FLAVOR_version_name.equals("winner")){
+        if (BuildConfig.FLAVOR.equals("winner")){
             holder.textViewLocation.setText("قرعه کشی در " + timelineItem.getTTN());
         }else {
             holder.textViewLocation.setText(timelineItem.getTTN() + (timelineItem.getStateName() == null ? "" : " استان " + timelineItem.getStateName()));

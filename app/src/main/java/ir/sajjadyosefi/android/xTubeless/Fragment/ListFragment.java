@@ -455,7 +455,7 @@ public class ListFragment extends Fragment  {
         mRecyclerView.setHasFixedSize(true);
 
 
-        if(BuildConfig.FLAVOR_version_name.equals("yadak") && (listType == LIST_TYPE_IMAGE_IN_YADAK)) {
+        if(BuildConfig.FLAVOR.equals("yadak") && (listType == LIST_TYPE_IMAGE_IN_YADAK)) {
             mLayoutManager = new GridLayoutManager(context, 3);
             mRecyclerView.setLayoutManager(mLayoutManager);
         }else {
@@ -648,7 +648,7 @@ public class ListFragment extends Fragment  {
 //                            if (Global.user2 != null
 //                                    &&
 //                                    //(Global.user2.isUserAdmin() || Global.user2.isUserCreator()) ||
-//                                    BuildConfig.FLAVOR_version_name.equals("yafte")) {
+//                                    BuildConfig.FLAVOR.equals("yafte")) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
 //                            } else {
 //                                showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
@@ -685,7 +685,7 @@ public class ListFragment extends Fragment  {
                             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                             getActivity().startActivityForResult(intent, GO_TO_LOGIN);
                         } else {
-                            if (Global.user2 != null && (Global.user2.isUserAdmin() || BuildConfig.FLAVOR_version_name.equals("yadak"))) {
+                            if (Global.user2 != null && (Global.user2.isUserAdmin() || BuildConfig.FLAVOR.equals("yadak"))) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
                             } else {
                                 showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
@@ -723,7 +723,7 @@ public class ListFragment extends Fragment  {
                             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                             getActivity().startActivityForResult(intent, GO_TO_LOGIN);
                         } else {
-//                            if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR_version_name.equals("yafte")) {
+//                            if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR.equals("yafte")) {
                             context.startActivity(new Intent(context, RegNewImageActivity.class));
 //                            } else {
 //                                showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
@@ -791,7 +791,7 @@ public class ListFragment extends Fragment  {
                             bundle.putParcelable(AccountManager.KEY_INTENT, intent);
                             getActivity().startActivityForResult(intent, GO_TO_LOGIN);
                         } else {
-                            if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR_version_name.equals("yafte")) {
+                            if (Global.user2 != null && (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) || BuildConfig.FLAVOR.equals("yafte")) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
                             } else {
                                 showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));
@@ -816,9 +816,9 @@ public class ListFragment extends Fragment  {
                         } else {
                             if (Global.user2 != null &&
                                     (Global.user2.isUserAdmin() || Global.user2.isUserCreator()) ||
-                                    BuildConfig.FLAVOR_version_name.equals("yafte") ||
-                                    BuildConfig.FLAVOR_version_name.equals("estekhdam") ||
-                                    BuildConfig.FLAVOR_version_name.equals("moz")) {
+                                    BuildConfig.FLAVOR.equals("yafte") ||
+                                    BuildConfig.FLAVOR.equals("estekhdam") ||
+                                    BuildConfig.FLAVOR.equals("moz")) {
                                 context.startActivity(new Intent(context, RegNewPostActivity.class));
                             } else {
                                 showUserRegPostDialog(context, getActivity().findViewById(android.R.id.content));

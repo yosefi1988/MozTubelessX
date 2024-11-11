@@ -248,9 +248,9 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         });
 
 
-        if (BuildConfig.FLAVOR_version_name.equals("estekhdam")||
-            BuildConfig.FLAVOR_version_name.equals("yafte")||
-            BuildConfig.FLAVOR_version_name.equals("moz")) {
+        if (BuildConfig.FLAVOR.equals("estekhdam")||
+            BuildConfig.FLAVOR.equals("yafte")||
+            BuildConfig.FLAVOR.equals("moz")) {
             textViewElectedAmlak.setVisibility(View.GONE);
             buttonElectedAmlak.setVisibility(View.GONE);
             textViewCommentTitle.setVisibility(View.GONE);
@@ -265,9 +265,9 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilderTitle.append(mainItem.getTitle());
         textViewTitle.setText(stringBuilderTitle.toString());
 
-        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        if (BuildConfig.FLAVOR.equals("winner")) {
 
-        } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+        } else if (BuildConfig.FLAVOR.equals("moz")) {
 
         } else {
 
@@ -280,9 +280,9 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilderTitle.append(title);
 
 
-        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        if (BuildConfig.FLAVOR.equals("winner")) {
 
-        } else if (BuildConfig.FLAVOR_version_name.equals("moz")) {
+        } else if (BuildConfig.FLAVOR.equals("moz")) {
 
         } else {
 
@@ -434,7 +434,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
 //        desc.append("شهر");
 //        desc.append(newTimelineItem.getCityName());
 
-        if (!BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (!BuildConfig.FLAVOR.equals("yafte")) {
             desc.append("(");
             desc.append("فرصت تا");
             desc.append(" ");
@@ -450,7 +450,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilder.append(mainItem.getDateTime());
         stringBuilder.append("\n");
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
             stringBuilder.append(mainItem.getTTN());
             stringBuilder.append(" در تاریخ : ");
         } else {
@@ -591,7 +591,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilder.append(" ) ");
         stringBuilder.append("\n");
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
 //            stringBuilder.append(mainItem.getTTN());
             stringBuilder.append("در تاریخ : ");
         }else {
@@ -821,7 +821,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
             textViewText.setText(timelineItem.getText());
             textViewText.setVisibility(View.VISIBLE);
 
-            if (!BuildConfig.FLAVOR_version_name.equals("estekhdam"))
+            if (!BuildConfig.FLAVOR.equals("estekhdam"))
                 textViewCommentTitle.setVisibility(View.VISIBLE);
         }
 
@@ -847,7 +847,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         stringBuilder.append(timelineItem.getDateTime());
         stringBuilder.append("\n");
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
             stringBuilder.append(timelineItem.getTTN());
             stringBuilder.append(" در تاریخ : ");
         }else {
@@ -1108,7 +1108,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
                     if (type == DO_ACCEPT) {
 
                         progressDialog.show();
-                        if (BuildConfig.FLAVOR_version_name.equals("amlak")) {
+                        if (BuildConfig.FLAVOR.equals("amlak")) {
                             if (blogCreator.getMobile() != null)
                                 sendSMS(mContext, blogCreator.getMobile());
                         }

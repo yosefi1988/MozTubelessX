@@ -144,36 +144,36 @@ public class SearchByNameFragment extends Fragment {
                                     , searchType);
 
 
-                            Global.apiManagerPost.search(requestSearchRequest, new PostRetrofitCallback<Object>(getContext(), null, true, null, new Callback<Object>() {
-                                @Override
-                                public void onResponse(Call<Object> call, Response<Object> response) {
-
-
-                                    Gson gson = new Gson();
-                                    JsonElement jsonElement = gson.toJsonTree(response.body());
-                                    ServerResponse responseX = gson.fromJson(jsonElement, ServerResponse.class);
-
-                                    //jsonElement = سثقرثق
-
-                                    if (responseX.getType().equals("NoResult")) {
-                                        DialogUtil.showNotAnyResultDialog(getContext() , view,responseX);
-                                    } else if (responseX.getType().equals("SearchResult")) {
-                                        if (responseX.getData() != null) {
-                                            if (responseX.getData().size() == 1) {
-                                                DialogUtil.goToResult(getContext(), responseX);
-                                            } else if (responseX.getData().size() >= 2) {
-                                                DialogUtil.showManyResultDialog(getContext() ,view,responseX);
-                                            } else {
-                                                Toast.makeText(getActivity(), responseX.getMessage(), Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<Object> call, Throwable t) {
-                                }
-                            }));
+//                            Global.apiManagerPost.search(requestSearchRequest, new PostRetrofitCallback<Object>(getContext(), null, true, null, new Callback<Object>() {
+//                                @Override
+//                                public void onResponse(Call<Object> call, Response<Object> response) {
+//
+//
+//                                    Gson gson = new Gson();
+//                                    JsonElement jsonElement = gson.toJsonTree(response.body());
+//                                    ServerResponse responseX = gson.fromJson(jsonElement, ServerResponse.class);
+//
+//                                    //jsonElement = سثقرثق
+//
+//                                    if (responseX.getType().equals("NoResult")) {
+//                                        DialogUtil.showNotAnyResultDialog(getContext() , view,responseX);
+//                                    } else if (responseX.getType().equals("SearchResult")) {
+//                                        if (responseX.getData() != null) {
+//                                            if (responseX.getData().size() == 1) {
+//                                                DialogUtil.goToResult(getContext(), responseX);
+//                                            } else if (responseX.getData().size() >= 2) {
+//                                                DialogUtil.showManyResultDialog(getContext() ,view,responseX);
+//                                            } else {
+//                                                Toast.makeText(getActivity(), responseX.getMessage(), Toast.LENGTH_LONG).show();
+//                                            }
+//                                        }
+//                                    }
+//                                }
+//
+//                                @Override
+//                                public void onFailure(Call<Object> call, Throwable t) {
+//                                }
+//                            }));
 
                         }
                     } catch (TubelessException e) {

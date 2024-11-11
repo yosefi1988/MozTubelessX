@@ -5,10 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
-import org.litepal.LitePal;
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
-//import org.litepal.crud.LitePalSupport;
+
 
 import java.util.List;
 
@@ -30,12 +27,18 @@ import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import static android.content.Context.MODE_PRIVATE;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet.deleteAllWallets;
+//
+//import org.litepal.LitePal;
+//import org.litepal.annotation.Column;
+//import org.litepal.crud.LitePalSupport;
 
-public class User2 extends LitePalSupport implements IUser {
+
+//public class User2 extends LitePalSupport implements IUser {
+public class User2  implements IUser {
 
 	private Context context;
 
-	@Column(nullable = false ,unique = true, defaultValue = "unknown")
+//	@Column(nullable = false ,unique = true, defaultValue = "unknown")
 	public int UserCode;
 
 	private boolean IsDeleted;
@@ -48,22 +51,22 @@ public class User2 extends LitePalSupport implements IUser {
 	private AWallet wallet;
 
 	public static boolean savedToDataBase(User2 user2) {
-		try {
-			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
-			if (user2s.size() == 0) {
-				//noting
-			}else{
-				LitePal.deleteAll(Wallet.class, "UserCode = ?", Global.user2.getUserCodeAsString());
-				user2.delete();
-			}
-			user2.save();
+//		try {
+//			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
+//			if (user2s.size() == 0) {
+//				//noting
+//			}else{
+//				LitePal.deleteAll(Wallet.class, "UserCode = ?", Global.user2.getUserCodeAsString());
+//				user2.delete();
+//			}
+//			user2.save();
 			return true;
-		}catch (Exception ex) {
-
-			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
-
-			return false;
-		}
+//		}catch (Exception ex) {
+//
+//			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
+//
+//			return false;
+//		}
 	}
 
 	public Context getContext() {
@@ -174,7 +177,7 @@ public class User2 extends LitePalSupport implements IUser {
 //			List<User> dbUser = LitePal.where("userId like ?", String.valueOf(Global.IDUser) + "").find(User.class);
 //			List<User> dbUser2 = LitePal.findAll(User.class);
 			deleteAllWallets();
-			int bbbb = LitePal.deleteAll(User2.class);
+//			int bbbb = LitePal.deleteAll(User2.class);
 			return true;
 		}catch (Exception ex) {
 			return false;
@@ -184,20 +187,20 @@ public class User2 extends LitePalSupport implements IUser {
 	//1
 	@Override
 	public IUser loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
-		try {
-			List<User2> user2s = LitePal.where("UserCode = ? ", sAccountHelper.getUserAccountID() + "").find(User2.class);
-			//user2 = gson.fromJson(user2s.get(0).get, User2.class);
-			Global.user2 = user2s.get(0);
-			Wallet wallet = new Wallet();
-			Global.user2.setWallet(wallet.loadWalletData());
-			AccountGeneral.setUserCode(Global.user2.getUserCodeAsString());
-
-			presenter.onSuccessUserDataLoad();
-			//return Global.user2;
-		}catch (Exception ex){
-			presenter.onFailUserDataLoad();
-			//return null;
-		}
+//		try {
+//			List<User2> user2s = LitePal.where("UserCode = ? ", sAccountHelper.getUserAccountID() + "").find(User2.class);
+//			//user2 = gson.fromJson(user2s.get(0).get, User2.class);
+//			Global.user2 = user2s.get(0);
+//			Wallet wallet = new Wallet();
+//			Global.user2.setWallet(wallet.loadWalletData());
+//			AccountGeneral.setUserCode(Global.user2.getUserCodeAsString());
+//
+//			presenter.onSuccessUserDataLoad();
+//			//return Global.user2;
+//		}catch (Exception ex){
+//			presenter.onFailUserDataLoad();
+//			//return null;
+//		}
 		return null;
 	}
 

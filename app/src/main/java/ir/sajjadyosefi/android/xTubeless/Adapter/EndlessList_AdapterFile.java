@@ -177,7 +177,7 @@ public class EndlessList_AdapterFile extends RecyclerView.Adapter<EndlessList_Ad
 
         public AddViewHolder(View itemView) {
             super(itemView);
-            buttonSubmit            = (Button) itemView.findViewById(R.id.submit);
+//            buttonSubmit            = (Button) itemView.findViewById(R.id.submit);
 
         }
     }

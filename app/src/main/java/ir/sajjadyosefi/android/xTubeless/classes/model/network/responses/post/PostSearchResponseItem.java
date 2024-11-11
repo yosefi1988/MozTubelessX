@@ -139,7 +139,7 @@ public class PostSearchResponseItem extends TubelessObject {
 //                stringBuilder0.append("\n");
 //                stringBuilder0.append("منتشر شده از اپلیکیشن مدارک گم شده");
 //                stringBuilder0.append("\n");
-//                if (BuildConfig.FLAVOR_version_name.equals("myket")){
+//                if (BuildConfig.FLAVOR.equals("myket")){
 //                    stringBuilder0.append("https://myket.ir/app/ir.sajjadyosefi.android.xYafte");
 //                }else {
 //                    stringBuilder0.append("https://cafebazaar.ir/app/ir.sajjadyosefi.android.xYafte");

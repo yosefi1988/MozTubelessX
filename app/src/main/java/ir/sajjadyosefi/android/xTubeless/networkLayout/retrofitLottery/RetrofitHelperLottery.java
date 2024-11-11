@@ -15,8 +15,9 @@ public class RetrofitHelperLottery {
 
     private RetrofitHelperLottery() {
 
+        //https://www.gardune.com/api/search/store/بانک
+
         Retrofit retrofit = new Retrofit.Builder()
-                //https://www.gardune.com/api/search/store/بانک
                 .baseUrl("https://www.gardune.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

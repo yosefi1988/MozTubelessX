@@ -1,14 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    namespace 'org.litepal'
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
         archivesBaseName = "core"
     }
     buildTypes {
@@ -20,11 +18,16 @@ android {
     lintOptions {
         abortOnError false
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildToolsVersion '35.0.0 rc1'
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.20"
 }
 
 //apply plugin: 'com.github.panpf.bintray-publish'
@@ -38,7 +41,7 @@ allprojects {
 
 buildscript {
     repositories {
-        jcenter()
+
     }
     dependencies {
 //        classpath 'com.github.panpf.bintray-publish:bintray-publish:1.0.0'

@@ -257,18 +257,9 @@ public class LotterySearchResponseItem extends ParentItem
 
                 stringBuilder0.append("\n");
                 stringBuilder0.append("منتشر شده از اپلیکیشن");
-                stringBuilder0.append(BuildConfig.FLAVOR_version_name);
+                stringBuilder0.append(BuildConfig.FLAVOR);
                 stringBuilder0.append("\n");
-                if (BuildConfig.FLAVOR_market.equals("bazzar")){
-//                    stringBuilder0.append("https://cafebazaar.ir/app/ir.sajjadyosefi.android.xYafte");
-                    stringBuilder0.append("آدرس دانلود فایل نصبی");
-
-                }else if (BuildConfig.FLAVOR_market.equals("myket")){
-//                    stringBuilder0.append("https://myket.ir/app/ir.sajjadyosefi.android.xYafte");
-                    stringBuilder0.append("آدرس دانلود فایل نصبی");
-                }else {
-                    stringBuilder0.append("آدرس دانلود فایل نصبی");
-                }
+                stringBuilder0.append("آدرس دانلود فایل نصبی");
                 stringBuilder0.append("\n");
 
                 Intent intent = new Intent();

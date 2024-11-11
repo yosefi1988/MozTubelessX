@@ -131,7 +131,7 @@ public class EndlessList_AdapterCategory extends RecyclerView.Adapter<EndlessLis
 
         public AddViewHolder(View itemView) {
             super(itemView);
-            buttonSubmit            = (Button) itemView.findViewById(R.id.submit);
+//            buttonSubmit            = (Button) itemView.findViewById(R.id.submit);
 
         }
     }

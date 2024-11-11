@@ -50,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.litepal.LitePalApplication.getContext;
+//import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -69,6 +69,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     //sim card
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (AndroidOs.isPermissionGranted(grantResults)) {
@@ -267,7 +268,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     public void onThrowException(Throwable t) {
         TubelessException sException = new TubelessException();
-        sException.handleServerMessage(getContext(),t);
+//        sException.handleServerMessage(getContext(),t);
     }
 
 //    @Override

@@ -1,5 +1,7 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Context;
 import android.content.Intent;
 
@@ -20,8 +22,11 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.model.IReg
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
+import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
+import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_USER_OBJECT;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
@@ -127,7 +132,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
             }
 
 //            LoginRequest loginRequest;
-//            Validator validator = new Validator();
+////            Validator validator = new Validator();
 //            if ((new Validator()).isIranianMobileNumber(userName.replace("user:","")))
 //                loginRequest = new LoginRequest(context,userName.replace("user:",""), password , DeviceUtil.GetAndroidId(context));
 //            else if (validator.emailFieldCheck(userName.replace("user:","")))
@@ -135,7 +140,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
 //            else
 //                loginRequest = new LoginRequest(getContext(),userName.replace("user:",""));
 //            if (iUser.loadUserDatax(this , loginRequest) != null)
-//                splashScreen.onSplashScreenDone();
+                splashScreen.onSplashScreenDone();
 
 
         }else {

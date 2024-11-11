@@ -90,15 +90,15 @@ public class PersianDatePicker extends LinearLayout {
         int selectedYear = 0 ;
             //fa
 
-        if (BuildConfig.FLAVOR_version_name.equals("yafte")) {
+        if (BuildConfig.FLAVOR.equals("yafte")) {
             minYear = a.getInt(R.styleable.PersianDatePicker_minYear, pCalendar.getPersianYear() - 20);
-        }else if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        }else if (BuildConfig.FLAVOR.equals("winner")) {
             minYear = a.getInt(R.styleable.PersianDatePicker_minYear, pCalendar.getPersianYear() - 2);
         }else {
             minYear = a.getInt(R.styleable.PersianDatePicker_minYear, pCalendar.getPersianYear());
         }
 
-        if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+        if (BuildConfig.FLAVOR.equals("winner")) {
             maxYear = a.getInt(R.styleable.PersianDatePicker_maxYear, pCalendar.getPersianYear());
         }else {
             maxYear = a.getInt(R.styleable.PersianDatePicker_maxYear, pCalendar.getPersianYear() + 2);

@@ -112,11 +112,11 @@ public class FileListActivity extends Activity {
         ((Button)(findViewById(R.id.buttonCamera))).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
+                //if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
                     Toast.makeText(activity,"در حال آماده سازی", Toast.LENGTH_LONG).show();
-                }else {
-                    selectFromCamera(activity);
-                }
+                //}else {
+                //   selectFromCamera(activity);
+                //}
             }
         });
         ((Button)(findViewById(R.id.buttonClear))).setOnClickListener(new View.OnClickListener() {

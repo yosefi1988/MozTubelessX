@@ -177,22 +177,22 @@ public abstract class ParentItem extends Object implements IItems{
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.pmnuDelete:
-
-                        onDeleteClickListener.onClick(view);
-
-                        break;
-                    case R.id.pmnuReport:
-
-                        Bundle bundle = new Bundle();
-                        bundle.putInt(ContactUsActivity.Type , ContactUsActivity.CONTACT_US);
-//                        bundle.putString(ContactUsActivity.Title , "محتوی نامناسب , کد : " + timelineItem.getBlogID());
-                        bundle.putString(ContactUsActivity.Text , "توضیح : ");
-                        ((Activity)mContext).startActivity(ContactUsActivity.getIntent(mContext,bundle));
-                        break;
-                    case R.id.pmnuShare:
-                        share(mContext ,listType, timelineItem);
-                        break;
+//                    case R.id.pmnuDelete:
+//
+//                        onDeleteClickListener.onClick(view);
+//
+//                        break;
+//                    case R.id.pmnuReport:
+//
+//                        Bundle bundle = new Bundle();
+//                        bundle.putInt(ContactUsActivity.Type , ContactUsActivity.CONTACT_US);
+////                        bundle.putString(ContactUsActivity.Title , "محتوی نامناسب , کد : " + timelineItem.getBlogID());
+//                        bundle.putString(ContactUsActivity.Text , "توضیح : ");
+//                        ((Activity)mContext).startActivity(ContactUsActivity.getIntent(mContext,bundle));
+//                        break;
+//                    case R.id.pmnuShare:
+//                        share(mContext ,listType, timelineItem);
+//                        break;
                 }
                 return false;
             }

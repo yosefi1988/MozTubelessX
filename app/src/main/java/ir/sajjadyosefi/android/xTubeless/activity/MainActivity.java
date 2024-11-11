@@ -42,7 +42,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
-import com.ironsource.mediationsdk.IronSource;
+//import com.ironsource.mediationsdk.IronSource;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.squareup.picasso.Picasso;
 
@@ -213,6 +213,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     boolean backButtonPressedInPayment = false;
 
     public static String getAppDownloadedStore()  {
+        //1
 //        BuildConfig.FLAVOR
 //        BuildConfig.APPLICATION_ID
 //        BuildConfig.BASE_URLX
@@ -225,24 +226,24 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //        BuildConfig.VERSION_CODE
 //        BuildConfig.VERSION_NAME
 
-        if (BuildConfig.FLAVOR_market.equals("bazzar")){
-            return "bazar";
-
-        }else if (BuildConfig.FLAVOR_market.equals("jhobin")){
-            return "jhobin";
-
-        }else if (BuildConfig.FLAVOR_market.equals("iranApps")){
-            return "iranApps";
-
-        }else if (BuildConfig.FLAVOR_market.equals("socialNetwork")){
-            return "socialNetwork";
-
-//        }else if (BuildConfig.FLAVOR_version_name.equals("myket")){
-        }else if (BuildConfig.FLAVOR_market.equals("myket")){
-            return "myket";
-        }else {
-            return "myket";
-        }
+        //2
+//        if (BuildConfig.FLAVOR_market.equals("bazzar")){
+//            return "bazar";
+//
+//        }else if (BuildConfig.FLAVOR_market.equals("jhobin")){
+//            return "jhobin";
+//
+//        }else if (BuildConfig.FLAVOR_market.equals("iranApps")){
+//            return "iranApps";
+//
+//        }else if (BuildConfig.FLAVOR_market.equals("socialNetwork")){
+//            return "socialNetwork";
+//
+//        }else if (BuildConfig.FLAVOR_market.equals("myket")){
+//            return "myket";
+//        }else {
+        return "myket";
+//        }
     }
 
     public static boolean isFreeStore(Context mContext , Configuration configuration)  {
@@ -492,14 +493,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //        });
 
         if (
-                BuildConfig.FLAVOR_version_name.equals("yafte") ||
-                BuildConfig.FLAVOR_version_name.equals("estekhdam") ||
-                        BuildConfig.FLAVOR_version_name.equals("moz") ||
-                        BuildConfig.FLAVOR_version_name.equals("amlak") ||
-                        BuildConfig.FLAVOR_version_name.equals("winner") ||
-                        BuildConfig.FLAVOR_version_name.equals("yadak") ||
-                        BuildConfig.FLAVOR_version_name.equals("bourse")||
-                        BuildConfig.FLAVOR_version_name.equals("businesses")) {
+                BuildConfig.FLAVOR.equals("yafte") ||
+                        BuildConfig.FLAVOR.equals("estekhdam") ||
+                        BuildConfig.FLAVOR.equals("moz") ||
+                        BuildConfig.FLAVOR.equals("amlak") ||
+                        BuildConfig.FLAVOR.equals("winner") ||
+                        BuildConfig.FLAVOR.equals("yadak") ||
+                        BuildConfig.FLAVOR.equals("bourse")||
+                        BuildConfig.FLAVOR.equals("businesses")) {
             getBottomNavigation().setVisibility(View.VISIBLE);
         }else {
             getBottomNavigation().setVisibility(View.GONE);
@@ -959,7 +960,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //        }
 
 
-//        if (BuildConfig.FLAVOR_version_name.equals("kartesokht")){
+//        if (BuildConfig.FLAVOR.equals("kartesokht")){
 //            MenuItem kartesokht = menux.findItem(R.id.nav_karte_sokht);
 //            kartesokht.setVisible(false);
 //        }
@@ -1217,10 +1218,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
             getBottomNavigation().getBadgeProvider().remove(itemId);
 
 
-            if (BuildConfig.FLAVOR_version_name.equals("moz") ||
-                    BuildConfig.FLAVOR_version_name.equals("amlak") ||
-                    BuildConfig.FLAVOR_version_name.equals("businesses") ||
-                    BuildConfig.FLAVOR_version_name.equals("estekhdam")) {
+            if (BuildConfig.FLAVOR.equals("moz") ||
+                    BuildConfig.FLAVOR.equals("amlak") ||
+                    BuildConfig.FLAVOR.equals("businesses") ||
+                    BuildConfig.FLAVOR.equals("estekhdam")) {
                 // yadak
                 if (null != getViewPager() && position != 2) {
                     getViewPager().setCurrentItem(position);
@@ -1242,7 +1243,7 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                         getBottomNavigation().setSelectedIndex(lastSelectedPosition, false);
                     }
                 }
-            } else if (BuildConfig.FLAVOR_version_name.equals("winner")) {
+            } else if (BuildConfig.FLAVOR.equals("winner")) {
                 //tubeless
                 if (null != getViewPager() && !(position == 3 || position == 2)) {
                     getViewPager().setCurrentItem(position);
@@ -1262,9 +1263,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     }
                 }
             } else if (
-                    BuildConfig.FLAVOR_version_name.equals("yafte") ||
-                            BuildConfig.FLAVOR_version_name.equals("kartesokht") ||
-                            BuildConfig.FLAVOR_version_name.equals("bourse")) {
+                    BuildConfig.FLAVOR.equals("yafte") ||
+                            BuildConfig.FLAVOR.equals("kartesokht") ||
+                            BuildConfig.FLAVOR.equals("bourse")) {
                 if (null != getViewPager()) {
                     getViewPager().setCurrentItem(position);
                 }
@@ -1378,10 +1379,10 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     }
 
     boolean doubleBackToExitPressedOnce = false;
-    @Override
-    public void onBackPressed() {
-        BackButtonPressed();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        BackButtonPressed();
+//    }
 
     Calendar calendar = Calendar.getInstance();
     public double getFirstNumber() {
@@ -1397,14 +1398,14 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
     }
 
 
-
-    //ad
-    protected void onResume() {
-        super.onResume();
-        IronSource.onResume(this);
-    }
-    protected void onPause() {
-        super.onPause();
-        IronSource.onPause(this);
-    }
+//
+//    //ad
+//    protected void onResume() {
+//        super.onResume();
+//        IronSource.onResume(this);
+//    }
+//    protected void onPause() {
+//        super.onPause();
+//        IronSource.onPause(this);
+//    }
 }
