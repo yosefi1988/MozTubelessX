@@ -4,25 +4,25 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.view.ILoginView;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser_ThisFunctionMoveedToAaaLibrary;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.view.ILoginView_ThisFunctionMoveedToAaaLibrary;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_PASSWORD_IS_EMPTY;
 
-public class LoginPresenterComplI implements ILoginPresenterI {
-    IUser iUser;
-    ILoginView iLoginView;
+public class LoginPresenterComplI_ThisFunctionMoveedToAaaLibrary implements ILoginPresenterI_ThisFunctionMoveedToAaaLibrary {
+    IUser_ThisFunctionMoveedToAaaLibrary iUser;
+    ILoginView_ThisFunctionMoveedToAaaLibrary iLoginView;
     Context context;
-    LoginPresenterComplI presenter;
+    LoginPresenterComplI_ThisFunctionMoveedToAaaLibrary presenter;
     Handler handler;
 
-    public LoginPresenterComplI(Context context, ILoginView iLoginView) {
-        iUser = new User(context);
+    public LoginPresenterComplI_ThisFunctionMoveedToAaaLibrary(Context context, ILoginView_ThisFunctionMoveedToAaaLibrary iLoginView) {
+        iUser = new Userx();
         this.iLoginView = iLoginView;
         this.context = context;
         presenter = this;
@@ -37,7 +37,7 @@ public class LoginPresenterComplI implements ILoginPresenterI {
         }else {
             LoginRequest loginRequest = new LoginRequest(context, phoneNumber, password, getAndroidId(context));
             iLoginView.showProgressBar();
-            iUser.CheckUserValidity(presenter, loginRequest);
+            iUser.CheckUserValidity(context, presenter, loginRequest);
         }
     }
 
@@ -45,14 +45,14 @@ public class LoginPresenterComplI implements ILoginPresenterI {
     public void tryToLoginByMail(Context context, String email,String photoUrl) {
         LoginRequest loginRequest = new LoginRequest(context,email,(photoUrl == null ? "" : photoUrl));
         iLoginView.showProgressBar();
-        iUser.CheckUserValidity(presenter, loginRequest);
+        iUser.CheckUserValidity(context,presenter, loginRequest);
     }
 
     @Override
     public void tryToLoginBySimCard(Context context,String simId) {
         LoginRequest loginRequest = new LoginRequest(context,simId);
         iLoginView.showProgressBar();
-        iUser.CheckUserValidity(presenter, loginRequest);
+        iUser.CheckUserValidity(context,presenter, loginRequest);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class LoginPresenterComplI implements ILoginPresenterI {
     }
 
     @Override
-    public void onSuccess(IUser xxxxxxxx) {
+    public void onSuccess(IUser_ThisFunctionMoveedToAaaLibrary xxxxxxxx) {
         iLoginView.hideProgressBar();
         iLoginView.onLoginSuccessFinish(xxxxxxxx);
     }

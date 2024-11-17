@@ -50,7 +50,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.litepal.LitePalApplication.getContext;
+//import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -66,19 +66,19 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     private String                  wantPermission              = Manifest.permission.READ_PHONE_STATE;
     private static final int        PERMISSION_REQUEST_CODE     = 1;
 
-    //sim card
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                if (AndroidOs.isPermissionGranted(grantResults)) {
-                    peresenter.registerDevice();
-                } else {
-                    Toast.makeText(this,this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
-                }
-                break;
-        }
-    }
+//    //sim card
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case PERMISSION_REQUEST_CODE:
+//                if (AndroidOs.isPermissionGranted(grantResults)) {
+//                    peresenter.registerDevice();
+//                } else {
+//                    Toast.makeText(this,this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
+//                }
+//                break;
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -267,7 +267,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     public void onThrowException(Throwable t) {
         TubelessException sException = new TubelessException();
-        sException.handleServerMessage(getContext(),t);
+//        sException.handleServerMessage(getContext(),t);
     }
 
 //    @Override

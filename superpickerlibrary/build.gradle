@@ -30,4 +30,6 @@ dependencies {
 
     implementation project(path: ':ucrop')
     implementation 'androidx.core:core:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.testng:testng:6.9.6'
 }

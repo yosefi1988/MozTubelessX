@@ -19,6 +19,8 @@ public class GlobalLevel2 extends Global {
         AccountGeneral.setSchemezarinpalpayment(this.getString(R.string.schemezarinpalpayment));
 
 
+
+
     }
 
 }

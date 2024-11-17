@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.litepal.LitePal;
+//import org.litepal.LitePal;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -38,33 +38,33 @@ public class SplashScreenNew2 extends AppCompatActivity implements ISplashScreen
     private String                  wantPermission              = Manifest.permission.READ_PHONE_STATE;
     private static final int        PERMISSION_REQUEST_CODE     = 1;
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                if (AndroidOs.isPermissionGranted(grantResults)) {
-                    peresenter.registerDevice();
-                } else {
-                    Toast.makeText(this,this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
-                }
-                break;
-//            case 9001:
-//                if ((grantResults.length > 0) ){
-//                    if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
-//                        myOnStart();
-//                        deviceRegister();
-//                    }else {
-//                        //Toast.makeText(mContext,mContext.getString(R.string.WeNeedYourDeviceInfo),Toast.LENGTH_LONG).show();
-//                        DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
-//                    }
-//                }else {
-//                    Toast.makeText(context,context.getString(R.string.ErrorOnGetPermision),Toast.LENGTH_LONG).show();
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case PERMISSION_REQUEST_CODE:
+//                if (AndroidOs.isPermissionGranted(grantResults)) {
+//                    peresenter.registerDevice();
+//                } else {
+//                    Toast.makeText(this,this.getString(R.string.simcardPermissionError), Toast.LENGTH_LONG).show();
 //                }
 //                break;
-            default:
-                break;
-        }
-    }
+////            case 9001:
+////                if ((grantResults.length > 0) ){
+////                    if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+////                        myOnStart();
+////                        deviceRegister();
+////                    }else {
+////                        //Toast.makeText(mContext,mContext.getString(R.string.WeNeedYourDeviceInfo),Toast.LENGTH_LONG).show();
+////                        DialogUtil.ShowMessageDialog(context,"",context.getString(R.string.WeNeedYourDeviceInfo));
+////                    }
+////                }else {
+////                    Toast.makeText(context,context.getString(R.string.ErrorOnGetPermision),Toast.LENGTH_LONG).show();
+////                }
+////                break;
+//            default:
+//                break;
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

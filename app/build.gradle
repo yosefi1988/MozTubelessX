@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.firebase.crashlytics'
-
+apply plugin: 'realm-android'
 
 //todo change version code before publish
 def final Moz_VersionName = "2.0.4"
@@ -82,7 +82,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true 
+            minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules_2.pro'
             //manifestPlaceholders = [pn: "com.hamsa"]
@@ -172,9 +172,14 @@ android {
         }
         yafte {
             dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
 
-            applicationIdSuffix ".xYafte"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xYafte"
+
+
+            //resValue "string", "app_name", "@strings/app_name11"
+
+//            applicationIdSuffix ".xYafte"
 
             versionName "${Yafte_VersionName}"
             versionCode Yafte_VersionCode
@@ -186,16 +191,10 @@ android {
         amlak {
             dimension "version_name"
 
-            //R OK
-            //App Not Found
             namespace "ir.sajjadyosefi.android.xTubeless"
-            applicationId "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xAmlak"
 
-//            namespace "ir.sajjadyosefi.android.xAmlak"
-//            applicationId "ir.sajjadyosefi.android.xAmlak"
-
-
-            resValue "string", "app_name", "@strings/app_name"
+            //resValue "string", "app_name", "@strings/app_name"
 //
 ////            applicationIdSuffix ".xAmlak"
             versionName "${Amlak_VersionName}"
@@ -314,7 +313,6 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-crashlytics:19.2.1'
 
     implementation 'androidx.viewpager2:viewpager2:1.1.0'
-
 
 
     def core_version = "1.5.0"
@@ -475,13 +473,15 @@ dependencies {
 //        exclude group: 'com.squareup.okio', module: 'okio-jvm'
 //    }
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-//    implementation 'com.squareup.okio:okio:3.0.0'
+//    im plementation 'com.squareup.okio:okio:3.0.0'
 //    implementation 'com.squareup.okio:okio:2.10.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
     ////////// end group 1 /////////////
+    implementation 'io.realm:realm-gradle-plugin:10.15.1'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
-
 
 

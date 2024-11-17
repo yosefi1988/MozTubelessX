@@ -9,8 +9,6 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-//import org.litepal.LitePal;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,6 +27,8 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.utility.xUtility.AndroidOs;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.user2;
+
+//import org.litepal.LitePal;
 
 
 //mvp

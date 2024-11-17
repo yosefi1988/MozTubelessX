@@ -84,6 +84,9 @@
         <activity
             android:name=".activity.filter.filterDetailsActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="ir.sajjadyosefi.android.superpickerlibrary.TempActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <activity
             android:name=".activity.account.readProfile.ReadProfileActivity"

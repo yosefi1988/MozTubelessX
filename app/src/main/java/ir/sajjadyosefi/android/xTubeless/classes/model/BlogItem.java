@@ -1,5 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.classes.model;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
 
 /**
  * Created by sajjad on 1/20/2018.
@@ -19,7 +19,7 @@ public class BlogItem {
     private boolean ViewInList;
     private boolean InMyFavList;
     private boolean IsOwner ;
-    private User User;
+    private Userx User;
     private int UserID;
     private int CategoryID;
 
@@ -114,11 +114,11 @@ public class BlogItem {
         InMyFavList = inMyFavList;
     }
 
-    public ir.sajjadyosefi.android.xTubeless.classes.model.user.User getUser() {
+    public Userx getUser() {
         return User;
     }
 
-    public void setUser(User user) {
+    public void setUser(Userx user) {
         User = user;
     }
 

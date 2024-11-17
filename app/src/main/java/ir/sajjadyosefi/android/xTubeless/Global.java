@@ -1,6 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless;
 
-import android.accounts.Account;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -37,19 +36,20 @@ import ir.sajjadyosefi.accountauthenticator.model.AConfig;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.test.Food;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitLottery.RetrofitHelperLottery;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitNerkhRoz.RetrofitHelperNerkhRoz;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofitPolice.RetrofitHelperEpolice;
 import ir.sajjadyosefi.android.xTubeless.networkLayout.retrofit.RetrofitHelperTubeless;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.networkLayout.retroftPost.RetrofitHelperPost;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 //import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.getAppDownloadedStore;
-import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANSANS_MOBILE_NORMAL_TTF;
+
+import io.realm.Realm;
+
 
 
 /**
@@ -57,8 +57,10 @@ import static ir.sajjadyosefi.android.xTubeless.widget.CustomEditText.FONT_IRANS
  */
 public class Global extends MultiDexApplication {
 
+//    private static DaoSession daoSession;
+
     //_____________ ok ________________
-    public static User userFixxxxxxxxx = null;
+    public static Userx userFixxxxxxxxx = null;
     public static User2 user2 = null;
 
     public static AConfig aConfig = null;
@@ -127,6 +129,7 @@ public class Global extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
+        Realm.init(this); // مقداردهی اولیه Realm
 
         //user
         sAccountHelper = new SAccounts(this);
@@ -184,9 +187,7 @@ public class Global extends MultiDexApplication {
 
 
         apiManagerTubeless = RetrofitHelperTubeless.getInstance(getApplicationContext());
-//        LitePal.initialize(this);
-
-
+        //LitePal.initialize(this);
 
         //picasso cache
         Picasso.Builder builder = new Picasso.Builder(this);
@@ -459,7 +460,7 @@ public class Global extends MultiDexApplication {
     }
 
 
-    public static final boolean SaveLogedInUserDataInDeviceLocalDatabase(Context context, User user){
+    public static final boolean SaveLogedInUserDataInDeviceLocalDatabase(Context context, Userx user){
         try {
             SharedPreferences prefs = null;
             prefs = context.getSharedPreferences("ir.sajjadyosefi.android.tubeless", MODE_PRIVATE);

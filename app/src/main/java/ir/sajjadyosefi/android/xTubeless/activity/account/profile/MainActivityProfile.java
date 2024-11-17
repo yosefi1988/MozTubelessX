@@ -1,6 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.activity.account.profile;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -11,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -46,7 +44,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-
 import io.reactivex.annotations.Nullable;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.ChangePasswordActivity;
 import ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity;
@@ -62,14 +59,13 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.response.ServerResponseBase;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
-import ir.sajjadyosefi.android.xTubeless.dialog.CommonDialogs;
 import ir.sajjadyosefi.android.xTubeless.service.ServiceGenerator;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.DialogUtil;
@@ -94,7 +90,6 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
-import static ir.sajjadyosefi.android.xTubeless.classes.model.user.User2.deleteAllUsersData;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.SelectSource;
 
 public class MainActivityProfile extends TubelessTransparentStatusBarActivity implements IProfileView, IFileUploadView {
@@ -111,12 +106,11 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
     Context context;
     Activity activity;
-
     TextView ueditTextNameUserId;
+
     LinearLayout linearLayoutWallet;
 
-//    @BindView(R.id.editTextPhone)
-//    TextView editTextPhone;
+    TextView editTextPhone;
 
 //    @BindView(R.id.editTextEmail)
 //    EditText editTextEmail;
@@ -145,8 +139,6 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     Button buttonReciveReport;
 
     Button buttonChangePassword;
-
-
     Button btnUploadFileWithoutProgress;        //btn_upload_file_without_progress
 
     private ImagePresenter mImagePresenter;
@@ -175,6 +167,21 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_main);
+
+        charge = findViewById(R.id.charge);
+        buttonFav = findViewById(R.id.buttonFav);
+        buttonMyPost = findViewById(R.id.buttonMyPost);
+        buttonCreatorsPost = findViewById(R.id.buttonCreatorsPost);
+        buttonMessages = findViewById(R.id.buttonMessages);
+        buttonCreatorMessages = findViewById(R.id.buttonCreatorMessages);
+        buttonLastSeen = findViewById(R.id.buttonLastSeen);
+        buttonReciveReport = findViewById(R.id.buttonReciveReport);
+        buttonChangePassword = findViewById(R.id.buttonChangePassword);
+        user_wallet = findViewById(R.id.user_wallet);
+        ueditTextNameUserId = findViewById(R.id.ueditTextNameUserId);
+
+
+
 
 
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
@@ -889,8 +896,8 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
                         if (responseX.getTubelessException().getCode() != 0) {
                             if (responseX.getTubelessException().getCode() > 0) {
                                 if (call != null && response != null) {
-                                    Object object = gson.fromJson(jsonElement.getAsString(), (Type) User.class);
-                                    User tmpUser = Primitives.wrap(User.class).cast(object);
+                                    Object object = gson.fromJson(jsonElement.getAsString(), (Type) Userx.class);
+                                    Userx tmpUser = Primitives.wrap(Userx.class).cast(object);
 
 //                                    Global.user2.setProfileImage(tmpUser.getProfileImage());
 //                                    Global.user2.setUserImage(tmpUser.getUserImage());

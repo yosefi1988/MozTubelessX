@@ -1,7 +1,5 @@
 package ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter;
 
-import static java.security.AccessController.getContext;
-
 import android.content.Context;
 import android.content.Intent;
 
@@ -17,16 +15,13 @@ import ir.sajjadyosefi.accountauthenticator.model.AUMIC;
 import ir.sajjadyosefi.accountauthenticator.model.request.ADeviceRegisterRequest;
 import ir.sajjadyosefi.android.xTubeless.Global;
 
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser_ThisFunctionMoveedToAaaLibrary;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.model.IRegisterDeviceModel;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.view.ISplashScreenView;
 import ir.sajjadyosefi.android.xTubeless.classes.model.Device;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
-import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 
 import static ir.sajjadyosefi.accountauthenticator.activity.accounts.AuthenticatorActivity.PARAM_USER_OBJECT;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
@@ -39,7 +34,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
     private final Context context;
     ISplashScreenView splashScreen;
     IRegisterDeviceModel iRegisterDeviceModel;
-    IUser iUser;
+    IUser_ThisFunctionMoveedToAaaLibrary iUser;
 
     public SplashScreenPresenterCompl(Context context , ISplashScreenView splashScreen) {
         this.splashScreen = splashScreen;

@@ -10,8 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import ir.sajjadyosefi.android.xTubeless.Global;
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
 import ir.sajjadyosefi.android.xTubeless.utility.SamanString;
 import ir.sajjadyosefi.android.xTubeless.widget.samanPersianDatePicker.util.PersianCalendar2;
 
@@ -99,7 +98,7 @@ public class SamanDateTime {
     }
 
     @NonNull
-    public static PersianCalendar2 getPersianCalendar(User customer) {
+    public static PersianCalendar2 getPersianCalendar(Userx customer) {
         //                    DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
 //        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
 //
@@ -152,7 +151,7 @@ public class SamanDateTime {
     }
 
     @NonNull
-    public static PersianCalendar2 getGeorgianCalendar(User customer) {
+    public static PersianCalendar2 getGeorgianCalendar(Userx customer) {
 //        DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
 //        org.joda.time.SamanDateTime dateTime = dateTimeFormatter.parseDateTime(customer.getBirthDay());
 //        com.sb24.diamond.view.widget.samanPersianDatePicker.util.PersianCalendar1 persianCalendar = new com.sb24.diamond.view.widget.samanPersianDatePicker.util.PersianCalendar1();

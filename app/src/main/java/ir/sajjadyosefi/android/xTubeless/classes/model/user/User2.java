@@ -6,35 +6,26 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 
-
-import java.util.List;
-
-import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Global;
 
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser_ThisFunctionMoveedToAaaLibrary;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI_ThisFunctionMoveedToAaaLibrary;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
-import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
 import static android.content.Context.MODE_PRIVATE;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet.deleteAllWallets;
-//
-//import org.litepal.LitePal;
-//import org.litepal.annotation.Column;
-//import org.litepal.crud.LitePalSupport;
 
 
 //public class User2 extends LitePalSupport implements IUser {
-public class User2  implements IUser {
+public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 
 	private Context context;
 
@@ -166,7 +157,7 @@ public class User2  implements IUser {
 	}
 
 	@Override
-	public void CheckUserValidity(ILoginPresenterI presenter, LoginRequest request) {
+	public void CheckUserValidity(Context context , ILoginPresenterI_ThisFunctionMoveedToAaaLibrary presenter, LoginRequest request) {
 
 	}
 
@@ -186,7 +177,7 @@ public class User2  implements IUser {
 
 	//1
 	@Override
-	public IUser loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
+	public IUser_ThisFunctionMoveedToAaaLibrary loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
 //		try {
 //			List<User2> user2s = LitePal.where("UserCode = ? ", sAccountHelper.getUserAccountID() + "").find(User2.class);
 //			//user2 = gson.fromJson(user2s.get(0).get, User2.class);
@@ -215,8 +206,8 @@ public class User2  implements IUser {
 			if (Global.user2 == null){
 				String accountName = sAccountHelper.getUserAccountName();
 				LoginRequest loginRequest = null;
-				IUser iUser;
-				iUser = new User(context);
+				IUser_ThisFunctionMoveedToAaaLibrary iUser;
+				iUser = new Userx();
 				Validator validator = new Validator();
 				if (validator.isIranianMobileNumber(accountName)){
 					loginRequest = new LoginRequest(context,accountName, sAccountHelper.getUserAccountPassword(), DeviceUtil.GetAndroidId(context));
@@ -225,7 +216,7 @@ public class User2  implements IUser {
 				}else {
 					loginRequest = new LoginRequest(context,accountName);
 				}
-				iUser.CheckUserValidity(null, loginRequest);
+				iUser.CheckUserValidity(context ,null, loginRequest);
 
 			}
 			return Global.user2;

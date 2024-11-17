@@ -7,18 +7,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.internal.Primitives;
 
-//import org.litepal.LitePal;
-//import org.litepal.annotation.Column;
-//
-//import org.litepal.annotation.Column;
-//import org.litepal.crud.LitePalSupport;
 
 import java.lang.reflect.Type;
 
 import ir.sajjadyosefi.android.xTubeless.Global;
 
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser;
-import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.model.IUser_ThisFunctionMoveedToAaaLibrary;
+import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILoginPresenterI_ThisFunctionMoveedToAaaLibrary;
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
@@ -31,16 +26,24 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//import org.litepal.*;
+import io.realm.annotations.PrimaryKey;
+
+
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.showConnectionLostDialog;
 
 //public class User extends LitePalSupport implements IUser {
-public class User  implements IUser {
+public class Userx implements IUser_ThisFunctionMoveedToAaaLibrary {
 
-	private Context context;
+	public Userx() {
+
+	}
+
 	//_____________ ok ________________
 //	@Column(unique = true, defaultValue = "unknown")
+	@PrimaryKey
 	private long userId;
 	private String AvatarUrl;
 	private String Name;
@@ -84,12 +87,7 @@ public class User  implements IUser {
 
 
 //	private Boolean canSendPicture;
-
-	public User(Context context) {
-		this.context = context;
-	}
-
-	public User(User source, LoginRequest req) {
+	public Userx(Userx source, LoginRequest req) {
 		if (source.getUserId() == 0)
 			setUserId(1);
 		else
@@ -261,12 +259,11 @@ public class User  implements IUser {
 		return isAdmin;
 	}
 
-	public void CheckUserValidity(ILoginPresenterI presenter , LoginRequest request) {
+	public void CheckUserValidity(Context context , ILoginPresenterI_ThisFunctionMoveedToAaaLibrary presenter , LoginRequest request) {
 		Callback callback = new Callback() {
 			@Override
 			public void onResponse(Call call, Response response) {
-//				t_afterGetResponse();
-
+				//t_afterGetResponse();
 				Gson gson = new Gson();
 				JsonElement jsonElement = gson.toJsonTree(response.body());
 				ServerResponseBase responseX = null;
@@ -281,8 +278,8 @@ public class User  implements IUser {
 						if (responseX.getTubelessException().getCode() != 0) {
 							if (responseX.getTubelessException().getCode() > 0) {
 								if (call != null && response != null) {
-									Object object = gson.fromJson(jsonElement.getAsString(), (Type) User.class);
-									User tmpUser = Primitives.wrap(User.class).cast(object);
+									Object object = gson.fromJson(jsonElement.getAsString(), (Type) Userx.class);
+									Userx tmpUser = Primitives.wrap(Userx.class).cast(object);
 									save(tmpUser,null);
 								}
 							} else {
@@ -303,9 +300,7 @@ public class User  implements IUser {
 
 			@Override
 			public void onFailure(Call call, Throwable t) {
-//				presenter.onThrowException(t);
-
-
+				//presenter.onThrowException(t);
 				try {
 					showConnectionLostDialog(context, null , new Runnable() {
 						@Override
@@ -316,9 +311,7 @@ public class User  implements IUser {
 				}catch (Exception ex){
 					int aX =0 ;
 					aX  ++;
-
 				}
-
 			}
 
 			private void retry(Call call) {
@@ -329,17 +322,17 @@ public class User  implements IUser {
 	}
 
 	@Override
-	public IUser loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
+	public IUser_ThisFunctionMoveedToAaaLibrary loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
 
 		return null;
 	}
 
-	public static boolean save(User tmpUser, LoginRequest req) {
+	public static boolean save(Userx tmpUser, LoginRequest req) {
 //		tmpUser.setAdmin(CheckUserIsAdmin(tmpUser));
 		tmpUser.setUserId(1);
 
 		//save to db
-//		if (Global.user == null){
+		if (Global.user2 == null){
 //			if ((new User(tmpUser,req)).save()){
 //			if (Global.SaveLogedInUser(getContext(),new User(tmpUser,req))){
 //				Global.user = tmpUser;
@@ -366,16 +359,16 @@ public class User  implements IUser {
 //					return false;
 //				}
 //			}
-//		}else {
+		}else {
 //			Global.user = tmpUser;
 
 //			if ((new Validator()).isIranianMobileNumber(tmpUser.getMobileNumber()))
 //				tmpUser.setPassword(tmpUser.getPassword());
-//			return false;
-//		}
+			return false;
+		}
 	}
 
-	public void CheckUserValidity2(ISplashScreenPeresenter presenter , LoginRequest request) {
+	public void CheckUserValidity2(Context context , ISplashScreenPeresenter presenter , LoginRequest request) {
 		Callback callback = new Callback() {
 			@Override
 			public void onResponse(Call call, Response response) {
@@ -407,13 +400,13 @@ public class User  implements IUser {
 
 
 								LoginResponse tmp = Primitives.wrap(LoginResponse.class).cast(object);
-								User tmpUser = tmp.getResponse();
+								Userx tmpUser = tmp.getResponse();
 								tmpUser.setAdmin(CheckUserIsAdmin(tmpUser));
 
 								//save to db
 //								if (Global.user == null){
 //									if ((new User(tmpUser,request)).save()){
-									if (Global.SaveLogedInUserDataInDeviceLocalDatabase(context,new User(tmpUser,request))){
+									if (Global.SaveLogedInUserDataInDeviceLocalDatabase(context,new Userx(tmpUser,request))){
 //										Global.user = tmpUser;
 
 
@@ -486,13 +479,14 @@ public class User  implements IUser {
 
 
 
-	public IUser loadUserData(ISplashScreenPeresenter presenter , LoginRequest request) {
+	public IUser_ThisFunctionMoveedToAaaLibrary loadUserData(Context context, ISplashScreenPeresenter presenter , LoginRequest request) {
 		Account account = sAccountHelper.getUserAccount();
 
-//		Global.user = LitePal.where("userId like ?", account.name + "").findFirst(User.class);
-//		Global.user = LitePal.where("username = ?", account.name + "").findFirst(User.class);
+
+//		Global.user2 = LitePal.where("userId like ?", account.name + "").findFirst(User.class);
+//		Global.user2 = LitePal.where("username = ?", account.name + "").findFirst(User.class);
 //		List<User> songs = LitePal.where("username like ? ", account.name +"" ).order("userId").find(User.class);
-//		Global.user = songs.get(0);
+//		Global.user2 = songs.get(0);
 //		List<User> dbUser2 = LitePal.findAll(User.class);
 
 
@@ -513,7 +507,7 @@ public class User  implements IUser {
 //			}
 //			iUser.CheckUserValidity(null, loginRequest);
 
-			CheckUserValidity2(presenter , request);
+			CheckUserValidity2(context,presenter , request);
 //		}
 //		return Global.user;
 		return null;
@@ -524,7 +518,7 @@ public class User  implements IUser {
 //		call.clone().enqueue(this);
 //	}
 
-	public static boolean CheckUserIsAdmin(User user) {
+	public static boolean CheckUserIsAdmin(Userx user) {
 		try {
 			if (user.getUserId() == StaticValue.AdminUserID1 ||
 					user.getUserId() == StaticValue.AdminUserID2 ||
