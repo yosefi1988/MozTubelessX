@@ -77,13 +77,12 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
         if (sAccountHelper.hasUserAccount()){
 
             //sAccounts get user and pass.
-//            int accountId = sAccounts.getUserAccountID();
-//            String accountName = sAccounts.getUserAccountName();
-//            String userName = sAccountHelper.getUserName();
-//            String password = sAccountHelper.getUserPassword();
+            int accountId = sAccountHelper.getUserAccountID();
+            String userName = sAccountHelper.getUserName();
+            String password = sAccountHelper.getUserPassword();
 //
 //            sAccountHelper.getAccountX();
-//            sAccountHelper.getUserAccount();
+            sAccountHelper.getUserAccount();
 //            sAccountHelper.getUserAccountID();
 //            sAccountHelper.getUserAccountName();
 //            sAccountHelper.getUserAccountPassword();
@@ -101,7 +100,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
                 //find wcrtgbwue
                 //در لاگین های بعدی هر دوتاش فراخوانی میشه
                 //110015 وقتی در یک اپ لاگین هستیم و اپ جدید نصب میکنیم
-                signInActivity.getUserDirect("11",new ITransactionsListRequest<Boolean, Intent>() {
+                signInActivity.getUserDirect(String.valueOf(accountId),new ITransactionsListRequest<Boolean, Intent>() {
                     @Override
                     public void onResponse(Boolean isSuccess,Intent data) {
 
@@ -112,7 +111,9 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
                             AccountGeneral.setUserCode(Global.user2.getUserCode() + "");
 
                             if(User2.savedToDataBase(Global.user2)){
-                                Wallet.savedToDataBase(Global.user2);
+                                Wallet tmp = Global.user2.getWallet();
+                                tmp.setUserCode(Global.user2.getUserCode());
+                                Wallet.savedToDataBase(tmp);
                             }
                         }
                     }
@@ -135,7 +136,7 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
 //            else
 //                loginRequest = new LoginRequest(getContext(),userName.replace("user:",""));
 //            if (iUser.loadUserDatax(this , loginRequest) != null)
-                splashScreen.onSplashScreenDone();
+//                splashScreen.onSplashScreenDone();
 
 
         }else {
@@ -172,7 +173,9 @@ public class SplashScreenPresenterCompl implements ISplashScreenPeresenter {
                         AccountGeneral.setUserCode(Global.user2.getUserCode() + "");
 
                         if (User2.savedToDataBase(Global.user2)) {
-                            Wallet.savedToDataBase(Global.user2);
+                            Wallet tmp = Global.user2.getWallet();
+                            tmp.setUserCode(Global.user2.getUserCode());
+                            Wallet.savedToDataBase(tmp);
                             goToMainPage();
                         }
                     }

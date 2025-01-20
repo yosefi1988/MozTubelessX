@@ -252,8 +252,10 @@ public class ListFragment extends Fragment  {
         super.onViewCreated(view, savedInstanceState);
         if (mRecyclerView == null) {
             mRecyclerView = (RecyclerViewEmptySupport) view.findViewById(R.id.recyclerView);
+            //mRecyclerView.setNestedScrollingEnabled(false);
+
             mTextViewNoting = (TextView) view.findViewById(R.id.nothing_text);
-            mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+            mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
             mProgressBar = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
             fab1 = (FloatingActionButton) view.findViewById(R.id.fabInFtagment);
 

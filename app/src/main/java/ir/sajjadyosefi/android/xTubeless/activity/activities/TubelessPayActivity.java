@@ -48,7 +48,10 @@ public class TubelessPayActivity extends TubelessActivity{
                     try {
                         returnData = gson.fromJson(x.getStringExtra("ReturnData"), MainActivityProfile.ReturnData.class);
                         Global.user2.getWallet().setAmount(returnData.wallet.getAmount());
-                        Wallet.savedToDataBase(Global.user2);
+
+                        Wallet tmp = Global.user2.getWallet();
+                        tmp.setUserCode(Global.user2.getUserCode());
+                        Wallet.savedToDataBase(tmp);
                     }catch (Exception ex){ }
 
                     if (iTubelessPayActivity != null)

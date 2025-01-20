@@ -2,8 +2,12 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.wallet;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Global;
 
@@ -13,19 +17,22 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.user.User2;
 
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 
+import android.util.Log;
+
 //import org.litepal.LitePal;
 //import org.litepal.annotation.Column;
 //import org.litepal.crud.LitePalSupport;
 
 
 //public class Wallet extends LitePalSupport {
-public class Wallet  {
+public class Wallet extends RealmObject {
 
 //    @Column(nullable = false)
     private long Amount;
     private int userCode;
-    private User2 user;
 
+    public Wallet() {
+    }
 
     public int getUserCode() {
         return userCode;
@@ -36,16 +43,6 @@ public class Wallet  {
     }
 
 
-    public User2 getUser() {
-        return user;
-    }
-
-    public void setUser(User2 user) {
-        this.user = user;
-    }
-
-    public Wallet() {
-    }
 
     public long getAmount() {
         return this.Amount;
@@ -56,20 +53,26 @@ public class Wallet  {
     }
 
 
-    public static boolean savedToDataBase(User2 user) {
+    public static boolean savedToDataBase(Wallet wallet) {
         try {
             deleteAllWallets();
-            Wallet wallet = new Wallet();
-            wallet.setAmount(user.getWallet().getAmount());
-            wallet.setUser(user);
-            wallet.setUserCode(user.getUserCode());
 
-//            wallet.save();
+
+
+            Realm realm = Realm.getDefaultInstance();
+            realm.executeTransactionAsync(realmInstance -> {
+                realmInstance.insert(wallet);
+            }, () -> {
+                // عملیات موفق
+                int a = 5;a++;
+            }, error -> {
+                // عملیات خطا
+                int a = 5;a++;
+
+            });
+            realm.close(); // بستن دیتابیس
             return true;
         }catch (Exception ex) {
-
-            //List<User2> user2s = LitePal.where("UserCode = ? ", Global.user2.getUserCodeAsString()).find(User2.class);
-
             return false;
         }
     }
@@ -87,33 +90,71 @@ public class Wallet  {
         }
     }
 
+//    public static boolean deleteAllWallets() {
+//        try {
+//            Realm realm = Realm.getDefaultInstance();
+//            realm.executeTransaction(r -> {
+//                RealmResults<Wallet> wallets = r.where(Wallet.class).findAll();
+//                wallets.deleteAllFromRealm();
+//            });
+//            realm.close();
+//            return true;
+//        }catch (Exception ex) {
+//            return false;
+//        }
+//    }
     public static boolean deleteAllWallets() {
         try {
-//            int bbbb = LitePal.deleteAll(Wallet.class);
+            Realm realm = Realm.getDefaultInstance();
+            realm.executeTransactionAsync(r -> {
+                RealmResults<Wallet> wallets = r.where(Wallet.class).findAll();
+                if (wallets != null && !wallets.isEmpty()) {
+                    wallets.deleteAllFromRealm();
+                }
+            }, () -> {
+                // عملیات موفقیت‌آمیز انجام شد
+                Log.d("Realm", "All wallets deleted successfully.");
+            }, error -> {
+                // مدیریت خطا
+                Log.e("Realm", "Error deleting wallets: " + error.getMessage());
+            });
             return true;
-        }catch (Exception ex) {
+        } catch (Exception ex) {
+            ex.printStackTrace();
             return false;
         }
     }
 
 
-    public AWallet loadWalletData() {
-        try {
-//            List<Wallet> wallets = LitePal.where("UserCode = ? ", Global.user2.getUserCodeAsString()).find(Wallet.class);
 
+    public AWallet loadWalletData( ) {
+        return  null;
+    }
+    public Wallet loadWalletFromdb(int term) {
+        try (Realm realm = Realm.getDefaultInstance()) {
+            // جستجو در دیتابیس
+            RealmResults<Wallet> walletsR = realm
+                    .where(Wallet.class)
+                    .equalTo("userCode", term)
+                    .findAll();
 
-//            if (wallets.size() == 1) {
-//                AWallet aWallet = new AWallet();
-//                aWallet.setAmount(wallets.get(0).Amount);
-//
-//                return aWallet;
-//            }
-            int a = 0;
-            a++;
-        }catch (Exception ex){
+            // کپی کردن داده‌ها از Realm به یک لیست جداگانه
+            List<Wallet> wallets = realm.copyFromRealm(walletsR);
 
+            // اگر دقیقا یک والت پیدا شد
+            if (wallets.size() == 1) {
+                Wallet aWallet = new Wallet();
+                aWallet.setAmount(wallets.get(0).Amount);
+                return aWallet;
+            }
+
+        } catch (Exception ex) {
+            // ثبت یا مدیریت خطا
+            Log.e("loadWalletFromdb", "Error loading wallet", ex);
         }
+
         return null;
     }
+
 
 }

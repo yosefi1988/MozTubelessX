@@ -145,7 +145,12 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
                     AccountGeneral.setUserCode(Global.user2.getUserCode() + "");
 
                     if(User2.savedToDataBase(Global.user2)){
-                        Wallet.savedToDataBase(Global.user2);
+//                        wallet.setAmount(wallet.getAmount());
+//                        wallet.setUser(user);
+//                        wallet.setUserCode(wallet.getUserCode());
+                        Wallet tmp = Global.user2.getWallet();
+                        tmp.setUserCode(Global.user2.getUserCode());
+                        Wallet.savedToDataBase(tmp);
 //                        if (Global.user != null && Global.user.isUserAdmin()) {
 //                            firstFragmentsAdapter.notifyList();
 //                            updatedrawableMenuItems();
@@ -349,15 +354,9 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         drawer_layout = findViewById(R.id.drawer_layout);
         viewPager = findViewById(R.id.ViewPager01);
 
-
-
-
 //        loadTubelessAccountData(getContext());
-
-
         setSupportActionBar(toolbar);
         drawableMenu(toolbar);
-
 
         final int statusbarHeight = getStatusBarHeight();
 //        final boolean translucentStatus = false;
@@ -395,7 +394,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         initializeBottomNavigation(savedInstanceState);
         initializeUI(savedInstanceState);
-
 
 
         //loadNews();
@@ -507,7 +505,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
         }
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -554,9 +551,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
         //startActivity(new Intent(this, filterDetailsActivity.class));
 
-
-
-
 //        final Handler handler = new Handler();
 //        handler.postDelayed(new Runnable() {
 //            @Override
@@ -568,10 +562,6 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //
 //            }
 //        },10000);
-
-
-
-
     }
 
     private void loadNews() {

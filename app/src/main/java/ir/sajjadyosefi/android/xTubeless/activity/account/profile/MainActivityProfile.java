@@ -548,7 +548,7 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 //                            //db
 //                            deleteAllUsersData();
 //                            Global.ClearLogedInUser(getContext());
-//                            Global.user2 = null;
+            //                Global.user2 = null;
 //                        }
 //
 //                        Toast.makeText(getApplicationContext(), "از حساب کاربری خارج شدید.", Toast.LENGTH_SHORT).show();

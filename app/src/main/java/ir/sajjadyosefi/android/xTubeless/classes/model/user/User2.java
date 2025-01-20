@@ -2,10 +2,15 @@ package ir.sajjadyosefi.android.xTubeless.classes.model.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
 
+import io.realm.Realm;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
+import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 import ir.sajjadyosefi.accountauthenticator.model.AWallet;
 import ir.sajjadyosefi.android.xTubeless.Global;
 
@@ -14,6 +19,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.account.login.presenter.ILogin
 import ir.sajjadyosefi.android.xTubeless.activity.common.splashScreen.presenter.ISplashScreenPeresenter;
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 
+import ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet;
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.accounting.LoginRequest;
@@ -23,11 +29,14 @@ import static android.content.Context.MODE_PRIVATE;
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.wallet.Wallet.deleteAllWallets;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 //public class User2 extends LitePalSupport implements IUser {
-public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
+public class User2 extends RealmObject implements IUser_ThisFunctionMoveedToAaaLibrary {
 
-	private Context context;
+	//private Context context;
 
 //	@Column(nullable = false ,unique = true, defaultValue = "unknown")
 	public int UserCode;
@@ -39,10 +48,11 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 	private String SimcardID;
 	public int UserTypeCode;
 	public String CreateDate;
-	private AWallet wallet;
+	private Wallet wallet;
 
 	public static boolean savedToDataBase(User2 user2) {
-//		try {
+		try {
+			List<User2> xxx = selectAllFromDb();
 //			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
 //			if (user2s.size() == 0) {
 //				//noting
@@ -51,29 +61,32 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 //				user2.delete();
 //			}
 //			user2.save();
+
+			Realm realm = Realm.getDefaultInstance();
+			realm.executeTransactionAsync(realmInstance -> {
+				realmInstance.insert(user2);
+			}, () -> {
+				// عملیات موفق
+			}, error -> {
+				// عملیات خطا
+			});
+			realm.close(); // بستن دیتابیس
+
 			return true;
-//		}catch (Exception ex) {
-//
-//			List<User2> user2s = LitePal.where("UserCode = ? ",Global.user2.getUserCodeAsString()).find(User2.class);
-//
-//			return false;
-//		}
+		}catch (Exception ex) {
+			return false;
+		}
 	}
-
-	public Context getContext() {
-		return context;
-	}
-
-	public void setContext(Context context) {
-		this.context = context;
-	}
-
 	public boolean isDeleted() {
 		return IsDeleted;
 	}
 
 	public void setDeleted(boolean deleted) {
 		IsDeleted = deleted;
+	}
+
+	public void setWallet(Wallet wallet) {
+		this.wallet = wallet;
 	}
 
 	public boolean isActive() {
@@ -148,12 +161,12 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 		CreateDate = createDate;
 	}
 
-	public AWallet getWallet() {
+	public Wallet getWallet() {
 		return wallet;
 	}
 
-	public void setWallet(AWallet wallet) {
-		this.wallet = wallet;
+	public void setWallet(RealmObject wallet) {
+		this.wallet = (Wallet) wallet;
 	}
 
 	@Override
@@ -163,12 +176,13 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 
 	public static boolean deleteAllUsersData() {
 		try {
-//			int aaa = LitePal.deleteAll(User.class, "userId = ?", String.valueOf(Global.IDUser));
-//			int bbbb = LitePal.deleteAll(User.class);
-//			List<User> dbUser = LitePal.where("userId like ?", String.valueOf(Global.IDUser) + "").find(User.class);
-//			List<User> dbUser2 = LitePal.findAll(User.class);
+			Realm realm = Realm.getDefaultInstance();
+			realm.executeTransaction(r -> {
+				RealmResults<User2> wallets = r.where(User2.class).findAll();
+				wallets.deleteAllFromRealm();
+			});
+			realm.close();
 			deleteAllWallets();
-//			int bbbb = LitePal.deleteAll(User2.class);
 			return true;
 		}catch (Exception ex) {
 			return false;
@@ -178,21 +192,30 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 	//1
 	@Override
 	public IUser_ThisFunctionMoveedToAaaLibrary loadUserDatax(ISplashScreenPeresenter presenter, LoginRequest request) {
-//		try {
-//			List<User2> user2s = LitePal.where("UserCode = ? ", sAccountHelper.getUserAccountID() + "").find(User2.class);
-//			//user2 = gson.fromJson(user2s.get(0).get, User2.class);
-//			Global.user2 = user2s.get(0);
-//			Wallet wallet = new Wallet();
-//			Global.user2.setWallet(wallet.loadWalletData());
-//			AccountGeneral.setUserCode(Global.user2.getUserCodeAsString());
-//
-//			presenter.onSuccessUserDataLoad();
-//			//return Global.user2;
-//		}catch (Exception ex){
-//			presenter.onFailUserDataLoad();
-//			//return null;
-//		}
-		return null;
+		try {
+			//List<User2> user2s = LitePal.where("UserCode = ? ", sAccountHelper.getUserAccountID() + "").find(User2.class);
+			List<User2> user2s = selectAllFromDb();
+
+			//user2 = gson.fromJson(user2s.get(0), User2.class);
+			//user2 = gson.fromJson(user2s.get(0), User2.class);
+
+			if (user2s.size() == 1) {
+				Global.user2 = user2s.get(0);
+
+				Wallet wallet = new Wallet();
+				Global.user2.setWallet(wallet.loadWalletFromdb(Global.user2.getUserCode()));
+				AccountGeneral.setUserCode(Global.user2.getUserCodeAsString());
+
+				presenter.onSuccessUserDataLoad();
+				return Global.user2;
+			}else {
+				presenter.onFailUserDataLoad();
+				return null;
+			}
+		}catch (Exception ex){
+			presenter.onFailUserDataLoad();
+			return null;
+		}
 	}
 
 
@@ -235,4 +258,62 @@ public class User2  implements IUser_ThisFunctionMoveedToAaaLibrary {
 			return null;
 		}
 	}
+
+
+
+
+
+	//	public User2 insertToDb(User2 user2){
+//		Realm realm = Realm.getDefaultInstance();
+//		realm.executeTransactionAsync(realmInstance -> {
+//			realmInstance.insert(user2);
+//		}, () -> {
+//			 عملیات موفق
+//		}, error -> {
+//			 عملیات خطا
+//		});
+//		realm.close(); // بستن دیتابیس
+//	}
+	public static List<User2> selectAllFromDb() {
+		Realm realm = Realm.getDefaultInstance();
+		RealmResults<User2> persons = realm.where(User2.class).findAll();
+		List<User2> usersTmp = realm.copyFromRealm(persons);
+		realm.close();
+		return usersTmp;
+	}
+	public static User2 selectFromDb(User2 user2) {
+		Realm realm = Realm.getDefaultInstance();
+		RealmResults<User2> persons = realm.where(User2.class)
+				.equalTo("UserCode", user2.getUserCode()) // اضافه کردن شرط age = 5
+				.findAll();
+
+		for (User2 person : persons) {
+			Log.d("Realm", "UserCode: " + person.getUserCode());
+		}
+
+		realm.close(); // بستن دیتابیس
+		if (persons.size() == 1)
+			return persons.get(0);
+		else
+			return null;
+	}
+
+//	public User2 updateFromDb(){
+//		Realm realm = Realm.getDefaultInstance();
+//		realm.executeTransaction(r -> {
+//			Person person = r.where(Person.class).equalTo("name", "John Doe").findFirst();
+//			if (person != null) {
+//				person.setAge(35);
+//			}
+//		});
+//		realm.close(); // بستن دیتابیس
+//	}
+//	public User2 deleteFromDb(){
+//		Realm realm = Realm.getDefaultInstance();
+//		realm.executeTransaction(r -> {
+//			RealmResults<Person> persons = r.where(Person.class).findAll();
+//			persons.deleteAllFromRealm();
+//		});
+//		realm.close(); // بستن دیتابیس
+//	}
 }

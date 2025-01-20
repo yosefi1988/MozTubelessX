@@ -131,8 +131,12 @@ android {
         }
         moz {
             dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
-            applicationIdSuffix ".xMoz"
+
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xMoz"
+
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xMoz"
             versionName "${Moz_VersionName}"
             versionCode Moz_VersionCode
             manifestPlaceholders = [
@@ -439,7 +443,7 @@ dependencies {
 
     implementation project(path: ':ucrop')
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0'
+
 
 
 //    implementation 'com.jakewharton:butterknife:10.2.3'
@@ -448,10 +452,11 @@ dependencies {
     implementation project(path: ':KMPAutoCompleteTextView')
 
 
-    //msi
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+    //msi new
+    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 //    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
-    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-release.aar')
+    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-release.aar')
+
 
     //lop
     //implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
