@@ -100,7 +100,7 @@ public class SplashScreenNew extends AppCompatActivity implements ISplashScreenV
 //        },1000);
 
         final Handler handler = new Handler();
-        if (BuildConfig.FLAVOR_market.equals("bazzar")) {
+//        if (BuildConfig.FLAVOR_market.equals("bazzar")) {
             if (isFreeStore(context, StaticValue.configuration)) {
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -115,18 +115,18 @@ public class SplashScreenNew extends AppCompatActivity implements ISplashScreenV
             } else {
                 Global.ShowSelectSturceDialog(this);
             }
-        }else {
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    //Go To Main
-                    context.startActivity(new Intent(context, MainActivity.class));
-//                context.startActivity(new Intent(context, MainActivityRxJavaList.class));
-                    overridePendingTransition(R.anim.fadeout, R.anim.fadein);
-                    ((Activity) context).finish();
-                }
-            }, 1000);
-        }
+//        }else {
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    //Go To Main
+//                    context.startActivity(new Intent(context, MainActivity.class));
+////                context.startActivity(new Intent(context, MainActivityRxJavaList.class));
+//                    overridePendingTransition(R.anim.fadeout, R.anim.fadein);
+//                    ((Activity) context).finish();
+//                }
+//            }, 1000);
+//        }
     }
 
 //    @Override

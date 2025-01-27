@@ -1,5 +1,6 @@
 package ir.sajjadyosefi.android.xTubeless.activity.account.profile;
 
+import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -60,6 +62,7 @@ import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 
 import ir.sajjadyosefi.android.xTubeless.classes.StaticValue;
 import ir.sajjadyosefi.android.xTubeless.classes.model.user.Userx;
+import ir.sajjadyosefi.android.xTubeless.dialog.CommonDialogs;
 import ir.sajjadyosefi.android.xTubeless.utility.Validator;
 import ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.FileUploaderModel;
@@ -90,6 +93,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivit
 import static ir.sajjadyosefi.android.xTubeless.Global.sAccountHelper;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.isFreeStore;
 import static ir.sajjadyosefi.android.xTubeless.classes.model.exception.TubelessException.ERR_CODE_TUBELESS_RESPONSE_BODY_IS_NULL;
+import static ir.sajjadyosefi.android.xTubeless.classes.model.user.User2.deleteAllUsersData;
 import static ir.sajjadyosefi.android.xTubeless.utility.DialogUtil.SelectSource;
 
 public class MainActivityProfile extends TubelessTransparentStatusBarActivity implements IProfileView, IFileUploadView {
@@ -114,6 +118,10 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
 
 //    @BindView(R.id.editTextEmail)
 //    EditText editTextEmail;
+
+    private Button buttonBack;
+    private Button buttonSignOut;
+
 
     ImageView headerProfileImage; //header_cover_image
     ImageButton userAvatarPhoto;    //user_profile_photo
@@ -179,10 +187,44 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         buttonChangePassword = findViewById(R.id.buttonChangePassword);
         user_wallet = findViewById(R.id.user_wallet);
         ueditTextNameUserId = findViewById(R.id.ueditTextNameUserId);
+        linearLayoutWallet = findViewById(R.id.linearLayoutWallet);
 
+        buttonBack = findViewById(R.id.buttonBack);
+        buttonSignOut = findViewById(R.id.buttonSignOut);
+        buttonSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommonDialogs.modal2(context,new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Account user = sAccountHelper.getUserAccount();
+                        if (sAccountHelper.removeAccount(user)){
+                            //db
+                            deleteAllUsersData();
+                            Global.ClearLogedInUser(getContext());
+                                Global.user2 = null;
+                        }
 
+                        Toast.makeText(getApplicationContext(), "از حساب کاربری خارج شدید.", Toast.LENGTH_SHORT).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                setResult(Activity.RESULT_OK, getIntent());
+                                finish();
+                            }
+                        }, 100);
 
-
+                        finish();
+                    }
+                });
+            }
+        });
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
         boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
@@ -533,38 +575,9 @@ public class MainActivityProfile extends TubelessTransparentStatusBarActivity im
         }
     }
 
-    //@OnClick({R.id.user_profile_photo,R.id.buttonSignOut,R.id.buttonBack,R.id.header_cover_image, R.id.upload_file_progress, R.id.btn_upload_file_without_progress})
+    //@OnClick({R.id.user_profile_photo,R.id.header_cover_image, R.id.upload_file_progress, R.id.btn_upload_file_without_progress})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-//            case R.id.buttonBack:
-//                finish();
-//                break;
-//            case R.id.buttonSignOut:
-//                CommonDialogs.modal2(context,new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Account user = sAccountHelper.getUserAccount();
-//                        if (sAccountHelper.removeAccount(user)){
-//                            //db
-//                            deleteAllUsersData();
-//                            Global.ClearLogedInUser(getContext());
-            //                Global.user2 = null;
-//                        }
-//
-//                        Toast.makeText(getApplicationContext(), "از حساب کاربری خارج شدید.", Toast.LENGTH_SHORT).show();
-//                        new Handler().postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                setResult(Activity.RESULT_OK, getIntent());
-//                                finish();
-//                            }
-//                        }, 100);
-//
-//                        finish();
-//                    }
-//                });
-//
-//                break;
 //            case R.id.user_profile_photo:
 ////                selectImage(this);
 //                SELECTED_IMAGE = AVATAR_SELECTED;

@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 
 import ir.sajjadyosefi.accountauthenticator.authentication.AccountGeneral;
 
-import ir.sajjadyosefi.android.xTubeless.classes.model.user.User;
+
 import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 
 public class GlobalLevel2 extends Global {

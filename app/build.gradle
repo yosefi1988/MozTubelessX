@@ -6,8 +6,8 @@ apply plugin: 'realm-android'
 def final Moz_VersionName = "2.0.4"
 def final Moz_VersionCode = 36
 
-def final Estekhdam_VersionName = "2.0.2"
-def final Estekhdam_VersionCode = 38
+def final Estekhdam_VersionName = "3.0.0"
+def final Estekhdam_VersionCode = 39
 
 def final Winner_VersionName = "0.0.3"
 def final Winner_VersionCode = 4
@@ -21,8 +21,8 @@ def final Kartesokht_VersionCode = 22
 def final Yafte_VersionName = "5.0.0"
 def final Yafte_VersionCode = 62
 
-def final Amlak_VersionName = "2.0.0"
-def final Amlak_VersionCode = 55
+def final Amlak_VersionName = "2.0.1"
+def final Amlak_VersionCode = 56
 
 def final Yadak_VersionName = "3.2.8"
 def final Yadak_VersionCode = 23
@@ -92,7 +92,7 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"api\""
             signingConfig signingConfigs.SajjadYosefiSigning
-            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
+            buildConfigField("String", "BASE_URLX", "\"https://test.sajjadyosefi.ir/api/Upload/\"")    //server
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
         }
 
@@ -106,7 +106,7 @@ android {
             buildConfigField 'String', 'HOST', "\"http://www.example.com\""
             buildConfigField 'String', 'URL_PREFIX', "\"devapi\""
             //resValue "string", "app_name", appName + "-debug"
-            buildConfigField("String", "BASE_URLX", "\"http://test.sajjadyosefi.ir/api/Upload/\"")    //server
+            buildConfigField("String", "BASE_URLX", "\"https://test.sajjadyosefi.ir/api/Upload/\"")    //server
 //            buildConfigField("String", "BASE_URLX", "\"http://192.168.1.5:80/api/Upload/\"")            //local
         }
 
@@ -118,6 +118,32 @@ android {
     }
 
     productFlavors {
+        amlak {
+            dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xAmlak"
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xAmlak"
+            versionName "${Amlak_VersionName}"
+            versionCode Amlak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot"
+            ]
+        }
+        estekhdam {
+            dimension "version_name"
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xEstekhdam"
+            versionName "${Estekhdam_VersionName}"
+            versionCode Estekhdam_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+
+
+
+
         winner {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"
@@ -143,17 +169,7 @@ android {
                     appIcon: "@drawable/png_icon"
             ]
         }
-        estekhdam {
-            dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
 
-            applicationIdSuffix ".xEstekhdam"
-            versionName "${Estekhdam_VersionName}"
-            versionCode Estekhdam_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/png_icon"
-            ]
-        }
         bourse {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"
@@ -192,21 +208,7 @@ android {
                     //appN: appId //+ applicationIdSuffix
             ]
         }
-        amlak {
-            dimension "version_name"
 
-            namespace "ir.sajjadyosefi.android.xTubeless"
-            applicationId "ir.sajjadyosefi.android.xAmlak"
-
-            //resValue "string", "app_name", "@strings/app_name"
-//
-////            applicationIdSuffix ".xAmlak"
-            versionName "${Amlak_VersionName}"
-            versionCode Amlak_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/dot"
-            ]
-        }
         kartesokht {
             dimension "version_name"
             resValue "string", "app_name", "@strings/app_name"

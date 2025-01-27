@@ -164,7 +164,7 @@
         <activity android:name=".activity.examples.MainActivityRxJavaList"></activity>
 
         <activity
-            android:name=".activity.common.splashScreen.SplashScreenNew2"
+            android:name=".activity.common.splashScreen.SplashScreenNew"
             android:theme="@style/ThemeFullSCreenX"
             android:exported="true">
             <intent-filter>
