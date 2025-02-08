@@ -5,6 +5,9 @@
 
     <string name="file_provider_authorities">ir.sajjadyosefi.android.xCarNews.provider</string>
 
+    <string name="zarinpalpayment">zarinpalpayment8</string>
+    <string name="schemezarinpalpayment">return8</string>
+
 
     <string name="allNotices">همه آگهی ها</string>
     <string name="onlyMoz">------</string>

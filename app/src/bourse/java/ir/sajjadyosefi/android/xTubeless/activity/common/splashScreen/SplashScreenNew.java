@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.litepal.LitePal;
 
 import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.MainActivity;

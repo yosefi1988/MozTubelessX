@@ -3,8 +3,8 @@ apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'realm-android'
 
 //todo change version code before publish
-def final Moz_VersionName = "2.0.4"
-def final Moz_VersionCode = 36
+def final Moz_VersionName = "3.0.0"
+def final Moz_VersionCode = 37
 
 def final Estekhdam_VersionName = "3.0.0"
 def final Estekhdam_VersionCode = 39
@@ -18,8 +18,8 @@ def final Businesses_VersionCode = 4
 def final Kartesokht_VersionName = "1.0.10"
 def final Kartesokht_VersionCode = 22
 
-def final Yafte_VersionName = "5.0.0"
-def final Yafte_VersionCode = 62
+def final Yafte_VersionName = "6.0.0"
+def final Yafte_VersionCode = 63
 
 def final Amlak_VersionName = "2.0.1"
 def final Amlak_VersionCode = 56
@@ -132,25 +132,12 @@ android {
         }
         estekhdam {
             dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xEstekhdam"
             //resValue "string", "app_name", "@strings/app_name"
             //applicationIdSuffix ".xEstekhdam"
             versionName "${Estekhdam_VersionName}"
             versionCode Estekhdam_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/png_icon"
-            ]
-        }
-
-
-
-
-        winner {
-            dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
-
-            applicationIdSuffix ".xWinner"
-            versionName "${Winner_VersionName}"
-            versionCode Winner_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/png_icon"
             ]
@@ -169,6 +156,57 @@ android {
                     appIcon: "@drawable/png_icon"
             ]
         }
+        yafte {
+            dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xYafte"
+            //resValue "string", "app_name", "@strings/app_name11"
+            // applicationIdSuffix ".xYafte"
+            versionName "${Yafte_VersionName}"
+            versionCode Yafte_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/dot",
+                    //appN: appId //+ applicationIdSuffix
+            ]
+        }
+        winner {
+            dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xWinner"
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xWinner"
+            versionName "${Winner_VersionName}"
+            versionCode Winner_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+        businesses {
+            dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xBusinesses"
+
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xBusinesses"
+            versionName "${Businesses_VersionName}"
+            versionCode Businesses_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
+
+        yadak {
+            dimension "version_name"
+            namespace "ir.sajjadyosefi.android.xTubeless"
+            applicationId "ir.sajjadyosefi.android.xYadak"
+            //resValue "string", "app_name", "@strings/app_name"
+            //applicationIdSuffix ".xYadak"
+            versionName "${Yadak_VersionName}"
+            versionCode Yadak_VersionCode
+            manifestPlaceholders = [
+                    appIcon: "@drawable/png_icon"
+            ]
+        }
 
         bourse {
             dimension "version_name"
@@ -178,34 +216,6 @@ android {
             versionCode Bourse_VersionCode
             manifestPlaceholders = [
                     appIcon: "@drawable/png_icon"
-            ]
-        }
-        yadak {
-            dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
-            applicationIdSuffix ".xYadak"
-            versionName "${Yadak_VersionName}"
-            versionCode Yadak_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/png_icon"
-            ]
-        }
-        yafte {
-            dimension "version_name"
-
-            namespace "ir.sajjadyosefi.android.xTubeless"
-            applicationId "ir.sajjadyosefi.android.xYafte"
-
-
-            //resValue "string", "app_name", "@strings/app_name11"
-
-//            applicationIdSuffix ".xYafte"
-
-            versionName "${Yafte_VersionName}"
-            versionCode Yafte_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/dot",
-                    //appN: appId //+ applicationIdSuffix
             ]
         }
 
@@ -222,16 +232,6 @@ android {
             ]
         }
 
-        businesses {
-            dimension "version_name"
-            resValue "string", "app_name", "@strings/app_name"
-            applicationIdSuffix ".xBusinesses"
-            versionName "${Businesses_VersionName}"
-            versionCode Businesses_VersionCode
-            manifestPlaceholders = [
-                    appIcon: "@drawable/png_icon"
-            ]
-        }
 
 //        myket {
 //            dimension "market"

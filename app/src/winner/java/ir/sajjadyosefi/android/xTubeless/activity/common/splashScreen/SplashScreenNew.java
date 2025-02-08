@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.litepal.LitePal;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
