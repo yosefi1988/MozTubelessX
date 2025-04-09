@@ -889,16 +889,16 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 //                    }
 
 
-                } else if (id == R.id.nav_telegram) {
-                    //channel
-                    Uri uri = Uri.parse(Telegram);
-                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-                    likeIng.setPackage("org.telegram.messenger");
-                    try {
-                        startActivity(likeIng);
-                    } catch (ActivityNotFoundException e) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(Telegram)));
-                    }
+//                } else if (id == R.id.nav_telegram) {
+//                    //channel
+//                    Uri uri = Uri.parse(Telegram);
+//                    Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+//                    likeIng.setPackage("org.telegram.messenger");
+//                    try {
+//                        startActivity(likeIng);
+//                    } catch (ActivityNotFoundException e) {
+//                        startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(Telegram)));
+//                    }
                 } else if (id == R.id.nav_instagram) {
                     Uri uri = Uri.parse(Instagram);
                     Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);

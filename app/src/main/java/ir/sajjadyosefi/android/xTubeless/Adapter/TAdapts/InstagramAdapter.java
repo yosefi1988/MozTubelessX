@@ -43,6 +43,7 @@ import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.EndlessRecyclerOnSc
 import retrofit2.Call;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter.VIEW_EMPTY_TEXT;
+import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.getAppDownloadedStore;
 
 
 public class InstagramAdapter extends ITubelessAdapter {
@@ -135,6 +136,7 @@ public class InstagramAdapter extends ITubelessAdapter {
             timelineRequest.setUserCode(Global.user2.getUserCodeAsString());
         }
         timelineRequest.setTtc("5047"); //"TTN":"تصویر خودرو"
+        timelineRequest.setStore(getAppDownloadedStore());
 
         TubelessRetrofitCallbackss retrofitCallbackssx = new TubelessRetrofitCallbackss(context, NewTimelineListResponse.class) {
             @Override
@@ -166,8 +168,6 @@ public class InstagramAdapter extends ITubelessAdapter {
                 NewTimelineListResponse responseX = (NewTimelineListResponse) response;
 //                    data.add(new NotiesItem());
                 Gson gson = new Gson();
-
-
                 for (Object item : responseX.getPostList()) {
 //                  item.setType(Tubeless_ITEM_TYPE);
                     JsonObject jsonObject = gson.toJsonTree(item).getAsJsonObject();
@@ -181,7 +181,6 @@ public class InstagramAdapter extends ITubelessAdapter {
                         adapter.notifyItemInserted(((ListFragment) fragment).dataList.size());
                     }
                 }
-
                 if (_current_page == 1 && ((ListFragment) fragment).dataList.size() == 0) {
                     //empty row 3
                     EmptyTextItem empyItem = new EmptyTextItem();
@@ -207,8 +206,6 @@ public class InstagramAdapter extends ITubelessAdapter {
 //                        recyclerView.setVisibility(View.VISIBLE);
 //                        emptyView2.setVisibility(View.GONE);
 //                    }
-
-
             }
         };
         Global.apiManagerTubeless.getTimeline(timelineRequest, retrofitCallbackssx);

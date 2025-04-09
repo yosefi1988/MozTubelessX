@@ -30,7 +30,7 @@ public abstract class TubelessRetrofitCallbackss implements Callback ,ICallback{
     public TubelessRetrofitCallbackss(Context context, Class<?> aClass) {
         this.mContext = context;
         this.aClass = aClass;
-//        t_beforeSendRequest();
+        t_beforeSendRequest();
     }
 
     public abstract void t_beforeSendRequest();

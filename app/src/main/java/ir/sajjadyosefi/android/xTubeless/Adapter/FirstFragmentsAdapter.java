@@ -267,7 +267,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
                     } else if (BuildConfig.FLAVOR.equals("yadak")) {
                         if (fragmentx1 == null) {
-                        fragmentx1 = new ListFragment(context, FRAGMENTLIST_YADAK_TIMELINE);
+                            fragmentx1 = new ListFragment(context, FRAGMENTLIST_YADAK_TIMELINE);
 //                        List<IItems> iItems = new ArrayList<>();
 //                        CategoryFiltersNode newNode = createRootNode();
 //                        categoryFiltersNodeList.AddLast(newNode);

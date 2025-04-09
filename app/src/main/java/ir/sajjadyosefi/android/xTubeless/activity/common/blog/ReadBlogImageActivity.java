@@ -81,7 +81,6 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
     public static int CALL_AGAIN = 45;
     //private static NonSwipeableViewPager mPager;
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -117,9 +116,10 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         textViewCreator = findViewById(R.id.textViewCreator);
         textViewElectedAmlak = findViewById(R.id.textViewElectedAmlak);
         textViewAmountTitle = findViewById(R.id.textViewAmountTitle);
-        textViewCommentTitle = findViewById(R.id.textViewCommentTitle);
+        //textViewCommentTitle = findViewById(R.id.textViewCommentTitle);
         textViewDate = findViewById(R.id.textViewDate);
         textViewAmounts = findViewById(R.id.textViewAmounts);
+
         buttonFav = findViewById(R.id.buttonFav);
         buttonMessages = findViewById(R.id.buttonMessages);
         buttonInvisible = findViewById(R.id.buttonInvisible);
@@ -128,6 +128,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         //buttonCharg_e = findViewById(R.id.buttonCharg_e); parent
         buttonElectedAmlak = findViewById(R.id.buttonElectedAmlak);
         buttonreport = findViewById(R.id.buttonreport);
+
         mRecyclerViewTimeline = findViewById(R.id.recyclerView);
 
         Gson gson = new Gson();
@@ -174,6 +175,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
             }
         });
 
+        buttonCharge = findViewById(R.id.buttonCharge);
         buttonCharge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -253,7 +255,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
             BuildConfig.FLAVOR.equals("moz")) {
             textViewElectedAmlak.setVisibility(View.GONE);
             buttonElectedAmlak.setVisibility(View.GONE);
-            textViewCommentTitle.setVisibility(View.GONE);
+            //textViewCommentTitle.setVisibility(View.GONE);
         }
 
     }
@@ -362,7 +364,8 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
     }
 
 
-    TextView textViewTitle, textViewDescription, textViewDate, textViewAmounts, textViewText,textViewCreator, textViewElectedAmlak,textViewAmountTitle, textViewCommentTitle;
+    TextView textViewTitle, textViewDescription, textViewDate, textViewAmounts, textViewText,textViewCreator, textViewElectedAmlak,textViewAmountTitle;
+    //, textViewCommentTitle;
     Button buttonMessages, buttonInvisible, buttonAccept, buttonBack, buttonElectedAmlak, buttonreport;
     ImageButton buttonFav;
     ImageView imageviewPicture,user_profile_photo, imageView;
@@ -784,7 +787,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         req.setIDPost(((MainItem)blogItem).getID() + "");
 
         if (Global.user2 != null)
-            Global.apiManagerTubeless.getTimelineItem(req, callbackss);
+            Global.apiManagerTubeless.getTimelineItem(req, callbackssFi);
         else {
             finish();
         }
@@ -816,13 +819,13 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
 
         if (timelineItem.getText() == null) {
             textViewText.setVisibility(View.GONE);
-            textViewCommentTitle.setVisibility(View.GONE);
+            //textViewCommentTitle.setVisibility(View.GONE);
         }else {
             textViewText.setText(timelineItem.getText());
             textViewText.setVisibility(View.VISIBLE);
 
-            if (!BuildConfig.FLAVOR.equals("estekhdam"))
-                textViewCommentTitle.setVisibility(View.VISIBLE);
+//            if (!BuildConfig.FLAVOR.equals("estekhdam"))
+//                textViewCommentTitle.setVisibility(View.VISIBLE);
         }
 
         if (Global.user2.isUserAdmin()){
@@ -1107,7 +1110,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
                     }
                     if (type == DO_ACCEPT) {
 
-                        progressDialog.show();
+                        progressDialog.hide();
                         if (BuildConfig.FLAVOR.equals("amlak")) {
                             if (blogCreator.getMobile() != null)
                                 sendSMS(mContext, blogCreator.getMobile());
@@ -1295,7 +1298,7 @@ public class ReadBlogImageActivity extends TubelessTransparentStatusBarActivity 
         Global.apiManagerTubeless.deleteBlogComment(id,userId ,ssssssss);
     }
 
-    TubelessRetrofitCallbackss callbackss = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
+    TubelessRetrofitCallbackss callbackssFi = new TubelessRetrofitCallbackss(this, TimelineItemResponse.class) {
         @Override
         public void t_beforeSendRequest() {
             if (progressDialog != null)

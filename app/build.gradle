@@ -18,8 +18,8 @@ def final Businesses_VersionCode = 4
 def final Kartesokht_VersionName = "1.0.10"
 def final Kartesokht_VersionCode = 22
 
-def final Yafte_VersionName = "6.0.0"
-def final Yafte_VersionCode = 63
+def final Yafte_VersionName = "6.0.3"
+def final Yafte_VersionCode = 65
 
 def final Amlak_VersionName = "2.0.1"
 def final Amlak_VersionCode = 56

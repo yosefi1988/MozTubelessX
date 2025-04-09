@@ -85,10 +85,10 @@
     <item android:title="شبکه های اجتماعی">
 
         <menu>
-            <item
-                android:id="@+id/nav_telegram"
-                android:icon="@drawable/png_telegram"
-                android:title="تلگرام" />
+<!--            <item-->
+<!--                android:id="@+id/nav_telegram"-->
+<!--                android:icon="@drawable/png_telegram"-->
+<!--                android:title="تلگرام" />-->
             <item
                 android:id="@+id/nav_instagram"
                 android:icon="@drawable/png_instagram"
