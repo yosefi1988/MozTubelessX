@@ -5,8 +5,7 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp">
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -14,6 +13,38 @@
             android:layout_margin="10dp"
             android:paddingBottom="30dp"
             android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="12">
+
+                <Button
+                    android:id="@+id/buttonBack"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@android:drawable/ic_media_ff"
+                    android:layout_gravity="start"
+                    android:text="@string/back" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@null"
+                    android:layout_gravity="center" />
+
+                <Button
+                    android:id="@+id/buttonReg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="@string/regAndSend"
+                    android:layout_gravity="end" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/login_title"
                 style="@style/Style_TextView_Text"
@@ -65,7 +96,6 @@
             <EditText
                 android:id="@+id/editTextTitle"
                 style="@style/Style.EditText_direct.Tubeless"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
                 android:hint="@string/title" />
 
 
@@ -116,14 +146,23 @@
             <TextView
                 android:id="@+id/textViewTitle2"
                 style="@style/Style_TextView_Text"
-                android:text="متن آکهی :" />
+                android:text="توصیف متنی :" />
+
 
             <EditText
                 android:id="@+id/editTextText"
-                style="@style/Style.EditText_direct.Tubeless"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:height="140dp"
-                android:hint="متن آکهی" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minLines="1"
+                android:maxLines="600"
+                android:inputType="textMultiLine"
+                android:gravity="top|start"
+                android:scrollbars="vertical"
+                android:minHeight="250dp"
+                android:overScrollMode="ifContentScrolls"
+                android:scrollHorizontally="false"
+                />
+
 
 
             <androidx.appcompat.widget.AppCompatCheckBox
@@ -148,8 +187,8 @@
                     style="@style/Style.EditText_direct.Tubeless"
                     android:inputType="number"
                     android:text="50"
-                    android:drawableLeft="@android:drawable/ic_menu_edit"
                     android:hint="ریال" />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,27 +237,27 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="1.0dp"
-        android:layout_margin="2dp"
-        android:orientation="horizontal" >
+<!--    <LinearLayout-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginTop="1.0dp"-->
+<!--        android:layout_margin="2dp"-->
+<!--        android:orientation="horizontal" >-->
 
-        <Button
-            android:id="@+id/buttonReg"
-            android:text="@string/reg"
-            style="@style/Style.Button.Tubeless"
-            android:layout_width="0dp"
-            android:layout_weight="1"  />
-        <Button
-            style="@style/Style.Button.Tubeless"
-            android:id="@+id/buttonBack"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/back"  />
+<!--        <Button-->
+<!--            android:id="@+id/buttonReg"-->
+<!--            android:text="@string/reg"-->
+<!--            style="@style/Style.Button.Tubeless"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"  />-->
+<!--        <Button-->
+<!--            style="@style/Style.Button.Tubeless"-->
+<!--            android:id="@+id/buttonBack"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="@string/back"  />-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
 </RelativeLayout>

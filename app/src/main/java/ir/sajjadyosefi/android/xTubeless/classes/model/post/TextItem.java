@@ -472,7 +472,11 @@ public class TextItem extends MainItem {
             holder.textViewLocation.setText(timelineItem.getTTN() + (timelineItem.getStateName() == null ? "" : " استان " + timelineItem.getStateName()));
         }
 //        holder.textViewLocation.setText(timelineItem.getTTN() + " استان " + timelineItem.getStateName() + "(" + timelineItem.getCityName() + ")");
-        holder.textViewTitle.setText(timelineItem.getTitle());
+
+        if (timelineItem.getTitle().length()<2)
+            holder.textViewTitle.setVisibility(View.GONE);
+        else
+            holder.textViewTitle.setText(timelineItem.getTitle());
 
         if (timelineItem.getTitlePicture() == null) {
             holder.imageView.setVisibility(View.GONE);

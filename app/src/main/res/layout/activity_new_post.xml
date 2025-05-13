@@ -8,22 +8,153 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp">
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:paddingBottom="30dp"
             android:orientation="vertical" >
-            <TextView
-                android:id="@+id/login_title"
-                style="@style/Style_TextView_Text" />
-            <Button
-                android:id="@+id/buttonSelectCategory"
-                android:layout_width="250dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center"
-                android:text="@string/SelectCategory"
-                android:textColor="@android:color/white" />
+                android:paddingBottom="30dp"
+                android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="12">
+
+                    <Button
+                        android:id="@+id/buttonBack"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@android:drawable/ic_media_ff"
+                        android:layout_gravity="start"
+                        android:text="@string/back" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:background="@null"
+                        android:layout_gravity="center" />
+
+                    <Button
+                        android:id="@+id/buttonReg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/regAndSend"
+                        android:layout_gravity="end" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"  >
+
+                    <ImageButton
+                        android:id="@+id/user_profile_photo"
+                        android:layout_width="40sp"
+                        android:layout_height="40sp"
+                        android:background="@drawable/circle_background_x"
+                        android:contentDescription="@string/profile"
+                        android:padding="5sp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/png_user" />
+                    <RelativeLayout
+                        android:id="@+id/relativeLayoutState"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        style="@style/Style.EditText_direct.Tubeless"
+                        android:padding="5dp"
+                        android:orientation="horizontal"
+                        android:layout_weight="10">
+                        <!--android:background="@android:color/transparent"-->
+
+                        <Spinner
+                            android:id="@+id/spinnerState"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:padding="5dp"
+                            android:gravity="center"
+                            android:spinnerMode="dropdown" />
+                    </RelativeLayout>
+
+                    <ImageButton
+                        android:id="@+id/buttonAddFiles"
+                        android:layout_weight="1"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/profile"
+                        android:padding="0dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/attach"
+                        style="@style/Style.EditText_direct.Tubeless"  />
+
+                </LinearLayout>
+<!--                <EditText-->
+<!--                    android:id="@+id/editTextText"-->
+<!--                    style="@style/Style.EditText_direct.Tubeless"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:hint="@string/comments"-->
+<!--                    android:layoutDirection="rtl"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:textDirection="rtl" />-->
+
+                <EditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="1"
+                    android:maxLines="600"
+                    android:inputType="textMultiLine"
+                    android:gravity="top|start"
+                    android:scrollbars="vertical"
+                    android:minHeight="250dp"
+                    android:overScrollMode="ifContentScrolls"
+                    android:scrollHorizontally="false"
+                />
+
+
+                <androidx.appcompat.widget.AppCompatCheckBox
+                    android:id="@+id/checkbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextGry"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/getmessage">
+                </androidx.appcompat.widget.AppCompatCheckBox>
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <Button
+                        android:id="@+id/buttonAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_search"
+                        android:text="@string/add_amounts"
+                        android:textAllCaps="false"
+                        android:textColor="#fff" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/radioLayout"
                 android:layout_width="match_parent"
@@ -61,149 +192,7 @@
                         android:layout_alignParentRight="true" />
                 </RadioGroup>
             </RelativeLayout>
-            <TextView
-                android:visibility="gone"
-                android:text=""
-                android:id="@+id/titleTextView"
-                style="@style/Style_TextView_Text" />
-            <TextView
-                android:id="@+id/textViewTitle2"
-                android:text="@string/title"
-                style="@style/Style_TextView_Text" />
-            <EditText
-                android:id="@+id/editTextTitle"
-                style="@style/Style.EditText_direct.Tubeless"
-                android:layoutDirection="rtl"
-                android:textDirection="rtl"
-                android:layout_marginBottom="20dp"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:hint="@string/title" />
-            <TextView
-                android:id="@+id/editTextTitleExample"
-                android:visibility="gone"
-                android:text="@string/regNewEstekhdamTitleTextExample"
-                style="@style/Style_TextView_Text" />
-            <TextView
-                android:id="@+id/textViewTitle"
-                android:text="@string/main_text"
-                style="@style/Style_TextView_Text" />
-            <EditText
-                android:id="@+id/editTextText"
-                style="@style/Style.EditText_direct.Tubeless"
-                android:height="140dp"
-                android:drawableLeft="@android:drawable/ic_menu_edit"
-                android:hint="@string/comments"
-                android:layoutDirection="rtl"
-                android:layout_marginBottom="20dp"
-                android:textDirection="rtl" />
-            <TextView
-                android:id="@+id/textViewStateTitle"
-                android:text="استان:"
-                style="@style/Style_TextView_Text" />
-            <RelativeLayout
-                android:id="@+id/relativeLayoutState"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                style="@style/Style.EditText_direct.Tubeless"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-                <!--android:background="@android:color/transparent"-->
-
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:gravity="center"
-                    android:spinnerMode="dropdown" />
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/textViewDateTitle"
-                android:text="@string/datefor"
-                style="@style/Style_TextView_Text" />
-            <TextView
-                android:id="@+id/editTextDate"
-                android:text="انتخاب کنید"
-                android:layout_marginBottom="20dp"
-                android:textAlignment="center"
-                style="@style/Style.EditText_direct.Tubeless"
-                android:clickable="true" />
-
-            <androidx.appcompat.widget.AppCompatCheckBox
-                android:id="@+id/checkbox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorTextGry"
-                android:layout_marginBottom="20dp"
-                android:text="@string/getmessage">
-            </androidx.appcompat.widget.AppCompatCheckBox>
-
-            <LinearLayout
-                android:id="@+id/linearLayoutAmount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    style="@style/Style_TextView_Text"
-                    android:text="مبلغ جهت مشاهده پست(حداقل 10 ریال):" />
-                <EditText
-                    android:id="@+id/editTextAmount"
-                    style="@style/Style.EditText_direct.Tubeless"
-                    android:drawableLeft="@android:drawable/ic_menu_edit"
-                    android:hint="ریال"
-                    android:inputType="number"
-                    android:text="100" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearLayoutImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
-                <TextView
-                    android:text="@string/filesTitle"
-                    style="@style/Style_TextView_Text" />
-                <Button
-                    android:id="@+id/buttonAddFiles"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_files"
-                    android:textAllCaps="false"
-                    android:textColor="#fff" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:text="@string/amounts_title"
-                    style="@style/Style_TextView_Text" />
-                <Button
-                    android:id="@+id/buttonAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/btn_search"
-                    android:text="@string/add_amounts"
-                    android:textAllCaps="false"
-                    android:textColor="#fff" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
-            </LinearLayout>
-
-
+             <TextView android:id="@+id/editTextTitleExample"  android:visibility="gone" style="@style/Style_TextView_Text" />
         </LinearLayout>
     </ScrollView>
 
@@ -211,23 +200,102 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
         android:layout_margin="2dp"
+        android:paddingTop="10dp"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/buttonReg"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/reg" />
+            android:orientation="horizontal" >
 
-        <Button
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonBack"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/back"  />
+            <Button
+                android:id="@+id/buttonSelectCategory"
+                android:text="@string/Category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:src="@android:drawable/ic_media_ff"
+                android:layout_gravity="start"  />
+
+            <Button
+                android:id="@+id/editTextDate"
+                android:text="تاریخ"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_gravity="end" />
+
+            <EditText
+                android:id="@+id/editTextAmount"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="4" />
+
+
+
+        </LinearLayout>
+
+
+        <!--        <Button-->
+<!--             android:layout_height="wrap_content"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <Button-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="@string/back"  />-->
+
+
+
+
+
+
+<!--        <HorizontalScrollView-->
+<!--            android:id="@+id/scrollFiles"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" >-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:orientation="horizontal" >-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/buttonAddFiles2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/add_files"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="#fff" />-->
+<!--                <Button-->
+<!--                    android:id="@+id/buttonAddFiles3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/add_files"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="#fff" />-->
+<!--                <Button-->
+<!--                    android:id="@+id/buttonAddFiles4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/add_files"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="#fff" />-->
+<!--                <Button-->
+<!--                    android:id="@+id/buttonAddFiles5"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/add_files"-->
+<!--                    android:textAllCaps="false"-->
+<!--                    android:textColor="#fff" />-->
+<!--            </LinearLayout>-->
+
+<!--        </HorizontalScrollView>-->
 
     </LinearLayout>
 

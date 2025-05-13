@@ -171,13 +171,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/tubelessColor_button_normal"
-                android:layout_marginBottom="40dp"
-                android:layout_marginLeft="30dp"
-                android:src="@drawable/add_button"
+                android:src="@drawable/fab_add"
                 app:elevation="2dp"
                 app:fabSize="normal"
                 app:layout_anchor="@id/recyclerView"
-                app:layout_anchorGravity="bottom|end"  />
+                app:layout_anchorGravity="bottom|end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab2InFtagment"

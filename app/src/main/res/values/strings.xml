@@ -510,4 +510,7 @@
     <string name="Done">ok</string>
     <string name="serach">جستحو</string>
     <string name="accept_and_countiue">می پذیرم</string>
+    <string name="regNewEstekhdamTitle">سسسس</string>
+    <string name="Category">دسته بندی</string>
+    <string name="regAndSend">ثبت و ارسال</string>
 </resources>

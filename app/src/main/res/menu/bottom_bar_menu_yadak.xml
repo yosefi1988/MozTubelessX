@@ -15,18 +15,18 @@
         android:icon="@drawable/png_image"
         android:title="تصاویر" />
 
-    <item
-        android:id="@+id/bbn_item_cat2"
-        android:icon="@drawable/png_car_part2"
-        android:title="دسته بندی" />
+<!--    <item-->
+<!--        android:id="@+id/bbn_item_cat2"-->
+<!--        android:icon="@drawable/png_car_part2"-->
+<!--        android:title="دسته بندی" />-->
 
 <!--    <item-->
 <!--        android:id="@+id/bbn_item1"-->
 <!--        android:icon="@drawable/png_id_card2"-->
 <!--        android:title="مدارک" />-->
-<!--    <item-->
-<!--        android:id="@+id/bbn_item3"-->
-<!--        android:icon="@drawable/png_profile"-->
-<!--        android:title="پروفابل" />-->
+    <item
+        android:id="@+id/bbn_item3"
+        android:icon="@drawable/png_profile"
+        android:title="پروفابل" />
 
 </menu>

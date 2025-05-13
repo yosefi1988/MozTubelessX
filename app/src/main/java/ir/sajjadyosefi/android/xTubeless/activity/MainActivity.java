@@ -1285,17 +1285,17 @@ public class MainActivity extends TubelessActivity implements BottomNavigation.O
 
 ////Activity CATEGORY multi select
                         //bundle.putInt("type" , TYPE_SELECT_CATEGORY);
-                        bundle.putInt("type" , FRAGMENT_CATEGORY);
-                        bundle.putInt("selectType" , LIST_CATEGORY_MULTY_SELECT);
-                        bundle.putInt("CAT_COUNT", 11);
-                        bundle.putString("item1","value1");
-                        bundle.putLong("category",CATEGORY_CAR_BRANDS_ID);
-                        bundle.putLong("parentId",0);
-                        Intent intent = new Intent(getContext(),ContainerActivity.class);
-                        intent.putExtras(bundle);
-                        getActivity().startActivityForResult(ContainerActivity.getIntent(getContext(),bundle),REQUEST_CATEGORY_LIST);
+//                        bundle.putInt("type" , FRAGMENT_CATEGORY);
+//                        bundle.putInt("selectType" , LIST_CATEGORY_MULTY_SELECT);
+//                        bundle.putInt("CAT_COUNT", 11);
+//                        bundle.putString("item1","value1");
+//                        bundle.putLong("category",CATEGORY_CAR_BRANDS_ID);
+//                        bundle.putLong("parentId",0);
+//                        Intent intent = new Intent(getContext(),ContainerActivity.class);
+//                        intent.putExtras(bundle);
+//                        getActivity().startActivityForResult(ContainerActivity.getIntent(getContext(),bundle),REQUEST_CATEGORY_LIST);
 
-
+                        getActivity().startActivityForResult(MainActivityProfile.getIntent(getContext(),bundle), LOGIN_REQUEST);
                     } else {
                         Toast.makeText(getContext(), getContext().getString(R.string.not_login), Toast.LENGTH_LONG).show();
                     }

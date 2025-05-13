@@ -15,6 +15,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
@@ -566,13 +567,26 @@ public class PictureItem extends MainItem {
         Picasso.get()
 //                    .load(timelineItem.getTitlePicture().replace("\\Blog\\","\\Blog\\Thumbnail\\"))
                 .load(timelineItem.getTitlePicture())
+
                 .transform(transformation)
                 //.noPlaceholder()
                 .placeholder(R.drawable.png_image)
                 .error(R.drawable.png_image)
                 .resizeDimen(R.dimen.simple_card_image_width, R.dimen.simple_card_image_height)
                 .centerCrop()
-                .into(holder.imageView);
+                .into(holder.imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        // عکس با موفقیت بارگذاری شد
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        e.printStackTrace(); // چاپ خطا در Logcat
+                    }
+                });
+
+
 
         onclicks(mContext, listType, holder, timelineItem);
         loadImage(holder, timelineItem);

@@ -62,6 +62,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     //sim card
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_REQUEST_CODE:
                 if (AndroidOs.isPermissionGranted(grantResults)) {

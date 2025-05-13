@@ -23,6 +23,10 @@
         android:padding="5dp">
 
         <TextView
+            android:id="@+id/textViewDateTitle"
+            android:text="@string/datefor"
+            style="@style/Style_TextView_Text" />
+        <TextView
             android:text=""
             android:id="@+id/textViewModalTitle"
             style="@style/Style_TextView_Text" />

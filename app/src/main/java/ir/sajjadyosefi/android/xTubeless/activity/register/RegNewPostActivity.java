@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -105,10 +106,11 @@ import static ir.sajjadyosefi.android.xTubeless.utility.DateTime.SamanDateTime.g
 public class RegNewPostActivity extends TubelessTransparentStatusBarActivity implements ITubelessPayActivity {
 
 
-    public Button buttonReg,  buttonBack , btnAddFiles,buttonSelectCategory;
-    EditText editTextText, editTextTitle, editTextAmount;
-    TextView editTextDate,login_title,titleTextView,editTextTitleExample;
-    LinearLayout linearLayoutAmount;
+    public Button buttonReg,  buttonBack , editTextDate ;
+    private ImageButton btnAddFiles;
+    private TextView buttonSelectCategory;
+    EditText editTextText,  editTextAmount;
+    TextView editTextTitleExample;
     RadioButton radioButton1, radioButton2 ,radioButton3;
     RadioGroup rgRadios;
     CheckBox checkbox;
@@ -142,7 +144,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
     private final boolean defaultState = true;
     private final boolean defaultPrice = true;
     private final boolean defaultDate = true;
-    private final boolean defaultText = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,17 +161,13 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         setRootActivity();
         buttonReg = findViewById(R.id.buttonReg);
         buttonBack = findViewById(R.id.buttonBack);
-        linearLayoutAmount = findViewById(R.id.linearLayoutAmount);
         editTextText = findViewById(R.id.editTextText);
         editTextDate = findViewById(R.id.editTextDate);
-        login_title = findViewById(R.id.login_title);
-        titleTextView = findViewById(R.id.titleTextView);
         editTextTitleExample = findViewById(R.id.editTextTitleExample);
         btnAddFiles = findViewById(R.id.buttonAddFiles);
         buttonSelectCategory = findViewById(R.id.buttonSelectCategory);
 
 
-        editTextTitle = findViewById(R.id.editTextTitle);
         editTextAmount = findViewById(R.id.editTextAmount);
         linearLayoutMoz = findViewById(R.id.linearLayout);
         rgRadios = findViewById(R.id.rgRadios);
@@ -178,7 +175,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         radioButton2 = findViewById(R.id.radioButton2);
         radioButton3 = findViewById(R.id.radioButton3);
         checkbox = findViewById(R.id.checkbox);
-        spinnerWidget = findViewById(R.id.spinner);
+        spinnerWidget = findViewById(R.id.spinnerState);
         sv = (ScrollView) findViewById(R.id.scroll);
 
 
@@ -195,12 +192,10 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             rgRadios.setVisibility(View.GONE);
             linearLayoutMoz.setVisibility(View.GONE);
             ((View)findViewById(R.id.relativeLayoutState)).setVisibility(View.GONE);
-            ((View)findViewById(R.id.textViewStateTitle)).setVisibility(View.GONE);
 
             //((View)findViewById(R.id.textViewDateTitle)).setVisibility(View.GONE);
             //((View)findViewById(R.id.editTextDate)).setVisibility(View.GONE);
 
-            ((View)findViewById(R.id.textViewTitle2)).setVisibility(View.GONE);
             //((View)findViewById(R.id.editTextTitle)).setVisibility(View.GONE);
         }
         if (BuildConfig.FLAVOR.equals("yadak")) {
@@ -233,7 +228,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 
             //if (BuildConfig.FLAVOR_market.equals("bazzar") ) {
                 if (!Global.user2.isUserAdmin()) {
-                    linearLayoutAmount.setVisibility(View.INVISIBLE);
+                    editTextAmount.setVisibility(View.INVISIBLE);
                 }
             //}
             rgRadios.setVisibility(View.GONE);
@@ -245,28 +240,6 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 
         if(defaultPrice)
             editTextAmount.setText(amountForSeenNewPost);
-
-        if (defaultText)
-            if (Global.user2.isUserAdmin())
-                editTextTitle.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                        editTextText.setText(charSequence);
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable editable) {
-
-                    }
-
-                });
-
-
 
 //        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 //                .requestEmail()
@@ -297,39 +270,22 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 //        intent.putExtra(AccountManager.KEY_ACCOUNT_AUTHENTICATOR_RESPONSE, response);
 //                bundle.putParcelable(AccountManager.KEY_INTENT, intent);
 
-
         if (PAGE_TYPE == ESTEKHDAM){
 //            ((RelativeLayout)findViewById(R.id.radioLayout)).setVisibility(View.GONE);
-            login_title.setText(R.string.regNewEstekhdamTitle);
-            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
             linearLayoutMoz.setVisibility(View.GONE);
         }
-        if (PAGE_TYPE == YAFTE) {
-            login_title.setText(R.string.regNewEstekhdamTitle);
-        }
-        if (PAGE_TYPE == BUSINESSES) {
-            login_title.setText(R.string.regNewEstekhdamTitle);
-        }
         if (PAGE_TYPE == YADAK){
             //5043
-            login_title.setText(R.string.regNewEstekhdamTitle);
-            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
         }
         if (PAGE_TYPE == MOZ){
-            login_title.setText(R.string.regNewEstekhdamTitle);
-            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
         }
         if (PAGE_TYPE == WINNER){
-            login_title.setText(R.string.regNewEstekhdamTitle);
-//            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
         }
         if (PAGE_TYPE == AMLAK){
-            login_title.setText(R.string.regNewEstekhdamTitle);
-//            titleTextView.setText(R.string.regNewEstekhdamTitleText);
             editTextTitleExample.setText(R.string.regNewEstekhdamTitleTextExample);
         }
 
@@ -372,16 +328,16 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
             }
         });
         if (PAGE_TYPE == BUSINESSES) {
-            linearLayoutAmount.setVisibility(View.VISIBLE);
+            editTextAmount.setVisibility(View.VISIBLE);
         }else {
             if (Global.user2.isUserAdmin()) {
                 //if (BuildConfig.FLAVOR_market.equals("bazzar")) {
-                    linearLayoutAmount.setVisibility(View.GONE);
+                editTextAmount.setVisibility(View.GONE);
                 //} else {
-                    linearLayoutAmount.setVisibility(View.VISIBLE);
+                editTextAmount.setVisibility(View.VISIBLE);
                 //}
             } else {
-                linearLayoutAmount.setVisibility(View.GONE);
+                editTextAmount.setVisibility(View.GONE);
             }
         }
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -476,10 +432,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                     }
 
                 if (
-                        selectedCategoryID == 0 ||
-                                (editTextDate.getText().toString().length() < 5 || editTextDate.getText().toString().contains("انتخاب")) ||
-                                editTextText.getText().toString().length() < 5 ||
-                                editTextTitle.getText().toString().length() < 5) {
+                    selectedCategoryID == 0 ||
+                    (editTextDate.getText().toString().length() < 5 || editTextDate.getText().toString().contains("انتخاب")) ||
+                    editTextText.getText().toString().length() < 5) {
                     TubelessException.ShowSheetDialogMessage(getContext(), dialog, getContext().getString(R.string.values_not_correct), new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -588,7 +543,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         }
 
         //3-Title
-        aaaa.setTitle((SelectedCategoryTitle == null ? "" : SelectedCategoryTitle) + editTextTitle.getText().toString());
+        aaaa.setTitle(
+                (SelectedCategoryTitle == null ? "" : SelectedCategoryTitle) );
 
         //4-Text
         aaaa.setText(editTextText.getText().toString());
@@ -599,7 +555,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         //6-State
         if (PAGE_TYPE == WINNER) {
             aaaa.setStateCode("8133");
-        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == BUSINESSES || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
+        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == YADAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == BUSINESSES || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
             aaaa.setStateCode(String.valueOf(selectedSpinnerID));
         }else{
 
@@ -1003,7 +959,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                 SelectedCategoryTitle = dd.getString("SelectedCategoryTitle") + "\n";
                 selectedCategoryID = SelectedCat;
 //                editTextDate.setText("2022-04-29 13:53:04.344");
-                //editTextTitle.setText(SelectedCategoryTitle);
+                //editTextTitl e.setText(SelectedCategoryTitle);
 //                aaaa.setExpireDate("2022-04-29 13:53:04.345");
 //                aaaa.setTtc(String.valueOf(SelectedCategory));
             }else {

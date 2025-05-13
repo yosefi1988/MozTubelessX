@@ -121,7 +121,7 @@ public class ListFragment extends Fragment  {
     public ArrayList<ParentItem> listForReturn;
 
     private int scrolledPos = 0;
-    private FloatingActionButton fab1;
+    private FloatingActionButton fab1InFragment;
 
     private LinearLayoutManager mLayoutManager;
     private TextView mTextViewNoting;
@@ -257,16 +257,23 @@ public class ListFragment extends Fragment  {
             mTextViewNoting = (TextView) view.findViewById(R.id.nothing_text);
             mSwipeRefreshLayout = view.findViewById(R.id.swipeRefreshLayout);
             mProgressBar = (DilatingDotsProgressBar) view.findViewById(R.id.PBSjd);
-            fab1 = (FloatingActionButton) view.findViewById(R.id.fabInFtagment);
+            fab1InFragment = (FloatingActionButton) view.findViewById(R.id.fabInFtagment);
 
             if (getActivity().getClass().getSimpleName().contains("Main")){
+                //جایگذاری فاب باتن
                 CoordinatorLayout.LayoutParams params1 = new CoordinatorLayout.LayoutParams(
                         CoordinatorLayout.LayoutParams.WRAP_CONTENT,
                         CoordinatorLayout.LayoutParams.WRAP_CONTENT
                 );
-                params1.setMargins(Display.dp2px(getContext(), 30), DeviceUtil.getDisplayHeightAsPixel(getContext()), Display.dp2px(getContext(), 30), 0);
-                params1.anchorGravity = Gravity.START;
-                fab1.setLayoutParams(params1);
+                params1.setMargins(
+                        Display.dp2px(getContext(), 20),
+                        0,
+                        Display.dp2px(getContext(), 20),    // معادل layout_marginEnd
+                        Display.dp2px(getContext(), 140)    // معادل layout_marginBottom
+                );
+                params1.anchorGravity = Gravity.BOTTOM | Gravity.END;
+                params1.setAnchorId(R.id.recyclerView);
+                fab1InFragment.setLayoutParams(params1);
             }
 
 
@@ -345,7 +352,7 @@ public class ListFragment extends Fragment  {
 
         //fab1 new
         if(listType == LIST_CATEGORY_ONE_SELECT || listType == LIST_CATEGORY_MULTY_SELECT){
-            fab1.setVisibility(View.GONE);
+            fab1InFragment.setVisibility(View.GONE);
         }
 
         //fab1
@@ -365,13 +372,13 @@ public class ListFragment extends Fragment  {
         ){
         }
         if (listType == ITEM_TYPE_TRANS){
-            fab1.setVisibility(View.GONE);
+            fab1InFragment.setVisibility(View.GONE);
         }
         if (listType == FRAGMENT_LOTTERY_SEARCH_RESULT){
-            fab1.setVisibility(View.GONE);
+            fab1InFragment.setVisibility(View.GONE);
         }
         if (listType == ITEM_TYPE_AMLAK_LIST_1) {
-            fab1.setVisibility(View.GONE);
+            fab1InFragment.setVisibility(View.GONE);
         }
     }
     public static ListFragment fragment;
@@ -631,8 +638,8 @@ public class ListFragment extends Fragment  {
 //        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 //        mLayoutManager = new LinearLayoutManager(context);
 //        mRecyclerView.setLayoutManager(mLayoutManager);
-        if (fab1 != null) {
-            fab1.setOnClickListener(new View.OnClickListener() {
+        if (fab1InFragment != null) {
+            fab1InFragment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //TIMELINE Yafte
