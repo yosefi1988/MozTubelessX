@@ -47,6 +47,7 @@ import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.SelectedCa
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_CATEGORY;
 import static ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity.FRAGMENT_FILTER_RESULT;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.AMLAK;
+import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.BOURSE;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.BUSINESSES;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.ESTEKHDAM;
 import static ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity.MOZ;
@@ -72,6 +73,7 @@ public class FilterFragment extends Fragment {
 
     private int PAGE_TYPE = 0;
 
+    View ostanLinearLayout ;
     RadioButton radioButton0,radioButton1,radioButton2,radioButton3;
     Button buttonShareApp,buttonSelectCategory;
     TextView login_title;
@@ -98,6 +100,7 @@ public class FilterFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         mContext = getContext();
+        ostanLinearLayout = view.findViewById(R.id.ostanLinearLayout);
         checkbox = view.findViewById(R.id.checkbox);
         radioButton1 = view.findViewById(R.id.radioButton1);
         radioButton2 = view.findViewById(R.id.radioButton2);
@@ -182,6 +185,11 @@ public class FilterFragment extends Fragment {
             rgRadios.setVisibility(View.GONE);
             buttonSelectCategory.setVisibility(View.GONE);
         }
+        if (BuildConfig.FLAVOR.equals("bourse")) {
+            PAGE_TYPE = BOURSE;
+            rgRadios.setVisibility(View.GONE);
+            ostanLinearLayout.setVisibility(View.GONE);
+        }
 
 
         if (timelineSearchRequest == null){
@@ -196,7 +204,7 @@ public class FilterFragment extends Fragment {
             public void onClick(View viewButton) {
                 if (validData()) {
                     int state;
-                    if (PAGE_TYPE == WINNER)
+                    if (PAGE_TYPE == WINNER || PAGE_TYPE ==  BOURSE)
                         state = 8133;
                     else
                         state = stateItems.get(selectedState - 1).getID();
@@ -226,7 +234,7 @@ public class FilterFragment extends Fragment {
                     }else if (PAGE_TYPE == WINNER) {
 
 
-                    } else if ((PAGE_TYPE == AMLAK) || (PAGE_TYPE == WINNER) || (PAGE_TYPE == ESTEKHDAM) || (PAGE_TYPE == YADAK)) {
+                    } else if ((PAGE_TYPE == AMLAK) || (PAGE_TYPE == WINNER) || (PAGE_TYPE == ESTEKHDAM) || (PAGE_TYPE == YADAK) || (PAGE_TYPE == BOURSE)) {
                         if (SelectedCategory == 0) {
                             timelineSearchRequest.setTtc(null);
                         } else {
@@ -247,11 +255,6 @@ public class FilterFragment extends Fragment {
                     timelineSearchRequest.setPageIndex("0");
                     timelineSearchRequest.setActive(true);
 
-                    if(Global.user2 != null){
-                        timelineSearchRequest.setUserCode(Global.user2.getUserCodeAsString());
-                    }else {
-                        timelineSearchRequest.setUserCode(null);
-                    }
                     if(Global.user2 != null){
                         timelineSearchRequest.setUserCode(Global.user2.getUserCodeAsString());
                     }else {
@@ -389,7 +392,8 @@ public class FilterFragment extends Fragment {
         //        }
         //    });
         //}
-        getCategories();
+        if(PAGE_TYPE != BOURSE)
+            getCategories();
 
         if(Global.user2 != null){
             if(Global.user2.isUserAdmin()){

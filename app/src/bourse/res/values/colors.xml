@@ -3,5 +3,9 @@
 
     <color name="tubelessColor_button_disable">#716969</color>
     <color name="tubelessColor_button_normal">#422626</color>
+    <color name="colorAccent">#430031</color>
+    <color name="colorTextGry">#430031</color>
+    <color name="reg_new_yafte2">#430031</color>
+    <color name="colorPrimaryDark">#430031</color>
 
 </resources>

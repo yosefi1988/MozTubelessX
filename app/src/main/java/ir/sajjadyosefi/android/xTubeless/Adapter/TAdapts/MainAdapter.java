@@ -49,7 +49,7 @@ import retrofit2.Call;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_CREATORS_POST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_MYFAVS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_MYPURCHESE;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_FILTER;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_FILTER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_MYPOSTS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.TransactionsAdapter.VIEW_EMPTY_TEXT;
 import static ir.sajjadyosefi.android.xTubeless.activity.MainActivity.getAppDownloadedStore;
@@ -138,7 +138,7 @@ public class MainAdapter extends ITubelessAdapter {
         ((TubelessActivity) context).progressDialog.show();
         TimelineRequest timelineRequest = null;
 
-        if (listType == LIST_TYPE_AMLAK_FILTER) {
+        if (listType == LIST_TYPE_FILTER) {
             timelineRequest = timelineSearchRequest;
             timelineRequest.setPageIndex(_current_page - 1 + "");
         }else {

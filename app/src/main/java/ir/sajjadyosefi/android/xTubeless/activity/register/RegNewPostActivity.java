@@ -37,6 +37,8 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -137,6 +139,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
     public static final int AMLAK = 5;
     public static final int WINNER = 6;
     public static final int BUSINESSES = 7;
+    public static final int BOURSE = 8;
 
     
     //default
@@ -232,6 +235,15 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
                 }
             //}
             rgRadios.setVisibility(View.GONE);
+        }
+        if (BuildConfig.FLAVOR.equals("bourse")) {
+            PAGE_TYPE = BOURSE;
+            linearLayoutMoz.setVisibility(View.GONE);
+            editTextText.setHint( getContext().getString(R.string.bourse_hint));
+            rgRadios.setVisibility(View.GONE);
+
+            editTextDate.setVisibility(View.GONE);
+
         }
 
 
@@ -330,7 +342,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         if (PAGE_TYPE == BUSINESSES) {
             editTextAmount.setVisibility(View.VISIBLE);
         }else {
-            if (Global.user2.isUserAdmin()) {
+            if (Global.user2 != null && Global.user2.isUserAdmin()) {
                 //if (BuildConfig.FLAVOR_market.equals("bazzar")) {
                 editTextAmount.setVisibility(View.GONE);
                 //} else {
@@ -534,6 +546,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
 
     }
     private void prepareRequest() {
+
+
+
         //1-IDApplication
         aaaa.setIDApplication(AccountGeneral.getIDApplication() + "");
 
@@ -555,7 +570,7 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         //6-State
         if (PAGE_TYPE == WINNER) {
             aaaa.setStateCode("8133");
-        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == YADAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == BUSINESSES || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE) {
+        }else if (PAGE_TYPE == AMLAK || PAGE_TYPE == YADAK || PAGE_TYPE == ESTEKHDAM || PAGE_TYPE == BUSINESSES || PAGE_TYPE == MOZ || PAGE_TYPE == YAFTE|| PAGE_TYPE == BOURSE) {
             aaaa.setStateCode(String.valueOf(selectedSpinnerID));
         }else{
 
@@ -595,7 +610,9 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         outputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         String output = outputFormat.format(date.getTime());
         aaaa.setPublishDate(output);
-//                    aaaa.setExpireDate(editTextDate.getText().toString());
+        if (PAGE_TYPE == BOURSE) {
+            aaaa.setExpireDate(editTextDate.getText().toString());
+        }
 //                    aaaa.setExpireDate("2022-04-29 13:53:04.344");
 
         //11-IP
@@ -642,6 +659,8 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         }else if (PAGE_TYPE == AMLAK) {
             aaaa.setTtc(String.valueOf(catId));
         }else if (PAGE_TYPE == WINNER) {
+            aaaa.setTtc(String.valueOf(catId));
+        }else if (PAGE_TYPE == BOURSE) {
             aaaa.setTtc(String.valueOf(catId));
         }else if (PAGE_TYPE == BUSINESSES) {
             aaaa.setTtc("9138");
@@ -870,6 +889,17 @@ public class RegNewPostActivity extends TubelessTransparentStatusBarActivity imp
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (BuildConfig.FLAVOR.equals("bourse")) {
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+            String formattedDate = now.format(formatter);
+            System.out.println(formattedDate);
+            editTextDate.setText(formattedDate);
+        }
+    }
 
     @Override
     public SystemBarTintManager getSystemBarTint() {

@@ -14,7 +14,6 @@ import androidx.viewpager.widget.ViewPager;
 
 import ir.sajjadyosefi.android.xTubeless.BuildConfig;
 import ir.sajjadyosefi.android.xTubeless.Fragment.BlankFragment;
-import ir.sajjadyosefi.android.xTubeless.Fragment.TwoLevelListFragment;
 import ir.sajjadyosefi.android.xTubeless.Global;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContainerActivity;
 import ir.sajjadyosefi.android.xTubeless.bussines.police.fragment.KartesekhtFragment;
@@ -66,7 +65,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
     public static int ITEM_TYPE_MYFAVS = 34;
     public static int ITEM_TYPE_MYPURCHESE = 3;                 //خرید های من - مشاهده شده ها
     public static int LIST_TYPE_MYPOSTS = 33;
-    public static int LIST_TYPE_AMLAK_FILTER = 28;
+    public static int LIST_TYPE_FILTER = 28;
     public static int LIST_CATEGORY_ONE_SELECT = 102;
     public static int LIST_CATEGORY_MULTY_SELECT = 104;
     public static int LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS = 103;
@@ -291,8 +290,18 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                         }
                         fragmentx1 = new FilterFragment(searchRequest);
                     } else if (BuildConfig.FLAVOR.equals("bourse")) {
-                        //fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_BOURSE_TRAIN);//FRAGMENTLIST_TYPE_MOZ_TIMELINE
-                        fragmentx1  =  new BlankFragment();
+                        TimelineRequest searchRequest = new TimelineRequest("",0);
+                        searchRequest.setTtc("9153");
+                        searchRequest.setPageIndex("0");
+                        searchRequest.setActive(true);
+                        if(Global.user2 != null){
+                            searchRequest.setUserCode(Global.user2.getUserCodeAsString());
+                        }else {
+                            searchRequest.setUserCode(null);
+                        }
+
+                        fragmentx1 = new ListFragment(context, FRAGMENTLIST_TYPE_BOURSE_TRAIN,searchRequest);//FRAGMENTLIST_TYPE_MOZ_TIMELINE
+                        //fragmentx1  =  new BlankFragment();
                     } else if (BuildConfig.FLAVOR.equals("businesses")) {
                         fragmentx1 =  new FilterFragment(null);
                     } else if (BuildConfig.FLAVOR.equals("moz")) {
@@ -321,8 +330,20 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
                     } else if (BuildConfig.FLAVOR.equals("kartesokht")) {
                         fragmentx2 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
                     } else if (BuildConfig.FLAVOR.equals("bourse")) {
+                        TimelineRequest searchRequest = new TimelineRequest("",0);
+                        searchRequest.setTtc("9151");
+                        searchRequest.setPageIndex("0");
+                        searchRequest.setActive(true);
+                        if(Global.user2 != null){
+                            searchRequest.setUserCode(Global.user2.getUserCodeAsString());
+                        }else {
+                            searchRequest.setUserCode(null);
+                        }
+
+                        fragmentx2 = new ListFragment(context, FRAGMENTLIST_TYPE_BOURSE_TRAIN,searchRequest);//FRAGMENTLIST_TYPE_MOZ_TIMELINE
                         //fragmentx2 = new ListFragment(context, TYPE_BOURSE_NEWS);
-                        fragmentx2 = new BlankFragment(context);
+                        //fragmentx2 = new BlankFragment(context);
+
                     } else if (BuildConfig.FLAVOR.equals("businesses")) {
                         TimelineRequest searchRequest = new TimelineRequest("",0);
                         searchRequest.setTtc("9138");
@@ -398,6 +419,7 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                        fragmentx3 =  new FilterFragment(null);
                         fragmentx3 =  new BlankFragment();
                     } else if (BuildConfig.FLAVOR.equals("bourse")) {
+                        //old
 //                        if (!isFreeStore(context, StaticValue.configuration)) {
 //                            fragmentx3 = new ListFragment(context, TYPE_BOURSE_ANALIZE_All);
 //                        } else {
@@ -412,7 +434,12 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 //                                fragmentx3 = new FinancialAccountLimitFragment(context);
 //                            }
 //                        }
-                        fragmentx3 =  new BlankFragment();
+
+                        //blank
+                        //fragmentx3 =  new BlankFragment();
+
+                        //all
+                        fragmentx3 = new ListFragment(context, TYPE_BOURSE_NEWS);
                     } else if (BuildConfig.FLAVOR.equals("moz")) {
                         fragmentx3 = new ListFragment(context, ITEM_TYPE_MYPURCHESE);
                     } else {
@@ -430,8 +457,25 @@ public class FirstFragmentsAdapter extends FragmentStatePagerAdapter  {
 
                 if (fragmentx4 == null) {
                     if (BuildConfig.FLAVOR.equals("bourse")) {
-//                        fragmentx4 = new BourseDataFragment(context);
-                        fragmentx4 = new TwoLevelListFragment();
+                        //DataFragment
+                        //fragmentx4 = new BourseDataFragment(context);
+                        //TwoLevelListFragment
+                        //fragmentx4 = new TwoLevelListFragment();
+                        //FilterFragment
+                        TimelineRequest searchRequest = new TimelineRequest("", 0);
+                        searchRequest.setTtc(null);
+                        searchRequest.setPageSize("10");
+                        searchRequest.setPageIndex("0");
+                        searchRequest.setActive(true);
+
+                        if (Global.user2 != null) {
+                            searchRequest.setUserCode(Global.user2.getUserCodeAsString());
+                        } else {
+                            searchRequest.setUserCode(null);
+                        }
+                        fragmentx4 = new FilterFragment(searchRequest);
+
+
                     } else if (BuildConfig.FLAVOR.equals("winner")) {
                         fragmentx4 = new BlankFragment();
                     } else {

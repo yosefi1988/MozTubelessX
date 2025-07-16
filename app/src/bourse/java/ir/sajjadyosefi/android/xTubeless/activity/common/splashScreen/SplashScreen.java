@@ -34,7 +34,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static ir.sajjadyosefi.android.xTubeless.classes.StaticValue.configuration;
-import static org.litepal.LitePalApplication.getContext;
+//import static org.litepal.LitePalApplication.getContext;
 //import ir.sls.android.slspush.Mono;
 //import ir.sls.android.slspush.MonoPush;
 
@@ -261,7 +261,7 @@ public class SplashScreen extends AppCompatActivity implements ISplashScreenView
     @Override
     public void onThrowException(Throwable t) {
         TubelessException sException = new TubelessException();
-        sException.handleServerMessage(getContext(),t);
+        sException.handleServerMessage(context,t);
     }
 
 //    @Override

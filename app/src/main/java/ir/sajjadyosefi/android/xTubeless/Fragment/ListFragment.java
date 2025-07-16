@@ -47,7 +47,6 @@ import ir.sajjadyosefi.android.xTubeless.R;
 import ir.sajjadyosefi.android.xTubeless.activity.activities.TubelessActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.ContactUsActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.common.WebViewActivity;
-import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewBlogActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewCommentActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewImageActivity;
 import ir.sajjadyosefi.android.xTubeless.activity.register.RegNewPostActivity;
@@ -60,7 +59,6 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.Time
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.MainItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.TextItem;
-import ir.sajjadyosefi.android.xTubeless.utility.DeviceUtil;
 import ir.sajjadyosefi.android.xTubeless.utility.Display;
 import ir.sajjadyosefi.android.xTubeless.widget.recyclerview.RecyclerViewEmptySupport;
 
@@ -70,7 +68,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FR
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_AMLAK_LIST_1;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_MULTY_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_FILTER;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_FILTER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_TIMELINE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_CREATORS_POST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_YADAK_TIMELINE;
@@ -351,34 +349,33 @@ public class ListFragment extends Fragment  {
         }
 
         //fab1 new
-        if(listType == LIST_CATEGORY_ONE_SELECT || listType == LIST_CATEGORY_MULTY_SELECT){
+        //GONE
+        if(
+                listType == LIST_CATEGORY_ONE_SELECT ||
+                listType == LIST_CATEGORY_MULTY_SELECT ||
+                listType == LIST_CATEGORY_ONE_SELECT_FOR_NEW_BLOGS ||
+                listType == ITEM_TYPE_TRANS ||
+                listType == FRAGMENT_LOTTERY_SEARCH_RESULT ||
+                listType == ITEM_TYPE_AMLAK_LIST_1
+        ){
             fab1InFragment.setVisibility(View.GONE);
         }
 
         //fab1
         if (
-                listType == LIST_TYPE_AMLAK_FILTER ||
-                listType == LIST_TYPE_MYPOSTS ||
-                listType == ITEM_TYPE_MYPURCHESE ||
-                listType == ITEM_TYPE_AMLAK_LIST_1 ||
+            listType == LIST_TYPE_FILTER ||
+            listType == LIST_TYPE_MYPOSTS ||
+            listType == ITEM_TYPE_MYPURCHESE ||
+            listType == ITEM_TYPE_AMLAK_LIST_1 ||
 
-                listType == TYPE_ITEM_Message_FROM_USERS ||
-                listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm2 ||
-                listType == ITEM_TYPE_FILTER ||
-                listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ||
-                listType == ITEM_TYPE_MYFAVS ||
-                listType == ITEM_TYPE_TRANS ||
-                listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm
+            listType == TYPE_ITEM_Message_FROM_USERS ||
+            listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm2 ||
+            listType == ITEM_TYPE_FILTER ||
+            listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ||
+            listType == ITEM_TYPE_MYFAVS ||
+            listType == ITEM_TYPE_TRANS ||
+            listType == TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm
         ){
-        }
-        if (listType == ITEM_TYPE_TRANS){
-            fab1InFragment.setVisibility(View.GONE);
-        }
-        if (listType == FRAGMENT_LOTTERY_SEARCH_RESULT){
-            fab1InFragment.setVisibility(View.GONE);
-        }
-        if (listType == ITEM_TYPE_AMLAK_LIST_1) {
-            fab1InFragment.setVisibility(View.GONE);
         }
     }
     public static ListFragment fragment;
@@ -481,11 +478,13 @@ public class ListFragment extends Fragment  {
                 listType == ITEM_TYPE_FILTER ||
                 listType == FRAGMENTLIST_TYPE_BUSINESSES_TIMELINE ||
                 listType == FRAGMENTLIST_TYPE_MOZ_TIMELINE ||
+
                 listType == FRAGMENTLIST_TYPE_BOURSE_TRAIN ||
-                listType == TYPE_BOURSE_ANALIZE_All ||
                 listType == TYPE_BOURSE_NEWS ||
+
+                listType == TYPE_BOURSE_ANALIZE_All ||
                 listType == LIST_TYPE_MYPOSTS ||
-                listType == LIST_TYPE_AMLAK_FILTER ||
+                listType == LIST_TYPE_FILTER ||
                 listType == FRAGMENTLIST_TYPE_MOZ_CREATORS_POST ||
                 listType == ITEM_TYPE_MYPURCHESE){
             mainAdapter = new MainAdapter();
@@ -702,7 +701,7 @@ public class ListFragment extends Fragment  {
                         }
                     }
 
-                    if (listType == LIST_TYPE_AMLAK_TIMELINE || listType ==  LIST_TYPE_AMLAK_FILTER) {
+                    if (listType == LIST_TYPE_AMLAK_TIMELINE || listType == LIST_TYPE_FILTER) {
                         if (Global.user2 == null) {
                             Toast.makeText(context,  getContext().getString(R.string.must_login), Toast.LENGTH_LONG).show();
 
@@ -834,17 +833,13 @@ public class ListFragment extends Fragment  {
                             }
                         }
                     } else if (listType == FRAGMENTLIST_TYPE_BOURSE_TRAIN) {
-//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(context, RegNewBlogActivity.class));
+                        context.startActivity(new Intent(context, RegNewPostActivity.class));
                     } else if (listType == TYPE_BOURSE_ANALIZE_All || listType == TYPE_BOURSE_ANALIZE_Old) {
-//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(context, RegNewBlogActivity.class));
+                        context.startActivity(new Intent(context, RegNewPostActivity.class));
                     } else if (listType == TYPE_BOURSE_NEWS) {
-//                        Toast.makeText(context, "ssss", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(context, RegNewBlogActivity.class));
+                        context.startActivity(new Intent(context, RegNewPostActivity.class));
                     } else if (listType == FRAGMENT_COMMENTS) {
 //                        int blogId = bundle.getInt("blogId");
-//xxxxxxxxxxxxxxxx
 //                        Bundle bundle = new Bundle();
 //                        bundle.putString("X" , "X");
                         getActivity().startActivityForResult(RegNewCommentActivity.getIntent(getContext(), bundle), LOGIN_REQUEST_NEW_COMMENT);

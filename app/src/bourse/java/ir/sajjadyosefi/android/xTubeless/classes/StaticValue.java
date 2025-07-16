@@ -8,6 +8,8 @@ public class StaticValue {
     public static int AdminUserID1 = 200684;
     public static int AdminUserID2 = 140326;
     public static int AdminUserID3 = 140234;
+    public static int CATEGORY_ID = 3014;
+
 
     public static String AdminMail1 = "yosefi1988@gmail.com";
     public static String AdminMail2 = "behrouzbb1989@gmail.com";

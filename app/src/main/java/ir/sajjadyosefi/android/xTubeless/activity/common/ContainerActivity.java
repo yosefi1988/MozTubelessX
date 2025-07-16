@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 //import com.zarinpal.ewallets.purchase.OnCallbackVerificationPaymentListener;
 //import com.zarinpal.ewallets.purchase.PaymentRequest;
 //import com.zarinpal.ewallets.purchase.ZarinPal;
@@ -30,10 +29,9 @@ import ir.sajjadyosefi.android.xTubeless.classes.model.category.CategoryItem;
 import ir.sajjadyosefi.android.xTubeless.classes.model.network.request.post.TimelineRequest;
 
 import ir.sajjadyosefi.android.xTubeless.classes.model.post.ParentItem;
-import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_AMLAK_LIST_1;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_AMLAK_FILTER;
+import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_TYPE_FILTER;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_CREATORS_POST;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_ITEM_MESSAGE;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_ITEM_MESSAGE2;
@@ -44,9 +42,7 @@ import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.IT
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_ITEM_Message_FROM_USERS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.ITEM_TYPE_TRANS;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.TYPE_ITEM_mmmmmmmmmmmmmmmmmmmmmmmmmmm2;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.LIST_CATEGORY_ONE_SELECT;
 import static ir.sajjadyosefi.android.xTubeless.Adapter.FirstFragmentsAdapter.FRAGMENTLIST_TYPE_MOZ_TIMELINE;
-import static ir.sajjadyosefi.android.xTubeless.Adapter.TAdapts.CategoryAdapter.categoryItemStack;
 
 
 public class ContainerActivity extends TubelessTransparentStatusBarActivity {
@@ -286,7 +282,7 @@ public class ContainerActivity extends TubelessTransparentStatusBarActivity {
             } else if (ContainerActivityType == FRAGMENT_FILTER_RESULT) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 TimelineRequest searchRequest = (TimelineRequest) getIntent().getSerializableExtra("SearchRequest");
-                ft.replace(R.id.include,  new ListFragment(this, LIST_TYPE_AMLAK_FILTER,searchRequest));
+                ft.replace(R.id.include,  new ListFragment(this, LIST_TYPE_FILTER,searchRequest));
                 ft.commit();
 
             } else if (ContainerActivityType == FRAGMENT_FILTER) {
