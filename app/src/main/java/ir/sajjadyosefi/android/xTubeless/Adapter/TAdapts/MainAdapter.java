@@ -276,6 +276,7 @@ public class MainAdapter extends ITubelessAdapter {
             Global.apiManagerTubeless.getTimeline(timelineRequest, retrofitCallbackssx);
         }
     }
+
     public static int VIEW_TYPE_TEXT_POST = 1;
     public static int VIEW_TYPE_TEXT_IMAGE_POST = 2;
     public static int VIEW_TYPE_TEXT_IMAGE_AD_POST = 3;
