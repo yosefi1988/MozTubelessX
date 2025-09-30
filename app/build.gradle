@@ -455,10 +455,11 @@ dependencies {
 
 
     //msi new
-    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
+//    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
 //    implementation files('D:\\android\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
-    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-release.aar')
+    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-debug.aar')
 
+    implementation files('D:\\Projects\\AndroidStudioProjects\\xAccountAuthenticator\\SdkPayZarin\\build\\outputs\\aar\\SdkPayZarin-debug.aar')
 
     //lop
     //implementation files('D:\\Projects\\Android\\xAccountAuthenticator\\accountauthenticator\\build\\outputs\\aar\\accountauthenticator-release.aar')
